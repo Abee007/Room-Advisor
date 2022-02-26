@@ -1,6 +1,6 @@
 # Room-Advisor-v0
 Alara and Abraham's Final Project @Yale
 
-To run: 
-1.cd backend
-2.npm run dev
+To run:
+<p>1.cd backend</p>
+<p>2.npm run dev</p>
