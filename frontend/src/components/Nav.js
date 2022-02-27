@@ -1,20 +1,27 @@
-import React from 'react'; // ES6 js
-import {Link} from 'react-router-dom';
+import React from 'react' // ES6 js
+import { NavLink } from 'react-router-dom'
 
-function Nav() {
-    return(
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark top">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMainMenu" aria-controls="navMainMenu" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div id="navMainMenu" class="navbar-collapse collapse">
-                <div class="navbar-nav ml-auto">
-                    <Link to='/' className="nav-item nav-link active">Landing</Link>
-                    <Link to='/viewreviews' className="nav-item nav-link">ViewReviews</Link>
-                </div>
-            </div>
-        </nav>
-    );
+function Nav ({ user }) {
+  return (
+    <nav className='navbar navbar-expand-lg navbar-dark bg-dark top'>
+      <button className='navbar-toggler' type='button' data-toggle='collapse' data-target='#navMainMenu' aria-controls='navMainMenu' aria-expanded='false' aria-label='Toggle navigation'>
+        <span className='navbar-toggler-icon' />
+      </button>
+      <div id='navMainMenu' className='navbar-collapse collapse'>
+        <div className='navbar-nav ml-auto'>
+          {!user
+            ? (<NavLink to='/' className='nav-item nav-link active'>Landing</NavLink>)
+            : (
+              <div>
+                <NavLink to='/' className='nav-item nav-link' activeClassName='active'>Landing</NavLink>
+                <NavLink to='/viewreviews' className='nav-item nav-link' activeClassName='active'>ViewReviews</NavLink>
+                <NavLink to='/logout' className='nav-item nav-link' activeClassName='active'>Logout</NavLink>
+              </div>
+              )}
+        </div>
+      </div>
+    </nav>
+  )
 }
 
-export default Nav;
+export default Nav
