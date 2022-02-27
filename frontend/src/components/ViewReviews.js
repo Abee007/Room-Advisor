@@ -1,30 +1,30 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react'
 
-function ViewReviews() {
-    useEffect( () => {
-        fetchItems();
-    }, []);
+function ViewReviews () {
+  useEffect(() => {
+    fetchItems()
+  }, [])
 
-    const [items, setItems] = useState([]);
+  const [items, setItems] = useState([])
 
-    const fetchItems = async () => {
-        const data = await fetch('/viewreviews');
-        const items = await data.json();
-        setItems(items);
-    };
+  const fetchItems = async () => {
+    const data = await fetch('/viewreviews')
+    const items = await data.json()
+    setItems(items)
+  }
 
-    return(
-        <section>
-            {
-            items.map(item => (
-                <div>
+  return (
+    <section>
+      {
+                items.map(item => (
+                  <div key={item.name}>
                     <p>{item.name}</p>
                     <p>{item.msg}</p>
-                </div>
-            ))
+                  </div>
+                ))
             }
-        </section>
-    );
+    </section>
+  )
 }
 
-export default ViewReviews;
+export default ViewReviews

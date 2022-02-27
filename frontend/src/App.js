@@ -1,20 +1,38 @@
 import './App.css';
+import LandingPage from './pages/LandingPage';
+import ProtectedPages from './pages/ProtectedPages';
 import Nav from './components/Nav';
-import Landing from './components/Landing';
-import ViewReviews from './components/ViewReviews'
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import {BrowserRouter as Router} from 'react-router-dom';
 
 function App() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const getUser = () => {
+      fetch('http://localhost:4000/auth/login/success', {
+        method: 'GET',
+        credentials: 'include'
+      }).then(response => {
+        if(response.status === 200) return response.json();
+        throw new Error("Authentication has been failed!")
+      }).then(resObject => {
+        setUser(resObject.user);
+      }).catch(err => {
+        console.log(err);
+      })
+    };
+    getUser();
+  }, [])
+
   return (
     <Router>
       <div className="App">
         <header className="App-header">
-          <Nav />
-          <Routes>
-            <Route path="/" exact element={<Landing/>} />
-            <Route path="/viewreviews" exact element={<ViewReviews/>} />
-          </Routes>
-          
+          <Nav user={user}/>
+          <div>
+            {!user ? (<LandingPage/>) : (<ProtectedPages user={user}/>)}
+          </div>  
         </header>
       </div>
     </Router>
