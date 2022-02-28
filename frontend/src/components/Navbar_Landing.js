@@ -28,7 +28,7 @@ function Navbar_Landing () {
       {/* Link to the header within Navbar */}
       <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
         {/* Room Advisor Logo */}
-        <img src="/logo.png" alt="image" style={{ height: '50px', width: '110px' }}/>
+        <img src='/logo.png' alt='image' style={{ height: '50px', width: '110px' }} />
       </Link>
 
       {/* Hamburger menu that shows up when screen size is small */}
@@ -57,7 +57,7 @@ function Navbar_Landing () {
       </div>
 
     </div>
-  );
+  )
 }
 
-export default Navbar_Landing;
+export default Navbar_Landing

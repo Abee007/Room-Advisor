@@ -12,16 +12,16 @@ function Nav ({ user }) {
       </button> */}
 
       {/* Room Advisor Logo */}
-      <img  src='../../public/../../public/logo.png' alt="image" style={{position:'relative',height: '50px', width: '110px' }}/>
+      <img src='../../public/../../public/logo.png' alt='image' style={{ position: 'relative', height: '50px', width: '110px' }} />
 
-      <div id='navMainMenu' >
+      <div id='navMainMenu'>
         <div className='ml-auto'>
           {!user
             // if not logged in
             ? (<div className='nav-menu nav-menu-container'>
-                <NavLink to='/' className='nav-item nav-link nav-links'>About</NavLink>
-                <NavLink to='/' className='nav-item nav-link nav-links'>Login</NavLink>
-              </div>)
+              <NavLink to='/' className='nav-item nav-link nav-links'>About</NavLink>
+              <NavLink to='/' className='nav-item nav-link nav-links'>Login</NavLink>
+            </div>)
 
             // if logged in
             : (

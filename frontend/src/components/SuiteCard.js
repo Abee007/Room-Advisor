@@ -30,7 +30,7 @@ function SuiteCard () {
           <Button buttonStyle='btn--primary' buttonSize='btn--small' onClick={() => setShow(true)}>Read reviews</Button>
         </div>
 
-            {/* <Modal title='D31' onClose={() => setShow(false)} show={show}>
+        {/* <Modal title='D31' onClose={() => setShow(false)} show={show}>
             <p>This is modal body</p>
             </Modal> */}
       </div>

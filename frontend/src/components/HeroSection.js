@@ -2,12 +2,12 @@ import React from 'react'
 import '../App.css'
 import { Button } from './Button'
 import './HeroSection.css'
-import LoginComponent from './Login';
+import LoginComponent from './Login'
 
 function HeroSection () {
   return (
     <div className='hero-container'>
-      
+
       <h1>
         Choosing a room just got easier
       </h1>
@@ -23,12 +23,12 @@ function HeroSection () {
       <div>
 
         <Button buttonStyle='btn--primary' buttonSize='btn--medium'>
-            <LoginComponent/>
+          <LoginComponent />
         </Button>
 
       </div>
     </div>
-  );
+  )
 }
 
-export default HeroSection;
+export default HeroSection

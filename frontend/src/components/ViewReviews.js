@@ -18,7 +18,7 @@ function ViewReviews () {
     <section>
 
       <div>
-          <SuiteCard/>
+        <SuiteCard />
       </div>
 
       {
