@@ -1,9 +1,6 @@
 import './App.css';
-import LandingPage from './pages/LandingPage';
-import ProtectedPages from './pages/ProtectedPages';
-import Nav from './components/Nav';
 import { useEffect, useState } from 'react';
-import {BrowserRouter as Router} from 'react-router-dom';
+import LandingRegisterProtected from './LandingRegisterProtected'
 
 function App() {
   const [user, setUser] = useState(null);
@@ -25,17 +22,14 @@ function App() {
     getUser();
   }, [])
 
+  // console.log(user);
+
   return (
-    <Router>
-      <div className="App">
-        <header className="App-header">
-          <Nav user={user}/>
-          <div>
-            {!user ? (<LandingPage/>) : (<ProtectedPages user={user}/>)}
-          </div>  
-        </header>
-      </div>
-    </Router>
+    <div>
+      {/* If user, user object was found. If user===undefined, user isn't logged in. */}
+      {/* Compel user object to be fetched before usage. */}
+      {(user || user === undefined) && <LandingRegisterProtected user={user}/>}
+    </div>
   );
 }
 

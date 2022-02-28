@@ -1,6 +1,8 @@
 const CasStrategy = require('passport-cas2').Strategy;
 const passport = require('passport');
 
+UNREGISTERED = 'UNREGISTERED';
+
 const cas = new CasStrategy({
     version: 'CAS2.0',
     casURL: 'https://secure.its.yale.edu/cas',
@@ -11,6 +13,9 @@ function(req, profile, done) {
     
     //prints out netId
     //console.log(req);
+    // if(req === 'akm66') {
+    //     done(null, UNREGISTERED);
+    // }
 
     //profile get returned to the '/auth/login/success' route as req.user
 
@@ -27,5 +32,3 @@ passport.serializeUser((user, done) => {
 passport.deserializeUser((user, done) => {
     done(null,user);
 });
-
-exports = { cas };

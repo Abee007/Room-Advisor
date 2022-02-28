@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
-const {cas} = require('../passport');
 
 
 // APPLICATION ROUTES
@@ -40,6 +39,18 @@ router.post('/addFavorite', (req, res) => {
 });
 
 
+// Redirects users to register if they don't exist in database
+router.get('/validateUser', (req, res) => {
+    console.log("here in validate");
+    
+    if(req.user.id === 'akm6') {
+        res.redirect('http://localhost:3000/register');
+    }
+    res.redirect('http://localhost:3000/viewreviews');
+
+});
+
+
 
 
 ////////////////////////////
@@ -72,9 +83,10 @@ router.get('/auth/login/failed', (req, res) => {
     })
 });
 
-router.get('/logout', (req, res) => {
-    const returnURL = CLIENT_URL;
-    cas.logout(req, res, returnURL);
+router.get('/auth/cas/logout', (req, res) => {
+    console.log("here in logout")
+    req.logout();
+    res.redirect('http://localhost:3000/logout');
 });
 
 router.get('/auth/cas',
@@ -82,7 +94,7 @@ router.get('/auth/cas',
       function(req, res) {
         // Successful authentication, redirect home.
         console.log("Redirect here to reviews page")
-        res.redirect('http://localhost:3000/viewreviews');
+        res.redirect('http://localhost:3000/checkuser');
       });
 
 

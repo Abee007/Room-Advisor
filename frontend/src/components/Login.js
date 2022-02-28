@@ -1,3 +1,4 @@
+import './Login.css'
 import React from 'react'
 
 function LoginComponent () {
@@ -8,7 +9,7 @@ function LoginComponent () {
 
   return (
     <div className='login-button-container'>
-      <div className='login-button' onClick={casLogin}>LOGIN </div>
+      <div className='login-button' onClick={casLogin}>LOGIN WITH CAS</div>
     </div>
   )
 }
