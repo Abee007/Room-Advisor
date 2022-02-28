@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import SuiteCard from './SuiteCard'
 
 function ViewReviews () {
   useEffect(() => {
@@ -15,6 +16,11 @@ function ViewReviews () {
 
   return (
     <section>
+
+      <div>
+          <SuiteCard/>
+      </div>
+
       {
                 items.map(item => (
                   <div key={item.name}>

@@ -1,0 +1,69 @@
+img{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    position:relative;
+}
+
+.badge{
+    font-size: 10pt;
+    font-weight:900;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-shadow: 0 6px 20px rgba(56, 125, 255, 0.07);
+}
+
+.title-container{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-title{
+    width: 50px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    font-weight:bold;
+    font-size: 1.5em;
+    color:#0053C5;
+}
+            
+.card{
+    display: flex;
+    flex-flow: row;
+    width: 100%;
+    height: 200px;
+    width: 550px;
+    background-color: white;
+    border-color: #fff;
+    box-shadow: 0 6px 15px rgba(56, 125, 255, 0.07); 
+    /* -webkit-filter: drop-shadow(0 6px 15px rgba(56, 125, 255, 0.017)); */
+    border-radius: 10px;
+    overflow: hidden;
+    text-decoration: none;
+    padding: 10px;
+  }
+
+.card-photo-container{
+    width: 200x;
+    height: 180px;
+    padding-right: 20px;
+    margin-right: 40px;
+    border-radius: 8px;
+}
+
+.card-photo{
+    display:flex;
+    max-width: 250px;
+    max-height: 190px;
+    border-radius: 8px;
+    background-image: contain;
+}
+
+.card-button-container{
+    max-width: 50%;
+    max-height: 90%;
+    margin-right: 20px;
+}

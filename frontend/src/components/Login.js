@@ -8,7 +8,7 @@ function LoginComponent () {
 
   return (
     <div className='login-button-container'>
-      <div className='login-button' onClick={casLogin}>LOGIN </div>
+      <div className='login-button' onClick={casLogin}>Login with CAS </div>
     </div>
   )
 }
