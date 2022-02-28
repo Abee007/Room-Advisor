@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/helper-compilation-targets": "^7.16.7",
     "nodemon": "^2.0.15"
   },
   "dependencies": {

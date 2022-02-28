@@ -3,6 +3,12 @@ import { NavLink } from 'react-router-dom'
 import './Nav.css'
 
 function Nav ({ user }) {
+    // CAS logout
+    const casLogout = () => {
+        console.log('casLogout')
+        window.open('http://localhost:4000/auth/cas/logout', '_self')
+      }
+
   return (
     <nav className='navbar navbar-container'>
 
@@ -25,10 +31,9 @@ function Nav ({ user }) {
 
             // if logged in
             : (
-              <div className='nav-menu-container'>
-                <NavLink to='/' className='nav-links' activeClassName='active'>Landing</NavLink>
-                <NavLink to='/viewreviews' className='nav-item nav-link' activeClassName='active'>ViewReviews</NavLink>
-                <NavLink to='/logout' className='nav-item nav-link' activeClassName='active'>Logout</NavLink>
+              <div>
+                <NavLink to='/viewreviews' className='nav-item nav-link' activeclassname='active'>Landing</NavLink>
+                <NavLink to='/logout' onClick={casLogout} className='nav-item nav-link' activeclassname='active'>Logout</NavLink>
               </div>
               )}
         </div>
