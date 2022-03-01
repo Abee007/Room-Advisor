@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const passport = require("passport");
 const { cas } = require("../passport");
+const { clientIp } = require("../constants");
 
 // APPLICATION ROUTES
 router.get("/login", (req, res) => {
@@ -77,7 +78,7 @@ router.get(
   function (req, res) {
     // Successful authentication, redirect home.
     console.log("Redirect here to reviews page");
-    res.redirect("/viewreviews");
+    res.redirect(`${clientIp}/viewreviews`);
   }
 );
 
