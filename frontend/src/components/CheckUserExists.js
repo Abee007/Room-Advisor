@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { db } from "../utils/firebase";
-import { collection, getDocs, addDoc } from "firebase/firestore";
-import { Navigate } from "react-router-dom";
+import { collection, getDocs } from "firebase/firestore";
 
 function CheckUserExists({ user }) {
   const usersCollectionRef = collection(db, "Users");
@@ -18,9 +17,9 @@ function CheckUserExists({ user }) {
     console.log(valid);
 
     if (valid) {
-      window.open("http://localhost:3000/viewreviews", "_self");
+      window.open("https://room-advisor-v0.web.app/viewreviews", "_self");
     } else {
-      window.open("http://localhost:3000/register", "_self");
+      window.open("https://room-advisor-v0.web.app/register", "_self");
     }
 
     //Pushes users to database

@@ -42,7 +42,7 @@ router.post("/addFavorite", (req, res) => {
 // CAS AUTHENTICATION ROUTE
 
 /// //////////////////////////
-const CLIENT_URL = "http://localhost:3000/";
+const CLIENT_URL = "https://room-advisor-v0.web.app";
 
 router.get("/auth/login/success", (req, res) => {
   if (req.user) {
@@ -78,7 +78,7 @@ router.get(
   function (req, res) {
     // Successful authentication, redirect home.
     console.log("Redirect here to reviews page");
-    res.redirect("http://localhost:3000/checkuser");
+    res.redirect("https://room-advisor-v0.web.app/checkuser");
   }
 );
 
