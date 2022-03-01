@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const passport = require("passport");
 const { cas } = require("../passport");
-const { clientIp } = require("../constants");
 
 // APPLICATION ROUTES
 router.get("/login", (req, res) => {
@@ -44,6 +43,7 @@ router.post("/addFavorite", (req, res) => {
 // CAS AUTHENTICATION ROUTE
 
 /// //////////////////////////
+const CLIENT_URL = "https://room-advisor-v0.web.app";
 
 router.get("/auth/login/success", (req, res) => {
   if (req.user) {
@@ -78,7 +78,7 @@ router.get(
   function (req, res) {
     // Successful authentication, redirect home.
     console.log("Redirect here to reviews page");
-    res.redirect(`${clientIp}/viewreviews`);
+    res.redirect(`${CLIENT_URL}/viewreviews`);
   }
 );
 
