@@ -1,42 +1,43 @@
-import './App.css'
-import LandingPage from './pages/LandingPage'
-import ProtectedPages from './pages/ProtectedPages'
-import Nav from './components/Nav'
-import { useEffect, useState } from 'react'
-import { BrowserRouter as Router } from 'react-router-dom'
+import "./App.css";
+import LandingPage from "./pages/LandingPage";
+import ProtectedPages from "./pages/ProtectedPages";
+import Nav from "./components/Nav";
+import { useEffect, useState } from "react";
+import { BrowserRouter as Router } from "react-router-dom";
 
-function App () {
-  const [user, setUser] = useState(null)
+function App() {
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     const getUser = () => {
-      fetch('http://localhost:4000/auth/login/success', {
-        method: 'GET',
-        credentials: 'include'
-      }).then(response => {
-        if (response.status === 200) return response.json()
-        throw new Error('Authentication has been failed!')
-      }).then(resObject => {
-        setUser(resObject.user)
-      }).catch(err => {
-        console.log(err)
+      fetch("http://localhost:4000/auth/login/success", {
+        method: "GET",
+        credentials: "include",
       })
-    }
-    getUser()
-  }, [])
+        .then((response) => {
+          if (response.status === 200) return response.json();
+          throw new Error("Authentication has been failed!");
+        })
+        .then((resObject) => {
+          setUser(resObject.user);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+    getUser();
+  }, []);
 
   return (
     <Router>
-      <div className='App'>
-        <header className='App-header'>
+      <div className="App">
+        <header className="App-header">
           <Nav user={user} />
-          <div>
-            {!user ? (<LandingPage />) : (<ProtectedPages user={user} />)}
-          </div>
+          <div>{!user ? <LandingPage /> : <ProtectedPages user={user} />}</div>
         </header>
       </div>
     </Router>
-  )
+  );
 }
 
-export default App
+export default App;
