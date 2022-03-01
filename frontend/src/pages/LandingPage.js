@@ -5,7 +5,7 @@ function LandingPage () {
   return (
     <section>
       <LoginComponent />
-      <p>Hello from the other side!!!</p>
+      <p>Hello from the other side!</p>
     </section>
   )
 }
