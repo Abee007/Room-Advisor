@@ -1,12 +1,12 @@
 import React from "react"; // ES6 js
 import { NavLink } from "react-router-dom";
 
-function Nav ({ user }) {
-    // CAS logout
-    const casLogout = () => {
-        console.log('casLogout')
-        window.open('http://localhost:4000/auth/cas/logout', '_self')
-      }
+function Nav({ user }) {
+  // CAS logout
+  // const casLogout = () => {
+  //   console.log("casLogout");
+  //   window.open("http://localhost:4000/auth/cas/logout", "_self");
+  // };
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark top">

@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from 'firebase/app'
-import { getFirestore } from '@firebase/firestore'
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "@firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAZQXtrnk8HbMbPGZOyHwkEi2XKWTO6AjE",
@@ -10,7 +10,7 @@ const firebaseConfig = {
   storageBucket: "room-advisor-v0.appspot.com",
   messagingSenderId: "185467364590",
   appId: "1:185467364590:web:3350787105a8a970da3fff",
-  measurementId: "G-XFWPFN8DEH"
+  measurementId: "G-XFWPFN8DEH",
 };
 
 // // Initialize Firebase
