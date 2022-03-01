@@ -1,12 +1,12 @@
-import React from 'react'
-import LoginComponent from '../components/Login'
+import React from "react";
+import LoginComponent from "../components/Login";
 
-function LandingPage () {
+function LandingPage() {
   return (
     <section>
       <LoginComponent />
     </section>
-  )
+  );
 }
 
-export default LandingPage
+export default LandingPage;
