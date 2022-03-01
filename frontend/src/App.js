@@ -4,13 +4,14 @@ import ProtectedPages from "./pages/ProtectedPages";
 import Nav from "./components/Nav";
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
+import { serverIp } from './constants';
 
 function App() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
     const getUser = () => {
-      fetch("http://localhost:4000/auth/login/success", {
+      fetch(`${serverIp}/auth/login/success`, {
         method: "GET",
         credentials: "include",
       })

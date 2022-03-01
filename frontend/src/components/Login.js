@@ -1,9 +1,10 @@
 import React from "react";
+import { serverIp } from '../constants';
 
 function LoginComponent() {
   const casLogin = () => {
     console.log("casLogin");
-    window.open("http://localhost:4000/auth/cas", "_self");
+    window.open(`${serverIp}/auth/cas`, "_self");
   };
 
   return (

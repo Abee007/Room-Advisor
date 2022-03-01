@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { serverIp } from '../constants';
 
 function ViewReviews() {
   useEffect(() => {
@@ -8,7 +9,7 @@ function ViewReviews() {
   const [items, setItems] = useState([]);
 
   const fetchItems = async () => {
-    const data = await fetch("/viewreviews");
+    const data = await fetch(`${serverIp}/viewreviews`);
     const items = await data.json();
     setItems(items);
   };
