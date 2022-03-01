@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { serverIp } from '../constants';
+import { serverIp } from "../constants";
 
 function ViewReviews() {
   useEffect(() => {

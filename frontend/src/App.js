@@ -4,7 +4,7 @@ import ProtectedPages from "./pages/ProtectedPages";
 import Nav from "./components/Nav";
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import { serverIp } from './constants';
+import { serverIp } from "./constants";
 
 function App() {
   const [user, setUser] = useState(null);
