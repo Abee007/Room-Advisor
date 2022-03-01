@@ -23,10 +23,10 @@ function(req, profile, done) {
   done(null, profile);
 });
 
-passport.use(cas); 
+passport.use(cas);
 
 passport.serializeUser((user, done) => {
-    done(null,user);
+  done(null, user);
 });
 
 passport.deserializeUser((user, done) => {

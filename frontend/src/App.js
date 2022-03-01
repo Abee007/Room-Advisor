@@ -7,20 +7,23 @@ function App() {
 
   useEffect(() => {
     const getUser = () => {
-      fetch('http://localhost:4000/auth/login/success', {
-        method: 'GET',
-        credentials: 'include'
-      }).then(response => {
-        if(response.status === 200) return response.json();
-        throw new Error("Authentication has been failed!")
-      }).then(resObject => {
-        setUser(resObject.user);
-      }).catch(err => {
-        console.log(err);
+      fetch("http://localhost:4000/auth/login/success", {
+        method: "GET",
+        credentials: "include",
       })
+        .then((response) => {
+          if (response.status === 200) return response.json();
+          throw new Error("Authentication has been failed!");
+        })
+        .then((resObject) => {
+          setUser(resObject.user);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     };
     getUser();
-  }, [])
+  }, []);
 
   // console.log(user);
 
