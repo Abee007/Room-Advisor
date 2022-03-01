@@ -77,7 +77,7 @@ router.get(
   function (req, res) {
     // Successful authentication, redirect home.
     console.log("Redirect here to reviews page");
-    res.redirect(`${req.headers.referer}viewreviews`);
+    res.redirect("/viewreviews");
   }
 );
 
