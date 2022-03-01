@@ -4,7 +4,7 @@ import LoginComponent from '../components/Login'
 function LandingPage() {
     return(
         <section>
-            <LoginComponent/>
+            <LoginComponent/> 
         </section>
     );
 }
