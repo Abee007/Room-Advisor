@@ -1,16 +1,17 @@
-const CasStrategy = require('passport-cas2').Strategy;
-const passport = require('passport');
+const CasStrategy = require("passport-cas2").Strategy;
+const passport = require("passport");
 
-UNREGISTERED = 'UNREGISTERED';
+UNREGISTERED = "UNREGISTERED";
 
-const cas = new CasStrategy({
-    version: 'CAS2.0',
-    casURL: 'https://secure.its.yale.edu/cas',
-}, 
-// This is the `verify` callback
-function(req, profile, done) {
+const cas = new CasStrategy(
+  {
+    version: "CAS2.0",
+    casURL: "https://secure.its.yale.edu/cas",
+  },
+  // This is the `verify` callback
+  function (req, profile, done) {
     //Check to make sure it user exists in database here
-    
+
     //prints out netId
     //console.log(req);
     // if(req === 'akm66') {
@@ -19,9 +20,10 @@ function(req, profile, done) {
 
     //profile get returned to the '/auth/login/success' route as req.user
 
-    //therefore syntax = done(null, {data returned to the route}) 
-  done(null, profile);
-});
+    //therefore syntax = done(null, {data returned to the route})
+    done(null, profile);
+  }
+);
 
 passport.use(cas);
 
@@ -30,5 +32,5 @@ passport.serializeUser((user, done) => {
 });
 
 passport.deserializeUser((user, done) => {
-    done(null,user);
+  done(null, user);
 });

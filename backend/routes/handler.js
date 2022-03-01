@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const passport = require('passport');
-
+const passport = require("passport");
 
 // APPLICATION ROUTES
 router.get("/login", (req, res) => {
@@ -67,19 +66,20 @@ router.get("/auth/login/failed", (req, res) => {
   });
 });
 
-router.get('/auth/cas/logout', (req, res) => {
-    console.log("here in logout")
-    req.logout();
-    res.redirect('http://localhost:3000/logout');
+router.get("/auth/cas/logout", (req, res) => {
+  console.log("here in logout");
+  req.logout();
+  res.redirect("http://localhost:3000/logout");
 });
 
-router.get('/auth/cas',
-      passport.authenticate('cas', { failureRedirect: '/auth/login/failed' }),
-      function(req, res) {
-        // Successful authentication, redirect home.
-        console.log("Redirect here to reviews page")
-        res.redirect('http://localhost:3000/checkuser');
-      });
-
+router.get(
+  "/auth/cas",
+  passport.authenticate("cas", { failureRedirect: "/auth/login/failed" }),
+  function (req, res) {
+    // Successful authentication, redirect home.
+    console.log("Redirect here to reviews page");
+    res.redirect("http://localhost:3000/checkuser");
+  }
+);
 
 module.exports = router;
