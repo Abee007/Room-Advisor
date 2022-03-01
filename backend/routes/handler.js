@@ -43,7 +43,6 @@ router.post("/addFavorite", (req, res) => {
 // CAS AUTHENTICATION ROUTE
 
 /// //////////////////////////
-const CLIENT_URL = "http://localhost:3000/";
 
 router.get("/auth/login/success", (req, res) => {
   if (req.user) {
@@ -78,7 +77,7 @@ router.get(
   function (req, res) {
     // Successful authentication, redirect home.
     console.log("Redirect here to reviews page");
-    res.redirect("http://localhost:3000/viewreviews");
+    res.redirect(`${req.headers.referer}viewreviews`);
   }
 );
 
