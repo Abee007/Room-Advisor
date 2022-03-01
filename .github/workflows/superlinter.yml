@@ -32,7 +32,7 @@ jobs:
     steps:
       ## Fix Lint Problems first ###
       - name: Fix Lint
-      - run: (npx standard --fix)
+        run: (npx standard --fix)
         
       
 
