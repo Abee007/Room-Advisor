@@ -61,23 +61,42 @@ router.post("/addFavorite", (req, res) => {
 // CAS AUTHENTICATION ROUTE
 
 /// //////////////////////////
-
-router.get("/auth/login/success", (req, res) => {
-  console.log("login success");
-  console.log(req);
-  if (req.user) {
+router.get(
+  "/auth/login/success",
+  passport.authenticate("cas", { failureRedirect: "/auth/login/failed" }),
+  function (req, res) {
+    // Successful authentication, Return user object.
+    console.log("login success");
+    if (req.user) {
+      return res.status(200).json({
+        success: true,
+        message: "Successfully logged in with CAS",
+        user: req.user,
+        cookies: req.cookies,
+      });
+    }
     return res.status(200).json({
-      success: true,
-      message: "Successfully logged in with CAS",
-      user: req.user,
-      cookies: req.cookies,
+      success: false,
+      message: "Failed to Login with CAS",
     });
   }
-  return res.status(200).json({
-    success: false,
-    message: "Failed to Login with CAS",
-  });
-});
+);
+
+// router.get("/auth/login/success", (req, res) => {
+//   console.log("login success");
+//   if (req.user) {
+//     return res.status(200).json({
+//       success: true,
+//       message: "Successfully logged in with CAS",
+//       user: req.user,
+//       cookies: req.cookies,
+//     });
+//   }
+//   return res.status(200).json({
+//     success: false,
+//     message: "Failed to Login with CAS",
+//   });
+// });
 
 router.get("/auth/login/failed", (req, res) => {
   res.status(401).json({
@@ -101,5 +120,8 @@ router.get(
     res.redirect(`${CLIENT_URL}/checkuser`);
   }
 );
+
+
+
 
 module.exports = router;
