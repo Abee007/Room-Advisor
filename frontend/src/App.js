@@ -1,10 +1,7 @@
 import "./App.css";
-import LandingPage from "./pages/LandingPage";
-import ProtectedPages from "./pages/ProtectedPages";
-import Nav from "./components/Nav";
-import GetClientUrlComponent from "./utils/GetClientUrl";
 import { useEffect, useState } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
+import LandingRegisterProtected from "./LandingRegisterProtected";
+import GetClientUrlComponent from "./utils/GetClientUrl";
 import { serverIp } from "./constants";
 
 function App() {
@@ -31,16 +28,15 @@ function App() {
     getUser();
   }, []);
 
+  // console.log(user);
+
   return (
-    <Router>
+    <div>
       <GetClientUrlComponent />
-      <div className="App">
-        <header className="App-header">
-          <Nav user={user} />
-          <div>{!user ? <LandingPage /> : <ProtectedPages user={user} />}</div>
-        </header>
-      </div>
-    </Router>
+      {/* If user, user object was found. If user===undefined, user isn't logged in. */}
+      {/* Compel user object to be fetched before usage. */}
+      {(user || user === undefined) && <LandingRegisterProtected user={user} />}
+    </div>
   );
 }
 
