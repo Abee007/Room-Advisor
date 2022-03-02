@@ -96,15 +96,12 @@ router.get(
   passport.authenticate("cas", { failureRedirect: "/auth/login/failed" }),
   function (req, res) {
     // Successful authentication, redirect check if user is valid.
-    
+
     //INSTEAD OF JUST REDIRECTING, SET USER NETID ON A COOKIE
     //RETRIEVE THE COOKIE FROM /auth/login/success
     console.log("redirect to check user page");
     res.redirect(`${CLIENT_URL}/checkuser`);
   }
 );
-
-
-
 
 module.exports = router;
