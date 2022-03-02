@@ -2,7 +2,6 @@ const cookieSession = require("cookie-session");
 const express = require("express");
 const bodyParser = require("body-parser");
 const passport = require("passport");
-const cors = require("cors");
 const routesHandler = require("./routes/handler.js");
 require("./passport");
 
@@ -16,13 +15,6 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(
-  cors({
-    origin: "https://room-advisor-v0.web.app",
-    methods: "GET, POST, PUT, DELETE",
-    credentials: true,
-  })
-);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());

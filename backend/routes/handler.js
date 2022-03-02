@@ -63,7 +63,7 @@ router.post("/addFavorite", (req, res) => {
 /// //////////////////////////
 router.get(
   "/auth/login/success",
-  passport.authenticate("cas", { failureRedirect: "/auth/login/failed" }),
+  passport.authenticate("cas", { failureRedirect: CLIENT_URL }),
   function (req, res) {
     // Successful authentication, Return user object.
     console.log("login success");
