@@ -61,42 +61,22 @@ router.post("/addFavorite", (req, res) => {
 // CAS AUTHENTICATION ROUTE
 
 /// //////////////////////////
-router.get(
-  "/auth/login/success",
-  passport.authenticate("cas", { failureRedirect: CLIENT_URL }),
-  function (req, res) {
-    // Successful authentication, Return user object.
-    console.log("login success");
-    if (req.user) {
-      return res.status(200).json({
-        success: true,
-        message: "Successfully logged in with CAS",
-        user: req.user,
-        cookies: req.cookies,
-      });
-    }
+
+router.get("/auth/login/success", (req, res) => {
+  console.log("login success");
+  if (req.user) {
     return res.status(200).json({
-      success: false,
-      message: "Failed to Login with CAS",
+      success: true,
+      message: "Successfully logged in with CAS",
+      user: req.user,
+      cookies: req.cookies,
     });
   }
-);
-
-// router.get("/auth/login/success", (req, res) => {
-//   console.log("login success");
-//   if (req.user) {
-//     return res.status(200).json({
-//       success: true,
-//       message: "Successfully logged in with CAS",
-//       user: req.user,
-//       cookies: req.cookies,
-//     });
-//   }
-//   return res.status(200).json({
-//     success: false,
-//     message: "Failed to Login with CAS",
-//   });
-// });
+  return res.status(200).json({
+    success: false,
+    message: "Failed to Login with CAS",
+  });
+});
 
 router.get("/auth/login/failed", (req, res) => {
   res.status(401).json({
@@ -116,9 +96,15 @@ router.get(
   passport.authenticate("cas", { failureRedirect: "/auth/login/failed" }),
   function (req, res) {
     // Successful authentication, redirect check if user is valid.
+    
+    //INSTEAD OF JUST REDIRECTING, SET USER NETID ON A COOKIE
+    //RETRIEVE THE COOKIE FROM /auth/login/success
     console.log("redirect to check user page");
     res.redirect(`${CLIENT_URL}/checkuser`);
   }
 );
+
+
+
 
 module.exports = router;
