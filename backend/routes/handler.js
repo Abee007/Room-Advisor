@@ -1,8 +1,27 @@
 const express = require("express");
 const router = express.Router();
 const passport = require("passport");
+const url = require("url");
 
 // APPLICATION ROUTES
+var CLIENT_URL = undefined;
+
+router.get("/clienturl", (req, res) => {
+  console.log("get clienturl");
+  if (CLIENT_URL === undefined && req.headers) {
+    CLIENT_URL = `https://${url.parse(req.headers.referer).host}`;
+    console.log(CLIENT_URL);
+    return res.status(200).json({
+      success: true,
+      message: "Grabbed client URL",
+    });
+  }
+  return res.status(200).json({
+    success: false,
+    message: "Failed to grab client URL",
+  });
+});
+
 router.get("/login", (req, res) => {
   const str = [
     {
@@ -42,7 +61,6 @@ router.post("/addFavorite", (req, res) => {
 // CAS AUTHENTICATION ROUTE
 
 /// //////////////////////////
-const CLIENT_URL = "https://room-advisor-v0.web.app";
 
 router.get("/auth/login/success", (req, res) => {
   if (req.user) {
@@ -76,9 +94,9 @@ router.get(
   "/auth/cas",
   passport.authenticate("cas", { failureRedirect: "/auth/login/failed" }),
   function (req, res) {
-    // Successful authentication, redirect home.
-    console.log("Redirect here to reviews page");
-    res.redirect("https://room-advisor-v0.web.app/checkuser");
+    // Successful authentication, redirect check if user is valid.
+    console.log("redirect to reviews page");
+    res.redirect(`${CLIENT_URL}/checkuser`);
   }
 );
 
