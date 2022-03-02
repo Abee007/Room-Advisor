@@ -11,6 +11,7 @@ router.get("/clienturl", (req, res) => {
   console.log('here in clienturl');
   if(CLIENT_URL !== undefined && req.headers) {
     CLIENT_URL = `https://${url.parse(req.headers.referer).host}`;
+    console.log(CLIENT_URL);
     return res.status(200).json({
       success: true,
       message: "Grabbed client URL",
