@@ -8,7 +8,7 @@ var CLIENT_URL = undefined;
 
 router.get("/clienturl", (req, res) => {
   console.log("get clienturl");
-  if (CLIENT_URL === undefined && req.headers) {
+  if (req.headers) {
     CLIENT_URL = `https://${url.parse(req.headers.referer).host}`;
     console.log(CLIENT_URL);
     return res.status(200).json({
@@ -95,7 +95,7 @@ router.get(
   passport.authenticate("cas", { failureRedirect: "/auth/login/failed" }),
   function (req, res) {
     // Successful authentication, redirect check if user is valid.
-    console.log("redirect to reviews page");
+    console.log("redirect to check user page");
     res.redirect(`${CLIENT_URL}/checkuser`);
   }
 );
