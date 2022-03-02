@@ -12,6 +12,7 @@ function App() {
       fetch(`${serverIp}/auth/login/success`, {
         method: "GET",
         credentials: "include",
+        mode: 'no-cors'
       })
         .then((response) => {
           if (response.status === 200) return response.json();

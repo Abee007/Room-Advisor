@@ -6,6 +6,7 @@ function GetClientUrlComponent() {
     const getClientUrl = () => {
       fetch(`${serverIp}/clienturl`, {
         method: "GET",
+        mode: 'no-cors'
       })
         .then((response) => {
           if (response.status === 200) return response.json();
