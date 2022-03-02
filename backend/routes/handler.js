@@ -8,14 +8,14 @@ const url = require("url");
 var CLIENT_URL = undefined;
 
 router.get("/clienturl", (req, res) => {
-  console.log('here in clienturl');
-  if(CLIENT_URL !== undefined && req.headers) {
+  console.log("here in clienturl");
+  if (CLIENT_URL !== undefined && req.headers) {
     CLIENT_URL = `https://${url.parse(req.headers.referer).host}`;
     return res.status(200).json({
       success: true,
       message: "Grabbed client URL",
     });
-  } 
+  }
   return res.status(401).json({
     success: false,
     message: "Failed to grab client URL",
