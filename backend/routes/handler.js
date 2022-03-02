@@ -63,6 +63,8 @@ router.post("/addFavorite", (req, res) => {
 /// //////////////////////////
 
 router.get("/auth/login/success", (req, res) => {
+  console.log("login success");
+  console.log(req);
   if (req.user) {
     return res.status(200).json({
       success: true,
@@ -95,7 +97,6 @@ router.get(
   passport.authenticate("cas", { failureRedirect: "/auth/login/failed" }),
   function (req, res) {
     // Successful authentication, redirect check if user is valid.
-    console.log(req);
     console.log("redirect to check user page");
     res.redirect(`${CLIENT_URL}/checkuser`);
   }
