@@ -28,6 +28,7 @@ function App() {
     getUser();
   }, []);
 
+  console.log("Current User:")
   console.log(user);
 
   return (
