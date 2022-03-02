@@ -95,8 +95,8 @@ router.get(
   passport.authenticate("cas", { failureRedirect: "/auth/login/failed" }),
   function (req, res) {
     // Successful authentication, redirect check if user is valid.
+    console.log(req);
     console.log("redirect to check user page");
-    res.cookie('cookie_token', token, { maxAge: 900000 });
     res.redirect(`${CLIENT_URL}/checkuser`);
   }
 );
