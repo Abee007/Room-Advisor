@@ -64,6 +64,8 @@ router.post("/addFavorite", (req, res) => {
 
 router.get("/auth/login/success", (req, res) => {
   console.log("login success");
+  console.log(req.cookies);
+  console.log(req.signedCookies);
   if (req.user) {
     return res.status(200).json({
       success: true,
