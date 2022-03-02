@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const passport = require("passport");
 const cors = require("cors");
 const routesHandler = require("./routes/handler.js");
-const cookie_parser = require('cookie-parser');
+const cookie_parser = require("cookie-parser");
 require("./passport");
 
 const app = express();
@@ -15,7 +15,7 @@ app.use(
     maxAge: 24 * 60 * 60 * 100,
   })
 );
-app.use(cookie_parser('1234'));
+app.use(cookie_parser("1234"));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(
