@@ -2,8 +2,26 @@ const express = require("express");
 const router = express.Router();
 const passport = require("passport");
 const { cas } = require("../passport");
+const url = require("url");
 
 // APPLICATION ROUTES
+var CLIENT_URL = undefined;
+
+router.get("/clienturl", (req, res) => {
+  console.log('here in clienturl');
+  if(req.headers) {
+    CLIENT_URL = `https://${url.parse(req.headers.referer).host}`;
+    return res.status(200).json({
+      success: true,
+      message: "Grabbed client URL",
+    });
+  } 
+  return res.status(401).json({
+    success: false,
+    message: "Failed to grab client URL",
+  });
+});
+
 router.get("/login", (req, res) => {
   const str = [
     {
@@ -43,7 +61,6 @@ router.post("/addFavorite", (req, res) => {
 // CAS AUTHENTICATION ROUTE
 
 /// //////////////////////////
-const CLIENT_URL = "https://room-advisor-v0.web.app";
 
 router.get("/auth/login/success", (req, res) => {
   if (req.user) {
@@ -78,6 +95,7 @@ router.get(
   function (req, res) {
     // Successful authentication, redirect home.
     console.log("Redirect here to reviews page");
+    console.log(CLIENT_URL);
     res.redirect(`${CLIENT_URL}/viewreviews`);
   }
 );

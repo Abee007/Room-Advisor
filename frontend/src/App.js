@@ -2,9 +2,11 @@ import "./App.css";
 import LandingPage from "./pages/LandingPage";
 import ProtectedPages from "./pages/ProtectedPages";
 import Nav from "./components/Nav";
+import GetClientUrlComponent from "./utils/GetClientUrl";
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { serverIp } from "./constants";
+
 
 function App() {
   const [user, setUser] = useState(null);
@@ -26,11 +28,13 @@ function App() {
           console.log(err);
         });
     };
+
     getUser();
   }, []);
 
   return (
     <Router>
+      <GetClientUrlComponent/>
       <div className="App">
         <header className="App-header">
           <Nav user={user} />
