@@ -7,7 +7,6 @@ import { useEffect, useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { serverIp } from "./constants";
 
-
 function App() {
   const [user, setUser] = useState(null);
 
@@ -34,7 +33,7 @@ function App() {
 
   return (
     <Router>
-      <GetClientUrlComponent/>
+      <GetClientUrlComponent />
       <div className="App">
         <header className="App-header">
           <Nav user={user} />
