@@ -9,9 +9,7 @@ function LandingRegisterProtected({ user }) {
     return(
         <Router>
             <div className="App">
-                <header className="App-header">
                 <Nav user={user}/>  
-                </header>
                 <div>
                     {(user === undefined) ? (<LandingPage/>) : (<RegisterandProtectedPages user={user}/>)}
                 </div>

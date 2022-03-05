@@ -1,6 +1,7 @@
 import React from 'react' // ES6 js
 import { NavLink } from 'react-router-dom'
 import './Nav.css'
+import logo from '../static/logo.png'
 
 function Nav ({ user }) {
     // CAS logout
@@ -18,14 +19,13 @@ function Nav ({ user }) {
       </button> */}
 
       {/* Room Advisor Logo */}
-      <img src='../../public/../../public/logo.png' alt='image' style={{ position: 'relative', height: '50px', width: '110px' }} />
+      <img src={logo} alt='image' style={{ position: 'relative', height: '50px', width: '110px' }} />
 
       <div id='navMainMenu'>
-        <div className='ml-auto'>
           {!user
             // if not logged in
             ? (<div className='nav-menu nav-menu-container'>
-              <NavLink to='/' className='nav-item nav-link nav-links'>About</NavLink>
+              <NavLink to='/about' className='nav-item nav-link nav-links' activeclassname='active'>About</NavLink>
               <NavLink to='/' className='nav-item nav-link nav-links'>Login</NavLink>
             </div>)
 
@@ -36,7 +36,6 @@ function Nav ({ user }) {
                 <NavLink to='/logout' onClick={casLogout} className='nav-item nav-link' activeclassname='active'>Logout</NavLink>
               </div>
               )}
-        </div>
       </div>
     </nav>
   )

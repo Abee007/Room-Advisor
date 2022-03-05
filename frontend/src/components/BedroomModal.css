@@ -1,0 +1,118 @@
+
+  .icon{
+    width: 24px;
+    height: 24px;
+    margin-left: auto;
+  }
+  
+  .col-md-5{
+    padding-left: 0px;
+}
+
+  .push-right{
+    margin-left: auto;
+  }
+  
+  .BedroomModal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    pointer-events: none;
+    z-index:9999;
+    vertical-align: center;
+  }
+  
+  .BedroomModal.enter-done {
+    opacity: 1;
+    pointer-events: visible;
+  }
+  
+  .badge-container{
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+  }
+  
+  .BedroomModal.exit {
+    opacity: 0;
+  }
+  
+  .BedroomModal-container {
+    width: 70%;
+    height: 70%;
+    border-radius: 8px;
+    border-color: transparent;
+    background-color: #fff;
+    transition: all 0.3s ease-in-out;
+    /* transform: translateY(-200px); */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .BedroomModal.exit .SuiteModal-content {
+    transform: translateY(-200px);
+  }
+  
+  .BedroomModal-header{
+    display: inline-flex;
+    justify-content: start;
+    gap: 6px;
+    padding: 20px;
+    box-shadow: 0 2px 2px -2px rgba(0,0,0,.2);
+  }
+
+  .BedroomModal-footer {
+    display: inline-flex;
+    justify-content: start;
+    padding: 5px;
+    box-shadow: 0 2px 2px -2px rgba(0,0,0,.2);
+  }
+
+  
+  .BedroomModal-title {
+    margin: 0;
+    font-size: 24pt;
+    font-weight: bold;
+  }
+
+  .BedroomModal-subtitle {
+    margin: 0;
+    font-size: 16pt;
+    font-weight: bold;
+    padding-bottom: 10px;
+  }
+
+  .BedroomModal-body{
+    display: inline-flex;
+    justify-content: start;
+    gap: 6px;
+    padding: 20px;
+  }
+  
+  .BedroomModal-card-container {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: auto;
+    margin-left: auto;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+  }
+
+  .BedroomModal-card-container > .card{
+    width: 50%;
+    margin-right: auto;
+    margin-left: 0;
+  }  
+
+  .BedroomModal-body-right{
+    text-align:left;
+  }

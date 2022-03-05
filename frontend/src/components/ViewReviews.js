@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import SuiteCard from './SuiteCard'
+import CardsContainer from './CardsContainer'
 
 function ViewReviews () {
   useEffect(() => {
@@ -18,7 +18,7 @@ function ViewReviews () {
     <section>
 
       <div>
-        <SuiteCard />
+        <CardsContainer/>
       </div>
 
       {

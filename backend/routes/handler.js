@@ -34,6 +34,16 @@ router.get('/viewreviews', (req, res) => {
   res.end(JSON.stringify(str))
 })
 
+router.get('/about', (req, res) => {
+  const str = [
+    {
+      name: 'About',
+      msg: 'Test'
+    }
+  ]
+  res.end(JSON.stringify(str))
+})
+
 router.post('/addFavorite', (req, res) => {
     res.end('NA');
 });
@@ -49,8 +59,6 @@ router.get('/validateUser', (req, res) => {
     res.redirect('http://localhost:3000/viewreviews');
 
 });
-
-
 
 /// /////////////////////////
 

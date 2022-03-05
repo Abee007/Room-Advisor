@@ -1,0 +1,93 @@
+
+  .icon{
+    width: 24px;
+    height: 24px;
+    margin-left: auto;
+  }
+  
+  .push-right{
+    margin-left: auto;
+  }
+  
+  .SuiteModal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    pointer-events: none;
+    z-index:9999;
+  }
+  
+  .SuiteModal.enter-done {
+    opacity: 1;
+    pointer-events: visible;
+  }
+  
+  .badge-container{
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+  }
+  
+  .SuiteModal.exit {
+    opacity: 0;
+  }
+  
+  .SuiteModal-content {
+    width: 70%;
+    top: 0;
+    height: 70%;
+    border-radius: 8px;
+    border-color: transparent;
+    background-color: #fff;
+    transition: all 0.3s ease-in-out;
+    transform: translateY(-200px);
+  }
+  
+  .SuiteModal.enter-done .SuiteModal-content {
+    transform: translateY(0);
+  }
+  
+  .SuiteModal.exit .SuiteModal-content {
+    transform: translateY(-200px);
+  }
+  
+  .SuiteModal-header,
+  .SuiteModal-footer {
+    display: inline-flex;
+    justify-content: start;
+    gap: 6px;
+    padding: 20px;
+  }
+  
+  .SuiteModal-title {
+    margin: 0;
+    font-size: 24pt;
+    font-weight: bold;
+  }
+  
+  .SuiteModal-card-container {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: auto;
+    margin-left: auto;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+  }
+
+  .SuiteModal-card-container > .card{
+    width: 50%;
+    margin-right: auto;
+    margin-left: 0;
+  }
+
+
+  

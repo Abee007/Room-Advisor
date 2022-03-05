@@ -1,18 +1,16 @@
 import React, { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Badge from 'react-bootstrap/Badge'
-import './SuiteCard.css'
+import './BedroomCard.css'
 import { Button } from './Button'
 import CarouselComponent from './Carousel'
 import room from '../static/dorm_room.jpg'
 import { FaRegBookmark } from 'react-icons/fa'
-import SuiteModal from './SuiteModal'
+import BedroomModal from './BedroomModal'
 import three from '../static/NumberIcons-03.svg'
 
-function SuiteCard () {
-
+function BedroomCard () {
   const [show, setShow] = useState(false)
-  
   return (
     <div className='card'>
         
@@ -25,13 +23,13 @@ function SuiteCard () {
 
             {/* room number and bookmark icon */}
             <div className='card-title-container'>
-                <h5 className='card-title'>D31</h5>
+                <h5 className='card-title'>D31A</h5>
                 <FaRegBookmark className='push-right' style={{ color: '#0053c5', fontSize: '30px' }} />
             </div>
 
             {/* room size, noise, and size tags */}
             <div className='card-badge-container'>
-                <Badge pill bg='primary'> Triple 
+                <Badge pill bg='primary'> Single 
                     {/* <img className='number-icon' src={three} />  */}
                     {/* <p className='number-text'> Triple </p>  */}
                 </Badge>{' '}
@@ -42,14 +40,17 @@ function SuiteCard () {
             <p className='card-review-quotes'> "It's tinyyyyyyy and no sunlight cause tiny window. no room..."</p>
             <h1 className='card-subtext'> 13 reviews</h1>
 
+            {/* <div className='card-button-container'>
+                <Button buttonStyle='btn--primary' buttonSize='btn--small' onClick={() => setShow(true)}>Read reviews</Button>
+            </div> */}
         </div>
 
-        <SuiteModal 
+        <BedroomModal 
             title='D31' onClose={() => setShow(false)} show={show}>
-        </SuiteModal>
+        </BedroomModal>
 
     </div>
   )
 }
 
-export default SuiteCard
+export default BedroomCard

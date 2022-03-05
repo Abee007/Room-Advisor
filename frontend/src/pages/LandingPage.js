@@ -1,23 +1,16 @@
-import './LandingPage.css'
 import React from 'react';
-import LoginComponent from '../components/Login'
 import browse from '../static/browse.svg'
 import filter from '../static/filter.svg'
 import read from '../static/read.svg'
+import HeroSection from '../components/HeroSection';
 
 function LandingPage() {
     return(
         <section className='landing-page-container'>
             <div className='hero'>
-                <h2 className='hero'> Choosing a room just got easier</h2>
-                <p className='paragraph'> Room Advisor is a website where Yale students can candidly rate and review residential
-                    college rooms. We seek to improve the Yale housing experiences by empowering Yale students with information
-                    to help them find living spaces they love.
-                </p>
-                <LoginComponent/>
+                <HeroSection/>
             </div>
-
-            <div className='landing'>
+            {/* <div className='landing'>
                 <h2 className='hero-secondary'> How it works? </h2>
 
                 <div className='row'>
@@ -35,8 +28,7 @@ function LandingPage() {
                     </div>
                 </div>
 
-            </div>
-            
+            </div> */}
         </section>
     );
 }

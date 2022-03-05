@@ -1,0 +1,15 @@
+.carousel-slide{
+    height: 100%;
+}
+
+.carousel-inner{
+    height:100%;
+}
+
+.gallery > .img{
+    object-fit: cover;
+    width: 200px;
+    height: 100px;
+    position: relative;
+    z-index: 99;
+}

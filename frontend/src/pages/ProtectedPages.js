@@ -3,6 +3,7 @@ import LandingPage from './LandingPage';
 import ViewReviews from '../components/ViewReviews';
 import CheckUserExists from '../components/CheckUserExists'
 import { Routes, Route, Navigate } from 'react-router-dom';
+import AboutPage from './About';
 
 
 function RegisterandProtectedPages({ user }) {
@@ -19,8 +20,12 @@ function RegisterandProtectedPages({ user }) {
             {/* REGISTER USER */}
             <Route path="/register" element={<Navigate to='/logout' />} />
 
+            {/* send user to about page */}
+            <Route path="/about" element={<AboutPage/>} />
+
             {/* If no user exists, navigate back to the landing page */}
             <Route path="/viewreviews" element={user ? <ViewReviews/> : <Navigate to='/' />} />
+            
             {/* Performs a soft logout so we don't actually log users out of cas */}
             <Route path="/logout" element={<LandingPage/>} />
         </Routes>
