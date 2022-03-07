@@ -34,6 +34,16 @@ router.get('/viewreviews', (req, res) => {
   res.end(JSON.stringify(str))
 })
 
+router.get('/favorites', (req, res) => {
+  const str = [
+    {
+      name: 'Favorites',
+      msg: 'Test'
+    }
+  ]
+  res.end(JSON.stringify(str))
+})
+
 router.get('/about', (req, res) => {
   const str = [
     {

@@ -14,6 +14,7 @@ import TabBar from '../TabBar'
 const BedroomModal = props => {
   const closeOnEscapeKeyDown = e => {
     if ((e.charCode || e.keyCode) === 27) {
+      console.log('hello');
       props.onClose()
     }
   }

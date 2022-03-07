@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import CardsContainer from './CardsContainer'
-import Results from './Results'
+import CardsContainer from '../components/CardsContainer'
 
-
-function ViewReviews () {
+function Favorites () {
   useEffect(() => {
     fetchItems()
   }, [])
@@ -11,7 +9,7 @@ function ViewReviews () {
   const [items, setItems] = useState([])
 
   const fetchItems = async () => {
-    const data = await fetch('/viewreviews')
+    const data = await fetch('/favorites')
     const items = await data.json()
     setItems(items)
   }
@@ -20,20 +18,19 @@ function ViewReviews () {
     <section>
 
       <div>
-        <Results />
         <CardsContainer/>
       </div>
 
       {
         items.map(item => (
-          <div key={item.name}>
+            <div key={item.name}>
             <p>{item.name}</p>
             <p>{item.msg}</p>
-          </div>
+            </div>
         ))
-      }
+        }
     </section>
   )
 }
 
-export default ViewReviews
+export default Favorites

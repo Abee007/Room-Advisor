@@ -27,7 +27,7 @@ const SuiteModal = props => {
       unmountOnExit
       timeout={{ enter: 0, exit: 300 }}
     >
-      <div className='SuiteModal'>
+      <div className='SuiteModal' >
         <div className='SuiteModal-content'>
           <div className='SuiteModal-header'>
             <h4 className='SuiteModal-title'>{props.title}</h4>

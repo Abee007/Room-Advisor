@@ -21,7 +21,10 @@ function SuiteCard () {
             {/* <CarouselComponent/> */}
         </div>
 
-        <div className='card-right-side' className='col-md-7' onClick={() => setShow(true)}>
+        <div className='card-right-side' className='col-md-7' onClick={() => {
+            console.log('show here');
+            setShow(true)}
+        }>
 
             {/* room number and bookmark icon */}
             <div className='card-title-container'>
@@ -45,7 +48,9 @@ function SuiteCard () {
         </div>
 
         <SuiteModal 
-            title='D31' onClose={() => setShow(false)} show={show}>
+            title='D31' onClose={() => {
+                console.log('hide here');
+                setShow(false)}} show={show}>
         </SuiteModal>
 
     </div>
