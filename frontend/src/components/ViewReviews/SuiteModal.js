@@ -9,8 +9,14 @@ import BedroomModal from './BedroomModal'
 import ScrollContainer from './ScrollContainer'
 
 const SuiteModal = props => {
-  
+
   const [show, setShow] = useState(false);
+
+  const closeOnEscapeKeyDown = e => {
+    if ((e.charCode || e.keyCode) === 27) {
+      props.onClose()
+    }
+  }
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);

@@ -6,10 +6,10 @@ import Badge from 'react-bootstrap/Badge'
 import BedroomCard from './BedroomCard'
 import { FaRegBookmark } from 'react-icons/fa'
 import ScrollContainer from './ScrollContainer'
-import CarouselComponent from './Carousel'
-import room from '../static/dorm_room.jpg'
+import CarouselComponent from '../Carousel'
+import room from '../../static/dorm_room.jpg'
 import SuiteModal from './SuiteModal'
-import TabBar from './TabBar'
+import TabBar from '../TabBar'
 
 const BedroomModal = props => {
   const closeOnEscapeKeyDown = e => {

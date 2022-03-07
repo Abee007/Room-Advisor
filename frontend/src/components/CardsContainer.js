@@ -1,6 +1,6 @@
 import React from 'react'
 import './CardsContainer.css'
-import SuiteCard from './SuiteCard'
+import SuiteCard from './ViewReviews/SuiteCard'
 
 function CardsContainer () {
   return (

@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import Tabs from 'react-bootstrap/Tabs'
 import './TabBar.css'
 import Tab from 'react-bootstrap/Tabs'
-import ScrollContainer from './ScrollContainer'
+import ScrollContainer from './ViewReviews/ScrollContainer'
 import Sonnet from 'react-bootstrap/Tabs'
 
 
