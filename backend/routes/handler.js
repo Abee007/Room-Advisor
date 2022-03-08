@@ -102,7 +102,6 @@ router.get(
     //INSTEAD OF JUST REDIRECTING, SET USER NETID ON A COOKIE
     //RETRIEVE THE COOKIE FROM /auth/login/success
     console.log("redirect to check user page");
-    console.log(req.session);
     res.redirect(`${CLIENT_URL}/checkuser`);
   }
 );
