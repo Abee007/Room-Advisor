@@ -35,7 +35,6 @@ function App() {
 
   return (
     <div>
-      <GetClientUrlComponent />
       {/* If user, user object was found. If user===undefined, user isn't logged in. */}
       {/* Compel user object to be fetched before usage. */}
       {(user || user === undefined) && <LandingRegisterProtected user={user} />}

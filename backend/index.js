@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const passport = require("passport");
 const cors = require("cors");
 const routesHandler = require("./routes/handler.js");
+const client = require("./routes/constants");
 require("./passport");
 
 const app = express();
@@ -23,7 +24,7 @@ app.use(passport.session());
 app.use(
   cors({
     credentials: true,
-    origin: "https://room-advisor-v0.web.app",
+    origin: client.clientIp,
     methods: "GET, POST, PUT, DELETE",
   })
 );

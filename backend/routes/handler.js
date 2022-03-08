@@ -1,46 +1,26 @@
 const express = require("express");
 const router = express.Router();
 const passport = require("passport");
-const url = require("url");
+const client = require("./constants");
 
 // APPLICATION ROUTES
-var CLIENT_URL = undefined;
+const CLIENT_URL = client.clientIp;
 
-router.get("/clienturl", (req, res) => {
-  console.log("get clienturl");
-  if (req.headers) {
-    CLIENT_URL = `https://${url.parse(req.headers.referer).host}`;
-    console.log(CLIENT_URL);
-    return res.status(200).json({
-      success: true,
-      message: "Grabbed client URL",
-    });
-  }
-  return res.status(200).json({
-    success: false,
-    message: "Failed to grab client URL",
-  });
-});
-
-router.get("/login", (req, res) => {
-  const str = [
-    {
-      name: "LoginPage",
-      msg: "Test",
-    },
-  ];
-  res.end(JSON.stringify(str));
-});
-
-router.get("/landing", (req, res) => {
-  const str = [
-    {
-      name: "LandingPage",
-      msg: "Test",
-    },
-  ];
-  res.end(JSON.stringify(str));
-});
+// router.get("/clienturl", (req, res) => {
+//   console.log("get clienturl");
+//   if (req.headers) {
+//     CLIENT_URL = `https://${url.parse(req.headers.referer).host}`;
+//     console.log(CLIENT_URL);
+//     return res.status(200).json({
+//       success: true,
+//       message: "Grabbed client URL",
+//     });
+//   }
+//   return res.status(200).json({
+//     success: false,
+//     message: "Failed to grab client URL",
+//   });
+// });
 
 router.get("/viewreviews", (req, res) => {
   const str = [
@@ -101,7 +81,6 @@ router.get(
     //INSTEAD OF JUST REDIRECTING, SET USER NETID ON A COOKIE
     //RETRIEVE THE COOKIE FROM /auth/login/success
     console.log("redirect to check user page");
-    console.log(req.session);
     res.redirect(`${CLIENT_URL}/checkuser`);
   }
 );
