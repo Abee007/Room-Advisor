@@ -12,7 +12,7 @@ function App() {
       fetch(`${serverIp}/auth/login/success`, {
         method: "GET",
         withCredentials: true,
-        credentials: "include"
+        credentials: "include",
       })
         .then((response) => {
           if (response.status === 200) return response.json();
