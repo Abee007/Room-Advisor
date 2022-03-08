@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const passport = require("passport");
-const client = require("./constants");
+// const client = require("./constants");
 
 // APPLICATION ROUTES
-const CLIENT_URL = client.clientIp;
+const CLIENT_URL = "https://room-advisor-v0.web.app";
 
 // router.get("/clienturl", (req, res) => {
 //   console.log("get clienturl");
