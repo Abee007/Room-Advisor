@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const passport = require("passport");
 const url = require("url");
+const jwt = require('jsonwebtoken');
 
 // APPLICATION ROUTES
 var CLIENT_URL = undefined;
@@ -64,8 +65,7 @@ router.post("/addFavorite", (req, res) => {
 
 router.get("/auth/login/success", (req, res) => {
   console.log("login success");
-  console.log(req.cookies);
-  console.log(req.signedCookies);
+  console.log(req.session);
   if (req.user) {
     return res.status(200).json({
       success: true,
@@ -102,6 +102,7 @@ router.get(
     //INSTEAD OF JUST REDIRECTING, SET USER NETID ON A COOKIE
     //RETRIEVE THE COOKIE FROM /auth/login/success
     console.log("redirect to check user page");
+    console.log(req.session);
     res.redirect(`${CLIENT_URL}/checkuser`);
   }
 );
