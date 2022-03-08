@@ -11,6 +11,7 @@ function App() {
     const getUser = () => {
       fetch(`${serverIp}/auth/login/success`, {
         method: "GET",
+        withCredentials: true,
         credentials: "include",
       })
         .then((response) => {

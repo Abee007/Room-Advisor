@@ -18,6 +18,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(
   cors({
+    credentials: true,
     origin: "https://room-advisor-v0.web.app",
     methods: "GET, POST, PUT, DELETE",
     credentials: true,
