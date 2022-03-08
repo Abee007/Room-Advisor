@@ -1,7 +1,7 @@
 import React from "react";
 import { db } from "../utils/firebase";
 import { collection, getDocs } from "firebase/firestore";
-import { serverIP } from "../constants";
+import { clientIp } from "../constants";
 
 function CheckUserExists({ user }) {
   const usersCollectionRef = collection(db, "Users");
@@ -18,9 +18,9 @@ function CheckUserExists({ user }) {
     console.log(valid);
 
     if (valid) {
-      window.open(`${serverIP}/viewreviews`, "_self");
+      window.open(`${clientIp}/viewreviews`, "_self");
     } else {
-      window.open(`${serverIP}/register`, "_self");
+      window.open(`${clientIp}/register`, "_self");
     }
 
     //Pushes users to database
