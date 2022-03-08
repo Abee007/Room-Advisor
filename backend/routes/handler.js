@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const passport = require("passport");
 const url = require("url");
-const jwt = require('jsonwebtoken');
+const jwt = require("jsonwebtoken");
 
 // APPLICATION ROUTES
 var CLIENT_URL = undefined;
