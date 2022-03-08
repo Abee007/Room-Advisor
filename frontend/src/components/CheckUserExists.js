@@ -1,6 +1,7 @@
 import React from "react";
 import { db } from "../utils/firebase";
 import { collection, getDocs } from "firebase/firestore";
+import { serverIP } from "../constants";
 
 function CheckUserExists({ user }) {
   const usersCollectionRef = collection(db, "Users");
@@ -17,9 +18,9 @@ function CheckUserExists({ user }) {
     console.log(valid);
 
     if (valid) {
-      window.open("https://room-advisor-v0.web.app/viewreviews", "_self");
+      window.open(`${serverIP}/viewreviews`, "_self");
     } else {
-      window.open("https://room-advisor-v0.web.app/register", "_self");
+      window.open(`${serverIP}/register`, "_self");
     }
 
     //Pushes users to database
