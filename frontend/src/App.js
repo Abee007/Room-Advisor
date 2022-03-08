@@ -1,7 +1,6 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import LandingRegisterProtected from "./LandingRegisterProtected";
-import GetClientUrlComponent from "./utils/GetClientUrl";
 import { serverIp } from "./constants";
 
 function App() {
