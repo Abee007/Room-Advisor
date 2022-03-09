@@ -4,7 +4,7 @@ const passport = require("passport");
 // const client = require("./constants");
 
 // APPLICATION ROUTES
-const CLIENT_URL = "https://room-advisor-v0.web.app";
+const CLIENT_URL = "https://abrahammensah.com";
 
 // router.get("/clienturl", (req, res) => {
 //   console.log("get clienturl");

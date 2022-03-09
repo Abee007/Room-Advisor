@@ -24,7 +24,7 @@ app.use(passport.session());
 app.use(
   cors({
     credentials: true,
-    origin: "https://room-advisor-v0.web.app",
+    origin: "https://abrahammensah.com",
     methods: "GET, POST, PUT, DELETE",
   })
 );
