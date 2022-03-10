@@ -19,7 +19,7 @@ function CheckUserExists({ user }) {
     const data = await getDocs(q);
     var valid = false;
     data.forEach((doc) => {
-      if(hash === doc.data().netId) valid = true;
+      if (hash === doc.data().netId) valid = true;
     });
 
     if (valid) {
