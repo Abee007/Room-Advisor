@@ -39,6 +39,7 @@
   },
   "devDependencies": {
     "firebase": "^9.6.7",
+    "js-sha256": "^0.9.0",
     "react-scripts": "^5.0.0",
     "standard": "^16.0.4"
   }

@@ -1,21 +1,27 @@
 import React from "react";
 import { db } from "../utils/firebase";
-import { collection, getDocs } from "firebase/firestore";
-import { clientIp } from "../constants";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { clientIp, cryptoKey } from "../constants";
+import { Navigate } from "react-router-dom";
+import { sha256 } from 'js-sha256';
 
 function CheckUserExists({ user }) {
+  // Collection ref
   const usersCollectionRef = collection(db, "Users");
 
   const validateUser = async (user) => {
-    const data = await getDocs(usersCollectionRef);
+    //Hash netId with stored cryptoKey
+    const hash = sha256.hmac(cryptoKey, user.id);
+
+    //Query
+    const q = query(usersCollectionRef, where("netId", "==", hash));
+
+    //Get data
+    const data = await getDocs(q);
     var valid = false;
-    data.forEach(function (doc) {
-      // console.log(doc.id, " => ", doc.data());
-      if (user.id === doc.data().netId) {
-        valid = true;
-      }
+    data.forEach((doc) => {
+      if(hash === doc.data().netId) valid = true;
     });
-    console.log(valid);
 
     if (valid) {
       window.open(`${clientIp}/viewreviews`, "_self");

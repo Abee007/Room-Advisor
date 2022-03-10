@@ -23,6 +23,7 @@ app.use(passport.session());
 app.use(
   cors({
     credentials: true,
+    //clientIp
     origin: "https://abrahammensah.com",
     methods: "GET, POST, PUT, DELETE",
   })
