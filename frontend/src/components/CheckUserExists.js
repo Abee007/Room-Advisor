@@ -2,7 +2,6 @@ import React from "react";
 import { db } from "../utils/firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { clientIp, cryptoKey } from "../constants";
-import { Navigate } from "react-router-dom";
 import { sha256 } from 'js-sha256';
 
 function CheckUserExists({ user }) {
