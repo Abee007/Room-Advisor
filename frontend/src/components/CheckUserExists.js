@@ -3,7 +3,7 @@ import { db } from "../utils/firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { clientIp, cryptoKey } from "../constants";
 import { Navigate } from "react-router-dom";
-import { sha256 } from 'js-sha256';
+import { sha256 } from "js-sha256";
 
 function CheckUserExists({ user }) {
   // Collection ref
@@ -20,7 +20,7 @@ function CheckUserExists({ user }) {
     const data = await getDocs(q);
     var valid = false;
     data.forEach((doc) => {
-      if(hash === doc.data().netId) valid = true;
+      if (hash === doc.data().netId) valid = true;
     });
 
     if (valid) {
