@@ -5,6 +5,7 @@ import Nav from "./components/Nav";
 import { BrowserRouter as Router } from "react-router-dom";
 
 function LandingRegisterProtected({ user }) {
+  // If user, user object was found. If user===undefined, user isn't logged in.
   return (
     <Router>
       <div className="App">
@@ -13,7 +14,7 @@ function LandingRegisterProtected({ user }) {
         </header>
         <div>
           {user === undefined ? (
-            <LandingPage />
+            <LandingPage isLoggedIn={false} />
           ) : (
             <RegisterandProtectedPages user={user} />
           )}

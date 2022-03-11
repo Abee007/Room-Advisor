@@ -80,7 +80,7 @@ router.get(
     //INSTEAD OF JUST REDIRECTING, SET USER NETID ON A COOKIE
     //RETRIEVE THE COOKIE FROM /auth/login/success
     console.log("redirect to check user page");
-    res.redirect(`${CLIENT_URL}/checkuser`);
+    res.redirect(`${CLIENT_URL}/viewreviews`);
   }
 );
 

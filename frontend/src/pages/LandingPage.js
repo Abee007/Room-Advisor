@@ -1,11 +1,12 @@
 import "./LandingPage.css";
 import React from "react";
 import LoginComponent from "../components/Login";
+import LoginAlreadyComponent from '../components/LoginAlready';
 import browse from "../static/browse.svg";
 import filter from "../static/filter.svg";
 import read from "../static/read.svg";
 
-function LandingPage() {
+function LandingPage({ isLoggedIn }) {
   return (
     <section className="landing-page-container">
       <div className="hero">
@@ -17,7 +18,8 @@ function LandingPage() {
           experiences by empowering Yale students with information to help them
           find living spaces they love.
         </p>
-        <LoginComponent />
+        {isLoggedIn ? <LoginAlreadyComponent /> : <LoginComponent />}
+        
       </div>
 
       <div className="landing">

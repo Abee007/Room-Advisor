@@ -4,6 +4,7 @@ import LandingRegisterProtected from "./LandingRegisterProtected";
 import { serverIp } from "./constants";
 
 function App() {
+  const [isLoading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -20,6 +21,7 @@ function App() {
         .then((resObject) => {
           console.log(resObject);
           setUser(resObject.user);
+          setLoading(false);
         })
         .catch((err) => {
           console.log(err);
@@ -32,12 +34,12 @@ function App() {
   console.log("Current User:");
   console.log(user);
 
+  // Make sure user object is fetched
+  if(isLoading) {
+    return <div className="App">Loading...</div>;
+  }
   return (
-    <div>
-      {/* If user, user object was found. If user===undefined, user isn't logged in.*/}
-      {/* Compel user object to be fetched before usage. */}
-      {(user || user === undefined) && <LandingRegisterProtected user={user} />}
-    </div>
+    <LandingRegisterProtected user={user} />
   );
 }
 
