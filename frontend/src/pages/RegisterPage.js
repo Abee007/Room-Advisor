@@ -101,7 +101,7 @@ function RegisterPage({ user }) {
           </p>
           <p></p>
           <p className="sub-title">Community Guidelines:</p>
-          <ul className="bullet-list" role="list">
+          <div className="bullet-list" role="list">
             <li>Treat others online as you would treat them in real life</li>
             <li>
               Be tolerant towards other’s viewpoints; respectfully disagree when
@@ -111,9 +111,9 @@ function RegisterPage({ user }) {
               Respect the privacy and personal information of other alumni
             </li>
             <li>Communicate with courtesy and respect</li>
-          </ul>
+          </div>
           <p className="sub-title">Please:</p>
-          <ul className="bullet-list" role="list">
+          <div className="bullet-list" role="list">
             <li>
               Respect: I will not comment on my suite/hall mates. I will not
               name anyone. I will not post pictures of others without consent.
@@ -136,7 +136,7 @@ function RegisterPage({ user }) {
               Honesty: I will review the room honestly based on my own
               experience of living in the room.
             </li>
-          </ul>
+          </div>
         </div>
         <button
           className="btn btn-primary"
