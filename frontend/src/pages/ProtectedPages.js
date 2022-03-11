@@ -19,10 +19,10 @@ function RegisterandProtectedPages({ user }) {
 
       //Hash netId with stored cryptoKey
       const hash = sha256.hmac(cryptoKey, user.id);
-  
+
       //Query
       const q = query(usersCollectionRef, where("netId", "==", hash));
-  
+
       //Get data
       const data = await getDocs(q);
       var valid = false;
@@ -36,8 +36,7 @@ function RegisterandProtectedPages({ user }) {
     validateUser(user);
   }, [user]);
 
-  
-  if(isLoading) {
+  if (isLoading) {
     return <div className="App">Validating...</div>;
   }
 
@@ -64,9 +63,8 @@ function RegisterandProtectedPages({ user }) {
       {/* REGISTER USER */}
       <Route path="/register" element={<Navigate to="/logout" />} />
       {/* If no user exists, navigate back to the landing page */}
-      
       {/* Performs a soft logout so we don't actually log users out of cas */}
-      <Route path="/logout" element={<LandingPage isLoggedIn={true}/>} />
+      <Route path="/logout" element={<LandingPage isLoggedIn={true} />} />
     </Routes>
   );
 }

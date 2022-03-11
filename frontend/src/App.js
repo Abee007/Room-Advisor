@@ -35,12 +35,10 @@ function App() {
   console.log(user);
 
   // Make sure user object is fetched
-  if(isLoading) {
+  if (isLoading) {
     return <div className="App">Loading...</div>;
   }
-  return (
-    <LandingRegisterProtected user={user} />
-  );
+  return <LandingRegisterProtected user={user} />;
 }
 
 export default App;

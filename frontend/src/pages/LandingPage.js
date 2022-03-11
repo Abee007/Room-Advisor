@@ -1,7 +1,7 @@
 import "./LandingPage.css";
 import React from "react";
 import LoginComponent from "../components/Login";
-import LoginAlreadyComponent from '../components/LoginAlready';
+import LoginAlreadyComponent from "../components/LoginAlready";
 import browse from "../static/browse.svg";
 import filter from "../static/filter.svg";
 import read from "../static/read.svg";
@@ -19,7 +19,6 @@ function LandingPage({ isLoggedIn }) {
           find living spaces they love.
         </p>
         {isLoggedIn ? <LoginAlreadyComponent /> : <LoginComponent />}
-        
       </div>
 
       <div className="landing">
