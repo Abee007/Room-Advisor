@@ -5,22 +5,6 @@ const passport = require("passport");
 // APPLICATION ROUTES
 const CLIENT_URL = "https://abrahammensah.com";
 
-// router.get("/clienturl", (req, res) => {
-//   console.log("get clienturl");
-//   if (req.headers) {
-//     CLIENT_URL = `https://${url.parse(req.headers.referer).host}`;
-//     console.log(CLIENT_URL);
-//     return res.status(200).json({
-//       success: true,
-//       message: "Grabbed client URL",
-//     });
-//   }
-//   return res.status(200).json({
-//     success: false,
-//     message: "Failed to grab client URL",
-//   });
-// });
-
 router.get("/viewreviews", (req, res) => {
   const str = [
     {
@@ -42,8 +26,7 @@ router.post("/addFavorite", (req, res) => {
 /// //////////////////////////
 
 router.get("/auth/login/success", (req, res) => {
-  console.log("login success");
-  console.log(req.session);
+  console.log("login success?");
   if (req.user) {
     return res.status(200).json({
       success: true,
@@ -79,7 +62,7 @@ router.get(
 
     //INSTEAD OF JUST REDIRECTING, SET USER NETID ON A COOKIE
     //RETRIEVE THE COOKIE FROM /auth/login/success
-    console.log("redirect to check user page");
+    console.log("redirect to check user validity");
     res.redirect(`${CLIENT_URL}/viewreviews`);
   }
 );

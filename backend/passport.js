@@ -10,14 +10,6 @@ const cas = new CasStrategy(
   },
   // This is the `verify` callback
   function (req, profile, done) {
-    //Check to make sure it user exists in database here
-
-    //prints out netId
-    //console.log(req);
-    // if(req === 'akm66') {
-    //     done(null, UNREGISTERED);
-    // }
-
     //profile get returned to the '/auth/login/success' route as req.user
 
     //therefore syntax = done(null, {data returned to the route})

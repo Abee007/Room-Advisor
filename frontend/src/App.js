@@ -19,7 +19,6 @@ function App() {
           throw new Error("Authentication has been failed!");
         })
         .then((resObject) => {
-          console.log(resObject);
           setUser(resObject.user);
           setLoading(false);
         })
@@ -30,9 +29,6 @@ function App() {
 
     getUser();
   }, []);
-
-  console.log("Current User:");
-  console.log(user);
 
   // Make sure user object is fetched
   if (isLoading) {
