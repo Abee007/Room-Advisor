@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from 'react'
-import { serverIp } from '../constants'
+import React, { useEffect, useState } from "react";
+import { serverIp } from "../constants";
 
-function ViewReviews () {
+function ViewReviews() {
   useEffect(() => {
-    fetchItems()
-  }, [])
+    fetchItems();
+  }, []);
 
-  const [items, setItems] = useState([])
+  const [items, setItems] = useState([]);
 
   const fetchItems = async () => {
-    const data = await fetch(`${serverIp}/viewreviews`)
-    const items = await data.json()
-    setItems(items)
-  }
+    const data = await fetch(`${serverIp}/viewreviews`);
+    const items = await data.json();
+    setItems(items);
+  };
 
   return (
     <section>
@@ -23,7 +23,7 @@ function ViewReviews () {
         </div>
       ))}
     </section>
-  )
+  );
 }
 
-export default ViewReviews
+export default ViewReviews;
