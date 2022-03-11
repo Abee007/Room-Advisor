@@ -1,7 +1,7 @@
 import "./LandingPage.css";
 import React from "react";
-import LoginComponent from "../components/Login";
-import LoginAlreadyComponent from "../components/LoginAlready";
+import LoginComponent from "../components/LandingPageComponents/Login";
+import LoginAlreadyComponent from "../components/LandingPageComponents/LoginAlready";
 import browse from "../static/browse.svg";
 import filter from "../static/filter.svg";
 import read from "../static/read.svg";
@@ -16,7 +16,7 @@ function LandingPage({ isLoggedIn }) {
           Room Advisor is a website where Yale students can candidly rate and
           review residential college rooms. We seek to improve the Yale housing
           experiences by empowering Yale students with information to help them
-          find living spaces they love.
+          find living spaces they love. 
         </p>
         {isLoggedIn ? <LoginAlreadyComponent /> : <LoginComponent />}
       </div>
