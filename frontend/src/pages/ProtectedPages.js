@@ -8,68 +8,66 @@ import { collection, getDocs, query, where } from 'firebase/firestore'
 import { cryptoKey } from '../constants'
 import { sha256 } from 'js-sha256'
 
-function RegisterandProtectedPages ({ user }) {
-  const [isLoading, setLoading] = useState(true)
-  const [isValidated, setValidated] = useState(false)
+function RegisterandProtectedPages({ user }) {
+  const [isLoading, setLoading] = useState(true);
+  const [isValidated, setValidated] = useState(false);
 
   // VALIDATE USER ONCE//
   useEffect(() => {
     const validateUser = async (user) => {
       // Collection ref
-      const usersCollectionRef = collection(db, 'Users')
+      const usersCollectionRef = collection(db, "Users");
 
       // Hash netId with stored cryptoKey
-      const hash = sha256.hmac(cryptoKey, user.id)
+      const hash = sha256.hmac(cryptoKey, user.id);
 
       // Query
-      const q = query(usersCollectionRef, where('netId', '==', hash))
+      const q = query(usersCollectionRef, where("netId", "==", hash));
 
       // Get data
-      const data = await getDocs(q)
-      let valid = false
+      const data = await getDocs(q);
+      let valid = false;
       data.forEach((doc) => {
-        if (hash === doc.data().netId) valid = true
-      })
-      setValidated(valid)
-      setLoading(false)
-    }
+        if (hash === doc.data().netId) valid = true;
+      });
+      setValidated(valid);
+      setLoading(false);
+    };
 
-    validateUser(user)
-  }, [user])
+    validateUser(user);
+  }, [user]);
 
   if (isLoading) {
-    return <div className='App'>Validating...</div>
+    return <div className="App">Validating...</div>;
   }
 
   return (
     <Routes>
       {/* For any other route, navigate back to home page */}
-      <Route path='*' element={<Navigate to='/' />} />
+      <Route path="*" element={<Navigate to="/" />} />
       {/* If the user isn't logged in navigate to Landing page. Else navigate to review page */}
       <Route
-        path='/'
+        path="/"
         element={
-          !user || user === undefined
-            ? (
-              <Navigate to='/logout' />
-              )
-            : (
-              <Navigate to='/viewreviews' />
-              )
+          !user || user === undefined ? (
+            <Navigate to="/logout" />
+          ) : (
+            <Navigate to="/viewreviews" />
+          )
         }
       />
       <Route
-        path='/viewreviews'
-        element={isValidated ? <ViewReviews /> : <Navigate to='/register' />}
+        path="/viewreviews"
+        element={isValidated ? <ViewReviews /> : <Navigate to="/register" />}
       />
       TODO:
       {/* REGISTER USER */}
       <Route path='/register' element={!isValidated ? <RegisterPage user={user}/> : <Navigate to='/viewreviews' />} />
       {/* If no user exists, navigate back to the landing page */}
       {/* Performs a soft logout so we don't actually log users out of cas */}
-      <Route path='/logout' element={<LandingPage isLoggedIn />} />
+      <Route path="/logout" element={<LandingPage isLoggedIn />} />
     </Routes>
-  )
+  );
 }
 
-export default RegisterandProtectedPages
+export default RegisterandProtectedPages;
