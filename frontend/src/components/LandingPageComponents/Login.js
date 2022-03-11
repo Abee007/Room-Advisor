@@ -1,6 +1,6 @@
 import "./Login.css";
 import React from "react";
-import { serverIp } from "../constants";
+import { serverIp } from "../../constants";
 
 function LoginComponent() {
   const casLogin = () => {
