@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from './Button'
+import { Button } from '../Button'
 import './HeroSection.css'
 import LoginComponent from './Login'
 
@@ -19,10 +19,9 @@ function HeroSection () {
       </p>
 
       <Button buttonStyle='btn--primary' buttonSize='btn--medium'>
-          <LoginComponent/>
-        </Button>
+        <LoginComponent/>
+      </Button>
 
-    
     </div>
   )
 }

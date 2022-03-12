@@ -32,21 +32,19 @@ class ScrollContainer extends React.Component {
     console.log(event);
   };
 
+  // creates scrollable container for displaying reviews within the modal
   render() {
     const { items } = this.state;
     return (
       <div>
 
-        <div
-          style={{
-            height: `300px`,
-            overflow: "scroll",
-          }}
+        <div style={{ height: `300px`,overflow: "scroll",}}
         >
           {this.state.items.map((item) => (
             <ReviewItem ref={(inst) => (this[`ref_${item}`] = inst)} item={item} />
           ))}
         </div>
+
       </div>
     );
   }

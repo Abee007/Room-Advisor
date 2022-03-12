@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import CardsContainer from '../components/CardsContainer'
+import CardsContainer from '../components/ViewReviews/CardsContainer'
 
 function Favorites () {
   useEffect(() => {

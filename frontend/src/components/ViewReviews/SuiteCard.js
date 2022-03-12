@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Badge from 'react-bootstrap/Badge'
 import './SuiteCard.css'
 import { Button } from '../Button'
-import CarouselComponent from '../Carousel'
+import CarouselComponent from './Carousel'
 import room from '../../static/dorm_room.jpg'
 import { FaRegBookmark } from 'react-icons/fa'
 import SuiteModal from './SuiteModal'
@@ -16,11 +16,13 @@ function SuiteCard () {
   return (
     <div className='card'>
         
+        {/* displaying room photo (--> to be carousel in the future) */}
         <div className='col-md-5'>
             <img className='card-photo' src={room} alt="room photo"  />
             {/* <CarouselComponent/> */}
         </div>
 
+        {/* creates container for the right hand side of the card where the text and badges will go */}
         <div className='card-right-side' className='col-md-7' onClick={() => {
             console.log('show here');
             setShow(true)}
@@ -47,6 +49,7 @@ function SuiteCard () {
 
         </div>
 
+        {/* pop-up with the individual room cards that shows up when clicked on the card */}
         <SuiteModal 
             title='D31' onClose={() => {
                 console.log('hide here');

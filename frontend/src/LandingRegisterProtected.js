@@ -3,7 +3,7 @@ import LandingPage from './pages/LandingPage';
 import AboutPage from './pages/About';
 import RegisterandProtectedPages from './pages/ProtectedPages';
 import Nav from './components/Nav';
-import Nav_home from './components/Nav_home';
+import Nav_home from './components/ViewReviews/Nav_home';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 function LandingRegisterProtected({ user }) {
@@ -19,7 +19,7 @@ function LandingRegisterProtected({ user }) {
                 : (<Nav_home user={user}/>)}
 
                 <div>
-                    {(user === undefined) ? (<LandingPage/> ) : (<RegisterandProtectedPages user={user}/>)}
+                    {(user === undefined) ? (<LandingPage/>) : (<RegisterandProtectedPages user={user}/>)}
                 </div>
 
             </div>

@@ -6,6 +6,7 @@ import { sortOptions } from './Sort_data.ts'
 export default class SingleSelect extends Component {
   render () {
     return (
+
       <Select
         className='basic-single'
         classNamePrefix='select'
@@ -13,6 +14,7 @@ export default class SingleSelect extends Component {
         name='color'
         options={sortOptions}
       />
+      
     )
   }
 }

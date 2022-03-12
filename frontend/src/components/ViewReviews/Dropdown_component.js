@@ -19,14 +19,14 @@ export default class Dropdown_component extends Component<> {
   render() {
 
     return (
-        <Select
-          className="basic-single college-select"
-          classNamePrefix="select"
-          defaultValue={colleges[0]}
-          name="color"
-          options={colleges}
-          styles={styles} 
-        />
+      <Select
+        className="basic-single college-select"
+        classNamePrefix="select"
+        defaultValue={colleges[0]}
+        name="color"
+        options={colleges}
+        styles={styles} 
+      />
     );
   }
 }

@@ -12,6 +12,7 @@ function AboutHeroSection () {
 
           <div className='row'>
 
+            {/* creating three columns to show three sections of explanatory text and icons   */}
               <div className='column'>
                 <div className='column-image-container'>
                   <img className='column-image' src={browse} alt="Browse rooms"/> 

@@ -1,6 +1,6 @@
 import React from 'react';
 import LandingPage from './LandingPage';
-import ViewReviews from '../components/ViewReviews';
+import ViewReviews from './ViewReviews';
 import CheckUserExists from '../components/CheckUserExists'
 import { Routes, Route, Navigate } from 'react-router-dom';
 import AboutPage from './About';
@@ -12,9 +12,6 @@ function RegisterandProtectedPages({ user }) {
         <Routes>
             {/* If the user isn't logged in navigate to Landing page. Else navigate to review page */}
             <Route path="/" element={(!user || user === undefined) ? <Navigate to='/logout' /> : <Navigate to='/checkuser' />} />
-
-            {/* If the user isn't logged in navigate to Landing page. Else navigate to review page */}
-            <Route path="/about" element={(!user || user === undefined) ? <Navigate to='/about' /> : <Navigate to='/about' />} />
 
             {/* send user to about page */}
             <Route path="/about" element={<AboutPage/>} />
@@ -35,6 +32,7 @@ function RegisterandProtectedPages({ user }) {
             
             {/* Performs a soft logout so we don't actually log users out of cas */}
             <Route path="/logout" element={<LandingPage/>} />
+
         </Routes>
     );
 }

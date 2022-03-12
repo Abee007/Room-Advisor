@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Badge from 'react-bootstrap/Badge'
 import './BedroomCard.css'
 import { Button } from '../Button'
-import CarouselComponent from '../Carousel'
+import CarouselComponent from './Carousel'
 import room from '../../static/dorm_room.jpg'
 import { FaRegBookmark } from 'react-icons/fa'
 import BedroomModal from './BedroomModal'
@@ -40,11 +40,9 @@ function BedroomCard () {
             <p className='card-review-quotes'> "It's tinyyyyyyy and no sunlight cause tiny window. no room..."</p>
             <h1 className='card-subtext'> 13 reviews</h1>
 
-            {/* <div className='card-button-container'>
-                <Button buttonStyle='btn--primary' buttonSize='btn--small' onClick={() => setShow(true)}>Read reviews</Button>
-            </div> */}
         </div>
 
+        {/* Pop-up that opens up when clicked on a bedroom card */}
         <BedroomModal 
             title='D31' onClose={() => setShow(false)} show={show}>
         </BedroomModal>
