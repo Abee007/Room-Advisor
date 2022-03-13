@@ -14,7 +14,7 @@ export default class SingleSelect extends Component {
         name='color'
         options={sortOptions}
       />
-      
+
     )
   }
 }

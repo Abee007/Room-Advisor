@@ -1,5 +1,5 @@
-import './App.css';
-import { useEffect, useState } from 'react';
+import './App.css'
+import { useEffect, useState } from 'react'
 import LandingRegisterProtected from './LandingRegisterProtected'
 
 function App () {
@@ -28,9 +28,9 @@ function App () {
     <div>
       {/* If user, user object was found. If user===undefined, user isn't logged in. */}
       {/* Compel user object to be fetched before usage. */}
-      {(user || user === undefined) && <LandingRegisterProtected user={user}/>}
+      {(user || user === undefined) && <LandingRegisterProtected user={user} />}
     </div>
-  );
+  )
 }
 
 export default App

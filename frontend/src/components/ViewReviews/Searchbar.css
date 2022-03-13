@@ -1,4 +1,4 @@
-.input{
+.input {
   width: 100%;
   padding: 6px 12px;
   margin: 8px 0;
@@ -11,7 +11,7 @@
 
 .input > .submit {
   width: 100%;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -36,22 +36,21 @@
 
 .search:hover,
 .search:focus {
-    border: 1.5px solid #009688;
-    background-color: white;
+  border: 1.5px solid #009688;
+  background-color: white;
 }
 
 .btn--primary {
-    background-color: #0053C5;  /* Blue */
-    border-radius: 8px;
-    color: white;
-    border: 2px solid #0053C5;
-    padding: auto;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    transition-duration: 0.4s;
-    cursor: pointer;
-    display: inline-block;
+  background-color: #0053c5;  /* Blue */
+  border-radius: 8px;
+  color: white;
+  border: 2px solid #0053c5;
+  padding: auto;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
 }

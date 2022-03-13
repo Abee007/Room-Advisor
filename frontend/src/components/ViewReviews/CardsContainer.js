@@ -5,18 +5,18 @@ import SuiteCard from './SuiteCard'
 function CardsContainer () {
   return (
     <div className='suitecards-container'>
-      <div><SuiteCard/></div>
-      <div><SuiteCard/></div>
-      <div><SuiteCard/></div>
-      <div><SuiteCard/></div>
-      <div><SuiteCard/></div>
-      <div><SuiteCard/></div>
-      <div><SuiteCard/></div>
-      <div><SuiteCard/></div>
-      <div><SuiteCard/></div>
-      <div><SuiteCard/></div>
+      <div><SuiteCard /></div>
+      <div><SuiteCard /></div>
+      <div><SuiteCard /></div>
+      <div><SuiteCard /></div>
+      <div><SuiteCard /></div>
+      <div><SuiteCard /></div>
+      <div><SuiteCard /></div>
+      <div><SuiteCard /></div>
+      <div><SuiteCard /></div>
+      <div><SuiteCard /></div>
     </div>
-  );
+  )
 }
 
-export default CardsContainer;
+export default CardsContainer

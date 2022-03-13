@@ -1,5 +1,4 @@
-import React, { useEffect}  from 'react'
-import { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ReactDOM from 'react-dom'
 import { CSSTransition } from 'react-transition-group'
 import './SuiteModal.css'
@@ -9,8 +8,7 @@ import BedroomModal from './BedroomModal'
 import ScrollContainer from './ScrollContainer'
 
 const SuiteModal = props => {
-
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(false)
 
   const closeOnEscapeKeyDown = e => {
     if ((e.charCode || e.keyCode) === 27) {
@@ -18,8 +16,8 @@ const SuiteModal = props => {
     }
   }
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
 
   return ReactDOM.createPortal(
     <CSSTransition
@@ -27,7 +25,7 @@ const SuiteModal = props => {
       unmountOnExit
       timeout={{ enter: 0, exit: 300 }}
     >
-      <div className='SuiteModal' >
+      <div className='SuiteModal'>
         <div className='SuiteModal-content'>
           <div className='SuiteModal-header'>
 
@@ -35,7 +33,7 @@ const SuiteModal = props => {
             <div className='badge-container'> <Badge pill bg='primary'> Triple </Badge>{' '} </div>
             <div> <Badge pill bg='secondary'> Noise: 4.5 </Badge>{' '} </div>
             <div> <Badge pill bg='info'> Size: 3.4 </Badge>{' '} </div>
-            
+
           </div>
 
           <div className='SuiteModal-card-container'>{props.children}
@@ -43,13 +41,12 @@ const SuiteModal = props => {
             <BedroomCard />
           </div>
 
-          <div className='SuiteModal-footer'>
-          </div>
-          
+          <div className='SuiteModal-footer' />
+
         </div>
       </div>
     </CSSTransition>,
-    
+
     document.getElementById('root')
   )
 }

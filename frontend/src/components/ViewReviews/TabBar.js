@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import Tabs from 'react-bootstrap/Tabs'
 import './TabBar.css'
 import Tab from 'react-bootstrap/Tabs'
@@ -7,23 +7,23 @@ import Sonnet from 'react-bootstrap/Tabs'
 
 // TabBar for toggleing views between the reviews to the two different prompts (Recommend? and Strenths/Weaknesses)
 
-function TabBar() {
-    const [key, setKey] = useState('Recommend?');
-  
-    return (
-      
-      <Tabs id="controlled-tab-example" activeKey={key} onSelect={(k) => setKey(k)} className="mb-2">
+function TabBar () {
+  const [key, setKey] = useState('Recommend?')
 
-        <Tab eventKey="Recommend?" title="Recommend?">
-          <ScrollContainer/>
-        </Tab>
+  return (
 
-        <Tab eventKey="Strengths/Weaknesses" title="Strengths/Weaknesses">
-          <ScrollContainer/>
-        </Tab>
-        
-      </Tabs>
-    );
-  }
-  
-export default TabBar;
+    <Tabs id='controlled-tab-example' activeKey={key} onSelect={(k) => setKey(k)} className='mb-2'>
+
+      <Tab eventKey='Recommend?' title='Recommend?'>
+        <ScrollContainer />
+      </Tab>
+
+      <Tab eventKey='Strengths/Weaknesses' title='Strengths/Weaknesses'>
+        <ScrollContainer />
+      </Tab>
+
+    </Tabs>
+  )
+}
+
+export default TabBar

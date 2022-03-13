@@ -14,7 +14,7 @@ import TabBar from './TabBar'
 const BedroomModal = props => {
   const closeOnEscapeKeyDown = e => {
     if ((e.charCode || e.keyCode) === 27) {
-      console.log('hello');
+      console.log('hello')
       props.onClose()
     }
   }
@@ -37,12 +37,12 @@ const BedroomModal = props => {
         <div className='BedroomModal-container' onClick={e => e.stopPropagation()}>
 
           <div className='BedroomModal-header'>
-          {/* showing quick info such as the badges, room number, and bookmark icon in the header section */}
+            {/* showing quick info such as the badges, room number, and bookmark icon in the header section */}
             <h4 className='BedroomModal-title'>{props.title}</h4>
             <div className='badge-container'> <Badge pill bg='primary'> Triple </Badge>{' '} </div>
             <div> <Badge pill bg='secondary'> Noise: 4.5 </Badge>{' '} </div>
             <div> <Badge pill bg='info'> Size: 3.4 </Badge>{' '} </div>
-            <FaRegBookmark className="push-right" style={{color: '#0053c5', fontSize: '30px'}} />
+            <FaRegBookmark className='push-right' style={{ color: '#0053c5', fontSize: '30px' }} />
 
           </div>
 
@@ -50,7 +50,7 @@ const BedroomModal = props => {
 
             {/* displaying room photo (--> to be carousel in the future) */}
             <div className='col-md-5'>
-              <img className='card-photo' src={room} alt="room photo"  />
+              <img className='card-photo' src={room} alt='room photo' />
               {/* <CarouselComponent/> */}
             </div>
 
@@ -58,14 +58,13 @@ const BedroomModal = props => {
               <h2 className='BedroomModal-subtitle'>Reviews</h2>
 
               {/* TabBar for toggleing views between the reviews to the two different prompts (Recommend? and Strenths/Weaknesses) */}
-              <TabBar/>
+              <TabBar />
 
             </div>
 
           </div>
 
-          <div className='BedroomModal-footer'>
-          </div>
+          <div className='BedroomModal-footer' />
 
         </div>
       </div>

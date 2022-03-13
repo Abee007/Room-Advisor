@@ -18,15 +18,15 @@ function Favorites () {
     <section>
 
       <div>
-        <CardsContainer/>
+        <CardsContainer />
       </div>
 
       {
         items.map(item => (
-            <div key={item.name}>
+          <div key={item.name}>
             <p>{item.name}</p>
             <p>{item.msg}</p>
-            </div>
+          </div>
         ))
         }
     </section>

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import CardsContainer from '../components/ViewReviews/CardsContainer'
 import Results from '../components/ViewReviews/Results'
 
-
 function ViewReviews () {
   useEffect(() => {
     fetchItems()
@@ -20,14 +19,14 @@ function ViewReviews () {
     <section>
 
       <div>
-        {/* a header section to show a summary of results 
-        (eg # of suites found matching the search plus sort by component) 
+        {/* a header section to show a summary of results
+        (eg # of suites found matching the search plus sort by component)
         after a user makes a search */}
-        <Results/>
+        <Results />
 
         {/* a container holding all the suite cards */}
-        <CardsContainer/>
-        
+        <CardsContainer />
+
       </div>
 
       {
@@ -38,7 +37,7 @@ function ViewReviews () {
           </div>
         ))
       }
-      
+
     </section>
   )
 }

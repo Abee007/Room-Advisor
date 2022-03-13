@@ -12,14 +12,14 @@ function HeroSection () {
       </h1>
 
       <p>
-        Room Advisor is a website where Yale students can candidly rate 
-        and review residential college rooms. We seek to improve the 
-        Yale housing experiences by empowering Yale students with information 
+        Room Advisor is a website where Yale students can candidly rate
+        and review residential college rooms. We seek to improve the
+        Yale housing experiences by empowering Yale students with information
         to help them find living spaces they love.
       </p>
 
       <Button buttonStyle='btn--primary' buttonSize='btn--medium'>
-        <LoginComponent/>
+        <LoginComponent />
       </Button>
 
     </div>
