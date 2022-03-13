@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Tab from 'react-bootstrap/Tabs'
+import Tab from 'react-bootstrap/Tab'
 import Tabs from 'react-bootstrap/Tabs'
 import './TabBar.css'
 import ScrollContainer from './ScrollContainer'

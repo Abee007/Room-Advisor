@@ -1,14 +1,13 @@
 import React from 'react' // ES6 js
 import { NavLink } from 'react-router-dom'
 import '../Nav.css'
-import Dropdown_Multiselect from './Dropdown_Multiselect'
-import Dropdown_component from './Dropdown_component'
+import DropdownMultiselect from './DropdownMultiselect'
+import DropdownComponent from './DropdownComponent'
 import logo from '../../static/logo.png'
 import Searchbar from './Searchbar'
 import { Bookmark, BoxArrowRight } from 'react-bootstrap-icons'
 
 function Nav_home ({ user }) {
-
   // CAS logout
   const casLogout = () => {
     console.log('casLogout')
@@ -23,8 +22,8 @@ function Nav_home ({ user }) {
       </div>
 
       {/* Search, dropdown tools in the center and Navigational page links on the right */}
-      <div className='push-right p-2'><Dropdown_component /></div>
-      <div className='push-right p-2' style={{ marginLeft: '10px', marginRight: '10px', paddingRight: '10px', paddingLeft: '10px' }}> <Dropdown_Multiselect />  </div>
+      <div className='push-right p-2'><DropdownComponent /></div>
+      <div className='push-right p-2' style={{ marginLeft: '10px', marginRight: '10px', paddingRight: '10px', paddingLeft: '10px' }}> <DropdownMultiselect />  </div>
       <div className='nav-link p-2'> <Searchbar /> </div>
       <div className='nav-link p-2'><NavLink to='/viewreviews' className='nav-item nav-link' activeclassname='active'>About</NavLink></div>
       <div className='nav-link p-2'><NavLink to='/favorites' className='nav-item nav-link' activeclassname='active'> <Bookmark /> Favorites</NavLink></div>

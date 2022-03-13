@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import './Sortby_component.css'
+import './SortbyComponent.css'
 import Select from 'react-select'
-import { sortOptions } from './Sort_data.ts'
+import { sortOptions } from './SortData.ts'
 
 export default class SingleSelect extends Component {
   render () {

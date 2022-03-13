@@ -16,7 +16,7 @@ function BedroomCard () {
         {/* <CarouselComponent/> */}
       </div>
 
-      <div className='card-right-side' className='col-md-7' onClick={() => setShow(true)}>
+      <div className='card-right-side col-md-7' onClick={() => setShow(true)}>
 
         {/* room number and bookmark icon */}
         <div className='card-title-container'>

@@ -4,7 +4,6 @@ import './Nav.css'
 import logo from '../static/logo.png'
 
 function Nav ({ user }) {
-
   return (
     <nav className='navbar navbar-container d-flex'>
 

@@ -6,16 +6,17 @@ import Badge from 'react-bootstrap/Badge'
 import BedroomCard from './BedroomCard'
 
 const SuiteModal = props => {
-  const [show, setShow] = useState(false)
+  
+  // const [show, setShow] = useState(false)
 
-  const closeOnEscapeKeyDown = e => {
-    if ((e.charCode || e.keyCode) === 27) {
-      props.onClose()
-    }
-  }
+  // const closeOnEscapeKeyDown = e => {
+  //   if ((e.charCode || e.keyCode) === 27) {
+  //     props.onClose()
+  //   }
+  // }
 
-  const handleClose = () => setShow(false)
-  const handleShow = () => setShow(true)
+  // const handleClose = () => setShow(false)
+  // const handleShow = () => setShow(true)
 
   return ReactDOM.createPortal(
     <CSSTransition

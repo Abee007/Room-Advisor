@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
 import { colleges } from './data.ts';
-import './Dropdown_component.css'
+import './DropdownComponent.css'
 
 const styles = {
     control: base => ({
