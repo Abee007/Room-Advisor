@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom'
 import { CSSTransition } from 'react-transition-group'
 import './SuiteModal.css'
@@ -6,15 +6,12 @@ import Badge from 'react-bootstrap/Badge'
 import BedroomCard from './BedroomCard'
 
 const SuiteModal = props => {
-  
   // const [show, setShow] = useState(false)
-
   // const closeOnEscapeKeyDown = e => {
   //   if ((e.charCode || e.keyCode) === 27) {
   //     props.onClose()
   //   }
   // }
-
   // const handleClose = () => setShow(false)
   // const handleShow = () => setShow(true)
 

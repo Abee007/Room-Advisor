@@ -2,12 +2,9 @@ import React, { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Badge from 'react-bootstrap/Badge'
 import './SuiteCard.css'
-import { Button } from '../Button'
-import CarouselComponent from './Carousel'
 import room from '../../static/dorm_room.jpg'
 import { FaRegBookmark } from 'react-icons/fa'
 import SuiteModal from './SuiteModal'
-import three from '../../static/NumberIcons-03.svg'
 
 function SuiteCard () {
   const [show, setShow] = useState(false)
@@ -23,7 +20,7 @@ function SuiteCard () {
 
       {/* creates container for the right hand side of the card where the text and badges will go */}
       <div
-        className='card-right-side' className='col-md-7' onClick={() => {
+        className='card-right-side col-md-7' onClick={() => {
           console.log('show here')
           setShow(true)
         }}

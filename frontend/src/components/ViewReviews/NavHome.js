@@ -7,7 +7,7 @@ import logo from '../../static/logo.png'
 import Searchbar from './Searchbar'
 import { Bookmark, BoxArrowRight } from 'react-bootstrap-icons'
 
-function Nav_home ({ user }) {
+function NavHome ({ user }) {
   // CAS logout
   const casLogout = () => {
     console.log('casLogout')
@@ -33,4 +33,4 @@ function Nav_home ({ user }) {
   )
 }
 
-export default Nav_home
+export default NavHome

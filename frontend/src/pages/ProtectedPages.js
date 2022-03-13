@@ -19,13 +19,13 @@ function RegisterandProtectedPages({ user }) {
             {/* Important! We always have to check that the user has been registered before routing them anywhere else */}
             <Route path="/checkuser" element={user ? <CheckUserExists user={user}/> : <Navigate to='/' />} />
 
-            TODO:
+            {/* TODO: */}
             {/* REGISTER USER */}
             <Route path="/register" element={<Navigate to='/logout' />} />
 
 
             {/* send user to favorites page */}
-            <Route path="/favorites" element={<Favorites/>} />}
+            <Route path="/favorites" element={<Favorites/>} />
 
             {/* If no user exists, navigate back to the landing page */}
             <Route path="/viewreviews" element={user ? <ViewReviews/> : <Navigate to='/' />} />

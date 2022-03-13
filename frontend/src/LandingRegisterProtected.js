@@ -3,7 +3,7 @@ import LandingPage from './pages/LandingPage'
 import AboutPage from './pages/About'
 import RegisterandProtectedPages from './pages/ProtectedPages'
 import Nav from './components/Nav'
-import Nav_home from './components/ViewReviews/Nav_home'
+import NavHome from './components/ViewReviews/NavHome'
 import { BrowserRouter as Router } from 'react-router-dom'
 
 function LandingRegisterProtected ({ user }) {
@@ -16,7 +16,7 @@ function LandingRegisterProtected ({ user }) {
           ? (<Nav user={user} />)
 
         // if logged in
-          : (<Nav_home user={user} />)}
+          : (<NavHome user={user} />)}
 
         <div>
           {(user === undefined) ? (<LandingPage />) : (<RegisterandProtectedPages user={user} />)}

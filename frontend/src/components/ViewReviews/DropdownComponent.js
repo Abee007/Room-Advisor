@@ -1,32 +1,30 @@
-import React, { Component } from 'react';
-import Select from 'react-select';
-import { colleges } from './data.ts';
+import React, { Component } from 'react'
+import Select from 'react-select'
+import { colleges } from './data.ts'
 import './DropdownComponent.css'
 
 const styles = {
-    control: base => ({
-      ...base,
-      fontSize: "1rem"
-    }),
-    menu: base => ({
-      ...base,
-      fontSize: "1rem"
-    })
-  };
+  control: base => ({
+    ...base,
+    fontSize: '1rem'
+  }),
+  menu: base => ({
+    ...base,
+    fontSize: '1rem'
+  })
+}
 
-export default class Dropdown_component extends Component<> {
-
-  render() {
-
+export default class DropdownComponent extends Component {
+  render () {
     return (
       <Select
-        className="basic-single college-select"
-        classNamePrefix="select"
+        className='basic-single college-select'
+        classNamePrefix='select'
         defaultValue={colleges[0]}
-        name="color"
+        name='color'
         options={colleges}
-        styles={styles} 
+        styles={styles}
       />
-    );
+    )
   }
 }
