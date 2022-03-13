@@ -5,17 +5,17 @@
 }
 
 .select__input-container {
-    color: inherit; 
-    background: 0px center; 
+    color: inherit;
+    background: 0px center;
     font-size: 1rem;
-    opacity: 0; 
-    width: 100%; 
-    grid-area: 1 / 2 / auto / auto; 
-    font: inherit; 
-    min-width: 2px; 
-    border: 0px; 
-    margin: 0px; 
-    outline: 0px; 
+    opacity: 0;
+    width: 100%;
+    grid-area: 1 / 2 / auto / auto;
+    font: inherit;
+    min-width: 2px;
+    border: 0px;
+    margin: 0px;
+    outline: 0px;
     padding: 0px;
 }
 
@@ -26,6 +26,3 @@
 .college-select {
     font-size: 1rem;
 }
-
-  
-  

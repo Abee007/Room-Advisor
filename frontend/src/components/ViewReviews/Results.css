@@ -1,20 +1,19 @@
 .results_container {
-    height: 60px;
-    padding-top: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    width: 75%;
-    margin: auto;
-    justify-content: center;
-    z-index: -1; 
-    /* box-shadow: 0 2px 2px -2px rgba(0,0,0,.2); */
+  height: 60px;
+  padding-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 75%;
+  margin: auto;
+  justify-content: center;
+  z-index: -1;
 }
 
 .push_right {
-    margin-left: auto;
+  margin-left: auto;
 }
 
 .results_container > h1 {
-    font-size: 1em;
-    font-weight: bold;
-}  
+  font-size: 1em;
+  font-weight: bold;
+}
