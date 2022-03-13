@@ -1,28 +1,29 @@
 .basic-single {
-    position: relative;
-    box-sizing: border-box;
-    width: 200px;
+  position: relative;
+  box-sizing: border-box;
+  width: 200px;
 }
 
 .select__input-container {
-    color: inherit;
-    background: 0px center;
-    font-size: 1rem;
-    opacity: 0;
-    width: 100%;
-    grid-area: 1 / 2 / auto / auto;
-    font: inherit;
-    min-width: 2px;
-    border: 0px;
-    margin: 0px;
-    outline: 0px;
-    padding: 0px;
+  color: inherit;
+  /* background: 0px center; */
+  background: center;
+  font-size: 1rem;
+  opacity: 0;
+  width: 100%;
+  grid-area: 1 / 2 / auto / auto;
+  font: inherit;
+  min-width: 2px;
+  border: 0px;
+  margin: 0px;
+  outline: 0px;
+  padding: 0px;
 }
 
 .basic-single input {
-    font-size: "1rem";
+  font-size: "1rem";
 }
 
 .college-select {
-    font-size: 1rem;
+  font-size: 1rem;
 }

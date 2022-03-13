@@ -1,4 +1,4 @@
-.results_container {
+.results-container {
   height: 60px;
   padding-top: 20px;
   display: flex;
@@ -9,11 +9,11 @@
   z-index: -1;
 }
 
-.push_right {
+.push-right {
   margin-left: auto;
 }
 
-.results_container > h1 {
+.results-container > h1 {
   font-size: 1em;
   font-weight: bold;
 }
