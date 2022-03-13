@@ -3,12 +3,8 @@ import ReactDOM from 'react-dom'
 import { CSSTransition } from 'react-transition-group'
 import './BedroomModal.css'
 import Badge from 'react-bootstrap/Badge'
-import BedroomCard from './BedroomCard'
 import { FaRegBookmark } from 'react-icons/fa'
-import ScrollContainer from './ScrollContainer'
-import CarouselComponent from './Carousel'
 import room from '../../static/dorm_room.jpg'
-import SuiteModal from './SuiteModal'
 import TabBar from './TabBar'
 
 const BedroomModal = props => {

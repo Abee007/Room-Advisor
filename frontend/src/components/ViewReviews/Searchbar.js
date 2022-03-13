@@ -1,5 +1,4 @@
 import './Searchbar.css'
-import { Search } from 'react-bootstrap-icons'
 
 const SearchBar = () => (
   <form action='/' method='get'>

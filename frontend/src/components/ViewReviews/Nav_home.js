@@ -4,11 +4,11 @@ import '../Nav.css'
 import Dropdown_Multiselect from './Dropdown_Multiselect'
 import Dropdown_component from './Dropdown_component'
 import logo from '../../static/logo.png'
-import Sortby_component from './Sortby_component'
 import Searchbar from './Searchbar'
 import { Bookmark, BoxArrowRight } from 'react-bootstrap-icons'
 
 function Nav_home ({ user }) {
+
   // CAS logout
   const casLogout = () => {
     console.log('casLogout')

@@ -22,7 +22,7 @@ function AboutHeroSection () {
 
         <div className='column'>
           <div className='column-image-container'>
-            <img className='column-image' src={browse} alt='Browse rooms' src={filter} alt='Filter rooms' />
+            <img className='column-image' src={filter} alt='Filter rooms' />
           </div>
           <h2 className='column-title'>Search and filter rooms based on preferences.</h2>
         </div>

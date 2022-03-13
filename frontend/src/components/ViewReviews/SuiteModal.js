@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 import { CSSTransition } from 'react-transition-group'
 import './SuiteModal.css'
 import Badge from 'react-bootstrap/Badge'
 import BedroomCard from './BedroomCard'
-import BedroomModal from './BedroomModal'
-import ScrollContainer from './ScrollContainer'
 
 const SuiteModal = props => {
   const [show, setShow] = useState(false)

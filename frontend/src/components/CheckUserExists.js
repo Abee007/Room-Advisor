@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
+// import React, { useState, useEffect } from 'react'
 import { db } from '../utils/firebase'
-import { collection, getDocs, addDoc } from 'firebase/firestore'
-import { Navigate } from 'react-router-dom'
+import { collection, getDocs } from 'firebase/firestore'
+// import { Navigate } from 'react-router-dom'
 
 function CheckUserExists ({ user }) {
   const usersCollectionRef = collection(db, 'Users')

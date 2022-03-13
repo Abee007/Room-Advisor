@@ -2,12 +2,9 @@ import React, { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Badge from 'react-bootstrap/Badge'
 import './BedroomCard.css'
-import { Button } from '../Button'
-import CarouselComponent from './Carousel'
 import room from '../../static/dorm_room.jpg'
 import { FaRegBookmark } from 'react-icons/fa'
 import BedroomModal from './BedroomModal'
-import three from '../../static/NumberIcons-03.svg'
 
 function BedroomCard () {
   const [show, setShow] = useState(false)
@@ -23,7 +20,7 @@ function BedroomCard () {
 
         {/* room number and bookmark icon */}
         <div className='card-title-container'>
-          <h5 className='card-title'>D31A</h5>
+          <h5 className='card-title'> D31A </h5>
           <FaRegBookmark className='push-right' style={{ color: '#0053c5', fontSize: '30px' }} />
         </div>
 

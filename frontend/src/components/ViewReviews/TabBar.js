@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
+import Tab from 'react-bootstrap/Tabs'
 import Tabs from 'react-bootstrap/Tabs'
 import './TabBar.css'
-import Tab from 'react-bootstrap/Tabs'
 import ScrollContainer from './ScrollContainer'
-import Sonnet from 'react-bootstrap/Tabs'
+// import Sonnet from 'react-bootstrap/Tabs'
 
 // TabBar for toggleing views between the reviews to the two different prompts (Recommend? and Strenths/Weaknesses)
 

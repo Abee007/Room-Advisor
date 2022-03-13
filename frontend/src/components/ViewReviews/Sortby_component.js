@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import './Sortby_component.css'
 import Select from 'react-select'
 import { sortOptions } from './Sort_data.ts'
