@@ -1,4 +1,4 @@
-.results_container{
+.results_container {
     height: 60px;
     padding-top: 20px;
     display: flex;
@@ -10,14 +10,11 @@
     /* box-shadow: 0 2px 2px -2px rgba(0,0,0,.2); */
 }
 
-.push_right{
+.push_right {
     margin-left: auto;
 }
 
 .results_container > h1 {
     font-size: 1em;
     font-weight: bold;
-}
-
-
-  
+}  

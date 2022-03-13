@@ -4,10 +4,10 @@
     width: 200px;
 }
 
-.select__input-container{
+.select__input-container {
     color: inherit; 
     background: 0px center; 
-    font-size:1rem;
+    font-size: 1rem;
     opacity: 0; 
     width: 100%; 
     grid-area: 1 / 2 / auto / auto; 
@@ -21,9 +21,9 @@
 
 .basic-single input {
     font-size: "1rem";
-  }
+}
 
-.college-select{
+.college-select {
     font-size: 1rem;
 }
 
