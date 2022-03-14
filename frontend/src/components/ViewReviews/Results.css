@@ -1,0 +1,19 @@
+.results-container {
+  height: 60px;
+  padding-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 75%;
+  margin: auto;
+  justify-content: center;
+  z-index: -1;
+}
+
+.push-right {
+  margin-left: auto;
+}
+
+.results-container > h1 {
+  font-size: 1em;
+  font-weight: bold;
+}

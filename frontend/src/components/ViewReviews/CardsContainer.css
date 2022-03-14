@@ -1,0 +1,17 @@
+h1 {
+  text-align: center;
+}
+
+.suitecards-container {
+  padding-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 85%;
+  margin: auto;
+  justify-content: center;
+}
+
+.suitecards-container > div {
+  /* flex: 50%;  */
+  margin: 10px;
+}
