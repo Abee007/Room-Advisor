@@ -1,4 +1,3 @@
-import "./Login.css";
 import React from "react";
 import { serverIp } from "../../constants";
 
@@ -10,9 +9,7 @@ function LoginComponent() {
 
   return (
     <div className="login-button-container">
-      <div className="login-button" onClick={casLogin}>
-        LOGIN WITH CAS
-      </div>
+      <div className="login-button" onClick={casLogin}>Login with CAS</div>
     </div>
   );
 }
