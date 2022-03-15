@@ -20,7 +20,7 @@ function HeroSection ({ isLoggedIn }) {
       </p>
 
       <Button buttonStyle='btn--primary' buttonSize='btn--medium'>
-        {isLoggedIn ? <LoginAlreadyComponent /> : <LoginComponent />}
+        {<LoginComponent isLoggedIn={isLoggedIn}/>}
       </Button>
 
     </div>
