@@ -2,7 +2,6 @@ import "./HeroSection.css";
 import React from "react";
 import { Button } from "../Button";
 import LoginComponent from "./Login";
-import LoginAlreadyComponent from "./LoginAlready";
 
 function HeroSection({ isLoggedIn }) {
   return (
