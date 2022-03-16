@@ -3,7 +3,6 @@ import { serverIp } from "../../constants";
 import { useNavigate } from "react-router-dom";
 
 function LoginComponent({ isLoggedIn }) {
-  
   const casLogin = () => {
     console.log("casLogin");
     window.open(`${serverIp}/auth/cas`, "_self");
@@ -11,12 +10,17 @@ function LoginComponent({ isLoggedIn }) {
 
   const redirectLogin = () => {
     const navigate = useNavigate();
-    navigate("/viewreviews")
+    navigate("/viewreviews");
   };
 
   return (
     <div className="login-button-container">
-      <div className="login-button" onClick={!isLoggedIn ? casLogin : redirectLogin}>Login with CAS</div>
+      <div
+        className="login-button"
+        onClick={!isLoggedIn ? casLogin : redirectLogin}
+      >
+        Login with CAS
+      </div>
     </div>
   );
 }
