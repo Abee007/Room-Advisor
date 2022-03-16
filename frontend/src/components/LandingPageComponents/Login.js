@@ -9,7 +9,7 @@ function LoginComponent({ isLoggedIn }) {
   };
 
   const navigate = useNavigate();
-  
+
   const redirectLogin = () => {
     navigate("/viewreviews");
   };
