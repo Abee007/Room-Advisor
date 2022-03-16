@@ -8,8 +8,9 @@ function LoginComponent({ isLoggedIn }) {
     window.open(`${serverIp}/auth/cas`, "_self");
   };
 
+  const navigate = useNavigate();
+  
   const redirectLogin = () => {
-    const navigate = useNavigate();
     navigate("/viewreviews");
   };
 
