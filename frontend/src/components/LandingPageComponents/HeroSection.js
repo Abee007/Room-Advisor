@@ -16,13 +16,8 @@ function HeroSection({ isLoggedIn }) {
         find living spaces they love.
       </p>
 
-<<<<<<< HEAD
       <Button buttonStyle='btn--primary' buttonSize='btn--medium'>
-        {<LoginComponent isLoggedIn={isLoggedIn}/>}
-=======
-      <Button buttonStyle="btn--primary" buttonSize="btn--medium">
-        {isLoggedIn ? <LoginAlreadyComponent /> : <LoginComponent />}
->>>>>>> fd78c5f76c445cac875d32d5b88ec6efba0fe20f
+        <LoginComponent isLoggedIn={isLoggedIn}/>
       </Button>
     </div>
   );
