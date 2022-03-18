@@ -63,7 +63,7 @@
 /* For small screens */
 @media (max-width: 768px) {
     .btn--medium {
-        font-size: 17px;
+        font-size: 16px;
         max-width: 100%;
     }
 }
