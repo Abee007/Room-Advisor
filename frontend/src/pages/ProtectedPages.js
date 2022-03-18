@@ -58,7 +58,7 @@ function RegisterandProtectedPages({ user }) {
       />
       <Route
         path="/viewreviews"
-        element={isValidated ? <ViewReviews /> : <Navigate to="/register" />}
+        element={isValidated ? <ViewReviews user={user} /> : <Navigate to="/register" />}
       />
       TODO:
       {/* REGISTER USER */}
@@ -74,7 +74,7 @@ function RegisterandProtectedPages({ user }) {
       />
       {/* If no user exists, navigate back to the landing page */}
       {/* Performs a soft logout so we don't actually log users out of cas */}
-      <Route path="/logout" element={<LandingPage isLoggedIn />} />
+      <Route path="/logout" element={<LandingPage isLoggedIn={true} />} />
     </Routes>
   );
 }

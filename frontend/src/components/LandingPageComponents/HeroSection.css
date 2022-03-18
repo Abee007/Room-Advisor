@@ -7,7 +7,7 @@ img {
 }
   
 .hero-container {
-    background-image: url("./landing_page.png");
+    background-image: none;
     background-position: fixed;
     background-size: 100%;
     background-repeat: no-repeat;
@@ -55,4 +55,68 @@ img {
 .fa-play-circle {
     margin-left: 4px;
 }
-  
+
+.lg-screen-button {
+    display: flex;
+    justify-content: left;
+    max-height: 60px;
+    border-radius: 8px;
+}
+
+@media (min-width: 768px) {
+    .hero-container {
+        background-image: url("../../static/landing_page.png");
+    }
+
+    .mobile-para {
+        display: none;
+    }
+
+    .sm-screen-buttons {
+        display: none;
+    }
+}
+
+/* For small screens */
+@media (max-width: 768px) {
+    .hero-container h1 {
+        width: 100%;
+        font-size: 27px;
+        text-align: center;
+    }
+
+    .hero-container p {
+        display: none;
+    }
+
+    /* use mobile hero container */
+    .mobile-para {
+        font-family: Lato, Helvetica, sans-serif;
+        font-weight: 600;
+        color: #000;
+        font-size: 15px;
+        padding-bottom: 8px;
+        width: 100%;
+        text-align: center;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .lg-screen-button {
+        display: none;
+    }
+
+    .sm-screen-buttons {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        /* padding-left: 30px;
+        padding-right: 30px; */
+    }
+
+    .sm-screen-button {
+        color: red;
+    }
+}
+
+

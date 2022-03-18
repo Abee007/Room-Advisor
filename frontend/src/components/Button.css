@@ -59,3 +59,10 @@
     color: #0053C5;
     transition: 250ms;
 }
+
+/* For small screens */
+@media (max-width: 768px) {
+    .btn--medium {
+        max-width: 100%;
+    }
+}

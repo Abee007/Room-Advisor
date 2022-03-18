@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { serverIp } from "../constants";
+import Nav from "../components/Nav";
 
-function ViewReviews() {
+function ViewReviews({ user }) {
   useEffect(() => {
     fetchItems();
   }, []);
@@ -15,14 +16,18 @@ function ViewReviews() {
   };
 
   return (
-    <section>
-      {items.map((item) => (
-        <div key={item.name}>
-          <p>{item.name}</p>
-          <p>{item.msg}</p>
-        </div>
-      ))}
-    </section>
+    <div>
+      <Nav props={ { "user": user, "mode": "TRUNCATED" } } />
+      <section>
+        {items.map((item) => (
+          <div key={item.name}>
+            <p>{item.name}</p>
+            <p>{item.msg}</p>
+          </div>
+        ))}
+      </section>
+    </div>
+    
   );
 }
 
