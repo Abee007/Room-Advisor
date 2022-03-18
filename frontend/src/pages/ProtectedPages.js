@@ -58,7 +58,13 @@ function RegisterandProtectedPages({ user }) {
       />
       <Route
         path="/viewreviews"
-        element={isValidated ? <ViewReviews user={user} /> : <Navigate to="/register" />}
+        element={
+          isValidated ? (
+            <ViewReviews user={user} />
+          ) : (
+            <Navigate to="/register" />
+          )
+        }
       />
       TODO:
       {/* REGISTER USER */}

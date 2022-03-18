@@ -51,7 +51,7 @@ function RegisterPage({ user }) {
   }
   return (
     <div>
-      <Nav props={ { "user": user, "mode": "TRUNCATED" } } />
+      <Nav props={{ user: user, mode: "TRUNCATED" }} />
       <form
         onSubmit={(e) => {
           handleSubmit(e);
@@ -83,32 +83,35 @@ function RegisterPage({ user }) {
           <div className="resource-rich w-richtext">
             <h2 className="signup-title"> Community Guidelines</h2>
             <br />
-            <p className="sub-title"> Choosing a room just got a lot easier! </p>
+            <p className="sub-title">
+              {" "}
+              Choosing a room just got a lot easier!{" "}
+            </p>
             <p>
-              Room Advisor is a new platform built by Yale undergrads that enables
-              students to share and view reviews of rooms on campus to make the
-              housing process less stressful and more transparent.
+              Room Advisor is a new platform built by Yale undergrads that
+              enables students to share and view reviews of rooms on campus to
+              make the housing process less stressful and more transparent.
             </p>
             <p>
               Do you have a loud gym right next to your bedroom? Do you have a
               beautiful view of the courtyard every morning? Share your
-              experiences with the community to help people after you make better
-              informed decisions!
+              experiences with the community to help people after you make
+              better informed decisions!
             </p>
             <p>
               This anonymous form lets you review a room on campus you are
-              currently living in or have lived in the past. Individual identities
-              associated with reviews will not be displayed or kept in our
-              records. The information you provide will help build a collective
-              database of room reviews for the future.
+              currently living in or have lived in the past. Individual
+              identities associated with reviews will not be displayed or kept
+              in our records. The information you provide will help build a
+              collective database of room reviews for the future.
             </p>
             <p></p>
             <p className="sub-title">Community Guidelines:</p>
             <div className="bullet-list" role="list">
               <li>Treat others online as you would treat them in real life</li>
               <li>
-                Be tolerant towards other’s viewpoints; respectfully disagree when
-                opinions do not align
+                Be tolerant towards other’s viewpoints; respectfully disagree
+                when opinions do not align
               </li>
               <li>
                 Respect the privacy and personal information of other alumni
@@ -123,8 +126,8 @@ function RegisterPage({ user }) {
               </li>
               <li>
                 Relevance: I understand this platform is only for reviewing the
-                quality of the ROOM. This is no place for rants irrelevant to the
-                room itself.{" "}
+                quality of the ROOM. This is no place for rants irrelevant to
+                the room itself.{" "}
               </li>
               <li>Do not post prejudiced comments or profanity</li>
               <li>
@@ -157,7 +160,11 @@ function RegisterPage({ user }) {
           </button>
         </div>
         <br />
-        <button disabled={level !== 1} className="btn btn-primary" type="submit">
+        <button
+          disabled={level !== 1}
+          className="btn btn-primary"
+          type="submit"
+        >
           Submit
         </button>
       </form>

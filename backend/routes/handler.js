@@ -5,7 +5,7 @@ const passport = require("passport");
 // APPLICATION ROUTES
 const CLIENT_URL = "https://abrahammensah.com";
 
-//For dev 
+//For dev
 // const CLIENT_URL = "http://localhost:3000";
 
 router.get("/viewreviews", (req, res) => {

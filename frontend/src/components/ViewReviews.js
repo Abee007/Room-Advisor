@@ -17,7 +17,7 @@ function ViewReviews({ user }) {
 
   return (
     <div>
-      <Nav props={ { "user": user, "mode": "TRUNCATED" } } />
+      <Nav props={{ user: user, mode: "TRUNCATED" }} />
       <section>
         {items.map((item) => (
           <div key={item.name}>
@@ -27,7 +27,6 @@ function ViewReviews({ user }) {
         ))}
       </section>
     </div>
-    
   );
 }
 

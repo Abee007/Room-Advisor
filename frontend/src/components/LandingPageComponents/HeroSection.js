@@ -2,7 +2,7 @@ import "./HeroSection.css";
 import React from "react";
 import { Button } from "../Button";
 import LoginComponent from "./Login";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 function HeroSection({ isLoggedIn }) {
   return (
@@ -16,7 +16,7 @@ function HeroSection({ isLoggedIn }) {
         find living spaces they love.
       </p>
 
-      <div className='mobile-para'>
+      <div className="mobile-para">
         <div>
           Room Advisor is a website where Yale students can candidly rate and
           review residential college rooms. We seek to improve the Yale housing
@@ -25,30 +25,27 @@ function HeroSection({ isLoggedIn }) {
         </div>
       </div>
 
-      <div className='lg-screen-button'>
+      <div className="lg-screen-button">
         <Button buttonStyle="btn--primary" buttonSize="btn--medium">
           <LoginComponent isLoggedIn={isLoggedIn} />
         </Button>
       </div>
-      
 
-
-      <div className='sm-screen-buttons'>
-        <div className='sm-screen-button'>
+      <div className="sm-screen-buttons">
+        <div className="sm-screen-button">
           <Button buttonStyle="btn--primary" buttonSize="btn--medium">
             <LoginComponent isLoggedIn={isLoggedIn} />
           </Button>
         </div>
-        
-        <div className='sm-screen-button'>
+
+        <div className="sm-screen-button">
           <Button buttonStyle="btn--primary" buttonSize="btn--medium">
-            <Link to='/about' style={{color: 'white'}}>About</Link>
+            <Link to="/about" style={{ color: "white" }}>
+              About
+            </Link>
           </Button>
         </div>
       </div>
-      
-
-
     </div>
   );
 }
