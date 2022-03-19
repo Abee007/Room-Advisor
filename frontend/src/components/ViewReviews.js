@@ -45,22 +45,30 @@ export default class ViewReviews extends Component {
     this.state = {
       loading: false,
       building: codeToCollege(this.props.user.meta.college),
+      roomSizes: [1, 2]
     };
   }
 
-  handleFilter = (value) => {
-    // Here you fetch the data using 'value' argument
-    console.log(value);
-  };
-
+  
   handleBuildingChange = (e) => {
     const building = e.value;
     // update value
     this.setState({
       building,
     });
-    this.handleFilter(building);
-  };
+  }
+
+  handleRoomSizeChange = (e) => {
+    var roomSizes = [];
+    for(const size of e) {
+      roomSizes.push(size.value);
+    }
+    // update value
+    this.setState({
+      roomSizes
+    });
+  }
+  
 
   render() {
     return (
@@ -68,9 +76,13 @@ export default class ViewReviews extends Component {
         <Nav
           user={this.props.user}
           mode={"VERBOSE"}
-          handleChange={this.handleBuildingChange}
+          handleBuildingChange={this.handleBuildingChange}
+          handleRoomSizeChange={this.handleRoomSizeChange}
         />
         <p>{this.state.building}</p>
+        {this.state.roomSizes.map((size) => (
+          <p>{size}</p>
+        ))}
       </div>
     );
   }

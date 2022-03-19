@@ -31,13 +31,18 @@ export default class NavDropdownComponent extends Component {
     }
   };
 
+  // Send new value to the parent nav prop
   handleChange = (e) => {
+    this.props.handleChange(e);
+  };
+
+  //Parent nav prop asks you to update state here
+  updateYourState = (e) => {
     const currSelected = e;
     this.setState({
       currSelected,
     });
-    this.props.handleChange(e);
-  };
+  }
 
   render() {
     return (

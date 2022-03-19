@@ -1,20 +1,50 @@
-import React from "react";
+import "./NavDropdownMultiselect.css"
+import React, { Component } from "react";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
-import { roomSizes } from "./data.ts";
-
-const animatedComponents = makeAnimated();
+import { roomsizes } from "../../utils/colleges";
 
 // a dropdown menu component with the ability to choose multiple options for filtering for room sizes
-export default function NavDropdownMultiselect() {
-  return (
-    <Select
-      className="basic-multi-select"
-      closeMenuOnSelect={false}
-      components={animatedComponents}
-      defaultValue={[roomSizes[4], roomSizes[5]]}
-      isMulti
-      options={roomSizes}
-    />
-  );
+export default class NavDropdownMultiselect extends Component {
+  constructor(props) {
+    super(props);
+    this.animated = makeAnimated();
+    this.state = {
+      currSelected: [roomsizes[0], roomsizes[1]],
+    };
+  }
+  // Send new value to the parent nav prop
+  handleRoomSizeChange = (e) => {
+    if(e.length > 4) {
+      alert('You can only search for 4 items at a time');
+    } else {
+      this.props.handleChange(e);
+    }
+  }
+
+  //Parent nav prop asks you to update state here
+  updateYourState = (e) => {
+    const currSelected = e;
+    this.setState({
+      currSelected,
+    });
+  }
+
+
+  render() {
+    return (
+      <div className="multi-select-container">
+        <Select
+          className="basic-multi-select"
+          closeMenuOnSelect={false}
+          components={this.animated}
+          value={this.state.currSelected}
+          isMulti
+          options={roomsizes}
+          onChange={this.handleRoomSizeChange}
+        />
+      </div>
+      
+    );
+  }
 }
