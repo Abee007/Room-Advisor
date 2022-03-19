@@ -5,7 +5,7 @@ import { serverIp } from "./constants";
 
 function App() {
   const [isLoading, setLoading] = useState(true);
-  const [user, setUser] = useState(null);
+  const [casUser, setUser] = useState(null);
 
   useEffect(() => {
     const getUser = () => {
@@ -34,7 +34,7 @@ function App() {
   if (isLoading) {
     return <div className="App">Loading...</div>;
   }
-  return <LandingRegisterProtected user={user} />;
+  return <LandingRegisterProtected casUser={casUser} />;
 }
 
 export default App;

@@ -8,18 +8,19 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 import { cryptoKey } from "../constants";
 import { sha256 } from "js-sha256";
 
-function RegisterandProtectedPages({ user }) {
+function RegisterandProtectedPages({ casUser }) {
   const [isLoading, setLoading] = useState(true);
   const [isValidated, setValidated] = useState(false);
+  const [validatedUserObject, setUserObject] = useState(undefined);
 
   // VALIDATE USER ONCE//
   useEffect(() => {
-    const validateUser = async (user) => {
+    const validateUser = async (casUser) => {
       // Collection ref
       const usersCollectionRef = collection(db, "Users");
 
       // Hash netId with stored cryptoKey
-      const hash = sha256.hmac(cryptoKey, user.id);
+      const hash = sha256.hmac(cryptoKey, casUser.id);
 
       // Query
       const q = query(usersCollectionRef, where("netId", "==", hash));
@@ -28,14 +29,17 @@ function RegisterandProtectedPages({ user }) {
       const data = await getDocs(q);
       let valid = false;
       data.forEach((doc) => {
-        if (hash === doc.data().netId) valid = true;
+        if (hash === doc.data().netId) {
+          valid = true;
+          setUserObject(doc.data());
+        }
       });
       setValidated(valid);
       setLoading(false);
     };
 
-    validateUser(user);
-  }, [user]);
+    validateUser(casUser);
+  }, [casUser]);
 
   if (isLoading) {
     return <div className="App">Validating...</div>;
@@ -49,7 +53,7 @@ function RegisterandProtectedPages({ user }) {
       <Route
         path="/"
         element={
-          !user || user === undefined ? (
+          !casUser || casUser === undefined ? (
             <Navigate to="/logout" />
           ) : (
             <Navigate to="/viewreviews" />
@@ -60,7 +64,7 @@ function RegisterandProtectedPages({ user }) {
         path="/viewreviews"
         element={
           isValidated ? (
-            <ViewReviews user={user} />
+            <ViewReviews user={validatedUserObject} />
           ) : (
             <Navigate to="/register" />
           )
@@ -72,7 +76,7 @@ function RegisterandProtectedPages({ user }) {
         path="/register"
         element={
           !isValidated ? (
-            <RegisterPage user={user} />
+            <RegisterPage user={casUser} />
           ) : (
             <Navigate to="/viewreviews" />
           )

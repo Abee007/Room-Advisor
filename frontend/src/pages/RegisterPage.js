@@ -51,7 +51,7 @@ function RegisterPage({ user }) {
   }
   return (
     <div>
-      <Nav props={{ user: user, mode: "TRUNCATED" }} />
+      <Nav user={undefined} mode={"TRUNCATED"} />
       <form
         onSubmit={(e) => {
           handleSubmit(e);
