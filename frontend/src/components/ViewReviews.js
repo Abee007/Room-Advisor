@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Nav from "../components/Nav";
-import { codeToCollege } from '../utils/colleges';
+import { codeToCollege } from "../utils/colleges";
 
 // function ViewReviews({ props }) {
 //   const [isLoading, setLoading] = useState(false);
@@ -41,35 +41,37 @@ import { codeToCollege } from '../utils/colleges';
 export default class ViewReviews extends Component {
   // initial setup
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       loading: false,
-      building: codeToCollege(this.props.user.meta.college)
-    }
+      building: codeToCollege(this.props.user.meta.college),
+    };
   }
 
   handleFilter = (value) => {
-     // Here you fetch the data using 'value' argument
-     console.log(value)
-  }
+    // Here you fetch the data using 'value' argument
+    console.log(value);
+  };
 
   handleBuildingChange = (e) => {
     const building = e.value;
     // update value
     this.setState({
-      building
+      building,
     });
-    this.handleFilter(building)
-  }
+    this.handleFilter(building);
+  };
 
   render() {
     return (
       <div>
-        <Nav user={this.props.user} mode={"VERBOSE"} handleChange={this.handleBuildingChange}/>
-        <p>
-          {this.state.building}
-        </p>
+        <Nav
+          user={this.props.user}
+          mode={"VERBOSE"}
+          handleChange={this.handleBuildingChange}
+        />
+        <p>{this.state.building}</p>
       </div>
-    )
+    );
   }
 }
