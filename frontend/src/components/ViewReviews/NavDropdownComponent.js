@@ -48,6 +48,7 @@ export default class NavDropdownComponent extends Component {
         options={buildings}
         onChange={this.handleChange}
         styles={styles}
+        searchable={false}
       />
     )
   }
