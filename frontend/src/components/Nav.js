@@ -1,5 +1,5 @@
 import "./Nav.css";
-import React, { Component } from "react";
+import React, { Component, createRef } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../static/logo.png";
 import NavDropdownComponent from "./ViewReviews/NavDropdownComponent";
@@ -10,7 +10,25 @@ export default class Nav extends Component {
     this.state = {
       isActiveHamburger: false,
     };
+    this.container = createRef();
   }
+
+  // Ensure that when the user clicks outside the navbar, you close it
+  componentDidMount() {
+      document.addEventListener("mousedown", this.handleClickOutside);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("mousedown", this.handleClickOutside);
+  }
+
+  handleClickOutside = (event) => {
+    if (this.container.current && !this.container.current.contains(event.target)) {
+      this.setState({
+        isActiveHamburger: false,
+      });
+    }
+  };
 
   toggleActiveHamburger = () => {
     const isActiveHamburger = !this.state.isActiveHamburger;
@@ -26,6 +44,7 @@ export default class Nav extends Component {
   render() {
     return (
       <div className="navbar-header">
+        <div className="container" ref={this.container}/>
         <header>
           <nav>
             <div className="navbar-container">
