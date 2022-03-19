@@ -15,7 +15,7 @@ export default class Nav extends Component {
 
   // Ensure that when the user clicks outside the navbar, you close it
   componentDidMount() {
-      document.addEventListener("mousedown", this.handleClickOutside);
+    document.addEventListener("mousedown", this.handleClickOutside);
   }
 
   componentWillUnmount() {
@@ -23,7 +23,10 @@ export default class Nav extends Component {
   }
 
   handleClickOutside = (event) => {
-    if (this.container.current && !this.container.current.contains(event.target)) {
+    if (
+      this.container.current &&
+      !this.container.current.contains(event.target)
+    ) {
       this.setState({
         isActiveHamburger: false,
       });
@@ -44,7 +47,7 @@ export default class Nav extends Component {
   render() {
     return (
       <div className="navbar-header">
-        <div className="container" ref={this.container}/>
+        <div className="container" ref={this.container} />
         <header>
           <nav>
             <div className="navbar-container">
