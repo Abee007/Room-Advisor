@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import Nav from "../components/Nav";
+import Results from "./ViewReviews/Results/Results";
 import { codeToCollege } from "../utils/colleges";
-import Results from "./ViewReviews/Results";
+
 
 // function ViewReviews({ props }) {
 //   const [isLoading, setLoading] = useState(false);
