@@ -3,7 +3,6 @@ import Nav from "../components/Nav";
 import Results from "./ViewReviews/Results/Results";
 import { codeToCollege } from "../utils/colleges";
 
-
 // function ViewReviews({ props }) {
 //   const [isLoading, setLoading] = useState(false);
 
