@@ -25,8 +25,7 @@ export default class NavDropdownComponent extends Component {
   findCollegeIndex = () => {
     var idx = 0;
     for (const building of buildings) {
-      if (this.props.currCollege.value === building.value)
-        return idx;
+      if (this.props.currCollege.value === building.value) return idx;
       idx++;
     }
   };

@@ -16,11 +16,11 @@ export default class NavDropdownMultiselect extends Component {
 
   initializeRoomSizes = () => {
     var retItems = [];
-    for(const room of this.props.currSelection) {
+    for (const room of this.props.currSelection) {
       retItems.push(roomsizes[this.findRoomSizeIndex(room.value)]);
     }
     return retItems;
-  }
+  };
 
   findRoomSizeIndex = (target) => {
     var idx = 0;
@@ -33,8 +33,8 @@ export default class NavDropdownMultiselect extends Component {
   // Send new value to the parent nav prop
   handleRoomSizeChange = (e) => {
     //Max of 4 elements for search
-    if(e.length > 4) {
-      alert('You can only search for 4 items at a time');
+    if (e.length > 4) {
+      alert("You can only search for 4 items at a time");
     } else {
       this.props.handleChange(e);
     }

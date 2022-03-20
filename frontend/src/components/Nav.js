@@ -80,12 +80,16 @@ export default class Nav extends Component {
                   {this.props.mode === "VERBOSE" ? (
                     <div className="lg-screen-filters">
                       <NavDropdownComponent
-                        ref={(ip) => {this.buildingDropdown1 = ip}}
+                        ref={(ip) => {
+                          this.buildingDropdown1 = ip;
+                        }}
                         currCollege={this.props.currState.building}
                         handleChange={this.handleBuildingDropdownChange}
                       />
-                      <NavDropdownMultiselect 
-                        ref={(ip) => {this.roomSize1 = ip}}
+                      <NavDropdownMultiselect
+                        ref={(ip) => {
+                          this.roomSize1 = ip;
+                        }}
                         currSelection={this.props.currState.roomSizes}
                         handleChange={this.handleRoomSizeChange}
                       />
@@ -132,15 +136,19 @@ export default class Nav extends Component {
               <div className="sm-screen-filters">
                 <div className="filter-item">
                   <NavDropdownComponent
-                    ref={(ip) => {this.buildingDropdown2 = ip}}
+                    ref={(ip) => {
+                      this.buildingDropdown2 = ip;
+                    }}
                     currCollege={this.props.currState.building}
                     handleChange={this.handleBuildingDropdownChange}
                   />
                 </div>
                 <div className="filter-item">
                   <NavDropdownMultiselect
-                    ref={(ip) => {this.roomSize2 = ip}}
-                    currSelection={this.props.currState.roomSizes} 
+                    ref={(ip) => {
+                      this.roomSize2 = ip;
+                    }}
+                    currSelection={this.props.currState.roomSizes}
                     handleChange={this.handleRoomSizeChange}
                   />
                 </div>
