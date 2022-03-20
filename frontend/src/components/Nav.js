@@ -65,6 +65,7 @@ export default class Nav extends Component {
   };
 
   handleSearchChange = (e) => {
+    this.toggleActiveHamburger();
     this.searchChange1.updateYourState(e);
     this.searchChange2.updateYourState(e);
     // Send the change to the parent page so it also updates
