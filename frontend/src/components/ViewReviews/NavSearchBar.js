@@ -30,6 +30,12 @@ export default class NavSearchBar extends Component {
     });
   };
 
+  onEnter = (e) => {
+    if (e.key === "Enter") {
+        e.target.blur();
+    }
+  }
+
   render() {
     return (
       <form onSubmit={this.onFormSubmit}>
@@ -41,6 +47,7 @@ export default class NavSearchBar extends Component {
           name="searchItem"
           value={this.state.currSearch}
           onChange={this.onInputchange}
+          onKeyUp={this.onEnter}
         />
       </form>
     );
