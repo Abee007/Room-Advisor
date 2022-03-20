@@ -33,14 +33,13 @@ export const buildings = [
 ];
 
 export const roomsizes = [
-  { value: 1, label: 'Single'},
-  { value: 2, label: 'Double'},
-  { value: 3, label: 'Triple' },
-  { value: 4, label: 'Quad'},
-  { value: 5, label: 'Quint'},
-  { value: 6, label: 'Sextet'},
-  { value: 8, label: '8-Pack'},
-
+  { value: 1, label: "Single" },
+  { value: 2, label: "Double" },
+  { value: 3, label: "Triple" },
+  { value: 4, label: "Quad" },
+  { value: 5, label: "Quint" },
+  { value: 6, label: "Sextet" },
+  { value: 8, label: "8-Pack" },
 ];
 
 export function getAllCollegeNames() {

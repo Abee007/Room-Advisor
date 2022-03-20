@@ -1,7 +1,7 @@
 import "./NavDropdownComponent.css";
 import React, { Component } from "react";
 import Select from "react-select";
-import { buildings, codeToCollege } from "../../utils/colleges";
+import { buildings } from "../../utils/colleges";
 
 const styles = {
   control: (base) => ({
@@ -42,7 +42,7 @@ export default class NavDropdownComponent extends Component {
     this.setState({
       currSelected,
     });
-  }
+  };
 
   render() {
     return (

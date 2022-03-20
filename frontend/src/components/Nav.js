@@ -3,7 +3,7 @@ import React, { Component, createRef } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../static/logo.png";
 import NavDropdownComponent from "./ViewReviews/NavDropdownComponent";
-import NavDropdownMultiselect from './ViewReviews/NavDropdownMultiselect';
+import NavDropdownMultiselect from "./ViewReviews/NavDropdownMultiselect";
 
 export default class Nav extends Component {
   constructor(props) {
@@ -55,7 +55,7 @@ export default class Nav extends Component {
     this.roomSize2.updateYourState(e);
     // Send the change to the parent page so it also updates
     this.props.handleRoomSizeChange(e);
-  }
+  };
 
   render() {
     return (
@@ -123,7 +123,9 @@ export default class Nav extends Component {
 
           <nav
             className={
-              this.state.isActiveHamburger ? "mobile-nav is-active" : "mobile-nav"
+              this.state.isActiveHamburger
+                ? "mobile-nav is-active"
+                : "mobile-nav"
             }
           >
             {this.props.mode === "VERBOSE" ? (
