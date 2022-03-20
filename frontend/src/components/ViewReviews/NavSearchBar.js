@@ -32,9 +32,9 @@ export default class NavSearchBar extends Component {
 
   onEnter = (e) => {
     if (e.key === "Enter") {
-        e.target.blur();
+      e.target.blur();
     }
-  }
+  };
 
   render() {
     return (
