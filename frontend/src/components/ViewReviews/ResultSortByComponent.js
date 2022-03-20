@@ -1,7 +1,7 @@
-import './ResultSortByComponent.css'
-import React, { Component } from 'react'
-import Select from 'react-select'
-import { sortOptions } from '../../utils/colleges'
+import "./ResultSortByComponent.css";
+import React, { Component } from "react";
+import Select from "react-select";
+import { sortOptions } from "../../utils/colleges";
 
 export default class SortByComponent extends Component {
   constructor(props) {
@@ -14,22 +14,22 @@ export default class SortByComponent extends Component {
   handleSortByChange = (e) => {
     const currSelected = e;
     this.setState({
-      currSelected
+      currSelected,
     });
     this.props.handleChange(e);
-  }
+  };
 
-  render () {
+  render() {
     return (
       <Select
-        className='basic-single'
-        classNamePrefix='select'
+        className="basic-single"
+        classNamePrefix="select"
         value={this.state.currSelected}
-        name='color'
+        name="color"
         options={sortOptions}
         onChange={this.handleSortByChange}
         isSearchable={false}
       />
-    )
+    );
   }
 }
