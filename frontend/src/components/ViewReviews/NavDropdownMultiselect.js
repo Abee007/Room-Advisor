@@ -1,4 +1,4 @@
-import "./NavDropdownMultiselect.css"
+import "./NavDropdownMultiselect.css";
 import React, { Component } from "react";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
@@ -15,12 +15,12 @@ export default class NavDropdownMultiselect extends Component {
   }
   // Send new value to the parent nav prop
   handleRoomSizeChange = (e) => {
-    if(e.length > 4) {
-      alert('You can only search for 4 items at a time');
+    if (e.length > 4) {
+      alert("You can only search for 4 items at a time");
     } else {
       this.props.handleChange(e);
     }
-  }
+  };
 
   //Parent nav prop asks you to update state here
   updateYourState = (e) => {
@@ -28,8 +28,7 @@ export default class NavDropdownMultiselect extends Component {
     this.setState({
       currSelected,
     });
-  }
-
+  };
 
   render() {
     return (
@@ -44,7 +43,6 @@ export default class NavDropdownMultiselect extends Component {
           onChange={this.handleRoomSizeChange}
         />
       </div>
-      
     );
   }
 }

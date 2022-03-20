@@ -42,7 +42,7 @@ export default class NavDropdownComponent extends Component {
     this.setState({
       currSelected,
     });
-  }
+  };
 
   render() {
     return (

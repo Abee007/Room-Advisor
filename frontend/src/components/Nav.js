@@ -3,7 +3,7 @@ import React, { Component, createRef } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../static/logo.png";
 import NavDropdownComponent from "./ViewReviews/NavDropdownComponent";
-import NavDropdownMultiselect from './ViewReviews/NavDropdownMultiselect';
+import NavDropdownMultiselect from "./ViewReviews/NavDropdownMultiselect";
 
 export default class Nav extends Component {
   constructor(props) {
@@ -55,7 +55,7 @@ export default class Nav extends Component {
     this.roomSize2.updateYourState(e);
     // Send the change to the parent page so it also updates
     this.props.handleRoomSizeChange(e);
-  }
+  };
 
   render() {
     return (
@@ -80,12 +80,16 @@ export default class Nav extends Component {
                   {this.props.mode === "VERBOSE" ? (
                     <div className="lg-screen-filters">
                       <NavDropdownComponent
-                        ref={(ip) => {this.buildingDropdown1 = ip}}
+                        ref={(ip) => {
+                          this.buildingDropdown1 = ip;
+                        }}
                         defaultCollege={this.props.user.meta.college}
                         handleChange={this.handleBuildingDropdownChange}
                       />
-                      <NavDropdownMultiselect 
-                        ref={(ip) => {this.roomSize1 = ip}}
+                      <NavDropdownMultiselect
+                        ref={(ip) => {
+                          this.roomSize1 = ip;
+                        }}
                         handleChange={this.handleRoomSizeChange}
                       />
                     </div>
@@ -122,21 +126,27 @@ export default class Nav extends Component {
 
           <nav
             className={
-              this.state.isActiveHamburger ? "mobile-nav is-active" : "mobile-nav"
+              this.state.isActiveHamburger
+                ? "mobile-nav is-active"
+                : "mobile-nav"
             }
           >
             {this.props.mode === "VERBOSE" ? (
               <div className="sm-screen-filters">
                 <div className="filter-item">
                   <NavDropdownComponent
-                    ref={(ip) => {this.buildingDropdown2 = ip}}
+                    ref={(ip) => {
+                      this.buildingDropdown2 = ip;
+                    }}
                     defaultCollege={this.props.user.meta.college}
                     handleChange={this.handleBuildingDropdownChange}
                   />
                 </div>
                 <div className="filter-item">
                   <NavDropdownMultiselect
-                    ref={(ip) => {this.roomSize2 = ip}} 
+                    ref={(ip) => {
+                      this.roomSize2 = ip;
+                    }}
                     handleChange={this.handleRoomSizeChange}
                   />
                 </div>

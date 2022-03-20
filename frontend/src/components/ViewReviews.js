@@ -45,30 +45,28 @@ export default class ViewReviews extends Component {
     this.state = {
       loading: false,
       building: codeToCollege(this.props.user.meta.college),
-      roomSizes: [1, 2]
+      roomSizes: [1, 2],
     };
   }
 
-  
   handleBuildingChange = (e) => {
     const building = e.value;
     // update value
     this.setState({
       building,
     });
-  }
+  };
 
   handleRoomSizeChange = (e) => {
     var roomSizes = [];
-    for(const size of e) {
+    for (const size of e) {
       roomSizes.push(size.value);
     }
     // update value
     this.setState({
-      roomSizes
+      roomSizes,
     });
-  }
-  
+  };
 
   render() {
     return (
