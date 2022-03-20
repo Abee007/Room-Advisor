@@ -63,8 +63,7 @@ export default class Nav extends Component {
     this.searchChange2.updateYourState(e);
     // Send the change to the parent page so it also updates
     this.props.handleSearchChange(e);
-
-  }
+  };
 
   render() {
     return (
@@ -108,7 +107,9 @@ export default class Nav extends Component {
                       </div>
                       <div className="lg-filter-item">
                         <NavSearchBar
-                          ref={(ip) => {this.searchChange1 = ip;}}
+                          ref={(ip) => {
+                            this.searchChange1 = ip;
+                          }}
                           currSearch={this.props.currState.searchItem}
                           handleChange={this.handleSearchChange}
                         />
@@ -174,7 +175,9 @@ export default class Nav extends Component {
                 </div>
                 <div className="filter-item">
                   <NavSearchBar
-                    ref={(ip) => {this.searchChange2 = ip;}}
+                    ref={(ip) => {
+                      this.searchChange2 = ip;
+                    }}
                     currSearch={this.props.currState.searchItem}
                     handleChange={this.handleSearchChange}
                   />
