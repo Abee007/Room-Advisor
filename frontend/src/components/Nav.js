@@ -46,6 +46,9 @@ export default class Nav extends Component {
     //Update states for both building dropdowns (for large and small screens)
     this.buildingDropdown1.updateYourState(e);
     this.buildingDropdown2.updateYourState(e);
+
+    this.searchChange1.updateYourState('');
+    this.searchChange2.updateYourState('');
     // Send the change to the parent page so it also updates
     this.props.handleBuildingChange(e);
   };
@@ -54,6 +57,9 @@ export default class Nav extends Component {
     //Update states for both building dropdowns (for large and small screens)
     this.roomSize1.updateYourState(e);
     this.roomSize2.updateYourState(e);
+
+    this.searchChange1.updateYourState('');
+    this.searchChange2.updateYourState('');
     // Send the change to the parent page so it also updates
     this.props.handleRoomSizeChange(e);
   };
