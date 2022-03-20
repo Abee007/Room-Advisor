@@ -81,11 +81,12 @@ export default class Nav extends Component {
                     <div className="lg-screen-filters">
                       <NavDropdownComponent
                         ref={(ip) => {this.buildingDropdown1 = ip}}
-                        defaultCollege={this.props.user.meta.college}
+                        currCollege={this.props.currState.building}
                         handleChange={this.handleBuildingDropdownChange}
                       />
                       <NavDropdownMultiselect 
                         ref={(ip) => {this.roomSize1 = ip}}
+                        currSelection={this.props.currState.roomSizes}
                         handleChange={this.handleRoomSizeChange}
                       />
                     </div>
@@ -130,13 +131,14 @@ export default class Nav extends Component {
                 <div className="filter-item">
                   <NavDropdownComponent
                     ref={(ip) => {this.buildingDropdown2 = ip}}
-                    defaultCollege={this.props.user.meta.college}
+                    currCollege={this.props.currState.building}
                     handleChange={this.handleBuildingDropdownChange}
                   />
                 </div>
                 <div className="filter-item">
                   <NavDropdownMultiselect
-                    ref={(ip) => {this.roomSize2 = ip}} 
+                    ref={(ip) => {this.roomSize2 = ip}}
+                    currSelection={this.props.currState.roomSizes} 
                     handleChange={this.handleRoomSizeChange}
                   />
                 </div>

@@ -42,31 +42,29 @@ export default class ViewReviews extends Component {
   // initial setup
   constructor(props) {
     super(props);
-    this.state = {
+    this.state = JSON.parse(window.localStorage.getItem('viewReviewsState')) || {
       loading: false,
-      building: codeToCollege(this.props.user.meta.college),
-      roomSizes: [1, 2]
+      building: {value: codeToCollege(this.props.user.meta.college), label: codeToCollege(this.props.user.meta.college)},
+      roomSizes: [{value: 1, label: "Single"}, {value: 2, label: "Double"}]
     };
+  }
+
+  setState(state) {
+    window.localStorage.setItem('viewReviewsState', JSON.stringify(state));
+    super.setState(state);
   }
 
   
   handleBuildingChange = (e) => {
-    const building = e.value;
+    const building = e;
     // update value
-    this.setState({
-      building,
-    });
+    return this.setState({...this.state, building});
   }
 
   handleRoomSizeChange = (e) => {
-    var roomSizes = [];
-    for(const size of e) {
-      roomSizes.push(size.value);
-    }
+    var roomSizes = e;
     // update value
-    this.setState({
-      roomSizes
-    });
+    return this.setState({...this.state, roomSizes});
   }
   
 
@@ -76,12 +74,13 @@ export default class ViewReviews extends Component {
         <Nav
           user={this.props.user}
           mode={"VERBOSE"}
+          currState={this.state}
           handleBuildingChange={this.handleBuildingChange}
           handleRoomSizeChange={this.handleRoomSizeChange}
         />
-        <p>{this.state.building}</p>
+        <p>{this.state.building.value}</p>
         {this.state.roomSizes.map((size) => (
-          <p>{size}</p>
+          <p>{size.value}</p>
         ))}
       </div>
     );

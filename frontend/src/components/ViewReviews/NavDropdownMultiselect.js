@@ -10,11 +10,29 @@ export default class NavDropdownMultiselect extends Component {
     super(props);
     this.animated = makeAnimated();
     this.state = {
-      currSelected: [roomsizes[0], roomsizes[1]],
+      currSelected: this.initializeRoomSizes(),
     };
   }
+
+  initializeRoomSizes = () => {
+    var retItems = [];
+    for(const room of this.props.currSelection) {
+      retItems.push(roomsizes[this.findRoomSizeIndex(room.value)]);
+    }
+    return retItems;
+  }
+
+  findRoomSizeIndex = (target) => {
+    var idx = 0;
+    for (const room of roomsizes) {
+      if (target === room.value) return idx;
+      idx++;
+    }
+  };
+
   // Send new value to the parent nav prop
   handleRoomSizeChange = (e) => {
+    //Max of 4 elements for search
     if(e.length > 4) {
       alert('You can only search for 4 items at a time');
     } else {
