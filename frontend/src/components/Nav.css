@@ -182,3 +182,7 @@ nav {
 .filter-item {
     padding-bottom: 10px;
 }
+
+.lg-filter-item {
+    padding-right: 5px;
+}

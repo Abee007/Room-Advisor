@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import logo from "../static/logo.png";
 import NavDropdownComponent from "./ViewReviews/NavDropdownComponent";
 import NavDropdownMultiselect from "./ViewReviews/NavDropdownMultiselect";
+import NavSearchBar from "./ViewReviews/NavSearchBar";
 
 export default class Nav extends Component {
   constructor(props) {
@@ -57,6 +58,14 @@ export default class Nav extends Component {
     this.props.handleRoomSizeChange(e);
   };
 
+  handleSearchChange = (e) => {
+    this.searchChange1.updateYourState(e);
+    this.searchChange2.updateYourState(e);
+    // Send the change to the parent page so it also updates
+    this.props.handleSearchChange(e);
+
+  }
+
   render() {
     return (
       <div className="container" ref={this.container}>
@@ -79,20 +88,31 @@ export default class Nav extends Component {
                 <div className="menu">
                   {this.props.mode === "VERBOSE" ? (
                     <div className="lg-screen-filters">
-                      <NavDropdownComponent
-                        ref={(ip) => {
-                          this.buildingDropdown1 = ip;
-                        }}
-                        currCollege={this.props.currState.building}
-                        handleChange={this.handleBuildingDropdownChange}
-                      />
-                      <NavDropdownMultiselect
-                        ref={(ip) => {
-                          this.roomSize1 = ip;
-                        }}
-                        currSelection={this.props.currState.roomSizes}
-                        handleChange={this.handleRoomSizeChange}
-                      />
+                      <div className="lg-filter-item">
+                        <NavDropdownComponent
+                          ref={(ip) => {
+                            this.buildingDropdown1 = ip;
+                          }}
+                          currCollege={this.props.currState.building}
+                          handleChange={this.handleBuildingDropdownChange}
+                        />
+                      </div>
+                      <div className="lg-filter-item">
+                        <NavDropdownMultiselect
+                          ref={(ip) => {
+                            this.roomSize1 = ip;
+                          }}
+                          currSelection={this.props.currState.roomSizes}
+                          handleChange={this.handleRoomSizeChange}
+                        />
+                      </div>
+                      <div className="lg-filter-item">
+                        <NavSearchBar
+                          ref={(ip) => {this.searchChange1 = ip;}}
+                          currSearch={this.props.currState.searchItem}
+                          handleChange={this.handleSearchChange}
+                        />
+                      </div>
                     </div>
                   ) : (
                     ""
@@ -150,6 +170,13 @@ export default class Nav extends Component {
                     }}
                     currSelection={this.props.currState.roomSizes}
                     handleChange={this.handleRoomSizeChange}
+                  />
+                </div>
+                <div className="filter-item">
+                  <NavSearchBar
+                    ref={(ip) => {this.searchChange2 = ip;}}
+                    currSearch={this.props.currState.searchItem}
+                    handleChange={this.handleSearchChange}
                   />
                 </div>
               </div>

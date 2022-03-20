@@ -54,7 +54,10 @@ export default class ViewReviews extends Component {
         { value: 1, label: "Single" },
         { value: 2, label: "Double" },
       ],
+      searchItem: '',
     };
+    // Always set searchItem to empty
+    this.state.searchItem = '';
   }
 
   setState(state) {
@@ -65,14 +68,20 @@ export default class ViewReviews extends Component {
   handleBuildingChange = (e) => {
     const building = e;
     // update value
-    return this.setState({ ...this.state, building });
+    return this.setState({ ...this.state, building, searchItem: '' });
   };
 
   handleRoomSizeChange = (e) => {
-    var roomSizes = e;
+    const roomSizes = e;
     // update value
-    return this.setState({ ...this.state, roomSizes });
+    return this.setState({ ...this.state, roomSizes, searchItem: '' });
   };
+
+  handleSearchChange = (e) => {
+    const searchItem = e;
+    // update value
+    return this.setState({ ...this.state, searchItem });
+  }
 
   render() {
     return (
@@ -83,11 +92,13 @@ export default class ViewReviews extends Component {
           currState={this.state}
           handleBuildingChange={this.handleBuildingChange}
           handleRoomSizeChange={this.handleRoomSizeChange}
+          handleSearchChange={this.handleSearchChange}
         />
         <p>{this.state.building.value}</p>
         {this.state.roomSizes.map((size) => (
           <p>{size.value}</p>
         ))}
+        <p>{this.state.searchItem}</p>
       </div>
     );
   }
