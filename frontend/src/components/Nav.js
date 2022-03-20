@@ -84,7 +84,11 @@ export default class Nav extends Component {
                   />
                 </NavLink>
 
-                <div className={this.state.isActiveHamburger ? "menu is-active" : "menu"}>
+                <div
+                  className={
+                    this.state.isActiveHamburger ? "menu is-active" : "menu"
+                  }
+                >
                   {this.props.mode === "VERBOSE" ? (
                     <div className="filters">
                       <div className="filter-item">
@@ -129,7 +133,7 @@ export default class Nav extends Component {
                     ) : (
                       ""
                     )}
-                  </div>     
+                  </div>
                 </div>
                 <button
                   class={
