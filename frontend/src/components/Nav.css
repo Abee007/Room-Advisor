@@ -139,6 +139,15 @@ nav {
     margin-top: 5px;
 }
 
+.navbar-link {
+    display: flex;
+    justify-content: center;
+}
+
+.navbar-link-icon {
+    padding-right: 2px;
+}
+
 
 
 /* Hide the mobile navbar if screen-width is greater than 768 */
@@ -168,7 +177,7 @@ nav {
         left: 200px;
         border-top: none;
         box-shadow: none;
-        width: 84%;
+        width: 86%;
     }
 
     .menu a {
@@ -196,5 +205,7 @@ nav {
     .navbar-link {
         position: relative;
         top: 7px;
+        display: flex;
+        justify-content: space-between;
     }
 }

@@ -5,6 +5,7 @@ import logo from "../static/logo.png";
 import NavDropdownComponent from "./ViewReviews/Nav/NavDropdownComponent";
 import NavDropdownMultiselect from "./ViewReviews/Nav/NavDropdownMultiselect";
 import NavSearchBar from "./ViewReviews/Nav/NavSearchBar";
+import { Bookmark, BoxArrowRight } from 'react-bootstrap-icons'
 
 export default class Nav extends Component {
   constructor(props) {
@@ -126,8 +127,15 @@ export default class Nav extends Component {
                     <NavLink to="/about" className="navbar-link">
                       About
                     </NavLink>
+                    {this.props.mode === "VERBOSE" ? (
+                      <NavLink to="/favorites" className="navbar-link">
+                        <div className="navbar-link-icon"><Bookmark /></div>
+                        Favorites
+                      </NavLink>
+                    ): ("")}
                     {this.props.user !== undefined ? (
                       <NavLink to="/logout" className="navbar-link">
+                        <div className="navbar-link-icon"><BoxArrowRight /></div>
                         Logout
                       </NavLink>
                     ) : (
