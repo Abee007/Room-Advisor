@@ -45,10 +45,7 @@ export default class Nav extends Component {
   handleBuildingDropdownChange = (e) => {
     //Update states for both building dropdowns (for large and small screens)
     this.buildingDropdown1.updateYourState(e);
-    this.buildingDropdown2.updateYourState(e);
-
     this.searchChange1.updateYourState("");
-    this.searchChange2.updateYourState("");
     // Send the change to the parent page so it also updates
     this.props.handleBuildingChange(e);
   };
@@ -56,10 +53,7 @@ export default class Nav extends Component {
   handleRoomSizeChange = (e) => {
     //Update states for both building dropdowns (for large and small screens)
     this.roomSize1.updateYourState(e);
-    this.roomSize2.updateYourState(e);
-
     this.searchChange1.updateYourState("");
-    this.searchChange2.updateYourState("");
     // Send the change to the parent page so it also updates
     this.props.handleRoomSizeChange(e);
   };
@@ -67,7 +61,6 @@ export default class Nav extends Component {
   handleSearchChange = (e) => {
     this.toggleActiveHamburger();
     this.searchChange1.updateYourState(e);
-    this.searchChange2.updateYourState(e);
     // Send the change to the parent page so it also updates
     this.props.handleSearchChange(e);
   };
@@ -91,10 +84,10 @@ export default class Nav extends Component {
                   />
                 </NavLink>
 
-                <div className="menu">
+                <div className={this.state.isActiveHamburger ? "menu is-active" : "menu"}>
                   {this.props.mode === "VERBOSE" ? (
-                    <div className="lg-screen-filters">
-                      <div className="lg-filter-item">
+                    <div className="filters">
+                      <div className="filter-item">
                         <NavDropdownComponent
                           ref={(ip) => {
                             this.buildingDropdown1 = ip;
@@ -103,7 +96,7 @@ export default class Nav extends Component {
                           handleChange={this.handleBuildingDropdownChange}
                         />
                       </div>
-                      <div className="lg-filter-item">
+                      <div className="filter-item">
                         <NavDropdownMultiselect
                           ref={(ip) => {
                             this.roomSize1 = ip;
@@ -112,7 +105,7 @@ export default class Nav extends Component {
                           handleChange={this.handleRoomSizeChange}
                         />
                       </div>
-                      <div className="lg-filter-item">
+                      <div className="filter-item">
                         <NavSearchBar
                           ref={(ip) => {
                             this.searchChange1 = ip;
@@ -125,18 +118,19 @@ export default class Nav extends Component {
                   ) : (
                     ""
                   )}
-                  <NavLink to="/about" className="navbar-link">
-                    About
-                  </NavLink>
-                  {this.props.user !== undefined ? (
-                    <NavLink to="/logout" className="navbar-link">
-                      Logout
+                  <div className="navbar-link-container">
+                    <NavLink to="/about" className="navbar-link">
+                      About
                     </NavLink>
-                  ) : (
-                    ""
-                  )}
+                    {this.props.user !== undefined ? (
+                      <NavLink to="/logout" className="navbar-link">
+                        Logout
+                      </NavLink>
+                    ) : (
+                      ""
+                    )}
+                  </div>     
                 </div>
-
                 <button
                   class={
                     this.state.isActiveHamburger
@@ -152,58 +146,6 @@ export default class Nav extends Component {
               </div>
             </nav>
           </header>
-
-          <nav
-            className={
-              this.state.isActiveHamburger
-                ? "mobile-nav is-active"
-                : "mobile-nav"
-            }
-          >
-            {this.props.mode === "VERBOSE" ? (
-              <div className="sm-screen-filters">
-                <div className="filter-item">
-                  <NavDropdownComponent
-                    ref={(ip) => {
-                      this.buildingDropdown2 = ip;
-                    }}
-                    currCollege={this.props.currState.building}
-                    handleChange={this.handleBuildingDropdownChange}
-                  />
-                </div>
-                <div className="filter-item">
-                  <NavDropdownMultiselect
-                    ref={(ip) => {
-                      this.roomSize2 = ip;
-                    }}
-                    currSelection={this.props.currState.roomSizes}
-                    handleChange={this.handleRoomSizeChange}
-                  />
-                </div>
-                <div className="filter-item">
-                  <NavSearchBar
-                    ref={(ip) => {
-                      this.searchChange2 = ip;
-                    }}
-                    currSearch={this.props.currState.searchItem}
-                    handleChange={this.handleSearchChange}
-                  />
-                </div>
-              </div>
-            ) : (
-              ""
-            )}
-            <NavLink to="/about" className="navbar-link">
-              About
-            </NavLink>
-            {this.props.user !== undefined ? (
-              <NavLink to="/logout" className="navbar-link">
-                Logout
-              </NavLink>
-            ) : (
-              ""
-            )}
-          </nav>
         </div>
       </div>
     );
