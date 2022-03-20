@@ -2,7 +2,7 @@ import "./NavDropdownMultiselect.css";
 import React, { Component } from "react";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
-import { roomsizes } from "../../utils/colleges";
+import { roomsizes } from "../../../utils/colleges";
 
 // a dropdown menu component with the ability to choose multiple options for filtering for room sizes
 export default class NavDropdownMultiselect extends Component {

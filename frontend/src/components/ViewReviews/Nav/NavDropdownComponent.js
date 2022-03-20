@@ -1,7 +1,7 @@
 import "./NavDropdownComponent.css";
 import React, { Component } from "react";
 import Select from "react-select";
-import { buildings } from "../../utils/colleges";
+import { buildings } from "../../../utils/colleges";
 
 const styles = {
   control: (base) => ({

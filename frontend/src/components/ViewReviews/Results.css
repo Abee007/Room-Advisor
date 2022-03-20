@@ -1,0 +1,44 @@
+.results-container {
+    flex-direction: column;
+}
+
+h1 {
+    position: relative;
+    top: 9px;
+}
+
+.push-right {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.results-container > h1 {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+@media (min-width: 768px) {
+    .results-container {
+        height: 60px;
+        padding-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        width: 75%;
+        margin: auto;
+        justify-content: center;
+        z-index: -1;
+    }
+
+    h1 {
+        position: relative;
+        top: 9px;
+    }
+
+    .push-right {
+        width: 200px;
+        margin-left: auto;
+    }
+
+}
+  

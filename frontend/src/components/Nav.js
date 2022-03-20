@@ -2,9 +2,9 @@ import "./Nav.css";
 import React, { Component, createRef } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../static/logo.png";
-import NavDropdownComponent from "./ViewReviews/NavDropdownComponent";
-import NavDropdownMultiselect from "./ViewReviews/NavDropdownMultiselect";
-import NavSearchBar from "./ViewReviews/NavSearchBar";
+import NavDropdownComponent from "./ViewReviews/Nav/NavDropdownComponent";
+import NavDropdownMultiselect from "./ViewReviews/Nav/NavDropdownMultiselect";
+import NavSearchBar from "./ViewReviews/Nav/NavSearchBar";
 
 export default class Nav extends Component {
   constructor(props) {

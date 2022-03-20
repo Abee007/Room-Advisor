@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Nav from "../components/Nav";
 import { codeToCollege } from "../utils/colleges";
+import Results from './ViewReviews/Results'
 
 // function ViewReviews({ props }) {
 //   const [isLoading, setLoading] = useState(false);
@@ -55,6 +56,8 @@ export default class ViewReviews extends Component {
         { value: 2, label: "Double" },
       ],
       searchItem: "",
+      sortBy: { value: 'FL', label: 'Sort by: Floor Level' },
+      noRoomsFound: 7
     };
     // Always set searchItem to empty
     this.state.searchItem = "";
@@ -83,6 +86,12 @@ export default class ViewReviews extends Component {
     return this.setState({ ...this.state, searchItem });
   };
 
+  handleSortByChange = (e) => {
+    const sortBy = e;
+    // update value
+    return this.setState({ ...this.state, sortBy });
+  }
+
   render() {
     return (
       <div>
@@ -94,6 +103,7 @@ export default class ViewReviews extends Component {
           handleRoomSizeChange={this.handleRoomSizeChange}
           handleSearchChange={this.handleSearchChange}
         />
+        <Results noRooms={this.state.noRoomsFound} sortBy={this.state.sortBy} handleChange={this.handleSortByChange}/>
         <p>{this.state.building.value}</p>
         {this.state.roomSizes.map((size) => (
           <p>{size.value}</p>

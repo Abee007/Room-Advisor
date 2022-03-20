@@ -42,6 +42,13 @@ export const roomsizes = [
   { value: 8, label: "8-Pack" },
 ];
 
+export const sortOptions = [
+  { value: 'FL', label: 'Sort by: Floor Level' },
+  { value: 'CR_SZ', label: 'Sort by: Common Room' },
+  { value: 'BR_SZ', label: 'Sort by: Bedroom Size' },
+  { value: 'NOISE', label: 'Sort by: Noise Level' }
+]
+
 export function getAllCollegeNames() {
   return Object.keys(colleges);
 }
