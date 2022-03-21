@@ -78,6 +78,14 @@
         width: 80%;
         height: 30%;
     }
+
+    .hero-secondary {
+        font-size: 20px;
+    }
+
+    .column-title {
+        font-size: 12px;
+    }
 }
 
   
