@@ -110,7 +110,7 @@ nav {
 
 .menu a {
     color: #808080;
-    margin: 0 16px;
+    /* margin: 0 16px; */
     font-weight: 500;
     text-decoration: none;
     transition: 0.4s;
@@ -198,7 +198,6 @@ nav {
     .navbar-link-container {
         display: flex;
         flex-direction: row;
-        height: 0px;
         margin-top: 0px;
     }
 
