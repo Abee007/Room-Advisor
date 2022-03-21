@@ -1,5 +1,5 @@
 import React from "react";
-import LandingPage from "./pages/LandingPage";
+import UnprotectedPages from './pages/UnprotectedPages';
 import RegisterandProtectedPages from "./pages/ProtectedPages";
 import { BrowserRouter as Router } from "react-router-dom";
 
@@ -10,7 +10,7 @@ function LandingRegisterProtected({ casUser }) {
       <div className="App">
         <div>
           {casUser === undefined ? (
-            <LandingPage isLoggedIn={false} />
+            <UnprotectedPages />
           ) : (
             <RegisterandProtectedPages casUser={casUser} />
           )}

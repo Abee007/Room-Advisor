@@ -127,7 +127,7 @@ export default class Nav extends Component {
                     <NavLink to="/about" className="navbar-link">
                       About
                     </NavLink>
-                    {this.props.mode === "VERBOSE" ? (
+                    {this.props.user !== undefined ? (
                       <NavLink to="/favorites" className="navbar-link">
                         <div className="navbar-link-icon">
                           <Bookmark />

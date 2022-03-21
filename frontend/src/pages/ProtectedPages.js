@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import LandingPage from "./LandingPage";
 import RegisterPage from "./RegisterPage";
 import ViewReviews from "../components/ViewReviews";
+import AboutPage from './AboutPage';
 import { Routes, Route, Navigate } from "react-router-dom";
 import { db } from "../utils/firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
@@ -84,6 +85,7 @@ function RegisterandProtectedPages({ casUser }) {
       />
       {/* If no user exists, navigate back to the landing page */}
       {/* Performs a soft logout so we don't actually log users out of cas */}
+      <Route path="/about" element={<AboutPage user={casUser} />} />
       <Route path="/logout" element={<LandingPage isLoggedIn={true} />} />
     </Routes>
   );
