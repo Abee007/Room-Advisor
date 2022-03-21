@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import LandingPage from "./LandingPage";
 import RegisterPage from "./RegisterPage";
 import ViewReviews from "../components/ViewReviews";
-import AboutPage from './AboutPage';
+import AboutPage from "./AboutPage";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { db } from "../utils/firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";

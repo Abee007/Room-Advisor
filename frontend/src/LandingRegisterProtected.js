@@ -1,5 +1,5 @@
 import React from "react";
-import UnprotectedPages from './pages/UnprotectedPages';
+import UnprotectedPages from "./pages/UnprotectedPages";
 import RegisterandProtectedPages from "./pages/ProtectedPages";
 import { BrowserRouter as Router } from "react-router-dom";
 
