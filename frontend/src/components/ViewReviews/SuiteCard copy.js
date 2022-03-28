@@ -10,20 +10,22 @@ import { FaRegBookmark } from 'react-icons/fa'
 import SuiteModal from './SuiteModal'
 
 function SuiteCard () {
-  const [show, setShow] = useState(false)
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal(!showModal);
+  };
 
   return (
-    <div className='card' 
-        onClick={() => {
-        console.log('show here suitecard')
-        setShow(true)
-      }}>
+    <div className='card' onClick={openModal}>Open Modal</Button>
+      {showModal && <Modal showModal={showModal} setShowModal={setShowModal} />}
+    >
 
       {/* displaying room photo (--> to be carousel in the future) */}
      
         <div className='title-container notify-badge rcorners1'>
             <h5 className='card-title '> D31</h5>
-            <p className='suite-badge' style={{background: '#eee8f1', color:'#9372A7', marginBottom:'0'}}  > QUAD </p>
+            <p className='suite-badge' style={{background: '#eee8f1', color:'#9372A7'}}  > QUAD </p>
         </div>
         <img className='card-photo' src={room} alt='room photo' />
 
@@ -38,9 +40,9 @@ function SuiteCard () {
           <p className='room-badge-gray'> 
 
             <img className='badge-icon checked' src={noise} alt='bar' />
-            {/* <div class="bar-container">
+            <div class="bar-container">
                 <div class="bar-5"></div>
-            </div> */}
+            </div>
             4.5 
             
             </p>
@@ -48,9 +50,9 @@ function SuiteCard () {
           <p className='room-badge-gray'> 
 
             <img className='badge-icon' src={size} alt='room photo' /> 
-            {/* <div class="bar-container">
+            <div class="bar-container">
                 <div class="bar-5"></div>
-            </div> */}
+            </div>
             4.5 
             </p>
 

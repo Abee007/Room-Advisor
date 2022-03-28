@@ -2,6 +2,8 @@ import React, { useEffect } from 'react'
 import ReactDOM from 'react-dom'
 import { CSSTransition } from 'react-transition-group'
 import './BedroomModal.css'
+import size from '../../static/size.svg'
+import noise from '../../static/noise.svg'
 import Badge from 'react-bootstrap/Badge'
 import { FaRegBookmark } from 'react-icons/fa'
 import room from '../../static/dorm_room.jpg'
@@ -35,9 +37,22 @@ const BedroomModal = props => {
           <div className='BedroomModal-header'>
             {/* showing quick info such as the badges, room number, and bookmark icon in the header section */}
             <h4 className='BedroomModal-title'>{props.title}</h4>
-            <div className='badge-container'> <Badge pill bg='primary'> Triple </Badge>{' '} </div>
-            <div> <Badge pill bg='secondary'> Noise: 4.5 </Badge>{' '} </div>
-            <div> <Badge pill bg='info'> Size: 3.4 </Badge>{' '} </div>
+            <p className='bedroom-badge' style={{background: '#eee8f1', color:'#9372A7', marginBottom: '0px'}} > SINGLE </p>
+            <p className='bedroom-badge-gray'> 
+              <img className='badge-icon checked' src={noise} alt='bar' />
+              <div class="bar-container">
+                  <div class="bar-5"></div>
+              </div>
+              4.5 
+            </p>
+
+            <p className='room-badge-gray'> 
+                <img className='badge-icon' src={size} alt='room photo' /> 
+                <div class="bar-container">
+                    <div class="bar-5"></div>
+                </div>
+                4.5 
+            </p>
             <FaRegBookmark className='push-right' style={{ color: '#0053c5', fontSize: '30px' }} />
 
           </div>
