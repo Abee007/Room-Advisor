@@ -21,24 +21,10 @@
     border-radius: 8px;
 }
 
-.close-btn {
-    position: fixed;
-    width: 30px;
-    height: 30px;
-    top: 15.5vh;
-    right: 16vw;
-    cursor: pointer;
-}
-
 /* For small screens */
 @media (max-width: 768px) {
     .modal-content {
         width: 90%;
         height: 75%;
-    }
-
-    .close-btn {
-        top: 12.5vh;
-        right: 7vw;
     }
 }

@@ -1,7 +1,6 @@
 import "./GeneralModal.css";
 import React, { useEffect } from "react";
 import ReactPortal from "./ReactPortal";
-import { GrClose } from "react-icons/gr";
 
 export default function ModalContainer({ children, isOpen, handleClose }) {
   useEffect(() => {
@@ -25,9 +24,6 @@ export default function ModalContainer({ children, isOpen, handleClose }) {
     <ReactPortal wrapperId="react-portal-modal-container">
       <div className="modal" onClick={checkClickOutsideModalContent}>
         <div className="modal-content">
-          <div onClick={handleClose} className="close-btn">
-            <GrClose fontSize="25px" />
-          </div>
           {children}
         </div>
       </div>

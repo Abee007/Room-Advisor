@@ -72,11 +72,11 @@
 }
 
 .favorite-room-modal {
-  margin-left: 56%;
+  margin-left: 54%;
 }
 
 .fav-room-standalone {
-  margin-left: 59.5%;
+  margin-left: 57.5%;
 }
 
 /* For small screens */
@@ -107,11 +107,11 @@
   }
 
   .favorite-room-modal {
-    margin-left: -17%;
+    margin-left: 0%;
   }
 
   .fav-room-standalone {
-    margin-left: -7%;
+    margin-left: 9%;
   }
 
 }
