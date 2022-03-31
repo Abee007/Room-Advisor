@@ -23,9 +23,7 @@ export default function ModalContainer({ children, isOpen, handleClose }) {
   return (
     <ReactPortal wrapperId="react-portal-modal-container">
       <div className="modal" onClick={checkClickOutsideModalContent}>
-        <div className="modal-content">
-          {children}
-        </div>
+        <div className="modal-content">{children}</div>
       </div>
     </ReactPortal>
   );
