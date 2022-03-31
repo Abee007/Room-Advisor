@@ -39,7 +39,7 @@ function RegisterPage({ user }) {
       meta: {
         classYear: event.target.year.value,
         college: collegesToCode(event.target.college.value),
-        favorites: []
+        favorites: [],
       },
     };
     uploadUser(userObject).then(() => {

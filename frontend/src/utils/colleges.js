@@ -66,11 +66,13 @@ export const Suites = [
           pictues: [],
           roomReviews: [
             {
-              rec: ["It's tinyyyyyyy and no sunlight cause tiny window. no room..."],
-              sw: ["It could use some improvement"]
-            }
-          ]
-        }
+              rec: [
+                "It's tinyyyyyyy and no sunlight cause tiny window. no room...",
+              ],
+              sw: ["It could use some improvement"],
+            },
+          ],
+        },
       },
       {
         roomCode: "D31B",
@@ -82,11 +84,13 @@ export const Suites = [
           pictues: [],
           roomReviews: [
             {
-              rec: ["It's tinyyyyyyy and no sunlight cause tiny window. no room..."],
-              sw: ["It could use some improvement"]
-            }
-          ]
-        }
+              rec: [
+                "It's tinyyyyyyy and no sunlight cause tiny window. no room...",
+              ],
+              sw: ["It could use some improvement"],
+            },
+          ],
+        },
       },
       {
         roomCode: "D31C",
@@ -98,11 +102,13 @@ export const Suites = [
           pictues: [],
           roomReviews: [
             {
-              rec: ["It's tinyyyyyyy and no sunlight cause tiny window. no room..."],
-              sw: ["It could use some improvement"]
-            }
-          ]
-        }
+              rec: [
+                "It's tinyyyyyyy and no sunlight cause tiny window. no room...",
+              ],
+              sw: ["It could use some improvement"],
+            },
+          ],
+        },
       },
       {
         roomCode: "D31D",
@@ -114,15 +120,15 @@ export const Suites = [
           pictues: [],
           roomReviews: [
             {
-              rec: ["It's tinyyyyyyy and no sunlight cause tiny window. no room..."],
-              sw: ["It could use some improvement"]
-            }
-          ]
-        }
+              rec: [
+                "It's tinyyyyyyy and no sunlight cause tiny window. no room...",
+              ],
+              sw: ["It could use some improvement"],
+            },
+          ],
+        },
       },
-      
-    ]
-    
+    ],
   },
   {
     buildingName: "BK",
@@ -140,13 +146,15 @@ export const Suites = [
           pictues: [],
           roomReviews: [
             {
-              rec: ["It's tinyyyyyyy and no sunlight cause tiny window. no room..."],
-              sw: ["It could use some improvement"]
-            }
-          ]
-        }
+              rec: [
+                "It's tinyyyyyyy and no sunlight cause tiny window. no room...",
+              ],
+              sw: ["It could use some improvement"],
+            },
+          ],
+        },
       },
-    ]
+    ],
   },
   {
     buildingName: "BK",
@@ -164,16 +172,16 @@ export const Suites = [
           pictues: [],
           roomReviews: [
             {
-              rec: ["It's tinyyyyyyy and no sunlight cause tiny window. no room..."],
-              sw: ["It could use some improvement"]
-            }
-          ]
-        }
+              rec: [
+                "It's tinyyyyyyy and no sunlight cause tiny window. no room...",
+              ],
+              sw: ["It could use some improvement"],
+            },
+          ],
+        },
       },
-    ]
+    ],
   },
-  
-
 ];
 
 export function getAllCollegeNames() {
@@ -189,7 +197,7 @@ export function codeToCollege(code) {
 }
 
 export function numberToAcronym(no) {
-  for(const row of roomsizes) {
-    if(row.value === no) return row.label;
+  for (const row of roomsizes) {
+    if (row.value === no) return row.label;
   }
 }

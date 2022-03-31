@@ -3,7 +3,7 @@ import Nav from "../components/Nav";
 import Results from "./ViewReviews/Results/Results";
 import { codeToCollege } from "../utils/colleges";
 import CardsContainer from "./ViewReviews/Suites/CardsContainer";
-import { Suites } from '../utils/colleges';
+import { Suites } from "../utils/colleges";
 
 // function ViewReviews({ props }) {
 //   const [isLoading, setLoading] = useState(false);
@@ -41,7 +41,6 @@ import { Suites } from '../utils/colleges';
 
 // export default ViewReviews;
 
-
 // TODO: HANDLE THE CHANGES TO THE REST OF THE SEARCHES
 export default class ViewReviews extends Component {
   // initial setup
@@ -73,60 +72,61 @@ export default class ViewReviews extends Component {
     super.setState(state);
   }
 
-  // Favorite the suites that have been favorited by the user 
+  // Favorite the suites that have been favorited by the user
   initializeSuites = () => {
     var mySuites = Suites;
-    for(var suite of mySuites) {
-      for(const fav of this.state.favorites) {
-        if(suite.suiteCode === fav.suiteCode) {
+    for (var suite of mySuites) {
+      for (const fav of this.state.favorites) {
+        if (suite.suiteCode === fav.suiteCode) {
           // If we like a room within a suite, we don't want to like the entire suite
           // so only set suite to true if what we are handling is a suite ie no roomCode element
-          if(fav.roomCode === undefined) {
+          if (fav.roomCode === undefined) {
             suite.favorited = true;
           } else {
             suite.favoritedInside = true;
-            for(var room of suite.suiteRooms) {
-              if(room.roomCode === fav.roomCode) {
+            for (var room of suite.suiteRooms) {
+              if (room.roomCode === fav.roomCode) {
                 room.meta.favorited = true;
               }
             }
           }
           // Handle for standalone singles
-          if(suite.suiteRooms.length === 1) suite.suiteRooms[0].favorited = true;
+          if (suite.suiteRooms.length === 1)
+            suite.suiteRooms[0].favorited = true;
         }
       }
     }
     return mySuites;
-  }
+  };
 
   // Adds favorited suite/room to user object
   handleAddFavorited = (e) => {
     var favorites = this.state.favorites;
     favorites.push(e);
     this.setState({ ...this.state, favorites });
-  }
+  };
 
   // Removes favorited suite/room from user object
   handleRemoveFavorited = (e) => {
     var favorites = this.state.favorites;
     var rmIdx = 0;
-    if(e.roomCode === undefined) {
+    if (e.roomCode === undefined) {
       // we are dealing with a suite
-      for(var fav of favorites) {
-        if(fav.roomCode === undefined && fav.suiteCode === e.suiteCode) break;
+      for (var fav of favorites) {
+        if (fav.roomCode === undefined && fav.suiteCode === e.suiteCode) break;
         rmIdx++;
       }
     } else {
       // we are dealing with a room
-      for(var fav of favorites) {
-        if(fav.roomCode === e.roomCode && fav.suiteCode === e.suiteCode) break;
+      for (var fav of favorites) {
+        if (fav.roomCode === e.roomCode && fav.suiteCode === e.suiteCode) break;
         rmIdx++;
       }
     }
 
     favorites.splice(rmIdx, 1);
     this.setState({ ...this.state, favorites });
-  }
+  };
 
   handleBuildingChange = (e) => {
     const building = e;
@@ -175,8 +175,10 @@ export default class ViewReviews extends Component {
         ))}
         <p>{this.state.searchItem}</p> */}
         <CardsContainer
-          ref={(ip) => {this.cardsContainer1 = ip;}}
-          suites={this.initializeSuites()} 
+          ref={(ip) => {
+            this.cardsContainer1 = ip;
+          }}
+          suites={this.initializeSuites()}
           sort={this.state.sortBy}
           handleAddFavorited={this.handleAddFavorited}
           handleRemoveFavorited={this.handleRemoveFavorited}
