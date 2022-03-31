@@ -12,13 +12,13 @@ export default function ModalContainer({ children, isOpen, handleClose }) {
     };
   }, [handleClose]);
 
-  function checkClickOutsideModalContent (e) {
+  function checkClickOutsideModalContent(e) {
     // If the className is modal, you are clicking outside the modal content so close the modal
-    if(e.target.className === 'modal') {
+    if (e.target.className === "modal") {
       handleClose();
     }
   }
- 
+
   if (!isOpen) return null;
 
   return (
