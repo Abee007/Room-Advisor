@@ -137,11 +137,23 @@
 
     .card-badge-container {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
     }
 
     .card-badge-container span {
         padding: 7px 10px;
         margin: 1px;
+    }
+
+    .card-right-side-suite {
+        width: 110px;
+    }
+
+    .card-review-quotes {
+        display: none;
+    }
+
+    .card-title {
+        text-align: left;
     }
 }
