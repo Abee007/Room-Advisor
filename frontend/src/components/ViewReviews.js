@@ -93,7 +93,9 @@ export default class ViewReviews extends Component {
       enableBodyScroll(document.querySelector("body"));
     } else {
       //Enable scroll on only the modal when the modal is open
-      disableBodyScroll(document.querySelector("#react-portal-modal-container"));
+      disableBodyScroll(
+        document.querySelector("#react-portal-modal-container")
+      );
     }
   }
 
