@@ -112,14 +112,14 @@ export default class ViewReviews extends Component {
     var rmIdx = 0;
     if (e.roomCode === undefined) {
       // we are dealing with a suite
-      for (var fav of favorites) {
-        if (fav.roomCode === undefined && fav.suiteCode === e.suiteCode) break;
+      for (var fav1 of favorites) {
+        if (fav1.roomCode === undefined && fav1.suiteCode === e.suiteCode) break;
         rmIdx++;
       }
     } else {
       // we are dealing with a room
-      for (var fav of favorites) {
-        if (fav.roomCode === e.roomCode && fav.suiteCode === e.suiteCode) break;
+      for (var fav2 of favorites) {
+        if (fav2.roomCode === e.roomCode && fav2.suiteCode === e.suiteCode) break;
         rmIdx++;
       }
     }

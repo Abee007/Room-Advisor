@@ -75,7 +75,7 @@ export default class BedroomModal extends Component {
 
         <div className="bedroom-modal-body">
           <div className="col-md-5">
-            <img className="card-photo" src={room} alt="room photo" />
+            <img className="card-photo" src={room} alt="room-view" />
           </div>
 
           <div className="col-md-7 BedroomModal-body-right">

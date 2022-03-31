@@ -6,9 +6,9 @@ import BedroomCard from "./BedroomCard";
 import { numberToAcronym } from "../../../utils/colleges";
 
 export default class SuiteModal extends Component {
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
 
   handleFavorited = (e) => {
     this.props.handleFavorited(e);

@@ -42,7 +42,7 @@ export default class BedroomCard extends Component {
     return (
       <div className="card">
         <div className="room-card-photo-container col-md-5">
-          <img className="room-card-photo" src={room} alt="room photo" />
+          <img className="room-card-photo" src={room} alt="room-view" />
         </div>
 
         <div

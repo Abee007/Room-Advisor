@@ -127,7 +127,7 @@ export default class SuiteCard extends Component {
       <div className="suite-card">
         {/* displaying room photo (--> to be carousel in the future) */}
         <div className="col-md-5">
-          <img className="card-photo" src={room} alt="room photo" />
+          <img className="card-photo" src={room} alt="room-view" />
         </div>
 
         {/* creates container for the right hand side of the card where the text and badges will go */}

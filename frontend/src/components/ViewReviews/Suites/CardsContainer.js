@@ -55,9 +55,9 @@ export default class CardsContainer extends Component {
     for (var suite of mySuites) {
       if (suite.suiteCode === e.suiteCode) {
         // Update room favorite status
-        for (var room of suite.suiteRooms) {
-          if (room.roomCode === e.roomCode) {
-            room.meta.favorited = e.favorited;
+        for (var room1 of suite.suiteRooms) {
+          if (room1.roomCode === e.roomCode) {
+            room1.meta.favorited = e.favorited;
             break;
           }
         }
@@ -67,8 +67,8 @@ export default class CardsContainer extends Component {
           suite.favoritedInside = e.favorited;
         } else {
           var check = false;
-          for (var room of suite.suiteRooms) {
-            if (room.meta.favorited) {
+          for (var room2 of suite.suiteRooms) {
+            if (room2.meta.favorited) {
               check = true;
               break;
             }
