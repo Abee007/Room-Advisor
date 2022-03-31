@@ -82,7 +82,7 @@ export default class ViewReviews extends Component {
   // Ensures that the body isn't scrollable whhen the modal is open
   handleModalOpen() {
     if (!document.querySelector(".modal")) {
-      document.querySelector("body").style.removeProperty('overflow');
+      document.querySelector("body").style.removeProperty("overflow");
     } else {
       document.querySelector("body").style.overflow = "hidden";
     }
