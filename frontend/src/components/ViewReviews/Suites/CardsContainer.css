@@ -1,0 +1,24 @@
+h1 {
+    text-align: center;
+}
+
+.suitecards-container {
+    padding-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 85%;
+    margin: auto;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.suitecards-container > div {
+    margin: 10px;
+}
+
+/* For small screens */
+@media (max-width: 768px) {
+    .suitecards-container {
+        width: 100%;
+    }
+}

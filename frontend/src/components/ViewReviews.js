@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Nav from "../components/Nav";
 import Results from "./ViewReviews/Results/Results";
 import { codeToCollege } from "../utils/colleges";
+import CardsContainer from "./ViewReviews/Suites/CardsContainer";
+import { Suites } from '../utils/colleges';
 
 // function ViewReviews({ props }) {
 //   const [isLoading, setLoading] = useState(false);
@@ -39,6 +41,8 @@ import { codeToCollege } from "../utils/colleges";
 
 // export default ViewReviews;
 
+
+// TODO: HANDLE THE CHANGES TO THE REST OF THE SEARCHES
 export default class ViewReviews extends Component {
   // initial setup
   constructor(props) {
@@ -47,6 +51,7 @@ export default class ViewReviews extends Component {
       window.localStorage.getItem("viewReviewsState")
     ) || {
       loading: false,
+      favorites: this.props.user.meta.favorites,
       building: {
         value: codeToCollege(this.props.user.meta.college),
         label: codeToCollege(this.props.user.meta.college),
@@ -56,7 +61,7 @@ export default class ViewReviews extends Component {
         { value: 2, label: "Double" },
       ],
       searchItem: "",
-      sortBy: { value: "FL", label: "Sort by: Floor Level" },
+      sortBy: { value: "ALPHA", label: "Sort by: Suite Name" },
       noRoomsFound: 7,
     };
     // Always set searchItem to empty
@@ -66,6 +71,61 @@ export default class ViewReviews extends Component {
   setState(state) {
     window.localStorage.setItem("viewReviewsState", JSON.stringify(state));
     super.setState(state);
+  }
+
+  // Favorite the suites that have been favorited by the user 
+  initializeSuites = () => {
+    var mySuites = Suites;
+    for(var suite of mySuites) {
+      for(const fav of this.state.favorites) {
+        if(suite.suiteCode === fav.suiteCode) {
+          // If we like a room within a suite, we don't want to like the entire suite
+          // so only set suite to true if what we are handling is a suite ie no roomCode element
+          if(fav.roomCode === undefined) {
+            suite.favorited = true;
+          } else {
+            suite.favoritedInside = true;
+            for(var room of suite.suiteRooms) {
+              if(room.roomCode === fav.roomCode) {
+                room.meta.favorited = true;
+              }
+            }
+          }
+          // Handle for standalone singles
+          if(suite.suiteRooms.length === 1) suite.suiteRooms[0].favorited = true;
+        }
+      }
+    }
+    return mySuites;
+  }
+
+  // Adds favorited suite/room to user object
+  handleAddFavorited = (e) => {
+    var favorites = this.state.favorites;
+    favorites.push(e);
+    this.setState({ ...this.state, favorites });
+  }
+
+  // Removes favorited suite/room from user object
+  handleRemoveFavorited = (e) => {
+    var favorites = this.state.favorites;
+    var rmIdx = 0;
+    if(e.roomCode === undefined) {
+      // we are dealing with a suite
+      for(var fav of favorites) {
+        if(fav.roomCode === undefined && fav.suiteCode === e.suiteCode) break;
+        rmIdx++;
+      }
+    } else {
+      // we are dealing with a room
+      for(var fav of favorites) {
+        if(fav.roomCode === e.roomCode && fav.suiteCode === e.suiteCode) break;
+        rmIdx++;
+      }
+    }
+
+    favorites.splice(rmIdx, 1);
+    this.setState({ ...this.state, favorites });
   }
 
   handleBuildingChange = (e) => {
@@ -89,6 +149,7 @@ export default class ViewReviews extends Component {
   handleSortByChange = (e) => {
     const sortBy = e;
     // update value
+    this.cardsContainer1.updateYourSort(sortBy);
     return this.setState({ ...this.state, sortBy });
   };
 
@@ -108,11 +169,18 @@ export default class ViewReviews extends Component {
           sortBy={this.state.sortBy}
           handleChange={this.handleSortByChange}
         />
-        <p>{this.state.building.value}</p>
+        {/* <p>{this.state.building.value}</p>
         {this.state.roomSizes.map((size) => (
           <p>{size.value}</p>
         ))}
-        <p>{this.state.searchItem}</p>
+        <p>{this.state.searchItem}</p> */}
+        <CardsContainer
+          ref={(ip) => {this.cardsContainer1 = ip;}}
+          suites={this.initializeSuites()} 
+          sort={this.state.sortBy}
+          handleAddFavorited={this.handleAddFavorited}
+          handleRemoveFavorited={this.handleRemoveFavorited}
+        />
       </div>
     );
   }

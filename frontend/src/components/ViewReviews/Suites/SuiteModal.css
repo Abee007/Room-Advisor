@@ -1,0 +1,178 @@
+.suite-modal {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.suite-modal-header {
+  display: flex;
+  /* 30px is the size of the close button */
+  min-width: 100%;
+  min-height: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  flex-direction: row;
+  justify-content: left;
+  box-shadow: 0 2px 2px -2px rgba(0,0,0,.2);
+  overflow: hidden;
+}
+
+.suite-modal-title {
+  margin: 0 0;
+  position: relative;
+  top: 10px;
+  left: 45px;
+  font-size: 24pt;
+  font-weight: bold;
+}
+
+.suite-badge-container {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  top: 10px;
+  left: 80px;
+}
+
+.pill {
+  margin-right: 2px;
+}
+
+.pill span{
+  vertical-align: top;
+}
+
+.suite-modal-card-container {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+  overflow: auto;
+}
+
+.suite-modal-card-container .card {
+  width: 49%;
+  margin: 4px;
+  height: 155px;
+  font-size: 12px;
+}
+
+/* For small screens */
+@media (max-width: 768px) {
+  .suite-modal-header {
+    height: 100px;
+  }
+  
+  .suite-modal-title {
+    left: 15px;
+  }
+
+  .suite-badge-container {
+    top: 15px;
+    left: 20px;
+  }
+
+  .pill span{
+    padding: 7px 10px;
+  }
+
+  .suite-modal-card-container .card {
+    width: 100%;
+  }
+}
+
+/* 
+  .icon{
+    width: 24px;
+    height: 24px;
+    margin-left: auto;
+  }
+  
+  .push-right{
+    margin-left: auto;
+  }
+  
+  .SuiteModal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    pointer-events: none;
+    z-index:9999;
+  }
+  
+  .SuiteModal.enter-done {
+    opacity: 1;
+    pointer-events: visible;
+  }
+  
+  .badge-container{
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+  }
+  
+  .SuiteModal.exit {
+    opacity: 0;
+  }
+  
+  .SuiteModal-content {
+    width: 70%;
+    top: 0;
+    height: 70%;
+    border-radius: 8px;
+    border-color: transparent;
+    background-color: #fff;
+    transition: all 0.3s ease-in-out;
+    transform: translateY(-200px);
+  }
+  
+  .SuiteModal.enter-done .SuiteModal-content {
+    transform: translateY(0);
+  }
+  
+  .SuiteModal.exit .SuiteModal-content {
+    transform: translateY(-200px);
+  }
+  
+  .SuiteModal-header,
+  .SuiteModal-footer {
+    display: inline-flex;
+    justify-content: start;
+    gap: 6px;
+    padding: 20px;
+  }
+  
+  .SuiteModal-title {
+    margin: 0;
+    font-size: 24pt;
+    font-weight: bold;
+  }
+  
+  .SuiteModal-card-container {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: auto;
+    margin-left: auto;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+  }
+
+  .SuiteModal-card-container > .card{
+    width: 50%;
+    margin-right: auto;
+    margin-left: 0;
+  }
+
+
+   */

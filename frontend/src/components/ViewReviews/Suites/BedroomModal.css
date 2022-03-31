@@ -1,0 +1,117 @@
+.bedroom-modal {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.bedroom-modal-header {
+  display: flex;
+  /* 30px is the size of the close button */
+  min-width: 100%;
+  min-height: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  flex-direction: row;
+  justify-content: left;
+  box-shadow: 0 2px 2px -2px rgba(0,0,0,.2);
+  /* overflow: hidden; */
+}
+
+/* Hides back arrow for standalone suites */
+.zero-opacity {
+  opacity: 0;
+}
+
+.bedroom-modal-title {
+  margin: 0 0;
+  position: relative;
+  top: 10px;
+  left: 15px;
+  font-size: 24pt;
+  font-weight: bold;
+}
+
+.bedroom-badge-container {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  top: 10px;
+  left: 50px;
+}
+
+.pill {
+  margin-right: 2px;
+}
+
+.pill span{
+  vertical-align: top;
+}
+
+.bedroom-modal-body {
+  display: inline-flex;
+  justify-content: start;
+  gap: 6px;
+  padding: 20px;
+  overflow: auto;
+}
+
+.col-md-5{
+  padding-left: 0px;
+}
+
+.BedroomModal-body-right{
+  text-align: left;
+}
+
+.BedroomModal-subtitle {
+  margin: 0;
+  font-size: 16pt;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+.favorite-room-modal {
+  margin-left: 56%;
+}
+
+.fav-room-standalone {
+  margin-left: 59.5%;
+}
+
+/* For small screens */
+@media (max-width: 768px) {
+  .bedroom-modal-header {
+    width: 100%;
+  }
+
+  .bedroom-badge-container {
+    display: absolute;
+    top: 65px;
+    left: -50px;
+  }
+
+  .is-single {
+    left: -10px;
+  }
+
+  .pill span{
+    padding: 5px 8px;
+  }
+
+  .bedroom-modal-body {
+    position: relative;
+    top: 15px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .favorite-room-modal {
+    margin-left: 3%;
+  }
+
+  .fav-room-standalone {
+    margin-left: 11%;
+  }
+
+}

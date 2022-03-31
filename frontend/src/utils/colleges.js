@@ -43,10 +43,137 @@ export const roomsizes = [
 ];
 
 export const sortOptions = [
+  { value: "ALPHA", label: "Sort by: Suite Name" },
   { value: "FL", label: "Sort by: Floor Level" },
-  { value: "CR_SZ", label: "Sort by: Common Room" },
   { value: "BR_SZ", label: "Sort by: Bedroom Size" },
   { value: "NOISE", label: "Sort by: Noise Level" },
+];
+
+export const Suites = [
+  {
+    buildingName: "BK",
+    suiteCode: "D31",
+    favorited: false,
+    favoritedInside: false,
+    suiteRooms: [
+      {
+        roomCode: "D31A",
+        meta: {
+          favorited: false,
+          noise: 4.5,
+          size: 3.4,
+          noBeds: 2,
+          pictues: [],
+          roomReviews: [
+            {
+              rec: ["It's tinyyyyyyy and no sunlight cause tiny window. no room..."],
+              sw: ["It could use some improvement"]
+            }
+          ]
+        }
+      },
+      {
+        roomCode: "D31B",
+        meta: {
+          favorited: false,
+          noise: 4.5,
+          size: 3.4,
+          noBeds: 2,
+          pictues: [],
+          roomReviews: [
+            {
+              rec: ["It's tinyyyyyyy and no sunlight cause tiny window. no room..."],
+              sw: ["It could use some improvement"]
+            }
+          ]
+        }
+      },
+      {
+        roomCode: "D31C",
+        meta: {
+          favorited: false,
+          noise: 4.5,
+          size: 3.5,
+          noBeds: 2,
+          pictues: [],
+          roomReviews: [
+            {
+              rec: ["It's tinyyyyyyy and no sunlight cause tiny window. no room..."],
+              sw: ["It could use some improvement"]
+            }
+          ]
+        }
+      },
+      {
+        roomCode: "D31D",
+        meta: {
+          favorited: false,
+          noise: 4.5,
+          size: 3.4,
+          noBeds: 2,
+          pictues: [],
+          roomReviews: [
+            {
+              rec: ["It's tinyyyyyyy and no sunlight cause tiny window. no room..."],
+              sw: ["It could use some improvement"]
+            }
+          ]
+        }
+      },
+      
+    ]
+    
+  },
+  {
+    buildingName: "BK",
+    suiteCode: "D32",
+    favorited: false,
+    favoritedInside: false,
+    suiteRooms: [
+      {
+        roomCode: "D32",
+        meta: {
+          favorited: false,
+          noise: 5,
+          size: 3.4,
+          noBeds: 2,
+          pictues: [],
+          roomReviews: [
+            {
+              rec: ["It's tinyyyyyyy and no sunlight cause tiny window. no room..."],
+              sw: ["It could use some improvement"]
+            }
+          ]
+        }
+      },
+    ]
+  },
+  {
+    buildingName: "BK",
+    suiteCode: "D45",
+    favorited: false,
+    favoritedInside: false,
+    suiteRooms: [
+      {
+        roomCode: "D45",
+        meta: {
+          favorited: false,
+          noise: 5,
+          size: 3.4,
+          noBeds: 2,
+          pictues: [],
+          roomReviews: [
+            {
+              rec: ["It's tinyyyyyyy and no sunlight cause tiny window. no room..."],
+              sw: ["It could use some improvement"]
+            }
+          ]
+        }
+      },
+    ]
+  },
+  
+
 ];
 
 export function getAllCollegeNames() {
@@ -59,4 +186,10 @@ export function collegesToCode(college) {
 
 export function codeToCollege(code) {
   return Object.keys(colleges).find((key) => colleges[key] === code);
+}
+
+export function numberToAcronym(no) {
+  for(const row of roomsizes) {
+    if(row.value === no) return row.label;
+  }
 }
