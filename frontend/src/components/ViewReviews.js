@@ -73,19 +73,19 @@ export default class ViewReviews extends Component {
   }
 
   componentDidMount() {
-    document.addEventListener('click', this.handleModalOpen);
+    document.addEventListener("click", this.handleModalOpen);
   }
 
   componentWillUnmount() {
-    document.removeEventListener('click', this.handleModalOpen);
+    document.removeEventListener("click", this.handleModalOpen);
   }
-  
+
   // Ensures that the body isn't scrollable whhen the modal is open
   handleModalOpen() {
-    if(!document.querySelector('.modal')) {
-      document.querySelector("body").style.overflow = 'visible';
+    if (!document.querySelector(".modal")) {
+      document.querySelector("body").style.overflow = "visible";
     } else {
-      document.querySelector("body").style.overflow = 'hidden';
+      document.querySelector("body").style.overflow = "hidden";
     }
   }
 
