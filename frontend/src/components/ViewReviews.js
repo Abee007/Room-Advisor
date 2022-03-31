@@ -4,6 +4,7 @@ import Results from "./ViewReviews/Results/Results";
 import { codeToCollege } from "../utils/colleges";
 import CardsContainer from "./ViewReviews/Suites/CardsContainer";
 import { Suites } from "../utils/colleges";
+import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 
 // function ViewReviews({ props }) {
 //   const [isLoading, setLoading] = useState(false);
@@ -78,16 +79,17 @@ export default class ViewReviews extends Component {
 
   componentWillUnmount() {
     document.removeEventListener("click", this.handleModalOpen);
+    clearAllBodyScrollLocks();
   }
 
   // Ensures that the body isn't scrollable whhen the modal is open
   handleModalOpen() {
     if (!document.querySelector(".modal")) {
-      document.querySelector("body").style.overflow = "visible";
-      document.querySelector("html").style.overflow = "visible";
+      //Enable scroll on all body element when the modal is closed
+      enableBodyScroll(document.querySelector("body"));
     } else {
-      document.querySelector("body").style.overflow = "hidden";
-      document.querySelector("html").style.overflow = "hidden";
+      //Enable scroll on only the modal when the modal is open
+      disableBodyScroll(document.querySelector(".modal"));
     }
   }
 
