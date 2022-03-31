@@ -5,7 +5,7 @@ import { codeToCollege } from "../utils/colleges";
 import CardsContainer from "./ViewReviews/Suites/CardsContainer";
 import { Suites } from "../utils/colleges";
 // import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
-
+import {lock, unlock, clearBodyLocks} from 'tua-body-scroll-lock';
 // function ViewReviews({ props }) {
 //   const [isLoading, setLoading] = useState(false);
 
@@ -75,6 +75,7 @@ export default class ViewReviews extends Component {
 
   componentDidMount() {
     document.addEventListener("click", this.handleModalOpen);
+    clearBodyLocks();
   }
 
   componentWillUnmount() {
@@ -86,9 +87,11 @@ export default class ViewReviews extends Component {
     if (!document.querySelector(".modal")) {
       document.querySelector("body").style.overflow = "visible";
       document.querySelector("html").style.overflow = "visible";
+      unlock(document.querySelector("body"));
     } else {
       document.querySelector("body").style.overflow = "hidden";
       document.querySelector("html").style.overflow = "hidden";
+      lock(document.querySelector("body"));
     }
   }
 
