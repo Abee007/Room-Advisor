@@ -33,6 +33,8 @@ export default class NavSearchBar extends Component {
   onEnter = (e) => {
     if (e.key === "Enter") {
       e.target.blur();
+      // focus on the suites
+      document.getElementsByClassName('suitecards-container')[0].focus();
     }
   };
 
