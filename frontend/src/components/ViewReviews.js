@@ -84,8 +84,10 @@ export default class ViewReviews extends Component {
   handleModalOpen() {
     if (!document.querySelector(".modal")) {
       document.querySelector("body").style.overflow = "visible";
+      document.querySelector("body").style.position = "fixed";
     } else {
       document.querySelector("body").style.overflow = "hidden";
+      document.querySelector("body").style.position = "static";
     }
   }
 
