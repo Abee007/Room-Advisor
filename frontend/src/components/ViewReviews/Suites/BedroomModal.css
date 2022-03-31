@@ -79,6 +79,14 @@
   margin-left: 57.5%;
 }
 
+.bedroom-modal-backarrow {
+  cursor: pointer;
+}
+
+.zero-opacity {
+  cursor: auto;
+}
+
 /* For small screens */
 @media (max-width: 768px) {
   .bedroom-modal-header {
