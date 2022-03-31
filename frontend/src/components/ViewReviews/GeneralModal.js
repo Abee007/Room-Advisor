@@ -12,11 +12,18 @@ export default function ModalContainer({ children, isOpen, handleClose }) {
     };
   }, [handleClose]);
 
+  function checkClickOutsideModalContent (e) {
+    // If the className is modal, you are clicking outside the modal content so close the modal
+    if(e.target.className === 'modal') {
+      handleClose();
+    }
+  }
+ 
   if (!isOpen) return null;
 
   return (
     <ReactPortal wrapperId="react-portal-modal-container">
-      <div className="modal">
+      <div className="modal" onClick={checkClickOutsideModalContent}>
         <div className="modal-content">
           <div onClick={handleClose} className="close-btn">
             <GrClose fontSize="25px" />

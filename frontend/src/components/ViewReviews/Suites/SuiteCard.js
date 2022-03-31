@@ -17,6 +17,7 @@ export default class SuiteCard extends Component {
       name: this.props.suite.suiteCode,
       favorited: this.props.suite.favorited,
       favoritedInside: this.props.suite.favoritedInside,
+      showModal: false,
       showReviews: false,
       showReviewRoomInfo: undefined,
       suiteStats: this.computeSuiteStats(this.props.suite.suiteRooms),
