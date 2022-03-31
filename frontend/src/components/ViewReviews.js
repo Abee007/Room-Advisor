@@ -4,7 +4,11 @@ import Results from "./ViewReviews/Results/Results";
 import { codeToCollege } from "../utils/colleges";
 import CardsContainer from "./ViewReviews/Suites/CardsContainer";
 import { Suites } from "../utils/colleges";
-import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
+import {
+  disableBodyScroll,
+  enableBodyScroll,
+  clearAllBodyScrollLocks,
+} from "body-scroll-lock";
 
 // function ViewReviews({ props }) {
 //   const [isLoading, setLoading] = useState(false);
