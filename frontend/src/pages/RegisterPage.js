@@ -8,11 +8,11 @@ import { db } from "../utils/firebase";
 import { collection, addDoc } from "firebase/firestore";
 import { clientIp } from "../constants";
 import Nav from "../components/Nav";
-import Select from 'react-select'
-import Button from '../components/Button'
+import Select from "react-select";
+import Button from "../components/Button";
 import GuidelinesList from "../components/GuidelinesList";
-import { colleges } from '../components/data.ts';
-import agreement from '../static/agreement.svg';
+import { colleges } from "../components/data.ts";
+import agreement from "../static/agreement.svg";
 
 function RegisterPage({ user }) {
   const [isLoading, setLoading] = useState(true);
@@ -21,7 +21,7 @@ function RegisterPage({ user }) {
   const navigate = useNavigate();
 
   const handleChange = () => {
-    console.log('test')
+    console.log("test");
     setChecked(!checked);
   };
 
@@ -65,7 +65,6 @@ function RegisterPage({ user }) {
       <Nav user={undefined} mode={"TRUNCATED"} />
 
       <div className="page-container">
-
         <div className="form-container">
           <form
             onSubmit={(e) => {
@@ -74,8 +73,7 @@ function RegisterPage({ user }) {
           >
             <h1 className="signup-title"> Tell us a bit about yourself </h1>
 
-            <div className="input-container"> 
-
+            <div className="input-container">
               <h1 className="divider-text"> I'm a </h1>
 
               <select className="form-control" name="year" required>
@@ -98,13 +96,10 @@ function RegisterPage({ user }) {
                   <option value={college}>{college}</option>
                 ))}
               </select>
-
             </div>
 
-            <h2 className="signup-title"> 
-              Community Guidelines
-            </h2>
-            
+            <h2 className="signup-title">Community Guidelines</h2>
+
             <h3 className="sub-text">
               This anonymous platform lets you review a room on campus you are
               currently living in or have lived in the past. Individual
@@ -116,36 +111,44 @@ function RegisterPage({ user }) {
             <div className="divider-block"> </div>
 
             <div className="community-guidlines-container">
-
-                <h3 className="sub-text">
-                  I understand that his platform is only for reviewing the quality of the physical room and that this is no place for rants irrelevant to the room itself. I therefore agree that
-                </h3>
-                <GuidelinesList></GuidelinesList>
-
+              <h3 className="sub-text">
+                I understand that his platform is only for reviewing the quality
+                of the physical room and that this is no place for rants
+                irrelevant to the room itself. I therefore agree that
+              </h3>
+              <GuidelinesList></GuidelinesList>
             </div>
 
             <div className="checkbox-container">
               <label className="checkbox-text">
-                <input className="check-box" type="checkbox" checked={checked} onChange={handleChange}/>
+                <input
+                  className="check-box"
+                  type="checkbox"
+                  checked={checked}
+                  onChange={handleChange}
+                />
                 By checking this box you agree to our community guidelines.
               </label>
               {/* testing if the checkbox is functional */}
               <p>Is "Checkbox" checked? {checked.toString()}</p>
             </div>
-            
-            <button buttonStyle='btn--primary' buttonSize='btn--large' className="register-button" disabled={checked !== true} type="submit">
+
+            <button
+              buttonStyle="btn--primary"
+              buttonSize="btn--large"
+              className="register-button"
+              disabled={checked !== true}
+              type="submit"
+            >
               Register
             </button>
           </form>
-
         </div>
-        
+
         <div className="image-container">
-          <img className="illustration" src={agreement} alt='Agreement' />
+          <img className="illustration" src={agreement} alt="Agreement" />
         </div>
-      
       </div>
-
     </div>
   );
 }

@@ -73,10 +73,7 @@ function RegisterandProtectedPages({ casUser }) {
       />
       TODO:
       {/* REGISTER USER */}
-      <Route
-        path="/register"
-        element={<RegisterPage user={casUser} />}
-      />
+      <Route path="/register" element={<RegisterPage user={casUser} />} />
       {/* If no user exists, navigate back to the landing page */}
       {/* Performs a soft logout so we don't actually log users out of cas */}
       <Route path="/about" element={<AboutPage user={casUser} />} />
