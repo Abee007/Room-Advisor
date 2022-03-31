@@ -50,7 +50,7 @@
 
 .bedroom-modal-body {
   display: inline-flex;
-  justify-content: start;
+  justify-content: flex-start;
   gap: 6px;
   padding: 20px;
   overflow: auto;
