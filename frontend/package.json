@@ -46,7 +46,6 @@
     "react-icons": "^4.3.1",
     "react-scripts": "^5.0.0",
     "react-select": "^5.2.2",
-    "standard": "^16.0.4",
-    "tua-body-scroll-lock": "^1.2.1"
+    "standard": "^16.0.4"
   }
 }
