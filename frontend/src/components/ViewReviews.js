@@ -91,7 +91,7 @@ export default class ViewReviews extends Component {
     } else {
       document.querySelector("body").style.overflow = "hidden";
       document.querySelector("html").style.overflow = "hidden";
-      lock(document.querySelector("body"));
+      lock(document.querySelector(".modal"));
     }
   }
 
