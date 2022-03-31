@@ -75,13 +75,7 @@ function RegisterandProtectedPages({ casUser }) {
       {/* REGISTER USER */}
       <Route
         path="/register"
-        element={
-          !isValidated ? (
-            <RegisterPage user={casUser} />
-          ) : (
-            <Navigate to="/viewreviews" />
-          )
-        }
+        element={<RegisterPage user={casUser} />}
       />
       {/* If no user exists, navigate back to the landing page */}
       {/* Performs a soft logout so we don't actually log users out of cas */}

@@ -8,12 +8,22 @@ import { db } from "../utils/firebase";
 import { collection, addDoc } from "firebase/firestore";
 import { clientIp } from "../constants";
 import Nav from "../components/Nav";
+import Select from 'react-select'
+import Button from '../components/Button'
+import GuidelinesList from "../components/GuidelinesList";
+import { colleges } from '../components/data.ts';
+import agreement from '../static/agreement.svg';
 
 function RegisterPage({ user }) {
   const [isLoading, setLoading] = useState(true);
   const [colleges, setColleges] = useState([]);
-  const [level, setLevel] = useState(0);
+  const [checked, setChecked] = useState(false);
   const navigate = useNavigate();
+
+  const handleChange = () => {
+    console.log('test')
+    setChecked(!checked);
+  };
 
   useEffect(() => {
     // Get all colleges to be displayed
@@ -49,125 +59,93 @@ function RegisterPage({ user }) {
   if (isLoading) {
     return <div className="App">Loading Register...</div>;
   }
+
   return (
     <div>
       <Nav user={undefined} mode={"TRUNCATED"} />
-      <form
-        onSubmit={(e) => {
-          handleSubmit(e);
-        }}
-      >
-        <h1 className="signup-title"> About you...</h1>
-        <select className="form-control" name="year" required>
-          <option value="" defaultValue>
-            Class Year
-          </option>
-          <option value="1">First Year</option>
-          <option value="2">Sophomore</option>
-          <option value="3">Junior</option>
-          <option value="4">Senior</option>
-        </select>
 
-        <br />
+      <div className="page-container">
 
-        <select className="form-control" name="college" required>
-          <option value="" defaultValue>
-            Residential College
-          </option>
-          {colleges.map((college) => (
-            <option value={college}>{college}</option>
-          ))}
-        </select>
+        <div className="form-container">
+          <form
+            onSubmit={(e) => {
+              handleSubmit(e);
+            }}
+          >
+            <h1 className="signup-title"> Tell us a bit about yourself </h1>
 
-        <div className="community-guidlines-container">
-          <div className="resource-rich w-richtext">
-            <h2 className="signup-title"> Community Guidelines</h2>
-            <br />
-            <p className="sub-title">
-              {" "}
-              Choosing a room just got a lot easier!{" "}
-            </p>
-            <p>
-              Room Advisor is a new platform built by Yale undergrads that
-              enables students to share and view reviews of rooms on campus to
-              make the housing process less stressful and more transparent.
-            </p>
-            <p>
-              Do you have a loud gym right next to your bedroom? Do you have a
-              beautiful view of the courtyard every morning? Share your
-              experiences with the community to help people after you make
-              better informed decisions!
-            </p>
-            <p>
-              This anonymous form lets you review a room on campus you are
+            <div className="input-container"> 
+
+              <h1 className="divider-text"> I'm a </h1>
+
+              <select className="form-control" name="year" required>
+                <option value="" defaultValue>
+                  Class Year
+                </option>
+                <option value="1">First Year</option>
+                <option value="2">Sophomore</option>
+                <option value="3">Junior</option>
+                <option value="4">Senior</option>
+              </select>
+
+              <h1 className="divider-text"> in </h1>
+
+              <select className="form-control" name="college" required>
+                <option value="" defaultValue>
+                  Residential College
+                </option>
+                {colleges.map((college) => (
+                  <option value={college}>{college}</option>
+                ))}
+              </select>
+
+            </div>
+
+            <h2 className="signup-title"> 
+              Community Guidelines
+            </h2>
+            
+            <h3 className="sub-text">
+              This anonymous platform lets you review a room on campus you are
               currently living in or have lived in the past. Individual
               identities associated with reviews will not be displayed or kept
               in our records. The information you provide will help build a
               collective database of room reviews for the future.
-            </p>
-            <p></p>
-            <p className="sub-title">Community Guidelines:</p>
-            <div className="bullet-list" role="list">
-              <li>Treat others online as you would treat them in real life</li>
-              <li>
-                Be tolerant towards other’s viewpoints; respectfully disagree
-                when opinions do not align
-              </li>
-              <li>
-                Respect the privacy and personal information of other alumni
-              </li>
-              <li>Communicate with courtesy and respect</li>
+            </h3>
+
+            <div className="divider-block"> </div>
+
+            <div className="community-guidlines-container">
+
+                <h3 className="sub-text">
+                  I understand that his platform is only for reviewing the quality of the physical room and that this is no place for rants irrelevant to the room itself. I therefore agree that
+                </h3>
+                <GuidelinesList></GuidelinesList>
+
             </div>
-            <p className="sub-title">Please:</p>
-            <div className="bullet-list" role="list">
-              <li>
-                Respect: I will not comment on my suite/hall mates. I will not
-                name anyone. I will not post pictures of others without consent.
-              </li>
-              <li>
-                Relevance: I understand this platform is only for reviewing the
-                quality of the ROOM. This is no place for rants irrelevant to
-                the room itself.{" "}
-              </li>
-              <li>Do not post prejudiced comments or profanity</li>
-              <li>
-                Do not bully or make inflammatory remarks to other community
-                members
-              </li>
-              <li>
-                Inappropriate content: I will not use this platform to engage in
-                cyberbullying, harassment, hate speech, or any form of bigotry.{" "}
-              </li>
-              <li>
-                Honesty: I will review the room honestly based on my own
-                experience of living in the room.
-              </li>
+
+            <div className="checkbox-container">
+              <label className="checkbox-text">
+                <input className="check-box" type="checkbox" checked={checked} onChange={handleChange}/>
+                By checking this box you agree to our community guidelines.
+              </label>
+              {/* testing if the checkbox is functional */}
+              <p>Is "Checkbox" checked? {checked.toString()}</p>
             </div>
-          </div>
-          <button
-            className="btn btn-primary"
-            type="button"
-            onClick={() => setLevel(1)}
-          >
-            Accept
-          </button>
-          <button
-            className="btn btn-secondary"
-            type="button"
-            onClick={() => navigate("/logout")}
-          >
-            Reject
-          </button>
+            
+            <button buttonStyle='btn--primary' buttonSize='btn--large' className="register-button" disabled={checked !== true} type="submit">
+              Register
+            </button>
+          </form>
+
         </div>
-        <br />
-        <button
-          disabled={level !== 1}
-          className="btn btn-primary"
-          type="submit"
-        >
-          Submit
-        </button>
-      </form>
+        
+        <div className="image-container">
+          <img className="illustration" src={agreement} alt='Agreement' />
+        </div>
+      
+      </div>
+
     </div>
   );
 }
