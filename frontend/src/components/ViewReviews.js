@@ -72,6 +72,23 @@ export default class ViewReviews extends Component {
     super.setState(state);
   }
 
+  componentDidMount() {
+    document.addEventListener('click', this.handleModalOpen);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('click', this.handleModalOpen);
+  }
+  
+  // Ensures that the body isn't scrollable whhen the modal is open
+  handleModalOpen() {
+    if(!document.querySelector('.modal')) {
+      document.querySelector("body").style.overflow = 'visible';
+    } else {
+      document.querySelector("body").style.overflow = 'hidden';
+    }
+  }
+
   // Favorite the suites that have been favorited by the user
   initializeSuites = () => {
     var mySuites = Suites;
