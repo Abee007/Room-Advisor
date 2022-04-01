@@ -118,8 +118,13 @@ export default class SuiteCard extends Component {
 
   activateModal = (e) => {
     // You don't want to reopen the modal if you are trying to close a modal
-    if(e.target.className === 'modal' || e.target.className === 'favorite-suite' || e.target.className === 'favorited-inside') return;
-    
+    if (
+      e.target.className === "modal" ||
+      e.target.className === "favorite-suite" ||
+      e.target.className === "favorited-inside"
+    )
+      return;
+
     this.setState({ showModal: true });
   };
 
