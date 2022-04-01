@@ -101,7 +101,7 @@ export default class ViewReviews extends Component {
           } else {
             suite.favoritedInside = true;
             // If the room is a standalone single, you still want to favorite the entire suite
-            if(suite.suiteRooms.length === 1) {
+            if (suite.suiteRooms.length === 1) {
               suite.favorited = true;
             }
             for (var room of suite.suiteRooms) {
