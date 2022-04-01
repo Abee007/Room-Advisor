@@ -62,6 +62,13 @@ export default class CardsContainer extends Component {
           }
         }
 
+        // If the room is a standalone single, set the entire suite to favorited
+        if(suite.suiteRooms.length === 1) {
+          suite.favorited = e.favorited;
+          suite.favoritedInside = e.favorited;
+          break;
+        }
+
         // Update whether or not there is a room in this suite that has been favorited
         if (e.favorited) {
           suite.favoritedInside = e.favorited;

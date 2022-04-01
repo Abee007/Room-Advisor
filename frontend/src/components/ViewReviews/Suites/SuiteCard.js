@@ -30,6 +30,7 @@ export default class SuiteCard extends Component {
       //Change in props
       return {
         favoritedInside: props.suite.favoritedInside,
+        favorited: props.suite.favorited
       };
     }
     return null; // No change to state
