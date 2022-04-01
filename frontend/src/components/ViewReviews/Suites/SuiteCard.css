@@ -1,3 +1,8 @@
+/* Stops click event handler from picking up svg icons */
+svg {
+    pointer-events: none;
+}
+
 .card-photo{
     max-height: 100%;
     max-width: 100%;
@@ -115,6 +120,8 @@
     position: relative;
     top: 3px;
     right: 40px;
+    width: 30px;
+    height: 30px;
     cursor: pointer;
     z-index: 1;
 }

@@ -115,7 +115,10 @@ export default class SuiteCard extends Component {
     };
   };
 
-  activateModal = () => {
+  activateModal = (e) => {
+    // You don't want to reopen the modal if you are trying to close a modal
+    if(e.target.className === 'modal' || e.target.className === 'favorite-suite' || e.target.className === 'favorited-inside') return;
+    
     this.setState({ showModal: true });
   };
 
@@ -125,17 +128,14 @@ export default class SuiteCard extends Component {
 
   render() {
     return (
-      <div className="suite-card">
+      <div className="suite-card" onClick={this.activateModal}>
         {/* displaying room photo (--> to be carousel in the future) */}
         <div className="col-md-5">
           <img className="card-photo" src={room} alt="room-view" />
         </div>
 
         {/* creates container for the right hand side of the card where the text and badges will go */}
-        <div
-          className="card-right-side-suite col-md-7"
-          onClick={this.activateModal}
-        >
+        <div className="card-right-side-suite col-md-7">
           {/* room number and bookmark icon */}
           <div className="card-title-container">
             <h5 className="card-title">{this.props.suite.suiteCode}</h5>

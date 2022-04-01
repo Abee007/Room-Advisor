@@ -34,21 +34,20 @@ export default class BedroomCard extends Component {
     this.setState({ favorited });
   };
 
-  activateReview = () => {
+  activateReview = (e) => {
+    // Don't activate review if you are trying to like a room
+    if(e.target.className === 'favorite-room') return;
     this.props.handleActivateReview({ roomCode: this.props.room.roomCode });
   };
 
   render() {
     return (
-      <div className="card">
+      <div className="card" onClick={this.activateReview}>
         <div className="room-card-photo-container col-md-5">
           <img className="room-card-photo" src={room} alt="room-view" />
         </div>
 
-        <div
-          className="room-card-right-side col-md-7"
-          onClick={this.activateReview}
-        >
+        <div className="room-card-right-side col-md-7">
           {/* room number and bookmark icon */}
           <div className="card-title-container">
             <h5 className="card-title">{this.props.room.roomCode}</h5>
