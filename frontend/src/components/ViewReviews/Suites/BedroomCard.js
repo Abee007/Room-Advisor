@@ -14,7 +14,7 @@ export default class BedroomCard extends Component {
     };
   }
 
-  // This persists the state of the liked rooms in the suitemodal and the reviews modal
+  // Look out of change of state of bedroom props
   static getDerivedStateFromProps(props, state) {
     if (props.room.meta.favorited !== state.favorited) {
       //Change in props
