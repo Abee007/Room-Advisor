@@ -9,13 +9,25 @@ import { numberToAcronym } from "../../../utils/colleges";
 import { IoIosArrowBack } from "react-icons/io";
 
 export default class BedroomModal extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
+  constructor(props) {
+    super(props);
+    this.state = {
+      favorited: this.props.room.meta.favorited,
+    }
+  }
 
   goBackToSuiteView = () => {
     this.props.handleActivateViewSuite();
   };
+
+  toggleFavoritedRoom = () => {
+    const favorited = !this.state.favorited;
+    this.props.handleFavorited({
+      roomCode: this.props.room.roomCode,
+      favorited: favorited,
+    });
+    this.setState({ favorited });
+  }
 
   render() {
     return (
@@ -65,9 +77,9 @@ export default class BedroomModal extends Component {
                 ? "favorite-room-modal"
                 : "favorite-room-modal fav-room-standalone"
             }
-            onClick={this.toggleFavorited}
+            onClick={this.toggleFavoritedRoom}
           >
-            {!this.props.room.meta.favorited ? (
+            {!this.state.favorited ? (
               <FaRegBookmark style={{ color: "#0053c5", fontSize: "30px" }} />
             ) : (
               <FaBookmark style={{ color: "#0053c5", fontSize: "30px" }} />

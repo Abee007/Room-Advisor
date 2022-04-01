@@ -43,6 +43,7 @@ export default class SuiteCard extends Component {
         title={room.roomCode}
         room={room}
         handleActivateViewSuite={this.viewSuiteRooms}
+        handleFavorited={this.handleRoomFavorited}
       />
     );
   };
@@ -193,6 +194,7 @@ export default class SuiteCard extends Component {
               title={this.props.suite.suiteRooms[0].roomCode}
               room={this.props.suite.suiteRooms[0]}
               handleActivateViewSuite={this.viewSuiteRooms}
+              handleFavorited={this.handleRoomFavorited}
             />
           ) : (
             <>

@@ -10,7 +10,7 @@ export default class BedroomCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      favorited: false,
+      favorited: this.props.room.meta.favorited,
     };
   }
 
