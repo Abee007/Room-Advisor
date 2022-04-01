@@ -149,11 +149,13 @@ export default class SuiteCard extends Component {
             </Badge>
             <Badge pill bg="secondary">
               {/* Noise */}
-              Noise: {(Math.round((this.state.suiteStats.noise) * 10) / 10).toFixed(1)}
+              Noise:{" "}
+              {(Math.round(this.state.suiteStats.noise * 10) / 10).toFixed(1)}
             </Badge>
             <Badge pill bg="info">
               {/* RoomSize */}
-              Size: {(Math.round((this.state.suiteStats.size) * 10) / 10).toFixed(1)}
+              Size:{" "}
+              {(Math.round(this.state.suiteStats.size * 10) / 10).toFixed(1)}
             </Badge>
           </div>
 

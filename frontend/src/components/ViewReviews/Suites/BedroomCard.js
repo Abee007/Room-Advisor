@@ -60,10 +60,12 @@ export default class BedroomCard extends Component {
               {numberToAcronym(this.props.room.meta.noBeds)}
             </Badge>
             <Badge pill bg="secondary">
-              Noise: {(Math.round((this.props.room.meta.noise) * 10) / 10).toFixed(1)}
+              Noise:{" "}
+              {(Math.round(this.props.room.meta.noise * 10) / 10).toFixed(1)}
             </Badge>
             <Badge pill bg="info">
-              Size: {(Math.round((this.props.room.meta.size) * 10) / 10).toFixed(1)}
+              Size:{" "}
+              {(Math.round(this.props.room.meta.size * 10) / 10).toFixed(1)}
             </Badge>
           </div>
 
