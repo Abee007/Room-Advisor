@@ -12,11 +12,11 @@ export default class CardsContainer extends Component {
 
   updateSuiteFavorited = (e) => {
     //If we have a standalone suite, use the room favorited function instead
-    if(e.roomCode) {
+    if (e.roomCode) {
       this.updateRoomFavorited(e);
       return;
     }
-    
+
     // Send to be added/removed from user object
     if (e.favorited) {
       this.props.handleAddFavorited({
