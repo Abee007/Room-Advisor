@@ -57,7 +57,14 @@ export default class BedroomModal extends Component {
               </Badge>
             </div>
           </div>
-          <div className="favorite-room-modal" onClick={this.toggleFavorited}>
+          <div
+            className={
+              !this.props.isSingle
+                ? "favorite-room-modal"
+                : "favorite-room-modal fav-room-standalone"
+            }
+            onClick={this.toggleFavorited}
+          >
             {!this.props.room.meta.favorited ? (
               <FaRegBookmark style={{ color: "#0053c5", fontSize: "30px" }} />
             ) : (
