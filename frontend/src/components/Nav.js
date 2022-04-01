@@ -91,7 +91,7 @@ export default class Nav extends Component {
                   }
                 >
                   {this.props.mode === "VERBOSE" ? (
-                    <div className="filters">
+                    <div className="filters-container">
                       <div className="filter-item">
                         <NavDropdownComponent
                           ref={(ip) => {
