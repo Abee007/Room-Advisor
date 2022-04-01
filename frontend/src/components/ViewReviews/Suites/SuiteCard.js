@@ -146,15 +146,15 @@ export default class SuiteCard extends Component {
             <Badge pill bg="primary">
               {/* Single/Double/Triple etc */}
               {numberToAcronym(this.state.suiteStats.noBeds)}
-            </Badge>{" "}
+            </Badge>
             <Badge pill bg="secondary">
               {/* Noise */}
-              Noise: {this.state.suiteStats.noise}
-            </Badge>{" "}
+              Noise: {(Math.round((this.state.suiteStats.noise) * 10) / 10).toFixed(1)}
+            </Badge>
             <Badge pill bg="info">
               {/* RoomSize */}
-              Size: {this.state.suiteStats.size}
-            </Badge>{" "}
+              Size: {(Math.round((this.state.suiteStats.size) * 10) / 10).toFixed(1)}
+            </Badge>
           </div>
 
           <p className="card-review-quotes">

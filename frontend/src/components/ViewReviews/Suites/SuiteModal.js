@@ -31,13 +31,12 @@ export default class SuiteModal extends Component {
             </div>
             <div className="pill">
               <Badge pill bg="secondary">
-                Noise: {this.props.suiteStats.noise}{" "}
+                Noise: {(Math.round((this.props.suiteStats.noise) * 10) / 10).toFixed(1)}
               </Badge>
             </div>
             <div className="pill">
               <Badge pill bg="info">
-                {" "}
-                Size: {this.props.suiteStats.size}{" "}
+                Size: {(Math.round((this.props.suiteStats.size) * 10) / 10).toFixed(1)}
               </Badge>
             </div>
           </div>

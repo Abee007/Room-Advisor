@@ -47,13 +47,13 @@ export default class BedroomModal extends Component {
             </div>
             <div className="pill">
               <Badge pill bg="secondary">
-                Noise: {this.props.room.meta.noise}{" "}
+                Noise: {(Math.round((this.props.room.meta.noise) * 10) / 10).toFixed(1)}
               </Badge>
             </div>
             <div className="pill">
               <Badge pill bg="info">
                 {" "}
-                Size: {this.props.room.meta.size}{" "}
+                Size: {(Math.round((this.props.room.meta.size) * 10) / 10).toFixed(1)}
               </Badge>
             </div>
           </div>
