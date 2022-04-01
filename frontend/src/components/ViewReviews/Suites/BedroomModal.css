@@ -116,10 +116,16 @@
   }
 
   .favorite-room-modal {
-    position: relative;
-    right: 25px;
     margin-top: 3%;
     margin-right: 3%;
+  }
+}
+
+/* For even smaller screens iphone 8etc*/
+@media (max-width: 400px) {
+  .favorite-room-modal {
+    position: relative;
+    right: 25px;
   }
 
   .fav-room-standalone {
