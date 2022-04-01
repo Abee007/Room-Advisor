@@ -13,7 +13,7 @@ export default class BedroomModal extends Component {
     super(props);
     this.state = {
       favorited: this.props.room.meta.favorited,
-    }
+    };
   }
 
   goBackToSuiteView = () => {
@@ -27,7 +27,7 @@ export default class BedroomModal extends Component {
       favorited: favorited,
     });
     this.setState({ favorited });
-  }
+  };
 
   render() {
     return (
