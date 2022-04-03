@@ -7,10 +7,14 @@ import { FaRegBookmark, FaBookmark } from "react-icons/fa";
 import ModalContainer from "../GeneralModal";
 import { numberToAcronym } from "../../../utils/colleges";
 import SuiteModal from "./SuiteModal";
+import noise from "../../../static/noise.svg"
+import size from "../../../static/size.svg"
 import BedroomModal from "./BedroomModal";
+import {roomColorCodes} from "../../../utils/colleges";
 import { BsDot } from "react-icons/bs";
 
 export default class SuiteCard extends Component {
+  
   constructor(props) {
     super(props);
     this.state = {
@@ -146,36 +150,48 @@ export default class SuiteCard extends Component {
 
   render() {
     return (
-      <div className="suite-card" onClick={this.activateModal}>
-        {/* displaying room photo (--> to be carousel in the future) */}
-        <div className="col-md-5">
-          <img className="card-photo" src={room} alt="room-view" />
+      <div className="card" onClick={this.activateModal}>
+
+        <div className="title-container notify-badge rcorners1">
+          <h5 className="card-title"> {this.props.suite.suiteCode} </h5>
+          <p className="suite-badge" style={{
+            background: roomColorCodes[(this.state.suiteStats.noBeds)-1].color, 
+            color:roomColorCodes[(this.state.suiteStats.noBeds)-1].tcolor, 
+            marginBottom:'0'
+            }}> {numberToAcronym(this.state.suiteStats.noBeds)} </p>
         </div>
 
-        {/* creates container for the right hand side of the card where the text and badges will go */}
-        <div className="card-right-side-suite col-md-7">
-          {/* room number and bookmark icon */}
-          <div className="card-title-container">
-            <h5 className="card-title">{this.props.suite.suiteCode}</h5>
-          </div>
+        {/* displaying room photo (--> to be carousel in the future) */}
+        <img className="card-photo" src={room} alt="room-view" />
 
-          {/* room size, noise, and size tags */}
-          <div className="card-badge-container">
-            <Badge pill bg="primary">
-              {/* Single/Double/Triple etc */}
-              {numberToAcronym(this.state.suiteStats.noBeds)}
-            </Badge>
-            <Badge pill bg="secondary">
-              {/* Noise */}
-              Noise:{" "}
-              {(Math.round(this.state.suiteStats.noise * 10) / 10).toFixed(1)}
-            </Badge>
-            <Badge pill bg="info">
-              {/* RoomSize */}
-              Size:{" "}
-              {(Math.round(this.state.suiteStats.size * 10) / 10).toFixed(1)}
-            </Badge>
+        <div className="bookmark-badge" onClick={this.handleSuiteFavorited}>
+          {!this.state.favorited ? (
+            <FaRegBookmark style={{ color: "#fff", fontSize: "30px" }} />
+          ) : (
+            <FaBookmark style={{ color: "#fff", fontSize: "30px" }} />
+          )}
+          <div className="favorited-inside">
+            {this.state.favoritedInside ? (
+              <BsDot style={{ color: "#fff", fontSize: "30px" }} />
+            ) : (
+              ""
+            )}
           </div>
+        </div>
+       
+        <div className="card-badge-container">
+
+          <p className="room-badge" style={{marginBottom: '0px'}} > D31A </p>
+          <p className="room-badge" style={{marginBottom: '0px'}} > D31B </p>
+          
+          <div className="icon-badge-container">
+            <p className="room-badge-gray" style={{marginBottom: '0px'}} > <img className="badge-icon" src={noise}/> {(Math.round(this.state.suiteStats.noise * 10) / 10).toFixed(1)} </p>
+            <p className="room-badge-gray" style={{marginBottom: '0px'}} > <img className="badge-icon" src={size}/> {(Math.round(this.state.suiteStats.size * 10) / 10).toFixed(1)} </p>
+          </div>
+        </div>
+
+        
+        {/* <div className="card-right-side-suite col-md-7">
 
           <p className="card-review-quotes">
             "{this.state.suiteStats.previewReview}"
@@ -183,21 +199,7 @@ export default class SuiteCard extends Component {
           <h1 className="card-subtext">
             {this.state.suiteStats.noReviews} reviews
           </h1>
-        </div>
-        <div className="favorite-suite" onClick={this.handleSuiteFavorited}>
-          {!this.state.favorited ? (
-            <FaRegBookmark style={{ color: "#0053c5", fontSize: "30px" }} />
-          ) : (
-            <FaBookmark style={{ color: "#0053c5", fontSize: "30px" }} />
-          )}
-          <div className="favorited-inside">
-            {this.state.favoritedInside ? (
-              <BsDot style={{ color: "#0053c5", fontSize: "30px" }} />
-            ) : (
-              ""
-            )}
-          </div>
-        </div>
+        </div> */}
 
         {/* pop-up with the individual room cards that shows up when clicked on the card */}
         <ModalContainer

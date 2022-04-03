@@ -42,6 +42,28 @@ export const roomsizes = [
   { value: 8, label: "8-Pack" },
 ];
 
+export const roomColorCodes = [
+  { value: 'purple-light', label: 'purple-light', color: '#eee8f1', tcolor: '#79558b'  },
+  { value: 'orange-light', label: 'orange-light', color: '#f8d4c9', tcolor: '#c7421a'} ,
+  { value: 'yellow-light', label: 'yellow-light', color: '#ffedc2', tcolor: '#cc8f00' },
+  { value: 'green-light', label: 'green-light', color: '#d2efd2' , tcolor: '#2a792a' },
+  { value: 'green-light', label: 'green-light', color: '#c7f9f0', tcolor: '#0e816c'  },
+  { value: 'navy-light', label: 'navy-light', color: '#d8dee9' , tcolor: '#425476'},
+  { value: 'gray-light', label: 'gray-light', color: '#dfe8f0' , tcolor: '#34546f'},
+  { value: 'blue-light', label: 'blue-light', color: '#c7edfa', tcolor: '#1091bc' },
+];
+
+// export const roomColorCodesText = [
+//   { value: 'purple-dark', label: 'purple-dark', color: '#79558b' },
+//   { value: 'orange-dark', label: 'orange-dark', color: '#c7421a'} ,
+//   { value: 'yellow-dark', label: 'yellow-dark', color: '#cc8f00' },
+//   { value: 'green-dark', label: 'green-dark', color: '#2a792a' },
+//   { value: 'green-dark', label: 'green-dark', color: '#0e816c' },
+//   { value: 'navy-dark', label: 'navy-dark', color: '#425476' },
+//   { value: 'gray-dark', label: 'gray-dark', color: '#34546f' },
+//   { value: 'blue-dark', label: 'blue-dark', color: '#1091bc' },
+// ];
+
 export const sortOptions = [
   { value: "ALPHA", label: "Sort by: Suite Name" },
   { value: "FL", label: "Sort by: Floor Level" },

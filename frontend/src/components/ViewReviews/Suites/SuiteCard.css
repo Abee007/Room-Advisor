@@ -1,38 +1,108 @@
-/* Stops click event handler from picking up svg icons */
-svg {
-    pointer-events: none;
-}
-
-.card-photo{
-    max-height: 100%;
-    max-width: 100%;
-    position:relative;
-    z-index: 0;
-    border-radius: 8px;
-}
-
-.col-md-5{
-    padding-left: 0px;
-}
-
-.col-md-7{
-    padding: 0px;
-}
-
-.suite-card{
-    display: flex; 
-    flex-flow: row;
-    width: 500px;
+.card {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    height: 280px;
+    width: 450px;
     border-color: #fff;
+    border: 1px solid rgb(255, 255, 255);
     box-shadow: 0 6px 15px rgba(56, 125, 255, 0.07); 
+    /* -webkit-filter: drop-shadow(0 6px 15px rgba(56, 125, 255, 0.017)); */
     border-radius: 10px;
     overflow: hidden;
     text-decoration: none;
     padding: 10px;
     cursor: pointer;
-  }
+}
 
-.badge{
+.card-photo {
+    max-height: 80%;
+    object-fit: cover;
+    max-width: 100%;
+    position:relative;
+    border-radius: 8px;
+    z-index: 0;
+}
+
+.notify-badge {
+    position: absolute;
+    left:0px;
+    top: 60%;
+    text-align: center;
+    border-radius: 30px 30px 30px 30px;
+    color:white;
+    padding:5px 10px;
+    z-index: 1;
+}
+
+.bookmark-badge {
+    position: absolute;
+    right: 0px;
+    text-align: center;
+    border-radius: 30px 30px 30px 30px;
+    color: white;
+    padding: 10px 15px;
+    z-index: 1;
+}
+
+.card-title-container{
+    display: flex;
+    vertical-align: middle;
+    /* text-align: left; */
+}
+
+.card-title{
+    max-width: 50%;
+    padding-bottom: 5px;
+    font-weight: bold;
+    font-size: 2.0em;
+    color: #000;
+    margin-right: 5px;
+}
+
+.push-right{
+    margin-right: 0;
+    margin-left: auto;
+}
+
+.card-badge-container{
+    max-width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-start;
+    text-align: left;
+    margin-left: 0;
+    padding-top: 10px;
+    padding-bottom: 0px;
+    margin-right: auto;
+    max-height: 70%;
+    z-index: 1;
+    flex-wrap: wrap;
+}
+
+.title-container{
+    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    vertical-align: middle;
+    text-align: left;
+    margin-left: 0; 
+    margin-bottom: 5%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-right: auto;
+    max-height: 70%;
+}
+
+.rcorners1 {
+    border-radius: 0px 16px 0px 0px;
+    background: #fff;
+}
+
+.badge {
     font-size: 10pt;
     font-weight:600;
     padding-top: 10px;
@@ -42,56 +112,71 @@ svg {
     box-shadow: 0 6px 20px rgba(56, 125, 255, 0.07);
 }
 
-.card-right-side-suite {
+.icon-badge-container{
     display: flex;
-    flex-direction: column;
+    justify-content: flex-end;
 }
 
-.card-title-container{
+.badge-icon{
+    width: 14px;
+    height: 14px;
+    margin-right: 3px;
+    object-fit: contain;
+    position: relative;
+    z-index: 99;
+}
+
+.bar-icon{
+    width: 12px;
+    object-fit: contain;
+    position: relative;
+    vertical-align:middle;
+}
+
+.number-text{
+    padding: 0px;
+}
+
+.suite-badge { 
+    border-radius: 24px;
+    font-weight: 700;
+    font-size: 16pt;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: 5px;
+}
+
+.room-badge { 
+    border-radius: 24px;
+    font-size: 14pt;
+    font-weight: 700;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 12px;
+    padding-right: 12px;
+    color: #0053C5;
+    background: #EAF1FF;
+    margin-right: 5px;
+}
+
+.room-badge-gray { 
+    border-radius: 24px;
     display: flex;
-    vertical-align: middle;
-    /* text-align: left; */
-}
-
-.push-right{
-    margin-right: 0;
-    margin-left: auto;
-}
-
-.card-title{
-    width: 50px;
+    align-items: center;
+    font-size: 10pt;
+    font-weight: 600;
+    padding-top: 5px;
     padding-bottom: 5px;
-    font-weight:bold;
-    font-size: 2.0em;
-    color:#0053C5;
-}
-
-.card-badge-container{
-    max-width: 100%;
-    text-align: left;
-    margin-left: 0; 
-    margin-right: auto;
-    max-height: 70%;
-}
-
-.card-button-container{
-    margin-top: 35px;
-    max-width: 100%;
-    text-align: left;
-    margin-left: 0; 
-    margin-right: auto;
-    max-height: 90%;
-}
-
-.card-review-quotes{
-    font-size: 9pt;
-    font-weight:400;
-    justify-content:left;
-    text-align:left;
-    color: #333333;
-    /* margin-bottom: 1px; */
-    margin-right: 3%;
-    margin-top: 3%;
+    padding-left: 7px;
+    padding-right: 12px;
+    color: #464646;
+    background: rgb(199 199 199 / 25%);
+    border-color: #0053C5;
+    border-width: 1px;
+    margin-right: 5px;
+    margin-bottom: 0px;
 }
 
 .card-subtext{
@@ -102,14 +187,6 @@ svg {
     color: #808080;
     /* margin-bottom: 1px; */
     /* margin-top: 15%; */
-}
-
-.number-icon{
-    width: 16px;
-    height: 16px;
-    z-index: 9999;
-    vertical-align:middle;
-    margin-right: 1s0px;
 }
 
 .number-text{

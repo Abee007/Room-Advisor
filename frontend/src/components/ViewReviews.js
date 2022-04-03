@@ -91,6 +91,7 @@ export default class ViewReviews extends Component {
   // Favorite the suites that have been favorited by the user
   initializeSuites = () => {
     var mySuites = Suites;
+    return mySuites;
     for (var suite of mySuites) {
       for (const fav of this.state.favorites) {
         if (suite.suiteCode === fav.suiteCode) {

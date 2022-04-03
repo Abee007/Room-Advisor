@@ -1,33 +1,59 @@
-.room-card-photo{
-    max-height: 100%;
+.bedroom-card-photo{
+    max-height: 80%;
+    object-fit: cover;
     max-width: 100%;
-    position: relative;
+    position:relative;
+    /* z-index: 999; */
     border-radius: 8px;
-    z-index: 1;
 }
 
-.col-md-5{
-    padding-left: 0px; 
-}
-
-.col-md-7{
-    padding: 0px;
-}
-
-.card{
+.card {
     display: flex;
-    flex-flow: row;
+    flex-flow: column;
     width: 100%;
+    height: 280px;
+    width: 450px;
     border-color: #fff;
+    border: 1px solid rgb(255, 255, 255);
     box-shadow: 0 6px 15px rgba(56, 125, 255, 0.07); 
+    /* -webkit-filter: drop-shadow(0 6px 15px rgba(56, 125, 255, 0.017)); */
     border-radius: 10px;
     overflow: hidden;
     text-decoration: none;
     padding: 10px;
     cursor: pointer;
+}
+
+.bedroom-card{
+    display: flex;
+    flex-flow: column;
+    width: 46%;
+    height: 250px;
+    border-color: #fff;
+    box-shadow: 0 6px 15px rgba(56, 125, 255, 0.07); 
+    /* -webkit-filter: drop-shadow(0 6px 15px rgba(56, 125, 255, 0.017)); */
+    border-radius: 10px;
+    text-decoration: none;
+    padding: 10px;
+    cursor: pointer;
   }
 
-.badge{
+.icon-14px {
+    object-fit: contain;
+    width: 14px;
+    height: 14px;
+    position: relative;
+}
+
+.readmore-link {
+    background-color: #fff;
+    color: #0053C5;
+    position: absolute;
+    padding-left: 175px;
+    z-index: 9999;
+}
+
+.badge {
     font-size: 10pt;
     font-weight:600;
     padding-top: 10px;
@@ -37,15 +63,33 @@
     box-shadow: 0 6px 20px rgba(56, 125, 255, 0.07);
 }
 
-.room-card-right-side {
+.bedroom-badge { 
+    border-radius: 24px;
+    font-weight: 700;
+    font-size: 12pt;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 7px;
+    padding-right: 7px;
+    color: #fff;
+    background: #0053C5;
+    margin-right: 5px;
+    align-items: baseline;
+}
+
+.preview-text {
+    position: absolute;
+}
+
+.card-right-side{
     display: flex;
     flex-direction: column;
 }
 
 .card-title-container{
     display: flex;
-    vertical-align: middle;
-    /* text-align: left; */
+    /* vertical-align: middle; */
+    text-align: left;
 }
 
 .push-right{
@@ -53,12 +97,113 @@
     margin-left: auto;
 }
 
-.card-title{
-    width: 90px;
+.bedroom-card-title{
+    max-width: 50%;
     padding-bottom: 5px;
-    font-weight:bold;
+    font-weight: bold;
     font-size: 2.0em;
-    color:#0053C5;
+    color: #000;
+    margin-right: 10px;
+}
+
+.bedroom-badge-gray { 
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    font-size: 10pt;
+    font-weight: 600;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: #000;
+    background: #fff;
+    border-color: #0053C5;
+    border-width: 1px; 
+    margin-right: 5px;
+    background: #fff;
+    border-color: #0053C5;
+    border-width: 1px; 
+    margin-right: 5px;
+    margin-bottom: 0px;
+}
+
+.card-badge-container{
+    max-width: 100%;
+    text-align: left;
+    margin-left: 0;
+    margin-right: auto;
+    max-height: 70%;
+    flex-wrap: nowrap;
+}
+
+.bedroom-notify-badge {
+    position: absolute;
+    top: 45%;
+    display: flex;
+    text-align: center;
+    border-radius: 30px 30px 30px 30px;
+    color:white;
+    padding: 5px;
+    padding-left: 0px;
+    z-index: 99;
+    align-items: flex-end;
+}
+
+.rcorners1 {
+    border-radius: 0px 16px 0px 0px;
+    background: #fff;
+}
+
+.card-button-container{
+    margin-top: 35px;
+    max-width: 100%;
+    text-align: left;
+    margin-left: 0; 
+    margin-right: auto;
+    max-height: 90%;
+}
+
+.card-review-quotes{
+    font-size: 9pt;
+    font-weight:400;
+    justify-content:left;
+    text-align:left;
+    color: #333333;
+    /* margin-bottom: 1px; */
+    margin-right: 3%;
+    margin-top: 3%;
+}
+
+.card-subtext{
+    font-size: 8pt;
+    font-weight:600;
+    justify-content:left;
+    text-align:left;
+    color: #808080;
+    /* margin-bottom: 1px; */
+    /* margin-top: 15%; */
+}
+
+.number-icon{
+    width: 16px;
+    height: 16px;
+    z-index: 9999;
+    vertical-align:middle;
+    margin-right: 1s0px;
+}
+
+.number-text{
+    padding: 0px;
+}
+
+.review-preview {
+    font-size: 0.8em;
+    color: #838282;
+    text-align: left;
+    font-family: inherit;
+    line-height: 1em;
+    height: 2.1em;       /* height is 2x line-height, so two lines will display */
+    overflow: hidden;  /* prevents extra lines from being visible */
+    margin-bottom: 0px;
 }
 
 .favorite-room {
