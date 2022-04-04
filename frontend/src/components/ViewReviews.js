@@ -237,7 +237,13 @@ export default class ViewReviews extends Component {
     const noRoomsFound = suites.length;
 
     // update value
-    return this.setState({ ...this.state, building, suites, noRoomsFound, searchItem: "" });
+    return this.setState({
+      ...this.state,
+      building,
+      suites,
+      noRoomsFound,
+      searchItem: "",
+    });
   };
 
   handleRoomSizeChange = (e) => {
@@ -252,7 +258,13 @@ export default class ViewReviews extends Component {
     const noRoomsFound = suites.length;
 
     // update value
-    return this.setState({ ...this.state, roomSizes, suites, noRoomsFound, searchItem: "" });
+    return this.setState({
+      ...this.state,
+      roomSizes,
+      suites,
+      noRoomsFound,
+      searchItem: "",
+    });
   };
 
   handleSearchChange = (e) => {
