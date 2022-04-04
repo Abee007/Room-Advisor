@@ -11,9 +11,9 @@ export default class Results extends Component {
     };
   }
 
-  componentDidUpdate (prevProps) {
-    if(prevProps !== this.props) {
-      this.setState({ noRooms: this.props.noRooms })
+  componentDidUpdate(prevProps) {
+    if (prevProps !== this.props) {
+      this.setState({ noRooms: this.props.noRooms });
     }
   }
 
