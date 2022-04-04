@@ -10,11 +10,13 @@ export default class CardsContainer extends Component {
     };
   }
 
-  componentDidUpdate (prevProps) {
+  componentDidUpdate(prevProps) {
     // If the suite props have been updated update the suites being shown
     // Also sort the new suites based on the persisted sort value
-    if(prevProps.suites !== this.props.suites) {
-      this.setState({ suites: this.sortSuites(this.props.sort.value, this.props.suites) })
+    if (prevProps.suites !== this.props.suites) {
+      this.setState({
+        suites: this.sortSuites(this.props.sort.value, this.props.suites),
+      });
     }
   }
 
