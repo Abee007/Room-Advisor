@@ -67,7 +67,10 @@ export default class ViewReviews extends Component {
 
     // Create suite state
     this.state.suites = this.filterBuildings(this.state.building);
-    this.state.suites = this.filterRoomSize(this.state.roomSizes, this.state.suites);
+    this.state.suites = this.filterRoomSize(
+      this.state.roomSizes,
+      this.state.suites
+    );
     this.state.suites = this.addFavoriteSuites(this.state.suites);
   }
 
@@ -159,32 +162,32 @@ export default class ViewReviews extends Component {
   // Filter suites based on current building and set favorited suites as needed
   filterBuildings = (e) => {
     var mySuites = [];
-    for(var suite of Suites) {
-      if(suite.buildingName === collegesToCode(e.value)) {
+    for (var suite of Suites) {
+      if (suite.buildingName === collegesToCode(e.value)) {
         mySuites.push(suite);
       }
     }
     return mySuites;
-  }
+  };
 
   getSuiteRoomSize = (suite) => {
     var noBeds = 0;
-    for(const room of suite.suiteRooms) {
+    for (const room of suite.suiteRooms) {
       noBeds += room.meta.noBeds;
     }
     return noBeds;
-  }
+  };
 
   filterRoomSize = (e, suites) => {
-    var mySuites = []
-    if(e.length === 0) {
+    var mySuites = [];
+    if (e.length === 0) {
       // if no roomSize filter, return all rooms
       mySuites = mySuites.concat(suites);
     } else {
-      for(const suite of suites) {
-        for(const fav of e) {
+      for (const suite of suites) {
+        for (const fav of e) {
           // If suite size satisfies criteria for size filter and in the same college
-          if(this.getSuiteRoomSize(suite) === fav.value) {
+          if (this.getSuiteRoomSize(suite) === fav.value) {
             mySuites.push(suite);
             break;
           }
@@ -192,25 +195,33 @@ export default class ViewReviews extends Component {
       }
     }
     return mySuites;
-  }
+  };
 
   // searches for room within a suite based on a string given
   roomNameSearchWithinSuite = (name, suite) => {
-    for(const room of suite.suiteRooms) {
-      if(room.roomCode.toLowerCase() === name.toLowerCase() || room.roomCode.includes(name.toLowerCase())) return true;
+    for (const room of suite.suiteRooms) {
+      if (
+        room.roomCode.toLowerCase() === name.toLowerCase() ||
+        room.roomCode.includes(name.toLowerCase())
+      )
+        return true;
     }
     return false;
-  }
+  };
 
   filterSearch = (e, suites) => {
-    var mySuites = []
-    for(const suite of suites) {
-      if(suite.suiteCode.toLowerCase() === e.toLowerCase() || suite.suiteCode.toLowerCase().includes(e.toLowerCase()) || this.roomNameSearchWithinSuite(e, suite)) {
+    var mySuites = [];
+    for (const suite of suites) {
+      if (
+        suite.suiteCode.toLowerCase() === e.toLowerCase() ||
+        suite.suiteCode.toLowerCase().includes(e.toLowerCase()) ||
+        this.roomNameSearchWithinSuite(e, suite)
+      ) {
         mySuites.push(suite);
       }
     }
     return mySuites;
-  }
+  };
 
   handleBuildingChange = (e) => {
     const building = e;
