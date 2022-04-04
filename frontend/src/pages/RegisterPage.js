@@ -4,7 +4,7 @@ import { getAllCollegeNames, collegesToCode } from "../utils/colleges";
 import { cryptoKey } from "../constants";
 import { sha256 } from "js-sha256";
 import { db } from "../utils/firebase";
-import { collection, addDoc } from "firebase/firestore";
+import { setDoc, doc } from "firebase/firestore";
 import { clientIp } from "../constants";
 import Nav from "../components/Nav";
 import GuidelinesList from "../components/RegisterPage/GuidelinesList"
@@ -27,20 +27,20 @@ function RegisterPage({ user }) {
 
   const uploadUser = async (userObject) => {
     // Collection ref
-    const usersCollectionRef = collection(db, "Users");
+    const usersCollectionRef = doc(db, "Users", userObject.netId);
 
     //Add User to firebase database
-    await addDoc(usersCollectionRef, userObject);
+    await setDoc(usersCollectionRef, userObject);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const userObject = {
       netId: sha256.hmac(cryptoKey, user.id),
+      favorites: [],
       meta: {
         classYear: event.target.year.value,
         college: collegesToCode(event.target.college.value),
-        favorites: [],
       },
     };
     uploadUser(userObject).then(() => {

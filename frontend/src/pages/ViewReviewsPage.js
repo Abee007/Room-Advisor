@@ -49,7 +49,7 @@ export default class ViewReviews extends Component {
       window.localStorage.getItem("viewReviewsState")
     ) || {
       loading: false,
-      favorites: this.props.user.meta.favorites,
+      favorites: this.props.user.favorites,
       building: {
         value: codeToCollege(this.props.user.meta.college),
         label: codeToCollege(this.props.user.meta.college),
@@ -133,6 +133,7 @@ export default class ViewReviews extends Component {
   handleAddFavorited = (e) => {
     var favorites = this.state.favorites;
     favorites.push(e);
+    this.props.handleUserObject({ object: e, favorites: favorites, remove: false });
     this.setState({ ...this.state, favorites });
   };
 
@@ -157,6 +158,7 @@ export default class ViewReviews extends Component {
     }
 
     favorites.splice(rmIdx, 1);
+    this.props.handleUserObject({ object: e, favorites: favorites, remove: true });
     this.setState({ ...this.state, favorites });
   };
 

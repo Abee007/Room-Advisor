@@ -6,7 +6,7 @@ import React, { useState, useEffect, lazy, Suspense } from "react";
 // import AboutPage from "./AboutPage";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { db } from "../utils/firebase";
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { getDoc, updateDoc, arrayUnion, arrayRemove, doc } from "firebase/firestore";
 import { cryptoKey } from "../constants";
 import { sha256 } from "js-sha256";
 const LandingPage = lazy(() => import("./LandingPage"));
@@ -24,30 +24,44 @@ function RegisterandProtectedPages({ casUser }) {
   // VALIDATE USER ONCE//
   useEffect(() => {
     const validateUser = async (casUser) => {
-      // Collection ref
-      const usersCollectionRef = collection(db, "Users");
-
       // Hash netId with stored cryptoKey
       const hash = sha256.hmac(cryptoKey, casUser.id);
 
-      // Query
-      const q = query(usersCollectionRef, where("netId", "==", hash));
+      // Collection ref
+      const usersCollectionRef = doc(db, "Users", hash);
 
-      // Get data
-      const data = await getDocs(q);
-      let valid = false;
-      data.forEach((doc) => {
-        if (hash === doc.data().netId) {
-          valid = true;
-          setUserObject(doc.data());
-        }
-      });
-      setValidated(valid);
+      const userSnap = await getDoc(usersCollectionRef);
+
+      if(userSnap.exists()) {
+        setUserObject(userSnap.data());
+        setValidated(true);
+      }
       setLoading(false);
     };
 
     validateUser(casUser);
   }, [casUser]);
+
+  const handleValidatedUserObjectChange = async (e) => {
+    const favorites = e.favorites;
+    setUserObject({
+      ...validatedUserObject, 
+      meta: {
+        favorites
+      }
+    });
+
+    //Update on firebase
+    // Collection ref
+    const usersCollectionRef = doc(db, "Users", validatedUserObject.netId);
+
+    if(e.remove) {
+      await updateDoc(usersCollectionRef, {favorites: arrayRemove(e.object)});
+    } else {
+      await updateDoc(usersCollectionRef, {favorites: arrayUnion(e.object)});
+    }
+  }
+
 
   if (isLoading) {
     return <div className="App">Validating...</div>;
@@ -73,7 +87,7 @@ function RegisterandProtectedPages({ casUser }) {
           path="/viewreviews"
           element={
             isValidated ? (
-              <ViewReviews user={validatedUserObject} />
+              <ViewReviews user={validatedUserObject} handleUserObject={handleValidatedUserObjectChange}/>
             ) : (
               <Navigate to="/register" />
             )
