@@ -6,7 +6,13 @@ import React, { useState, useEffect, lazy, Suspense } from "react";
 // import AboutPage from "./AboutPage";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { db } from "../utils/firebase";
-import { getDoc, updateDoc, arrayUnion, arrayRemove, doc } from "firebase/firestore";
+import {
+  getDoc,
+  updateDoc,
+  arrayUnion,
+  arrayRemove,
+  doc,
+} from "firebase/firestore";
 import { cryptoKey } from "../constants";
 import { sha256 } from "js-sha256";
 const LandingPage = lazy(() => import("./LandingPage"));
@@ -32,7 +38,7 @@ function RegisterandProtectedPages({ casUser }) {
 
       const userSnap = await getDoc(usersCollectionRef);
 
-      if(userSnap.exists()) {
+      if (userSnap.exists()) {
         setUserObject(userSnap.data());
         setValidated(true);
       }
@@ -45,23 +51,22 @@ function RegisterandProtectedPages({ casUser }) {
   const handleValidatedUserObjectChange = async (e) => {
     const favorites = e.favorites;
     setUserObject({
-      ...validatedUserObject, 
+      ...validatedUserObject,
       meta: {
-        favorites
-      }
+        favorites,
+      },
     });
 
     //Update on firebase
     // Collection ref
     const usersCollectionRef = doc(db, "Users", validatedUserObject.netId);
 
-    if(e.remove) {
-      await updateDoc(usersCollectionRef, {favorites: arrayRemove(e.object)});
+    if (e.remove) {
+      await updateDoc(usersCollectionRef, { favorites: arrayRemove(e.object) });
     } else {
-      await updateDoc(usersCollectionRef, {favorites: arrayUnion(e.object)});
+      await updateDoc(usersCollectionRef, { favorites: arrayUnion(e.object) });
     }
-  }
-
+  };
 
   if (isLoading) {
     return <div className="App">Validating...</div>;
@@ -87,7 +92,10 @@ function RegisterandProtectedPages({ casUser }) {
           path="/viewreviews"
           element={
             isValidated ? (
-              <ViewReviews user={validatedUserObject} handleUserObject={handleValidatedUserObjectChange}/>
+              <ViewReviews
+                user={validatedUserObject}
+                handleUserObject={handleValidatedUserObjectChange}
+              />
             ) : (
               <Navigate to="/register" />
             )

@@ -133,7 +133,11 @@ export default class ViewReviews extends Component {
   handleAddFavorited = (e) => {
     var favorites = this.state.favorites;
     favorites.push(e);
-    this.props.handleUserObject({ object: e, favorites: favorites, remove: false });
+    this.props.handleUserObject({
+      object: e,
+      favorites: favorites,
+      remove: false,
+    });
     this.setState({ ...this.state, favorites });
   };
 
@@ -158,7 +162,11 @@ export default class ViewReviews extends Component {
     }
 
     favorites.splice(rmIdx, 1);
-    this.props.handleUserObject({ object: e, favorites: favorites, remove: true });
+    this.props.handleUserObject({
+      object: e,
+      favorites: favorites,
+      remove: true,
+    });
     this.setState({ ...this.state, favorites });
   };
 
