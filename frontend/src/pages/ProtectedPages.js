@@ -59,7 +59,16 @@ function RegisterandProtectedPages({ casUser }) {
         {/* For any other route, navigate back to home page */}
         <Route path="*" element={<Navigate to="/" />} />
         {/* If the user isn't logged in navigate to Landing page. Else navigate to review page */}
-        <Route path="/" element={!casUser ? (<Navigate to="/logout" />) : (<Navigate to="/viewreviews" />)}/>
+        <Route
+          path="/"
+          element={
+            !casUser ? (
+              <Navigate to="/logout" />
+            ) : (
+              <Navigate to="/viewreviews" />
+            )
+          }
+        />
         <Route
           path="/viewreviews"
           element={
@@ -81,8 +90,20 @@ function RegisterandProtectedPages({ casUser }) {
             )
           }
         />
-        <Route path="/favorites" element={isValidated ? (<FavoritesPage user={validatedUserObject} />) : (<Navigate to="/" />)} />
-        <Route path="/about" element={<AboutPage user={validatedUserObject} />} />
+        <Route
+          path="/favorites"
+          element={
+            isValidated ? (
+              <FavoritesPage user={validatedUserObject} />
+            ) : (
+              <Navigate to="/" />
+            )
+          }
+        />
+        <Route
+          path="/about"
+          element={<AboutPage user={validatedUserObject} />}
+        />
         {/* Performs a soft logout so we don't actually log users out of cas */}
         <Route path="/logout" element={<LandingPage isLoggedIn={true} />} />
       </Routes>
