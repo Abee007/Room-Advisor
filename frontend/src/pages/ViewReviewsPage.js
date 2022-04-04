@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Nav from "../components/Nav";
-import Results from "./ViewReviews/Results/Results";
+import Results from "../components/ViewReviews/Results/Results";
 import { codeToCollege, collegesToCode } from "../utils/colleges";
-import CardsContainer from "./ViewReviews/Suites/CardsContainer";
+import CardsContainer from "../components/ViewReviews/Suites/CardsContainer";
 import { Suites } from "../utils/colleges";
 // function ViewReviews({ props }) {
 //   const [isLoading, setLoading] = useState(false);

@@ -11,8 +11,9 @@ import { cryptoKey } from "../constants";
 import { sha256 } from "js-sha256";
 const LandingPage = lazy(() => import("./LandingPage"));
 const RegisterPage = lazy(() => import("./RegisterPage"));
-const ViewReviews = lazy(() => import("../components/ViewReviews"));
+const ViewReviews = lazy(() => import("./ViewReviewsPage"));
 const AboutPage = lazy(() => import("./AboutPage"));
+const FavoritesPage = lazy(() => import("./FavoritesPage"));
 
 // TODO: WHAT HAPPENS IF FIREBASE FAILS?
 function RegisterandProtectedPages({ casUser }) {
@@ -58,16 +59,7 @@ function RegisterandProtectedPages({ casUser }) {
         {/* For any other route, navigate back to home page */}
         <Route path="*" element={<Navigate to="/" />} />
         {/* If the user isn't logged in navigate to Landing page. Else navigate to review page */}
-        <Route
-          path="/"
-          element={
-            !casUser || casUser === undefined ? (
-              <Navigate to="/logout" />
-            ) : (
-              <Navigate to="/viewreviews" />
-            )
-          }
-        />
+        <Route path="/" element={!casUser ? (<Navigate to="/logout" />) : (<Navigate to="/viewreviews" />)}/>
         <Route
           path="/viewreviews"
           element={
@@ -89,9 +81,9 @@ function RegisterandProtectedPages({ casUser }) {
             )
           }
         />
-        {/* If no user exists, navigate back to the landing page */}
+        <Route path="/favorites" element={isValidated ? (<FavoritesPage user={validatedUserObject} />) : (<Navigate to="/" />)} />
+        <Route path="/about" element={<AboutPage user={validatedUserObject} />} />
         {/* Performs a soft logout so we don't actually log users out of cas */}
-        <Route path="/about" element={<AboutPage user={casUser} />} />
         <Route path="/logout" element={<LandingPage isLoggedIn={true} />} />
       </Routes>
     </Suspense>
