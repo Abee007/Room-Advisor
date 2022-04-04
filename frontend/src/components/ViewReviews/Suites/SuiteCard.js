@@ -71,13 +71,13 @@ export default class SuiteCard extends Component {
       suiteCode: this.state.name,
       buildingName: this.props.suite.buildingName,
       favorited: favorited,
-    }
+    };
 
     // Handle case where suite is a standlone single
-    if(this.props.suite.suiteRooms.length === 1) {
+    if (this.props.suite.suiteRooms.length === 1) {
       const s = {
-        roomCode: this.state.name
-      }
+        roomCode: this.state.name,
+      };
       result = Object.assign(s, result);
     }
 
