@@ -6,8 +6,16 @@ export default class CardsContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      suites: this.sortSuites(this.props.sort.value),
+      suites: this.sortSuites(this.props.sort.value, this.props.suites),
     };
+  }
+
+  componentDidUpdate (prevProps) {
+    // If the suite props have been updated update the suites being shown
+    // Also sort the new suites based on the persisted sort value
+    if(prevProps.suites !== this.props.suites) {
+      this.setState({ suites: this.sortSuites(this.props.sort.value, this.props.suites) })
+    }
   }
 
   updateSuiteFavorited = (e) => {
@@ -94,34 +102,34 @@ export default class CardsContainer extends Component {
   };
 
   updateYourSort = (e) => {
-    const suites = this.sortSuites(e.value);
+    const suites = this.sortSuites(e.value, this.props.suites);
     this.setState({
       suites,
     });
   };
 
-  sortSuites = (sortBy) => {
+  sortSuites = (sortBy, suites) => {
     if (sortBy === "FL") {
-      return this.sortByFloorLevel();
+      return this.sortByFloorLevel(suites);
     } else if (sortBy === "BR_SZ") {
-      return this.sortByBedroomSize();
+      return this.sortByBedroomSize(suites);
     } else if (sortBy === "NOISE") {
-      return this.sortByNoise();
+      return this.sortByNoise(suites);
     }
-    return this.sortBySuiteName();
+    return this.sortBySuiteName(suites);
   };
 
-  sortBySuiteName = () => {
-    return this.props.suites.sort((a, b) => {
+  sortBySuiteName = (suites) => {
+    return suites.sort((a, b) => {
       if (a.suiteRooms[0].roomCode < b.suiteRooms[0].roomCode) return -1;
       if (a.suiteRooms[0].roomCode > b.suiteRooms[0].roomCode) return 1;
       return 0;
     });
   };
 
-  sortByFloorLevel = () => {
+  sortByFloorLevel = (suites) => {
     // Compare the first letter of the room number
-    return this.props.suites.sort((a, b) => {
+    return suites.sort((a, b) => {
       if (a.suiteRooms[0].roomCode[1] < b.suiteRooms[0].roomCode[1]) return -1;
       if (a.suiteRooms[0].roomCode[1] > b.suiteRooms[0].roomCode[1]) return 1;
       return 0;
@@ -138,9 +146,9 @@ export default class CardsContainer extends Component {
     return sz / no;
   };
 
-  sortByBedroomSize = () => {
+  sortByBedroomSize = (suites) => {
     // SortByAvgRoomSize descending
-    return this.props.suites.sort((a, b) => {
+    return suites.sort((a, b) => {
       const aVal = this.avgBedroomSize(a),
         bVal = this.avgBedroomSize(b);
       if (aVal < bVal) return 1;
@@ -159,8 +167,8 @@ export default class CardsContainer extends Component {
     return noise / no;
   };
 
-  sortByNoise = () => {
-    return this.props.suites.sort((a, b) => {
+  sortByNoise = (suites) => {
+    return suites.sort((a, b) => {
       const aVal = this.avgNoise(a),
         bVal = this.avgNoise(b);
       if (aVal < bVal) return 1;

@@ -66,7 +66,6 @@ export default class SuiteCard extends Component {
   };
 
   handleSuiteFavorited = () => {
-    console.log('here?')
     const favorited = !this.state.favorited;
     var result = {
       suiteCode: this.state.name,
