@@ -7,9 +7,9 @@ import { db } from "../utils/firebase";
 import { setDoc, doc } from "firebase/firestore";
 import { clientIp } from "../constants";
 import Nav from "../components/Nav";
-import GuidelinesList from "../components/RegisterPage/GuidelinesList"
+import GuidelinesList from "../components/RegisterPage/GuidelinesList";
 import agreement from "../static/agreement.svg";
-import { Button } from "../components/Button"
+import { Button } from "../components/Button";
 
 function RegisterPage({ user }) {
   const [isLoading, setLoading] = useState(true);
@@ -50,7 +50,7 @@ function RegisterPage({ user }) {
 
   const handleCheckedChange = () => {
     setChecked(!checked);
-  }
+  };
 
   if (isLoading) {
     return <div className="App">Loading Register...</div>;

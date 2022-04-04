@@ -1,7 +1,6 @@
 import "./GuidelinesList.css";
 import React from "react";
 
-
 class GuidelinesList extends React.Component {
   constructor(props) {
     super(props);
@@ -21,7 +20,6 @@ class GuidelinesList extends React.Component {
       ],
     };
   }
-  
 
   // creates scrollable container for displaying reviews within the modal
   render() {
