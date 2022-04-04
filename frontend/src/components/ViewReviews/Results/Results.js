@@ -11,6 +11,12 @@ export default class Results extends Component {
     };
   }
 
+  componentDidUpdate (prevProps) {
+    if(prevProps !== this.props) {
+      this.setState({ noRooms: this.props.noRooms })
+    }
+  }
+
   handleSortByChange = (e) => {
     this.props.handleChange(e);
   };

@@ -60,7 +60,6 @@ export default class ViewReviews extends Component {
       ],
       searchItem: "",
       sortBy: { value: "ALPHA", label: "Sort by: Suite Name" },
-      noRoomsFound: 7,
     };
     // Always set searchItem to empty
     this.state.searchItem = "";
@@ -69,6 +68,9 @@ export default class ViewReviews extends Component {
     this.state.suites = this.filterBuildings(this.state.building);
     this.state.suites = this.filterRoomSize(this.state.roomSizes, this.state.suites);
     this.state.suites = this.addFavoriteSuites(this.state.suites);
+
+    // No of suites found
+    this.state.noRoomsFound = this.state.suites.length;
   }
 
   setState(state) {
@@ -220,9 +222,11 @@ export default class ViewReviews extends Component {
     suites = this.filterRoomSize(this.state.roomSizes, suites);
     // Then favorite the suites
     suites = this.addFavoriteSuites(suites);
+    // Update no rooms found
+    const noRoomsFound = suites.length;
 
     // update value
-    return this.setState({ ...this.state, building, suites, searchItem: "" });
+    return this.setState({ ...this.state, building, suites, noRoomsFound, searchItem: "" });
   };
 
   handleRoomSizeChange = (e) => {
@@ -233,9 +237,11 @@ export default class ViewReviews extends Component {
     suites = this.filterRoomSize(e, suites);
     // Then favorite the suites
     suites = this.addFavoriteSuites(suites);
+    // Update no rooms found
+    const noRoomsFound = suites.length;
 
     // update value
-    return this.setState({ ...this.state, roomSizes, suites, searchItem: "" });
+    return this.setState({ ...this.state, roomSizes, suites, noRoomsFound, searchItem: "" });
   };
 
   handleSearchChange = (e) => {
@@ -246,9 +252,11 @@ export default class ViewReviews extends Component {
     suites = this.filterSearch(e, suites);
     // Then favorite the suites
     suites = this.addFavoriteSuites(suites);
+    // Update no rooms found
+    const noRoomsFound = suites.length;
 
     // update value
-    return this.setState({ ...this.state, suites, searchItem });
+    return this.setState({ ...this.state, suites, noRoomsFound, searchItem });
   };
 
   handleSortByChange = (e) => {
