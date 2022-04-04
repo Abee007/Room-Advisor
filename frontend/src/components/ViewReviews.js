@@ -273,7 +273,6 @@ export default class ViewReviews extends Component {
   handleSortByChange = (e) => {
     const sortBy = e;
     // update value
-    this.cardsContainer1.updateYourSort(sortBy);
     return this.setState({ ...this.state, sortBy });
   };
 
@@ -299,9 +298,6 @@ export default class ViewReviews extends Component {
         ))}
         <p>{this.state.searchItem}</p> */}
         <CardsContainer
-          ref={(ip) => {
-            this.cardsContainer1 = ip;
-          }}
           suites={this.state.suites}
           sort={this.state.sortBy}
           handleAddFavorited={this.handleAddFavorited}
