@@ -62,8 +62,10 @@ export default class ViewReviews extends Component {
     if (!JSON.parse(window.localStorage.getItem("viewReviewsState"))) {
       this.state = defaultState;
     } else {
-      var localState = JSON.parse(window.localStorage.getItem("viewReviewsState"));
-      if(this.props.user.favorites !== localState.favorites) {
+      var localState = JSON.parse(
+        window.localStorage.getItem("viewReviewsState")
+      );
+      if (this.props.user.favorites !== localState.favorites) {
         localState.favorites = this.props.user.favorites;
       }
       this.state = localState;
