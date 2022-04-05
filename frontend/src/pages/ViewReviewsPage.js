@@ -45,9 +45,7 @@ export default class ViewReviews extends Component {
   // initial setup
   constructor(props) {
     super(props);
-    this.state = JSON.parse(
-      window.localStorage.getItem("viewReviewsState")
-    ) || {
+    const defaultState = {
       loading: false,
       favorites: this.props.user.favorites,
       building: {
@@ -61,6 +59,12 @@ export default class ViewReviews extends Component {
       searchItem: "",
       sortBy: { value: "ALPHA", label: "Sort by: Suite Name" },
     };
+    if(!JSON.parse(window.localStorage.getItem("viewReviewsState"))) {
+      this.state = defaultState;
+    } else {
+      this.state = this.props.user.favorites === JSON.parse(window.localStorage.getItem("viewReviewsState")).favorites ?  JSON.parse(window.localStorage.getItem("viewReviewsState")) : defaultState;
+    }
+    
     // Always set searchItem to empty
     this.state.searchItem = "";
 
