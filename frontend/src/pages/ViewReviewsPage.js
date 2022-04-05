@@ -62,11 +62,13 @@ export default class ViewReviews extends Component {
     if (!JSON.parse(window.localStorage.getItem("viewReviewsState"))) {
       this.state = defaultState;
     } else {
-      this.state =
-        this.props.user.favorites ===
-        JSON.parse(window.localStorage.getItem("viewReviewsState")).favorites
-          ? JSON.parse(window.localStorage.getItem("viewReviewsState"))
-          : defaultState;
+      // TODO: Only edit the favorites array and not the entire array
+      var localState = JSON.parse(window.localStorage.getItem("viewReviewsState"));
+      console.log(localState);
+      if(this.props.user.favorites !== localState.favorites) {
+        localState.favorites = this.props.user.favorites;
+      }
+      this.state = localState;
     }
 
     // Always set searchItem to empty
