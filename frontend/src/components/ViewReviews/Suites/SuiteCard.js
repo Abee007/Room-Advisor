@@ -111,7 +111,7 @@ export default class SuiteCard extends Component {
       reviews = reviews.concat(room.meta.roomReviews);
       pictures = pictures.concat(room.meta.pictures);
     }
-    
+
     // Round to 1dp
     noise = (Math.round((noise / no) * 10) / 10).toFixed(1);
     size = (Math.round((size / no) * 10) / 10).toFixed(1);
@@ -121,7 +121,8 @@ export default class SuiteCard extends Component {
     const preview = previewReview.rec;
 
     // Select random picture
-    const selectedPicture = pictures[Math.floor(Math.random() * pictures.length)];
+    const selectedPicture =
+      pictures[Math.floor(Math.random() * pictures.length)];
 
     return {
       noise: noise,
@@ -129,7 +130,7 @@ export default class SuiteCard extends Component {
       noBeds: noBeds,
       noReviews: noReviews,
       previewReview: preview,
-      previewPicture: selectedPicture
+      previewPicture: selectedPicture,
     };
   };
 
@@ -154,7 +155,11 @@ export default class SuiteCard extends Component {
       <div className="suite-card" onClick={this.activateModal}>
         {/* displaying room photo (--> to be carousel in the future) */}
         <div className="col-md-5">
-          <img className="card-photo" src={this.state.suiteStats.previewPicture} alt="room-view" />
+          <img
+            className="card-photo"
+            src={this.state.suiteStats.previewPicture}
+            alt="room-view"
+          />
         </div>
 
         {/* creates container for the right hand side of the card where the text and badges will go */}

@@ -7,25 +7,32 @@ import CardsContainer from "../components/ViewReviews/Suites/CardsContainer";
 import { db } from "../utils/firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
 
-
 // TODO: HANDLE THE CHANGES TO THE REST OF THE SEARCHES
 export default class ViewReviews extends Component {
   // initial setup
   constructor(props) {
     super(props);
     var defaultRoomSizes;
-    if(this.props.user.meta.classYear === 1) {
-      defaultRoomSizes = [{ value: 4, label: "Quad" }, { value: 6, label: "Sextet" }, { value: 8, label: "8-Pack" },];
-
+    if (this.props.user.meta.classYear === 1) {
+      defaultRoomSizes = [
+        { value: 4, label: "Quad" },
+        { value: 6, label: "Sextet" },
+        { value: 8, label: "8-Pack" },
+      ];
     } else if (this.props.user.meta.classYear === 2) {
-      defaultRoomSizes = [{ value: 1, label: "Single" }, { value: 2, label: "Double" }, { value: 4, label: "Quad" },];
-
+      defaultRoomSizes = [
+        { value: 1, label: "Single" },
+        { value: 2, label: "Double" },
+        { value: 4, label: "Quad" },
+      ];
     } else if (this.props.user.meta.classYear === 3) {
-      defaultRoomSizes = [{ value: 1, label: "Single" }, { value: 2, label: "Double" }, { value: 4, label: "Quad" },];
-
+      defaultRoomSizes = [
+        { value: 1, label: "Single" },
+        { value: 2, label: "Double" },
+        { value: 4, label: "Quad" },
+      ];
     } else {
-      defaultRoomSizes = [{ value: 1, label: "Single" },];
-
+      defaultRoomSizes = [{ value: 1, label: "Single" }];
     }
 
     const defaultState = {
@@ -79,21 +86,21 @@ export default class ViewReviews extends Component {
 
   makeSuites = (suites) => {
     var finalSuites = [];
-    for(const suite of suites) {
+    for (const suite of suites) {
       var madeSuite = {
         buildingName: suite.buildingName,
         suiteCode: suite.suiteCode,
         favorited: false,
         favoritedInside: false,
-        suiteRooms: []
-      }
-      for(var room of suite.suiteRoomNames) {
-        madeSuite.suiteRooms.push(suite[room])
+        suiteRooms: [],
+      };
+      for (var room of suite.suiteRoomNames) {
+        madeSuite.suiteRooms.push(suite[room]);
       }
       finalSuites.push(madeSuite);
     }
     return finalSuites;
-  }
+  };
 
   componentDidMount() {
     document.addEventListener("click", this.handleModalOpen);
@@ -105,32 +112,40 @@ export default class ViewReviews extends Component {
     //     "A12A.meta.pictures": arrayUnion("Done")
     //   })
 
-    const suiteRef = collection(db, 'Suites');
-    const q = query(suiteRef, where('buildingName', '==', collegesToCode(this.state.building.value)));
-    var suiteData = []
+    const suiteRef = collection(db, "Suites");
+    const q = query(
+      suiteRef,
+      where("buildingName", "==", collegesToCode(this.state.building.value))
+    );
+    var suiteData = [];
     getDocs(q).then((data) => {
       data.forEach((docs) => {
-        suiteData.push(docs.data())
-      })
+        suiteData.push(docs.data());
+      });
 
       const finalSuites = this.makeSuites(suiteData);
-      this.setState({...this.state, allSuitesForSelectedCollege: finalSuites, loading: false})
-      
-    })
-    
+      this.setState({
+        ...this.state,
+        allSuitesForSelectedCollege: finalSuites,
+        loading: false,
+      });
+    });
   }
 
   componentDidUpdate() {
     // Handle building chagne here
-    if(this.state.building === this.state.oldBuildingState) return;
+    if (this.state.building === this.state.oldBuildingState) return;
 
-    const suiteRef = collection(db, 'Suites');
-    const q = query(suiteRef, where('buildingName', '==', collegesToCode(this.state.building.value)));
-    var suiteData = []
+    const suiteRef = collection(db, "Suites");
+    const q = query(
+      suiteRef,
+      where("buildingName", "==", collegesToCode(this.state.building.value))
+    );
+    var suiteData = [];
     getDocs(q).then((data) => {
       data.forEach((docs) => {
-        suiteData.push(docs.data())
-      })
+        suiteData.push(docs.data());
+      });
 
       const finalSuites = this.makeSuites(suiteData);
       var suites = this.filterRoomSize(this.state.roomSizes, finalSuites);
@@ -138,9 +153,16 @@ export default class ViewReviews extends Component {
       // No of suites found
       const noRoomsFound = suites.length;
 
-      this.setState({ ...this.state, allSuitesForSelectedCollege: finalSuites, suites, noRoomsFound, searchItem: "", oldBuildingState: this.state.building, loading: false })
-
-    })
+      this.setState({
+        ...this.state,
+        allSuitesForSelectedCollege: finalSuites,
+        suites,
+        noRoomsFound,
+        searchItem: "",
+        oldBuildingState: this.state.building,
+        loading: false,
+      });
+    });
   }
 
   componentWillUnmount() {
@@ -289,7 +311,7 @@ export default class ViewReviews extends Component {
     const building = e;
 
     // This is handled in the componentDidUpdate function
-    return this.setState({...this.state, building, loading: true });
+    return this.setState({ ...this.state, building, loading: true });
   };
 
   handleRoomSizeChange = (e) => {
@@ -320,9 +342,9 @@ export default class ViewReviews extends Component {
 
     } else {
       // search by name
-      suites = this.filterSearch(e, this.state.allSuitesForSelectedCollege); 
+      suites = this.filterSearch(e, this.state.allSuitesForSelectedCollege);
     }
-    
+
     // Then favorite the suites
     suites = this.addFavoriteSuites(suites);
     // Update no rooms found
@@ -349,7 +371,9 @@ export default class ViewReviews extends Component {
           handleRoomSizeChange={this.handleRoomSizeChange}
           handleSearchChange={this.handleSearchChange}
         />
-        {this.state.loading ? (<div>Loading viewreviews...</div>) : (
+        {this.state.loading ? (
+          <div>Loading viewreviews...</div>
+        ) : (
           <div>
             <Results
               noRooms={this.state.noRoomsFound}
@@ -363,7 +387,7 @@ export default class ViewReviews extends Component {
               handleRemoveFavorited={this.handleRemoveFavorited}
             />
           </div>
-        )}  
+        )}
       </div>
     );
   }
