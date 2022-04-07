@@ -337,9 +337,11 @@ export default class ViewReviews extends Component {
     const searchItem = e;
     var suites;
     //If a user searches for a blank string, they probably just wanna go back to where they were originally
-    if(e === "") {
-      suites = this.filterRoomSize(this.state.roomSizes, this.state.allSuitesForSelectedCollege);
-
+    if (e === "") {
+      suites = this.filterRoomSize(
+        this.state.roomSizes,
+        this.state.allSuitesForSelectedCollege
+      );
     } else {
       // search by name
       suites = this.filterSearch(e, this.state.allSuitesForSelectedCollege);
