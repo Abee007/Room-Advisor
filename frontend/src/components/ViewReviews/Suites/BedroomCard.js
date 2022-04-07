@@ -10,14 +10,16 @@ export default class BedroomCard extends Component {
     super(props);
     this.state = {
       favorited: this.props.room.meta.favorited,
-      previewPicture: this.selectPreviewPicture()
+      previewPicture: this.selectPreviewPicture(),
     };
   }
 
   selectPreviewPicture = () => {
     // Select random picture
-    return this.props.room.meta.pictures[Math.floor(Math.random() * this.props.room.meta.pictures.length)];
-  }
+    return this.props.room.meta.pictures[
+      Math.floor(Math.random() * this.props.room.meta.pictures.length)
+    ];
+  };
 
   // Look out of change of state of bedroom props
   static getDerivedStateFromProps(props, state) {
@@ -49,7 +51,11 @@ export default class BedroomCard extends Component {
     return (
       <div className="card" onClick={this.activateReview}>
         <div className="room-card-photo-container col-md-5">
-          <img className="room-card-photo" src={this.state.previewPicture} alt="room-view" />
+          <img
+            className="room-card-photo"
+            src={this.state.previewPicture}
+            alt="room-view"
+          />
         </div>
 
         <div className="room-card-right-side col-md-7">
