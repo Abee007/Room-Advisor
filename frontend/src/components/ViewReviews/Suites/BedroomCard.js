@@ -2,7 +2,6 @@ import "./BedroomCard.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { Component } from "react";
 import Badge from "react-bootstrap/Badge";
-import room from "../../../static/dorm_room.jpg";
 import { FaRegBookmark, FaBookmark } from "react-icons/fa";
 import { numberToAcronym } from "../../../utils/colleges";
 
@@ -11,7 +10,13 @@ export default class BedroomCard extends Component {
     super(props);
     this.state = {
       favorited: this.props.room.meta.favorited,
+      previewPicture: this.selectPreviewPicture()
     };
+  }
+
+  selectPreviewPicture = () => {
+    // Select random picture
+    return this.props.room.meta.pictures[Math.floor(Math.random() * this.props.room.meta.pictures.length)];
   }
 
   // Look out of change of state of bedroom props
@@ -44,7 +49,7 @@ export default class BedroomCard extends Component {
     return (
       <div className="card" onClick={this.activateReview}>
         <div className="room-card-photo-container col-md-5">
-          <img className="room-card-photo" src={room} alt="room-view" />
+          <img className="room-card-photo" src={this.state.previewPicture} alt="room-view" />
         </div>
 
         <div className="room-card-right-side col-md-7">

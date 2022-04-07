@@ -39,6 +39,7 @@ export const roomsizes = [
   { value: 4, label: "Quad" },
   { value: 5, label: "Quint" },
   { value: 6, label: "Sextet" },
+  { value: 7, label: "7-Pack" },
   { value: 8, label: "8-Pack" },
 ];
 

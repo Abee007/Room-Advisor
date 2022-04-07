@@ -2,7 +2,6 @@ import "./SuiteCard.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { Component } from "react";
 import Badge from "react-bootstrap/Badge";
-import room from "../../../static/dorm_room.jpg";
 import { FaRegBookmark, FaBookmark } from "react-icons/fa";
 import ModalContainer from "../GeneralModal";
 import { numberToAcronym } from "../../../utils/colleges";
@@ -102,6 +101,7 @@ export default class SuiteCard extends Component {
       noBeds = 0,
       noReviews = 0;
     var reviews = [];
+    var pictures = [];
     for (const room of suite) {
       no++;
       noise += room.meta.noise;
@@ -109,7 +109,9 @@ export default class SuiteCard extends Component {
       noBeds += room.meta.noBeds;
       noReviews += room.meta.roomReviews.length;
       reviews = reviews.concat(room.meta.roomReviews);
+      pictures = pictures.concat(room.meta.pictures);
     }
+    
     // Round to 1dp
     noise = (Math.round((noise / no) * 10) / 10).toFixed(1);
     size = (Math.round((size / no) * 10) / 10).toFixed(1);
@@ -118,12 +120,16 @@ export default class SuiteCard extends Component {
     var previewReview = reviews[Math.floor(Math.random() * reviews.length)];
     const preview = previewReview.rec;
 
+    // Select random picture
+    const selectedPicture = pictures[Math.floor(Math.random() * pictures.length)];
+
     return {
       noise: noise,
       size: size,
       noBeds: noBeds,
       noReviews: noReviews,
       previewReview: preview,
+      previewPicture: selectedPicture
     };
   };
 
@@ -148,7 +154,7 @@ export default class SuiteCard extends Component {
       <div className="suite-card" onClick={this.activateModal}>
         {/* displaying room photo (--> to be carousel in the future) */}
         <div className="col-md-5">
-          <img className="card-photo" src={room} alt="room-view" />
+          <img className="card-photo" src={this.state.suiteStats.previewPicture} alt="room-view" />
         </div>
 
         {/* creates container for the right hand side of the card where the text and badges will go */}
