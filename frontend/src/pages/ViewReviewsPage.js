@@ -68,7 +68,9 @@ export default class ViewReviews extends Component {
 
     // Create suite state
     // Remove any suites with persisted likes first
-    this.state.suites = this.removeAllFavoriteSuitesInitially(this.state.allSuitesForSelectedCollege);
+    this.state.suites = this.removeAllFavoriteSuitesInitially(
+      this.state.allSuitesForSelectedCollege
+    );
     this.state.suites = this.filterRoomSize(
       this.state.roomSizes,
       this.state.allSuitesForSelectedCollege
@@ -181,15 +183,15 @@ export default class ViewReviews extends Component {
 
   removeAllFavoriteSuitesInitially = (suites) => {
     var mySuites = suites;
-    for(var suite of mySuites) {
+    for (var suite of mySuites) {
       suite.favorited = false;
       suite.favoritedInside = false;
-      for(var room of suite.suiteRooms) {
+      for (var room of suite.suiteRooms) {
         room.meta.favorited = false;
       }
     }
     return mySuites;
-  }
+  };
 
   // Favorite the suites that have been favorited by the user
   addFavoriteSuites = (suites) => {
