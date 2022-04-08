@@ -1,7 +1,13 @@
 import React, { Component } from "react";
 import Nav from "../components/Nav";
 import { db } from "../utils/firebase";
-import { collection, getDocs, query, where, documentId } from "firebase/firestore";
+import {
+  collection,
+  getDocs,
+  query,
+  where,
+  documentId,
+} from "firebase/firestore";
 import CardsContainer from "../components/ViewReviews/Suites/CardsContainer";
 import { codeToCollege } from "../utils/colleges";
 
@@ -13,8 +19,8 @@ export default class FavoritesPage extends Component {
       sortBy: { value: "ALPHA", label: "Sort by: Suite Name" },
       favorites: this.props.user.favorites,
       favoritedColleges: this.findUniqueFavoritedColleges(),
-      suitesForColleges: []
-    }
+      suitesForColleges: [],
+    };
   }
 
   componentDidMount() {
@@ -22,21 +28,18 @@ export default class FavoritesPage extends Component {
 
     var favoriteDocRefs = [];
 
-    for(const fav of this.state.favorites) {
-      favoriteDocRefs.push(`${fav.buildingName}-${fav.suiteCode}`)
+    for (const fav of this.state.favorites) {
+      favoriteDocRefs.push(`${fav.buildingName}-${fav.suiteCode}`);
     }
 
     // If there is nothing to search for return
-    if(favoriteDocRefs.length === 0) {
-      this.setState({...this.state, loading: false });
+    if (favoriteDocRefs.length === 0) {
+      this.setState({ ...this.state, loading: false });
       return;
     }
 
     const suiteRef = collection(db, "Suites");
-    const q = query(
-      suiteRef,
-      where(documentId(), "in", favoriteDocRefs)
-    );
+    const q = query(suiteRef, where(documentId(), "in", favoriteDocRefs));
     var suiteData = [];
     getDocs(q).then((data) => {
       data.forEach((docs) => {
@@ -44,9 +47,9 @@ export default class FavoritesPage extends Component {
       });
 
       var fetchedSuites = this.makeSuites(suiteData);
-      fetchedSuites = this.addFavoriteSuites(fetchedSuites)
+      fetchedSuites = this.addFavoriteSuites(fetchedSuites);
 
-      const finalSuites = this.separateFavoritedSuitesByCollege(fetchedSuites)
+      const finalSuites = this.separateFavoritedSuitesByCollege(fetchedSuites);
       this.setState({
         ...this.state,
         suitesForColleges: finalSuites,
@@ -57,37 +60,37 @@ export default class FavoritesPage extends Component {
 
   componentWillUnmount() {
     document.removeEventListener("click", this.handleModalOpen);
-    this.setState({...this.state, loading: true });
+    this.setState({ ...this.state, loading: true });
   }
 
   findUniqueFavoritedColleges = () => {
     var colleges = [];
-    for(const fav of this.props.user.favorites) {
+    for (const fav of this.props.user.favorites) {
       var unique = true;
-      for(const college of colleges) {
-        if(college === fav.buildingName) {
+      for (const college of colleges) {
+        if (college === fav.buildingName) {
           unique = false;
           break;
         }
       }
 
-      if(unique) {
+      if (unique) {
         colleges.push(fav.buildingName);
       }
     }
-    return colleges; 
-  }
+    return colleges;
+  };
 
   separateFavoritedSuitesByCollege = (allSuites) => {
     var sepObjects = [];
-    for(const college of this.state.favoritedColleges) {
+    for (const college of this.state.favoritedColleges) {
       var collegeObject = {
         buildingName: college,
-        suites: []
+        suites: [],
       };
 
-      for(const suite of allSuites) {
-        if(suite.buildingName === college) {
+      for (const suite of allSuites) {
+        if (suite.buildingName === college) {
           collegeObject.suites.push(suite);
         }
       }
@@ -95,7 +98,7 @@ export default class FavoritesPage extends Component {
       sepObjects.push(collegeObject);
     }
     return sepObjects;
-  }
+  };
 
   handleModalOpen() {
     if (!document.querySelector(".modal")) {
@@ -128,7 +131,10 @@ export default class FavoritesPage extends Component {
     var mySuites = suites;
     for (var suite of mySuites) {
       for (const fav of this.state.favorites) {
-        if (suite.buildingName === fav.buildingName && suite.suiteCode === fav.suiteCode) {
+        if (
+          suite.buildingName === fav.buildingName &&
+          suite.suiteCode === fav.suiteCode
+        ) {
           // If we like a room within a suite, we don't want to like the entire suite
           // so only set suite to true if what we are handling is a suite ie no roomCode element
           if (fav.roomCode === undefined) {
@@ -153,7 +159,6 @@ export default class FavoritesPage extends Component {
     }
     return mySuites;
   };
-
 
   // FAVORITE HANDLERS
   handleAddFavorited = (e) => {
@@ -200,7 +205,9 @@ export default class FavoritesPage extends Component {
     return (
       <div>
         <Nav user={this.props.user} />
-        {this.state.loading ? (<div>Loading favorites</div>) : (
+        {this.state.loading ? (
+          <div>Loading favorites</div>
+        ) : (
           <>
             {this.state.suitesForColleges.map((collegeObject) => (
               <div key={collegeObject.buildingName}>
@@ -214,7 +221,6 @@ export default class FavoritesPage extends Component {
               </div>
             ))}
           </>
-          
         )}
       </div>
     );

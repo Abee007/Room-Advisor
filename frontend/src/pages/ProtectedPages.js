@@ -120,7 +120,10 @@ function RegisterandProtectedPages({ casUser }) {
           path="/favorites"
           element={
             isValidated ? (
-              <FavoritesPage user={validatedUserObject} handleUserObject={handleValidatedUserObjectChange} />
+              <FavoritesPage
+                user={validatedUserObject}
+                handleUserObject={handleValidatedUserObjectChange}
+              />
             ) : (
               <Navigate to="/" />
             )
