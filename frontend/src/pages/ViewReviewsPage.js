@@ -196,7 +196,10 @@ export default class ViewReviews extends Component {
     var mySuites = suites;
     for (var suite of mySuites) {
       for (const fav of this.state.favorites) {
-        if (suite.buildingName === fav.buildingName && suite.suiteCode === fav.suiteCode) {
+        if (
+          suite.buildingName === fav.buildingName &&
+          suite.suiteCode === fav.suiteCode
+        ) {
           // If we like a room within a suite, we don't want to like the entire suite
           // so only set suite to true if what we are handling is a suite ie no roomCode element
           if (fav.roomCode === undefined) {
