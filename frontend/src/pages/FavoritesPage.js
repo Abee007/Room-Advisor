@@ -10,7 +10,7 @@ import {
 } from "firebase/firestore";
 import CardsContainer from "../components/ViewReviews/Suites/CardsContainer";
 import { codeToCollege } from "../utils/colleges";
-import { LoadingOverlay } from '@mantine/core';
+import { LoadingOverlay } from "@mantine/core";
 
 export default class FavoritesPage extends Component {
   constructor(props) {
