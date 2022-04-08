@@ -129,6 +129,7 @@
   }
 
   .fav-room-standalone {
+    position: absolute;
     right: 0px;
   }
 }
