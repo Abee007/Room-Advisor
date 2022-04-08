@@ -210,7 +210,9 @@ export default class FavoritesPage extends Component {
           <LoadingOverlay visible={true} />
         ) : (
           <>
-            {this.state.suitesForColleges.length === 0 ? (<div>No favorites</div>) : (
+            {this.state.suitesForColleges.length === 0 ? (
+              <div>No favorites</div>
+            ) : (
               <>
                 {this.state.suitesForColleges.map((collegeObject) => (
                   <div key={collegeObject.buildingName}>
@@ -224,9 +226,7 @@ export default class FavoritesPage extends Component {
                   </div>
                 ))}
               </>
-
             )}
-            
           </>
         )}
       </div>
