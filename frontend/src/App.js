@@ -2,6 +2,7 @@ import "./App.css";
 import { useEffect, useState } from "react";
 import LandingRegisterProtected from "./LandingRegisterProtected";
 import { serverIp } from "./constants";
+import { LoadingOverlay } from '@mantine/core';
 
 function App() {
   const [isLoading, setLoading] = useState(true);
@@ -32,7 +33,7 @@ function App() {
 
   // Make sure user object is fetched
   if (isLoading) {
-    return <div className="App">Loading...</div>;
+    return <LoadingOverlay visible={true} />;
   }
   return <LandingRegisterProtected casUser={casUser} />;
 }

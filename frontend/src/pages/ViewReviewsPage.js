@@ -5,6 +5,7 @@ import { codeToCollege, collegesToCode } from "../utils/colleges";
 import CardsContainer from "../components/ViewReviews/Suites/CardsContainer";
 import { db } from "../utils/firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
+import { LoadingOverlay } from '@mantine/core';
 
 export default class ViewReviews extends Component {
   // initial setup
@@ -392,7 +393,7 @@ export default class ViewReviews extends Component {
           handleSearchChange={this.handleSearchChange}
         />
         {this.state.loading ? (
-          <div>Loading viewreviews...</div>
+          <LoadingOverlay visible={true} />
         ) : (
           <div>
             <Results

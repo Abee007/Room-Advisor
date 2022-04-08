@@ -15,6 +15,7 @@ import {
 } from "firebase/firestore";
 import { cryptoKey } from "../constants";
 import { sha256 } from "js-sha256";
+import { LoadingOverlay } from '@mantine/core';
 // import TIME from "../utils/try";
 const LandingPage = lazy(() => import("./LandingPage"));
 const RegisterPage = lazy(() => import("./RegisterPage"));
@@ -73,11 +74,11 @@ function RegisterandProtectedPages({ casUser }) {
   };
 
   if (isLoading) {
-    return <div className="App">Validating...</div>;
+    return <LoadingOverlay visible={true} />;
   }
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<LoadingOverlay visible={true} />}>
       <Routes>
         {/* For any other route, navigate back to home page */}
         <Route path="*" element={<Navigate to="/" />} />
