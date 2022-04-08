@@ -10,7 +10,7 @@ import Nav from "../components/Nav";
 import GuidelinesList from "../components/RegisterPage/GuidelinesList";
 import agreement from "../static/agreement.svg";
 import { Button } from "../components/Button";
-import { LoadingOverlay } from '@mantine/core';
+import { LoadingOverlay } from "@mantine/core";
 
 function RegisterPage({ user }) {
   const [isLoading, setLoading] = useState(true);
