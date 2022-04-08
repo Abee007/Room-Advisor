@@ -210,17 +210,23 @@ export default class FavoritesPage extends Component {
           <LoadingOverlay visible={true} />
         ) : (
           <>
-            {this.state.suitesForColleges.map((collegeObject) => (
-              <div key={collegeObject.buildingName}>
-                {codeToCollege(collegeObject.buildingName)}
-                <CardsContainer
-                  suites={collegeObject.suites}
-                  sort={this.state.sortBy}
-                  handleAddFavorited={this.handleAddFavorited}
-                  handleRemoveFavorited={this.handleRemoveFavorited}
-                />
-              </div>
-            ))}
+            {this.state.suitesForColleges.length === 0 ? (<div>No favorites</div>) : (
+              <>
+                {this.state.suitesForColleges.map((collegeObject) => (
+                  <div key={collegeObject.buildingName}>
+                    {codeToCollege(collegeObject.buildingName)}
+                    <CardsContainer
+                      suites={collegeObject.suites}
+                      sort={this.state.sortBy}
+                      handleAddFavorited={this.handleAddFavorited}
+                      handleRemoveFavorited={this.handleRemoveFavorited}
+                    />
+                  </div>
+                ))}
+              </>
+
+            )}
+            
           </>
         )}
       </div>

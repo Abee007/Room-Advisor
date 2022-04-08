@@ -183,7 +183,7 @@ export default class CardsContainer extends Component {
     return (
       <div className="suitecards-container">
         {this.state.suites.map((suite) => (
-          <div key={`${suite.buildingName}-${suite.suiteCode}`}>
+          <div key={`${suite.buildingName}-${suite.suiteCode}`} className="suitecards-inner-container">
             <SuiteCard
               suite={suite}
               handleFavoritedSuite={this.updateSuiteFavorited}

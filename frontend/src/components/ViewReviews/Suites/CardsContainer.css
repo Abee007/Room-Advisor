@@ -12,6 +12,10 @@ h1 {
     overflow: hidden;
 }
 
+.suitecards-inner-container {
+    width: 100%;
+}
+
 .suitecards-container > div {
     margin: 10px;
 }
