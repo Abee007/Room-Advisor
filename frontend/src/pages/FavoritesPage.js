@@ -79,6 +79,8 @@ export default class FavoritesPage extends Component {
         colleges.push(fav.buildingName);
       }
     }
+    // Sort by college
+    colleges.sort();
     return colleges;
   };
 
