@@ -15,6 +15,7 @@ import {
 } from "firebase/firestore";
 import { cryptoKey } from "../constants";
 import { sha256 } from "js-sha256";
+// import TIME from "../utils/try";
 const LandingPage = lazy(() => import("./LandingPage"));
 const RegisterPage = lazy(() => import("./RegisterPage"));
 const ViewReviews = lazy(() => import("./ViewReviewsPage"));
@@ -63,6 +64,9 @@ function RegisterandProtectedPages({ casUser }) {
 
     if (e.remove) {
       await updateDoc(usersCollectionRef, { favorites: arrayRemove(e.object) });
+      // await updateDoc(usersCollectionRef, {
+      //   "metafavorites": arrayRemove
+      // })
     } else {
       await updateDoc(usersCollectionRef, { favorites: arrayUnion(e.object) });
     }
@@ -116,7 +120,7 @@ function RegisterandProtectedPages({ casUser }) {
           path="/favorites"
           element={
             isValidated ? (
-              <FavoritesPage user={validatedUserObject} />
+              <FavoritesPage user={validatedUserObject} handleUserObject={handleValidatedUserObjectChange} />
             ) : (
               <Navigate to="/" />
             )
@@ -128,6 +132,7 @@ function RegisterandProtectedPages({ casUser }) {
         />
         {/* Performs a soft logout so we don't actually log users out of cas */}
         <Route path="/logout" element={<LandingPage isLoggedIn={true} />} />
+        {/* <Route path="/upload" element={<TIME />} /> */}
       </Routes>
     </Suspense>
   );
