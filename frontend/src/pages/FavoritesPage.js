@@ -208,8 +208,8 @@ export default class FavoritesPage extends Component {
                 <CardsContainer
                   suites={collegeObject.suites}
                   sort={this.state.sortBy}
-                  handleAddFavorited={this.handleAddFavorited}
-                  handleRemoveFavorited={this.handleRemoveFavorited}
+                  handleAddFavorited={this.handleAddFavorited.bind(this)}
+                  handleRemoveFavorited={this.handleRemoveFavorited.bind(this)}
                 />
               </div>
             ))}
