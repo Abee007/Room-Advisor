@@ -6,7 +6,7 @@ export default class CardsContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      suites: this.sortSuites(this.props.sort.value, this.props.suites),
+      suites: this.sortSuites(this.props.sortBy, this.props.suites),
     };
   }
 
@@ -183,7 +183,7 @@ export default class CardsContainer extends Component {
     return (
       <div className="suitecards-container">
         {this.state.suites.map((suite) => (
-          <div key={suite.suiteRooms[0].roomCode}>
+          <div key={`${suite.buildingName}-${suite.suiteCode}`}>
             <SuiteCard
               suite={suite}
               handleFavoritedSuite={this.updateSuiteFavorited}

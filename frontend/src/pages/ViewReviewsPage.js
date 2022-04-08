@@ -3,11 +3,9 @@ import Nav from "../components/Nav";
 import Results from "../components/ViewReviews/Results/Results";
 import { codeToCollege, collegesToCode } from "../utils/colleges";
 import CardsContainer from "../components/ViewReviews/Suites/CardsContainer";
-// import { Suites } from "../utils/colleges";
 import { db } from "../utils/firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
 
-// TODO: HANDLE THE CHANGES TO THE REST OF THE SEARCHES
 export default class ViewReviews extends Component {
   // initial setup
   constructor(props) {
@@ -69,6 +67,8 @@ export default class ViewReviews extends Component {
     this.state.searchItem = "";
 
     // Create suite state
+    // Remove any suites with persisted likes first
+    this.state.suites = this.removeAllFavoriteSuitesInitially(this.state.allSuitesForSelectedCollege);
     this.state.suites = this.filterRoomSize(
       this.state.roomSizes,
       this.state.allSuitesForSelectedCollege
@@ -133,7 +133,7 @@ export default class ViewReviews extends Component {
   }
 
   componentDidUpdate() {
-    // Handle building chagne here
+    // Handle building change here
     if (this.state.building === this.state.oldBuildingState) return;
 
     const suiteRef = collection(db, "Suites");
@@ -179,6 +179,18 @@ export default class ViewReviews extends Component {
     }
   }
 
+  removeAllFavoriteSuitesInitially = (suites) => {
+    var mySuites = suites;
+    for(var suite of mySuites) {
+      suite.favorited = false;
+      suite.favoritedInside = false;
+      for(var room of suite.suiteRooms) {
+        room.meta.favorited = false;
+      }
+    }
+    return mySuites;
+  }
+
   // Favorite the suites that have been favorited by the user
   addFavoriteSuites = (suites) => {
     var mySuites = suites;
@@ -208,47 +220,6 @@ export default class ViewReviews extends Component {
       }
     }
     return mySuites;
-  };
-
-  // Adds favorited suite/room to user object
-  handleAddFavorited = (e) => {
-    var favorites = this.state.favorites;
-    favorites.push(e);
-    this.props.handleUserObject({
-      object: e,
-      favorites: favorites,
-      remove: false,
-    });
-    this.setState({ ...this.state, favorites });
-  };
-
-  // Removes favorited suite/room from user object
-  handleRemoveFavorited = (e) => {
-    var favorites = this.state.favorites;
-    var rmIdx = 0;
-    if (e.roomCode === undefined) {
-      // we are dealing with a suite
-      for (var fav1 of favorites) {
-        if (fav1.roomCode === undefined && fav1.suiteCode === e.suiteCode)
-          break;
-        rmIdx++;
-      }
-    } else {
-      // we are dealing with a room
-      for (var fav2 of favorites) {
-        if (fav2.roomCode === e.roomCode && fav2.suiteCode === e.suiteCode)
-          break;
-        rmIdx++;
-      }
-    }
-
-    favorites.splice(rmIdx, 1);
-    this.props.handleUserObject({
-      object: e,
-      favorites: favorites,
-      remove: true,
-    });
-    this.setState({ ...this.state, favorites });
   };
 
   getSuiteRoomSize = (suite) => {
@@ -302,6 +273,48 @@ export default class ViewReviews extends Component {
       }
     }
     return mySuites;
+  };
+
+  // FAVORITE HANDLERS
+  // Adds favorited suite/room to user object
+  handleAddFavorited = (e) => {
+    var favorites = this.state.favorites;
+    favorites.push(e);
+    this.props.handleUserObject({
+      object: e,
+      favorites: favorites,
+      remove: false,
+    });
+    this.setState({ ...this.state, favorites });
+  };
+
+  // Removes favorited suite/room from user object
+  handleRemoveFavorited = (e) => {
+    var favorites = this.state.favorites;
+    var rmIdx = 0;
+    if (e.roomCode === undefined) {
+      // we are dealing with a suite
+      for (var fav1 of favorites) {
+        if (fav1.roomCode === undefined && fav1.suiteCode === e.suiteCode)
+          break;
+        rmIdx++;
+      }
+    } else {
+      // we are dealing with a room
+      for (var fav2 of favorites) {
+        if (fav2.roomCode === e.roomCode && fav2.suiteCode === e.suiteCode)
+          break;
+        rmIdx++;
+      }
+    }
+
+    favorites.splice(rmIdx, 1);
+    this.props.handleUserObject({
+      object: e,
+      favorites: favorites,
+      remove: true,
+    });
+    this.setState({ ...this.state, favorites });
   };
 
   // IMPORTANT FILTERS!!

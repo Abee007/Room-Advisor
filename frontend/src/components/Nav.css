@@ -129,6 +129,12 @@ nav {
     color: var(--primary);
 }
 
+.navbar-link.active {
+    text-decoration: none;
+    color: var(--dark);
+
+}
+
 
 /* For small screens */
 @media (max-width: 768px) {
