@@ -2,7 +2,7 @@ import "./App.css";
 import { useEffect, useState } from "react";
 import LandingRegisterProtected from "./LandingRegisterProtected";
 import { serverIp } from "./constants";
-import { LoadingOverlay } from '@mantine/core';
+import { LoadingOverlay } from "@mantine/core";
 
 function App() {
   const [isLoading, setLoading] = useState(true);
