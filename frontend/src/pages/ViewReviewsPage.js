@@ -167,10 +167,10 @@ export default class ViewReviews extends Component {
   componentWillUnmount() {
     document.removeEventListener("click", this.handleModalOpen);
     // Remove any suites with persisted likes first
-    const suites = this.removeAllFavoriteSuitesInitially(
+    const allSuitesForSelectedCollege = this.removeAllFavoriteSuites(
       this.state.allSuitesForSelectedCollege
     );
-    this.setState({ ...this.state, suites, loading: true });
+    this.setState({ ...this.state, allSuitesForSelectedCollege, loading: true });
   }
 
   // Ensures that the body isn't scrollable whhen the modal is open
@@ -182,7 +182,7 @@ export default class ViewReviews extends Component {
     }
   }
 
-  removeAllFavoriteSuitesInitially = (suites) => {
+  removeAllFavoriteSuites = (suites) => {
     var mySuites = suites;
     for (var suite of mySuites) {
       suite.favorited = false;
