@@ -50,7 +50,6 @@ svg {
 .card-title-container{
     display: flex;
     vertical-align: middle;
-    /* text-align: left; */
 }
 
 .push-right{
@@ -89,7 +88,6 @@ svg {
     justify-content:left;
     text-align:left;
     color: #333333;
-    /* margin-bottom: 1px; */
     margin-right: 3%;
     margin-top: 3%;
 }
@@ -100,8 +98,6 @@ svg {
     justify-content:left;
     text-align:left;
     color: #808080;
-    /* margin-bottom: 1px; */
-    /* margin-top: 15%; */
 }
 
 .number-icon{

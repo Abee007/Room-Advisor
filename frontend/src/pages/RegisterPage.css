@@ -129,7 +129,6 @@ body{
   
 .select__input-container {
     color: inherit;
-    /* background: 0px center; */
     background: center;
     font-size: 1rem;
     opacity: 0;

@@ -68,10 +68,6 @@ export default class ViewReviews extends Component {
     this.state.searchItem = "";
 
     // Create suite state
-    // Remove any suites with persisted likes first
-    this.state.suites = this.removeAllFavoriteSuitesInitially(
-      this.state.allSuitesForSelectedCollege
-    );
     this.state.suites = this.filterRoomSize(
       this.state.roomSizes,
       this.state.allSuitesForSelectedCollege
@@ -170,7 +166,11 @@ export default class ViewReviews extends Component {
 
   componentWillUnmount() {
     document.removeEventListener("click", this.handleModalOpen);
-    this.setState({ ...this.state, loading: true });
+    // Remove any suites with persisted likes first
+    const suites = this.removeAllFavoriteSuitesInitially(
+      this.state.allSuitesForSelectedCollege
+    );
+    this.setState({ ...this.state, suites, loading: true });
   }
 
   // Ensures that the body isn't scrollable whhen the modal is open
