@@ -60,8 +60,6 @@ export default class Nav extends Component {
   };
 
   handleSearchChange = (e) => {
-    // When you press enter to search, you want to close the hamburger menu
-    this.toggleActiveHamburger();
     this.searchChange1.updateYourState(e);
     // Send the change to the parent page so it also updates
     this.props.handleSearchChange(e);
@@ -118,6 +116,7 @@ export default class Nav extends Component {
                           }}
                           currSearch={this.props.currState.searchItem}
                           handleChange={this.handleSearchChange}
+                          handleCloseHamburger={this.toggleActiveHamburger}
                         />
                       </div>
                     </div>

@@ -9,10 +9,9 @@ export default class NavSearchBar extends Component {
     };
   }
 
-  // Send new value to the parent nav prop
   onFormSubmit = (e) => {
     e.preventDefault();
-    this.props.handleChange(e.target.searchItem.value);
+    this.props.handleCloseHamburger();
   };
 
   //Parent nav prop asks you to update state here
@@ -25,6 +24,8 @@ export default class NavSearchBar extends Component {
 
   onInputchange = (e) => {
     const currSearch = e.target.value;
+    //search for suites whenever you type something
+    this.props.handleChange(currSearch);
     this.setState({
       currSearch,
     });
