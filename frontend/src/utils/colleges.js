@@ -39,6 +39,7 @@ export const roomsizes = [
   { value: 4, label: "Quad" },
   { value: 5, label: "Quint" },
   { value: 6, label: "Sextet" },
+  { value: 7, label: "7-pack" },
   { value: 8, label: "8-Pack" },
 ];
 
@@ -102,7 +103,7 @@ export const Suites = [
           favorited: false,
           noise: 4.5,
           size: 3.4,
-          noBeds: 2,
+          noBeds: 1,
           pictues: [],
           roomReviews: [
             {
@@ -159,7 +160,7 @@ export const Suites = [
     favoritedInside: false,
     suiteRooms: [
       {
-        roomCode: "D32",
+        roomCode: "D32A",
         meta: {
           favorited: false,
           noise: 5,
@@ -176,11 +177,65 @@ export const Suites = [
           ],
         },
       },
+      {
+        roomCode: "D32B",
+        meta: {
+          favorited: false,
+          noise: 5,
+          size: 3.4,
+          noBeds: 2,
+          pictues: [],
+          roomReviews: [
+            {
+              rec: [
+                "It's tinyyyyyyy and no sunlight cause tiny window. no room...",
+              ],
+              sw: ["It could use some improvement"],
+            },
+          ],
+        },
+      },
+      {
+        roomCode: "D32C",
+        meta: {
+          favorited: false,
+          noise: 5,
+          size: 3.4,
+          noBeds: 1,
+          pictues: [],
+          roomReviews: [
+            {
+              rec: [
+                "It's tinyyyyyyy and no sunlight cause tiny window. no room...",
+              ],
+              sw: ["It could use some improvement"],
+            },
+          ],
+        },
+      },
+      {
+        roomCode: "D32D",
+        meta: {
+          favorited: false,
+          noise: 5,
+          size: 3.4,
+          noBeds: 1,
+          pictues: [],
+          roomReviews: [
+            {
+              rec: [
+                "It's tinyyyyyyy and no sunlight cause tiny window. no room...",
+              ],
+              sw: ["It could use some improvement"],
+            },
+          ],
+        },
+      },
     ],
   },
   {
     buildingName: "BK",
-    suiteCode: "D45",
+    suiteCode: "F41",
     favorited: false,
     favoritedInside: false,
     suiteRooms: [
@@ -190,7 +245,137 @@ export const Suites = [
           favorited: false,
           noise: 5,
           size: 3.4,
-          noBeds: 2,
+          noBeds: 4,
+          pictues: [],
+          roomReviews: [
+            {
+              rec: [
+                "It's tinyyyyyyy and no sunlight cause tiny window. no room...",
+              ],
+              sw: ["It could use some improvement"],
+            },
+          ],
+        },
+      },
+    ],
+  },
+  {
+    buildingName: "BK",
+    suiteCode: "B23",
+    favorited: false,
+    favoritedInside: false,
+    suiteRooms: [
+      {
+        roomCode: "D32",
+        meta: {
+          favorited: false,
+          noise: 5,
+          size: 3.4,
+          noBeds: 1,
+          pictues: [],
+          roomReviews: [
+            {
+              rec: [
+                "It's tinyyyyyyy and no sunlight cause tiny window. no room...",
+              ],
+              sw: ["It could use some improvement"],
+            },
+          ],
+        },
+      },
+    ],
+  },
+  {
+    buildingName: "BK",
+    suiteCode: "D32",
+    favorited: false,
+    favoritedInside: false,
+    suiteRooms: [
+      {
+        roomCode: "E11",
+        meta: {
+          favorited: false,
+          noise: 5,
+          size: 3.4,
+          noBeds: 6,
+          pictues: [],
+          roomReviews: [
+            {
+              rec: [
+                "It's tinyyyyyyy and no sunlight cause tiny window. no room...",
+              ],
+              sw: ["It could use some improvement"],
+            },
+          ],
+        },
+      },
+    ],
+  },
+  {
+    buildingName: "BK",
+    suiteCode: "L22",
+    favorited: false,
+    favoritedInside: false,
+    suiteRooms: [
+      {
+        roomCode: "D32",
+        meta: {
+          favorited: false,
+          noise: 5,
+          size: 3.4,
+          noBeds: 3,
+          pictues: [],
+          roomReviews: [
+            {
+              rec: [
+                "It's tinyyyyyyy and no sunlight cause tiny window. no room...",
+              ],
+              sw: ["It could use some improvement"],
+            },
+          ],
+        },
+      },
+    ],
+  },
+  {
+    buildingName: "BK",
+    suiteCode: "A32",
+    favorited: false,
+    favoritedInside: false,
+    suiteRooms: [
+      {
+        roomCode: "D32",
+        meta: {
+          favorited: false,
+          noise: 5,
+          size: 3.4,
+          noBeds: 4,
+          pictues: [],
+          roomReviews: [
+            {
+              rec: [
+                "It's tinyyyyyyy and no sunlight cause tiny window. no room...",
+              ],
+              sw: ["It could use some improvement"],
+            },
+          ],
+        },
+      },
+    ],
+  },
+  {
+    buildingName: "BK",
+    suiteCode: "D32",
+    favorited: false,
+    favoritedInside: false,
+    suiteRooms: [
+      {
+        roomCode: "E11",
+        meta: {
+          favorited: false,
+          noise: 5,
+          size: 3.4,
+          noBeds: 6,
           pictues: [],
           roomReviews: [
             {

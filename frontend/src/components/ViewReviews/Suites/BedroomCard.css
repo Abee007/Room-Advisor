@@ -1,18 +1,45 @@
 .bedroom-card-photo{
     max-height: 80%;
     object-fit: cover;
+    position: relative;
     max-width: 100%;
-    position:relative;
-    /* z-index: 999; */
     border-radius: 8px;
 }
 
-.card {
+.bedroom-title-container{
+    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    vertical-align: middle;
+    text-align: left;
+    margin-left: 0; 
+    margin-bottom: 7%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-right: auto;
+    max-height: 70%;
+}
+
+.bedroom-notify-badge {
+    position: absolute;
+    top: 45%;
+    display: flex;
+    text-align: center;
+    border-radius: 30px 30px 30px 30px;
+    color: white;
+    padding: 5px;
+    padding-left: 0px;
+    align-items: flex-end;
+    height: 52px;
+}
+
+
+.bedroom-card{
     display: flex;
     flex-flow: column;
-    width: 100%;
-    height: 280px;
-    width: 450px;
+    width: 48%;
+    height: 250px;
     border-color: #fff;
     border: 1px solid rgb(255, 255, 255);
     box-shadow: 0 6px 15px rgba(56, 125, 255, 0.07); 
@@ -22,21 +49,22 @@
     text-decoration: none;
     padding: 10px;
     cursor: pointer;
+    position: relative;
 }
 
-.bedroom-card{
+/* .old-bedroom-card{
     display: flex;
     flex-flow: column;
     width: 46%;
     height: 250px;
     border-color: #fff;
     box-shadow: 0 6px 15px rgba(56, 125, 255, 0.07); 
-    /* -webkit-filter: drop-shadow(0 6px 15px rgba(56, 125, 255, 0.017)); */
+    /* -webkit-filter: drop-shadow(0 6px 15px rgba(56, 125, 255, 0.017)); 
     border-radius: 10px;
     text-decoration: none;
     padding: 10px;
     cursor: pointer;
-  }
+  } */
 
 .icon-14px {
     object-fit: contain;
@@ -99,10 +127,9 @@
 
 .bedroom-card-title{
     max-width: 50%;
-    padding-bottom: 5px;
     font-weight: bold;
-    font-size: 2.0em;
     color: #000;
+    font-size: 1.5rem;
     margin-right: 10px;
 }
 
@@ -137,15 +164,16 @@
 
 .bedroom-notify-badge {
     position: absolute;
-    top: 45%;
+    top: 60%;
     display: flex;
     text-align: center;
     border-radius: 30px 30px 30px 30px;
     color:white;
     padding: 5px;
     padding-left: 0px;
-    z-index: 99;
     align-items: flex-end;
+    align-items: baseline;
+    z-index: 9;
 }
 
 .rcorners1 {
@@ -162,15 +190,14 @@
     max-height: 90%;
 }
 
-.card-review-quotes{
+.bedroom-card-review-quotes{
     font-size: 9pt;
-    font-weight:400;
-    justify-content:left;
-    text-align:left;
+    font-weight: 400;
+    justify-content: left;
+    text-align: left;
     color: #333333;
-    /* margin-bottom: 1px; */
-    margin-right: 3%;
-    margin-top: 3%;
+    width: 70%;
+    padding-top: 1%;
 }
 
 .card-subtext{
@@ -215,14 +242,17 @@
     cursor: pointer;  
 }
 
-.room-card-badge-container {
+.bedroom-card-badge-container {
     display: flex;
     flex-direction: row;
+    padding-top: 5px;
+    z-index: 9;
 }
 
-.room-card-badge-container span {
+.bedroom-card-badge-container span {
     padding: 7px 10px;
     margin: 1px;
+    z-index: 9;
 }
 
 
@@ -242,9 +272,6 @@
     justify-content:left;
     text-align:left;
     color: #333333;
-    /* margin-bottom: 1px; */
-    margin-right: 3%;
-    margin-top: 3%;
 }
 
 .card-subtext{
@@ -267,6 +294,10 @@
         left: 5px;
     }
 
+    .bedroom-card{
+        width: 90%;
+    }
+
     .room-card-badge-container {
         flex-direction: column;
     }
@@ -282,5 +313,9 @@
 
     .favorite-room {
         right: 0px;
+    }
+
+    .bedroom-notify-badge {
+        top: 60%;
     }
 }

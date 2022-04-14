@@ -9,20 +9,22 @@
   display: flex;
   /* 30px is the size of the close button */
   min-width: 100%;
-  min-height: 60px;
-  margin-left: auto;
+  height: 10%;
+  margin-left: 20px;
   margin-right: auto;
   flex-direction: row;
   justify-content: left;
   box-shadow: 0 2px 2px -2px rgba(0,0,0,.2);
   overflow: hidden;
+  padding-bottom: 5%;
+  padding-top: 3%;
+  align-items: center;
 }
 
 .suite-modal-title {
   margin: 0 0;
   position: relative;
   top: 10px;
-  left: 45px;
   font-size: 24pt;
   font-weight: bold;
 }
@@ -32,37 +34,42 @@
   flex-direction: row;
   position: relative;
   top: 10px;
-  left: 80px;
-}
-
-.pill {
-  margin-right: 2px;
-}
-
-.pill span{
-  vertical-align: top;
+  left: 2%;
+  align-items: center;
 }
 
 .suite-modal-card-container {
-  padding: 20px;
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+  margin: 10px;
   justify-content: center;
   overflow: auto;
 }
 
 .suite-modal-card-container .card {
   width: 49%;
-  margin: 4px;
+  margin: 10px;
   height: 155px;
   font-size: 12px;
+}
+
+.modal-icon-badge-container{
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 0;
+  margin-left: auto;
+  align-content: stretch;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 99;
 }
 
 /* For small screens */
 @media (max-width: 768px) {
   .suite-modal-header {
-    height: 100px;
+    height: 80px;
+    padding-top: 0%;
   }
   
   .suite-modal-title {
@@ -74,13 +81,26 @@
     left: 20px;
   }
 
-  .pill span{
-    padding: 7px 10px;
-  }
-
   .suite-modal-card-container .card {
     width: 100%;
   }
+
+  .suite-badge {
+    font-size: 1.2rem;
+  }
+
+  .room-badge { 
+      font-size: 1rem;
+      padding-bottom: 2px;
+      padding-top: 2px;
+  }
+
+  .room-badge-gray { 
+      font-size: 1rem;
+      padding-bottom: 2px;
+      padding-top: 2px;
+  }
+
 }
 
 /* 

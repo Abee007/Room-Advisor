@@ -150,7 +150,7 @@ export default class SuiteCard extends Component {
 
   render() {
     return (
-      <div className="card" onClick={this.activateModal}>
+      <div className="suite-card" onClick={this.activateModal}>
 
         <div className="title-container notify-badge rcorners1">
           <h5 className="card-title"> {this.props.suite.suiteCode} </h5>
@@ -179,7 +179,7 @@ export default class SuiteCard extends Component {
           </div>
         </div>
        
-        <div className="card-badge-container">
+        <div className="suitecard-badge-container">
 
           <p className="room-badge" style={{marginBottom: '0px'}} > D31A </p>
           <p className="room-badge" style={{marginBottom: '0px'}} > D31B </p>

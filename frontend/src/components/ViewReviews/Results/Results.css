@@ -1,5 +1,8 @@
 .results-container {
-    flex-direction: column;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 3%;
 }
 
 h1 {
@@ -25,9 +28,10 @@ h1 {
         padding-top: 20px;
         display: flex;
         flex-wrap: wrap;
-        width: 75%;
+        width: 100%;
         margin: auto;
         justify-content: center;
+        justify-content: space-around;
         z-index: -1;
     }
 
@@ -39,6 +43,11 @@ h1 {
     .push-right {
         width: 200px;
         margin-left: auto;
+    }
+
+    .basic-single {
+        margin-left: 0;
+        margin-right: 0;
     }
 
 }

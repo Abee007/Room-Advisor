@@ -20,12 +20,10 @@ export default class Results extends Component {
       <div className="results-container">
         <h1>{this.state.noRooms} suites found </h1>
         {/* Sort by tool displayed on the right corner of the container  */}
-        <div className="push-right">
-          <SortByComponent
+        <SortByComponent
             sortBy={this.state.currSelectedSortBy}
             handleChange={this.handleSortByChange}
-          />
-        </div>
+        />
       </div>
     );
   }

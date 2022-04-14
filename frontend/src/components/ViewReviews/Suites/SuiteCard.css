@@ -1,9 +1,9 @@
-.card {
+.suite-card {
     display: flex;
     flex-flow: column;
-    width: 100%;
     height: 280px;
     width: 450px;
+    position: relative;
     border-color: #fff;
     border: 1px solid rgb(255, 255, 255);
     box-shadow: 0 6px 15px rgba(56, 125, 255, 0.07); 
@@ -26,7 +26,7 @@
 
 .notify-badge {
     position: absolute;
-    left:0px;
+    left: 0px;
     top: 60%;
     text-align: center;
     border-radius: 30px 30px 30px 30px;
@@ -65,7 +65,7 @@
     margin-left: auto;
 }
 
-.card-badge-container{
+.suitecard-badge-container{
     max-width: 100%;
     height: 20%;
     display: flex;
@@ -76,7 +76,7 @@
     margin-left: 0;
     padding-top: 10px;
     padding-bottom: 0px;
-    margin-right: auto;
+    /* margin-right: auto; */
     max-height: 70%;
     z-index: 1;
     flex-wrap: wrap;
@@ -115,6 +115,8 @@
 .icon-badge-container{
     display: flex;
     justify-content: flex-end;
+    margin-right: 0;
+    margin-left: auto;
 }
 
 .badge-icon{
@@ -210,8 +212,9 @@
 
 /* For small screens */
 @media (max-width: 768px) {
+    
     .suite-card {
-        width: 100%;
+        width: 340px;
         height: 200px;
     }
 
@@ -219,14 +222,19 @@
         right: 10px;
     }
 
-    .card-badge-container {
+    .notify-badge{
+        top: 53%;
+    }
+
+    .suitecard-badge-container {
         display: flex;
-        flex-direction: column;
+        padding-top: 5px;
     }
 
     .card-badge-container span {
         padding: 7px 10px;
         margin: 1px;
+        flex-wrap: wrap;
     }
 
     .card-right-side-suite {
@@ -239,5 +247,58 @@
 
     .card-title {
         text-align: left;
+        font-size: 1.7rem;
     }
+
+    .badge {
+        font-size: 10pt;
+        font-weight:600;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 15px;
+        padding-right: 15px;
+        box-shadow: 0 6px 20px rgba(56, 125, 255, 0.07);
+    }
+    
+    .icon-badge-container{
+        display: flex;
+        justify-content: flex-end;
+    }
+    
+    .badge-icon{
+        width: 14px;
+        height: 14px;
+        margin-right: 3px;
+        object-fit: contain;
+        position: relative;
+        z-index: 99;
+    }
+    
+    .bar-icon{
+        width: 12px;
+        object-fit: contain;
+        position: relative;
+        vertical-align:middle;
+    }
+    
+    .number-text{
+        padding: 0px;
+    }
+    
+    .suite-badge {
+        font-size: 1.2rem;
+    }
+    
+    .room-badge { 
+        font-size: 1rem;
+        padding-bottom: 2px;
+        padding-top: 2px;
+    }
+    
+    .room-badge-gray { 
+        font-size: 1rem;
+        padding-bottom: 2px;
+        padding-top: 2px;
+    }
+
 }
