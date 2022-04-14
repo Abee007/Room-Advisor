@@ -6,9 +6,8 @@ import room from "../../../static/dorm_room.jpg";
 import { FaRegBookmark, FaBookmark } from "react-icons/fa";
 import { numberToAcronym } from "../../../utils/colleges";
 import { roomColorCodes } from "../../../utils/colleges";
-import noise from "../../../static/noise.svg"
-import size from "../../../static/size.svg"
-
+import noise from "../../../static/noise.svg";
+import size from "../../../static/size.svg";
 
 export default class BedroomCard extends Component {
   constructor(props) {
@@ -51,13 +50,19 @@ export default class BedroomCard extends Component {
 
         <div className="bedroom-title-container bedroom-notify-badge rcorners1">
           <h5 className="bedroom-card-title"> {this.props.room.roomCode} </h5>
-          <p className="suite-badge" style={{
-            background: roomColorCodes[(this.props.room.meta.noBeds)-1].color, 
-            color:roomColorCodes[(this.props.room.meta.noBeds)-1].tcolor, 
-            marginBottom:'0'
-            }}> {numberToAcronym(this.props.room.meta.noBeds)} </p>
+          <p
+            className="suite-badge"
+            style={{
+              background: roomColorCodes[this.props.room.meta.noBeds - 1].color,
+              color: roomColorCodes[this.props.room.meta.noBeds - 1].tcolor,
+              marginBottom: "0",
+            }}
+          >
+            {" "}
+            {numberToAcronym(this.props.room.meta.noBeds)}{" "}
+          </p>
         </div>
-{/*       
+        {/*       
         <div className="title-container notify-badge rcorners1">
           <h5 className="card-title"> {this.props.room.roomCode} </h5>
           <p className="suite-badge" style={{
@@ -70,14 +75,26 @@ export default class BedroomCard extends Component {
         {/* displaying room photo (--> to be carousel in the future) */}
         <img className="bedroom-card-photo" src={room} alt="room-view" />
         <div className="modal-icon-badge-container">
-          <p className="bedroom-card-review-quotes"> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut dolores"</p>
-          <p className="room-badge-gray" style={{marginBottom: '0px'}} > <img className="badge-icon" src={noise}/> {(Math.round(this.props.room.meta.noise * 10) / 10).toFixed(1)} </p>
-          <p className="room-badge-gray" style={{marginBottom: '0px'}} > <img className="badge-icon" src={size}/> {(Math.round(this.props.room.meta.size * 10) / 10).toFixed(1)} </p>
+          <p className="bedroom-card-review-quotes">
+            {" "}
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut dolores"
+          </p>
+          <p className="room-badge-gray" style={{ marginBottom: "0px" }}>
+            {" "}
+            <img className="badge-icon" src={noise} />{" "}
+            {(Math.round(this.props.room.meta.noise * 10) / 10).toFixed(1)}{" "}
+          </p>
+          <p className="room-badge-gray" style={{ marginBottom: "0px" }}>
+            {" "}
+            <img className="badge-icon" src={size} />{" "}
+            {(Math.round(this.props.room.meta.size * 10) / 10).toFixed(1)}{" "}
+          </p>
         </div>
 
-          <h1 className="card-subtext">
-            {this.props.room.meta.roomReviews.length} reviews
-          </h1>
+        <h1 className="card-subtext">
+          {this.props.room.meta.roomReviews.length} reviews
+        </h1>
 
         <div className="favorite-room" onClick={this.toggleFavorited}>
           {!this.state.favorited ? (
@@ -90,7 +107,6 @@ export default class BedroomCard extends Component {
     );
   }
 }
-
 
 // -------------------------
 
@@ -151,8 +167,8 @@ export default class BedroomCard extends Component {
 //         <div className="title-container notify-badge rcorners1">
 //           <h5 className="card-title"> {this.props.room.roomCode} </h5>
 //           <p className="suite-badge" style={{
-//             background: roomColorCodes[(this.state.room.noBeds)-1].color, 
-//             color:roomColorCodes[(this.state.room.noBeds)-1].tcolor, 
+//             background: roomColorCodes[(this.state.room.noBeds)-1].color,
+//             color:roomColorCodes[(this.state.room.noBeds)-1].tcolor,
 //             marginBottom:'0'
 //             }}> {numberToAcronym(this.state.room.noBeds)} </p>
 //         </div>

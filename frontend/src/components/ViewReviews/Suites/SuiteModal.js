@@ -4,9 +4,9 @@ import React, { Component } from "react";
 import Badge from "react-bootstrap/Badge";
 import BedroomCard from "./BedroomCard";
 import { numberToAcronym } from "../../../utils/colleges";
-import {roomColorCodes} from "../../../utils/colleges";
-import noise from "../../../static/noise.svg"
-import size from "../../../static/size.svg"
+import { roomColorCodes } from "../../../utils/colleges";
+import noise from "../../../static/noise.svg";
+import size from "../../../static/size.svg";
 
 export default class SuiteModal extends Component {
   // constructor(props) {
@@ -28,18 +28,32 @@ export default class SuiteModal extends Component {
           <h4 className="suite-modal-title">{this.props.title}</h4>
           <div className="suite-badge-container">
             <div className="pill">
-              <p className="suite-badge" pill style={{
-                background: roomColorCodes[(this.props.suiteStats.noBeds)-1].color, 
-                color:roomColorCodes[(this.props.suiteStats.noBeds)-1].tcolor, 
-                marginBottom:'0'
-                }}>
+              <p
+                className="suite-badge"
+                pill
+                style={{
+                  background:
+                    roomColorCodes[this.props.suiteStats.noBeds - 1].color,
+                  color:
+                    roomColorCodes[this.props.suiteStats.noBeds - 1].tcolor,
+                  marginBottom: "0",
+                }}
+              >
                 {numberToAcronym(this.props.suiteStats.noBeds)}
-              </p> 
+              </p>
             </div>
-            
+
             <div className="modal-icon-badge-container">
-              <p className="room-badge-gray" style={{marginBottom: '0px'}} > <img className="badge-icon" src={noise}/> {(Math.round(this.props.suiteStats.noise * 10) / 10).toFixed(1)} </p>
-              <p className="room-badge-gray" style={{marginBottom: '0px'}} > <img className="badge-icon" src={size}/> {(Math.round(this.props.suiteStats.size * 10) / 10).toFixed(1)} </p>
+              <p className="room-badge-gray" style={{ marginBottom: "0px" }}>
+                {" "}
+                <img className="badge-icon" src={noise} />{" "}
+                {(Math.round(this.props.suiteStats.noise * 10) / 10).toFixed(1)}{" "}
+              </p>
+              <p className="room-badge-gray" style={{ marginBottom: "0px" }}>
+                {" "}
+                <img className="badge-icon" src={size} />{" "}
+                {(Math.round(this.props.suiteStats.size * 10) / 10).toFixed(1)}{" "}
+              </p>
             </div>
           </div>
         </div>

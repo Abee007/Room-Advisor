@@ -7,14 +7,13 @@ import { FaRegBookmark, FaBookmark } from "react-icons/fa";
 import ModalContainer from "../GeneralModal";
 import { numberToAcronym } from "../../../utils/colleges";
 import SuiteModal from "./SuiteModal";
-import noise from "../../../static/noise.svg"
-import size from "../../../static/size.svg"
+import noise from "../../../static/noise.svg";
+import size from "../../../static/size.svg";
 import BedroomModal from "./BedroomModal";
-import {roomColorCodes} from "../../../utils/colleges";
+import { roomColorCodes } from "../../../utils/colleges";
 import { BsDot } from "react-icons/bs";
 
 export default class SuiteCard extends Component {
-  
   constructor(props) {
     super(props);
     this.state = {
@@ -151,14 +150,20 @@ export default class SuiteCard extends Component {
   render() {
     return (
       <div className="suite-card" onClick={this.activateModal}>
-
         <div className="title-container notify-badge rcorners1">
           <h5 className="card-title"> {this.props.suite.suiteCode} </h5>
-          <p className="suite-badge" style={{
-            background: roomColorCodes[(this.state.suiteStats.noBeds)-1].color, 
-            color:roomColorCodes[(this.state.suiteStats.noBeds)-1].tcolor, 
-            marginBottom:'0'
-            }}> {numberToAcronym(this.state.suiteStats.noBeds)} </p>
+          <p
+            className="suite-badge"
+            style={{
+              background:
+                roomColorCodes[this.state.suiteStats.noBeds - 1].color,
+              color: roomColorCodes[this.state.suiteStats.noBeds - 1].tcolor,
+              marginBottom: "0",
+            }}
+          >
+            {" "}
+            {numberToAcronym(this.state.suiteStats.noBeds)}{" "}
+          </p>
         </div>
 
         {/* displaying room photo (--> to be carousel in the future) */}
@@ -178,19 +183,31 @@ export default class SuiteCard extends Component {
             )}
           </div>
         </div>
-       
-        <div className="suitecard-badge-container">
 
-          <p className="room-badge" style={{marginBottom: '0px'}} > D31A </p>
-          <p className="room-badge" style={{marginBottom: '0px'}} > D31B </p>
-          
+        <div className="suitecard-badge-container">
+          <p className="room-badge" style={{ marginBottom: "0px" }}>
+            {" "}
+            D31A{" "}
+          </p>
+          <p className="room-badge" style={{ marginBottom: "0px" }}>
+            {" "}
+            D31B{" "}
+          </p>
+
           <div className="icon-badge-container">
-            <p className="room-badge-gray" style={{marginBottom: '0px'}} > <img className="badge-icon" src={noise}/> {(Math.round(this.state.suiteStats.noise * 10) / 10).toFixed(1)} </p>
-            <p className="room-badge-gray" style={{marginBottom: '0px'}} > <img className="badge-icon" src={size}/> {(Math.round(this.state.suiteStats.size * 10) / 10).toFixed(1)} </p>
+            <p className="room-badge-gray" style={{ marginBottom: "0px" }}>
+              {" "}
+              <img className="badge-icon" src={noise} />{" "}
+              {(Math.round(this.state.suiteStats.noise * 10) / 10).toFixed(1)}{" "}
+            </p>
+            <p className="room-badge-gray" style={{ marginBottom: "0px" }}>
+              {" "}
+              <img className="badge-icon" src={size} />{" "}
+              {(Math.round(this.state.suiteStats.size * 10) / 10).toFixed(1)}{" "}
+            </p>
           </div>
         </div>
 
-        
         {/* <div className="card-right-side-suite col-md-7">
 
           <p className="card-review-quotes">
