@@ -170,7 +170,11 @@ export default class ViewReviews extends Component {
     const allSuitesForSelectedCollege = this.removeAllFavoriteSuites(
       this.state.allSuitesForSelectedCollege
     );
-    this.setState({ ...this.state, allSuitesForSelectedCollege, loading: true });
+    this.setState({
+      ...this.state,
+      allSuitesForSelectedCollege,
+      loading: true,
+    });
   }
 
   // Ensures that the body isn't scrollable whhen the modal is open
