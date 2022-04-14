@@ -3,10 +3,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import React, { Component } from "react";
 import Badge from "react-bootstrap/Badge";
 import ImageRenderer from "../../ImageRenderer";
-import thumbnail from '../../../static/dorm_room.jpg';
+import thumbnail from "../../../static/dorm_room.jpg";
 import { FaRegBookmark, FaBookmark } from "react-icons/fa";
 import { numberToAcronym } from "../../../utils/colleges";
-
 
 export default class BedroomCard extends Component {
   constructor(props) {
@@ -53,7 +52,12 @@ export default class BedroomCard extends Component {
   render() {
     return (
       <div className="card" onClick={this.activateReview}>
-        <ImageRenderer thumb={thumbnail} url={this.state.previewPicture} width={'100'} alt="room-view" />
+        <ImageRenderer
+          thumb={thumbnail}
+          url={this.state.previewPicture}
+          width={"100"}
+          alt="room-view"
+        />
         {/* <div className="room-card-photo-container col-md-5">
           <img
             className="room-card-photo"
@@ -61,7 +65,6 @@ export default class BedroomCard extends Component {
             alt="room-view"
           />
         </div> */}
-        
 
         <div className="room-card-right-side col-md-7">
           {/* room number and bookmark icon */}

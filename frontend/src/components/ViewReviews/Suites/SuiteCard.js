@@ -9,7 +9,7 @@ import { numberToAcronym } from "../../../utils/colleges";
 import SuiteModal from "./SuiteModal";
 import BedroomModal from "./BedroomModal";
 import { BsDot } from "react-icons/bs";
-import thumbnail from '../../../static/dorm_room.jpg';
+import thumbnail from "../../../static/dorm_room.jpg";
 
 export default class SuiteCard extends Component {
   constructor(props) {
@@ -156,7 +156,12 @@ export default class SuiteCard extends Component {
     return (
       <div className="suite-card" onClick={this.activateModal}>
         {/* displaying room photo (--> to be carousel in the future) */}
-        <ImageRenderer thumb={thumbnail} url={this.state.suiteStats.previewPicture} width={'100'} alt="room-view" />
+        <ImageRenderer
+          thumb={thumbnail}
+          url={this.state.suiteStats.previewPicture}
+          width={"100"}
+          alt="room-view"
+        />
         {/* <div className="suite-card-photo">
           
         </div> */}
