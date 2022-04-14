@@ -40,6 +40,8 @@
 .room-card-right-side {
     display: flex;
     flex-direction: column;
+    position: relative;
+    right: -10px;
 }
 
 .card-title-container{

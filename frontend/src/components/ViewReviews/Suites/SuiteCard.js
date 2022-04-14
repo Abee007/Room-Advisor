@@ -4,10 +4,12 @@ import React, { Component } from "react";
 import Badge from "react-bootstrap/Badge";
 import { FaRegBookmark, FaBookmark } from "react-icons/fa";
 import ModalContainer from "../GeneralModal";
+import ImageRenderer from "../../ImageRenderer";
 import { numberToAcronym } from "../../../utils/colleges";
 import SuiteModal from "./SuiteModal";
 import BedroomModal from "./BedroomModal";
 import { BsDot } from "react-icons/bs";
+import thumbnail from '../../../static/dorm_room.jpg';
 
 export default class SuiteCard extends Component {
   constructor(props) {
@@ -154,13 +156,17 @@ export default class SuiteCard extends Component {
     return (
       <div className="suite-card" onClick={this.activateModal}>
         {/* displaying room photo (--> to be carousel in the future) */}
-        <div className="col-md-5">
+        <ImageRenderer thumb={thumbnail} url={this.state.suiteStats.previewPicture} width={'100'} alt="room-view" />
+        {/* <div className="suite-card-photo">
+          
+        </div> */}
+        {/* <div className="col-md-5">
           <img
             className="card-photo"
             src={this.state.suiteStats.previewPicture}
             alt="room-view"
           />
-        </div>
+        </div> */}
 
         {/* creates container for the right hand side of the card where the text and badges will go */}
         <div className="card-right-side-suite col-md-7">
