@@ -8,7 +8,6 @@ import noise from "../../../static/noise.svg";
 import size from "../../../static/size.svg";
 
 export default class SuiteModal extends Component {
-
   handleFavorited = (e) => {
     this.props.handleFavorited(e);
   };

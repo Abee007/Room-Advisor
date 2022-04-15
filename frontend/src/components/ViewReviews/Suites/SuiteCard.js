@@ -121,21 +121,22 @@ export default class SuiteCard extends Component {
     size = (Math.round((size / no) * 10) / 10).toFixed(1);
 
     // Select random picture
-    const selectedPicture = pictures[Math.floor(Math.random() * pictures.length)];
+    const selectedPicture =
+      pictures[Math.floor(Math.random() * pictures.length)];
 
     //Badges
     var badges = [];
-    if(noBeds === 1) {
-      badges.push('Standalone');
+    if (noBeds === 1) {
+      badges.push("Standalone");
     } else {
       var count = 0;
-      for(var rmName of roomNames) {
-        if(count === 2) break;
+      for (var rmName of roomNames) {
+        if (count === 2) break;
         badges.push(rmName);
         count++;
       }
-      if(roomNames.length > 2) {
-        badges.push('+');
+      if (roomNames.length > 2) {
+        badges.push("+");
       }
     }
 
@@ -195,7 +196,8 @@ export default class SuiteCard extends Component {
             style={{
               background:
                 roomColorCodes[(this.state.suiteStats.noBeds - 1) % 8].color,
-              color: roomColorCodes[(this.state.suiteStats.noBeds - 1) % 8].tcolor,
+              color:
+                roomColorCodes[(this.state.suiteStats.noBeds - 1) % 8].tcolor,
               marginBottom: "0",
             }}
           >
@@ -209,7 +211,7 @@ export default class SuiteCard extends Component {
               {badge}
             </p>
           ))}
-          
+
           <div className="icon-badge-container">
             <p className="room-badge-gray" style={{ marginBottom: "0px" }}>
               <img className="badge-icon" src={noise} alt="noise" />

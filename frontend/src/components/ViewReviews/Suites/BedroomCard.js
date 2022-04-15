@@ -54,7 +54,6 @@ export default class BedroomCard extends Component {
   render() {
     return (
       <div className="bedroom-card" onClick={this.activateReview}>
-
         <div className="favorite-bedroom" onClick={this.toggleFavorited}>
           {!this.state.favorited ? (
             <FaRegBookmark style={{ color: "#fff", fontSize: "25px" }} />
@@ -68,20 +67,21 @@ export default class BedroomCard extends Component {
           url={this.state.previewPicture}
           alt="room-view"
         />
-        
 
         <div className="bedroom-title-container">
-            <h5 className="bedroom-card-title">{this.props.room.roomCode}</h5>
-            <p
-              className="bedroom-badge"
-              style={{
-                background: roomColorCodes[(this.props.room.meta.noBeds - 1) % 8].color,
-                color: roomColorCodes[(this.props.room.meta.noBeds - 1) % 8].tcolor,
-                marginBottom: "0",
-              }}
-            >
-              {numberToAcronym(this.props.room.meta.noBeds)}
-            </p>
+          <h5 className="bedroom-card-title">{this.props.room.roomCode}</h5>
+          <p
+            className="bedroom-badge"
+            style={{
+              background:
+                roomColorCodes[(this.props.room.meta.noBeds - 1) % 8].color,
+              color:
+                roomColorCodes[(this.props.room.meta.noBeds - 1) % 8].tcolor,
+              marginBottom: "0",
+            }}
+          >
+            {numberToAcronym(this.props.room.meta.noBeds)}
+          </p>
         </div>
 
         <div className="modal-quote-badge-container">
@@ -91,16 +91,15 @@ export default class BedroomCard extends Component {
           </p>
           <p className="bedroom-badge-gray" style={{ marginBottom: "0px" }}>
             {" "}
-            <img className="badge-icon" src={noise} alt="noise"/>{" "}
+            <img className="badge-icon" src={noise} alt="noise" />{" "}
             {(Math.round(this.props.room.meta.noise * 10) / 10).toFixed(1)}{" "}
           </p>
           <p className="bedroom-badge-gray" style={{ marginBottom: "0px" }}>
             {" "}
-            <img className="badge-icon" src={size} alt="size"/>{" "}
+            <img className="badge-icon" src={size} alt="size" />{" "}
             {(Math.round(this.props.room.meta.size * 10) / 10).toFixed(1)}{" "}
           </p>
         </div>
-        
       </div>
     );
   }
