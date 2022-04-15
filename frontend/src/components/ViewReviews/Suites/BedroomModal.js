@@ -1,6 +1,5 @@
 import "./BedroomModal.css";
 import React, { Component } from "react";
-import Badge from "react-bootstrap/Badge";
 import { FaRegBookmark, FaBookmark } from "react-icons/fa";
 import room from "../../../static/dorm_room.jpg";
 // import TabBar from './TabBar'
