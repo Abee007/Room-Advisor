@@ -47,7 +47,7 @@ export default class BedroomCard extends Component {
 
   activateReview = (e) => {
     // Don't activate review if you are trying to like a room
-    if (e.target.className === "favorite-room") return;
+    if (e.target.className === "favorite-bedroom") return;
     this.props.handleActivateReview({ roomCode: this.props.room.roomCode });
   };
 
