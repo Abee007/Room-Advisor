@@ -32,16 +32,18 @@
   flex-direction: row;
   position: relative;
   top: 10px;
-  left: 80px;
+  left: 50px;
+  width: 230px;
+  margin-left: 2%;
 }
 
 .suite-modal-header-badge {
+  display: flex;
   height: 40px;
   border-radius: 24px;
   font-weight: 700;
   font-size: 16pt;
   padding: 3px 10px;
-  margin-left: auto;
   margin-right: 4%;
 }
 
@@ -94,6 +96,16 @@
 @media (max-width: 320px) {
   .suite-modal-card-container {
     padding: 5px;
+  }
+
+  .suite-badge-container {
+    width: 222px;
+    margin-left: 0%;
+  }
+
+  .suite-modal-header-badge {
+    font-size: 13pt;
+    padding: 6px 7px;
   }
   
 }
