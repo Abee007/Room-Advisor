@@ -53,7 +53,7 @@ export default class BedroomModal extends Component {
                 : "bedroom-badge-container is-single"
             }
           >
-           <p
+            <p
               className="suite-modal-header-badge"
               pill
               style={{
@@ -80,7 +80,6 @@ export default class BedroomModal extends Component {
               </p>
             </div>
           </div>
-
 
           <div
             className={
