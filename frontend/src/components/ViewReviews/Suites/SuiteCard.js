@@ -126,7 +126,7 @@ export default class SuiteCard extends Component {
 
     //Badges
     var badges = [];
-    if (suite.suiteRooms.length === 1) {
+    if (suite.length === 1) {
       badges.push("Standalone");
     } else {
       var count = 0;
