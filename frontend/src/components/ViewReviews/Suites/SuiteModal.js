@@ -1,14 +1,13 @@
 import "./SuiteModal.css";
 import React, { Component } from "react";
 // import { CSSTransition } from 'react-transition-group'
-import Badge from "react-bootstrap/Badge";
 import BedroomCard from "./BedroomCard";
 import { numberToAcronym } from "../../../utils/colleges";
+import { roomColorCodes } from "../../../utils/colleges";
+import noise from "../../../static/noise.svg";
+import size from "../../../static/size.svg";
 
 export default class SuiteModal extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
 
   handleFavorited = (e) => {
     this.props.handleFavorited(e);
@@ -24,22 +23,31 @@ export default class SuiteModal extends Component {
         <div className="suite-modal-header">
           <h4 className="suite-modal-title">{this.props.title}</h4>
           <div className="suite-badge-container">
-            <div className="pill">
-              <Badge pill bg="primary">
-                {numberToAcronym(this.props.suiteStats.noBeds)}
-              </Badge>
-            </div>
-            <div className="pill">
-              <Badge pill bg="secondary">
-                Noise:{" "}
-                {(Math.round(this.props.suiteStats.noise * 10) / 10).toFixed(1)}
-              </Badge>
-            </div>
-            <div className="pill">
-              <Badge pill bg="info">
-                Size:{" "}
-                {(Math.round(this.props.suiteStats.size * 10) / 10).toFixed(1)}
-              </Badge>
+            <p
+              className="suite-modal-header-badge"
+              pill
+              style={{
+                background:
+                  roomColorCodes[(this.props.suiteStats.noBeds - 1) % 8].color,
+                color:
+                  roomColorCodes[(this.props.suiteStats.noBeds - 1) % 8].tcolor,
+                marginBottom: "0",
+              }}
+            >
+              {numberToAcronym(this.props.suiteStats.noBeds)}
+            </p>
+
+            <div className="modal-icon-badge-container">
+              <p className="modal-badge-gray" style={{ marginBottom: "0px" }}>
+                {" "}
+                <img className="badge-icon" src={noise} alt="noise" />{" "}
+                {(Math.round(this.props.suiteStats.noise * 10) / 10).toFixed(1)}{" "}
+              </p>
+              <p className="modal-badge-gray" style={{ marginBottom: "0px" }}>
+                {" "}
+                <img className="badge-icon" src={size} alt="size" />{" "}
+                {(Math.round(this.props.suiteStats.size * 10) / 10).toFixed(1)}{" "}
+              </p>
             </div>
           </div>
         </div>

@@ -1,12 +1,14 @@
 import "./BedroomModal.css";
 import React, { Component } from "react";
-// import { CSSTransition } from 'react-transition-group'
 import Badge from "react-bootstrap/Badge";
 import { FaRegBookmark, FaBookmark } from "react-icons/fa";
 import room from "../../../static/dorm_room.jpg";
 // import TabBar from './TabBar'
 import { numberToAcronym } from "../../../utils/colleges";
 import { IoIosArrowBack } from "react-icons/io";
+import { roomColorCodes } from "../../../utils/colleges";
+import noise from "../../../static/noise.svg";
+import size from "../../../static/size.svg";
 
 export default class BedroomModal extends Component {
   constructor(props) {
@@ -52,25 +54,35 @@ export default class BedroomModal extends Component {
                 : "bedroom-badge-container is-single"
             }
           >
-            <div className="pill">
-              <Badge pill bg="primary">
-                {numberToAcronym(this.props.room.meta.noBeds)}
-              </Badge>
-            </div>
-            <div className="pill">
-              <Badge pill bg="secondary">
-                Noise:{" "}
-                {(Math.round(this.props.room.meta.noise * 10) / 10).toFixed(1)}
-              </Badge>
-            </div>
-            <div className="pill">
-              <Badge pill bg="info">
+           <p
+              className="suite-modal-header-badge"
+              pill
+              style={{
+                background:
+                  roomColorCodes[(this.props.room.meta.noBeds - 1) % 8].color,
+                color:
+                  roomColorCodes[(this.props.room.meta.noBeds - 1) % 8].tcolor,
+                marginBottom: "0",
+              }}
+            >
+              {numberToAcronym(this.props.room.meta.noBeds)}
+            </p>
+
+            <div className="modal-icon-badge-container">
+              <p className="modal-badge-gray" style={{ marginBottom: "0px" }}>
                 {" "}
-                Size:{" "}
-                {(Math.round(this.props.room.meta.size * 10) / 10).toFixed(1)}
-              </Badge>
+                <img className="badge-icon" src={noise} alt="noise" />{" "}
+                {(Math.round(this.props.room.meta.noise * 10) / 10).toFixed(1)}{" "}
+              </p>
+              <p className="modal-badge-gray" style={{ marginBottom: "0px" }}>
+                {" "}
+                <img className="badge-icon" src={size} alt="size" />{" "}
+                {(Math.round(this.props.room.meta.size * 10) / 10).toFixed(1)}{" "}
+              </p>
             </div>
           </div>
+
+
           <div
             className={
               !this.props.isSingle

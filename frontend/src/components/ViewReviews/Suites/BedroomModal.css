@@ -39,14 +39,6 @@
   left: 50px;
 }
 
-.pill {
-  margin-right: 2px;
-}
-
-.pill span{
-  vertical-align: top;
-}
-
 .bedroom-modal-body {
   display: inline-flex;
   justify-content: flex-start;
@@ -103,13 +95,9 @@
     left: -10px;
   }
 
-  .pill span{
-    padding: 5px 8px;
-  }
-
   .bedroom-modal-body {
     position: relative;
-    top: 15px;
+    top: 30px;
     display: flex;
     flex-direction: column;
   }

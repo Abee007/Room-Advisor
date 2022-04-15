@@ -1,7 +1,6 @@
 import "./SuiteCard.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { Component } from "react";
-import Badge from "react-bootstrap/Badge";
 import { FaRegBookmark, FaBookmark } from "react-icons/fa";
 import ModalContainer from "../GeneralModal";
 import ImageRenderer from "../../ImageRenderer";
@@ -9,7 +8,10 @@ import { numberToAcronym } from "../../../utils/colleges";
 import SuiteModal from "./SuiteModal";
 import BedroomModal from "./BedroomModal";
 import { BsDot } from "react-icons/bs";
+import { roomColorCodes } from "../../../utils/colleges";
 import thumbnail from "../../../static/dorm_room.jpg";
+import noise from "../../../static/noise.svg";
+import size from "../../../static/size.svg";
 
 export default class SuiteCard extends Component {
   constructor(props) {
@@ -100,38 +102,48 @@ export default class SuiteCard extends Component {
     var no = 0,
       noise = 0,
       size = 0,
-      noBeds = 0,
-      noReviews = 0;
-    var reviews = [];
+      noBeds = 0;
+
+    var roomNames = [];
+
     var pictures = [];
     for (const room of suite) {
       no++;
       noise += room.meta.noise;
       size += room.meta.size;
       noBeds += room.meta.noBeds;
-      noReviews += room.meta.roomReviews.length;
-      reviews = reviews.concat(room.meta.roomReviews);
       pictures = pictures.concat(room.meta.pictures);
+      roomNames.push(room.roomCode);
     }
 
     // Round to 1dp
     noise = (Math.round((noise / no) * 10) / 10).toFixed(1);
     size = (Math.round((size / no) * 10) / 10).toFixed(1);
 
-    // Select random review
-    var previewReview = reviews[Math.floor(Math.random() * reviews.length)];
-    const preview = previewReview.rec;
-
     // Select random picture
-    const selectedPicture =
-      pictures[Math.floor(Math.random() * pictures.length)];
+    const selectedPicture = pictures[Math.floor(Math.random() * pictures.length)];
+
+    //Badges
+    var badges = [];
+    if(noBeds === 1) {
+      badges.push('Standalone');
+    } else {
+      var count = 0;
+      for(var rmName of roomNames) {
+        if(count === 2) break;
+        badges.push(rmName);
+        count++;
+      }
+      if(roomNames.length > 2) {
+        badges.push('+');
+      }
+    }
 
     return {
+      badges: badges,
       noise: noise,
       size: size,
       noBeds: noBeds,
-      noReviews: noReviews,
-      previewReview: preview,
       previewPicture: selectedPicture,
     };
   };
@@ -155,68 +167,58 @@ export default class SuiteCard extends Component {
   render() {
     return (
       <div className="suite-card" onClick={this.activateModal}>
-        {/* displaying room photo (--> to be carousel in the future) */}
-        <ImageRenderer
-          thumb={thumbnail}
-          url={this.state.suiteStats.previewPicture}
-          width={"100"}
-          alt="room-view"
-        />
-        {/* <div className="suite-card-photo">
-          
-        </div> */}
-        {/* <div className="col-md-5">
-          <img
-            className="card-photo"
-            src={this.state.suiteStats.previewPicture}
-            alt="room-view"
-          />
-        </div> */}
-
-        {/* creates container for the right hand side of the card where the text and badges will go */}
-        <div className="card-right-side-suite col-md-7">
-          {/* room number and bookmark icon */}
-          <div className="card-title-container">
-            <h5 className="card-title">{this.props.suite.suiteCode}</h5>
-          </div>
-
-          {/* room size, noise, and size tags */}
-          <div className="card-badge-container">
-            <Badge pill bg="primary">
-              {/* Single/Double/Triple etc */}
-              {numberToAcronym(this.state.suiteStats.noBeds)}
-            </Badge>
-            <Badge pill bg="secondary">
-              {/* Noise */}
-              Noise:{" "}
-              {(Math.round(this.state.suiteStats.noise * 10) / 10).toFixed(1)}
-            </Badge>
-            <Badge pill bg="info">
-              {/* RoomSize */}
-              Size:{" "}
-              {(Math.round(this.state.suiteStats.size * 10) / 10).toFixed(1)}
-            </Badge>
-          </div>
-
-          <p className="card-review-quotes">
-            "{this.state.suiteStats.previewReview}"
-          </p>
-          <h1 className="card-subtext">
-            {this.state.suiteStats.noReviews} reviews
-          </h1>
-        </div>
         <div className="favorite-suite" onClick={this.handleSuiteFavorited}>
           {!this.state.favorited ? (
-            <FaRegBookmark style={{ color: "#0053c5", fontSize: "30px" }} />
+            <FaRegBookmark style={{ color: "#fff", fontSize: "30px" }} />
           ) : (
-            <FaBookmark style={{ color: "#0053c5", fontSize: "30px" }} />
+            <FaBookmark style={{ color: "#fff", fontSize: "30px" }} />
           )}
           <div className="favorited-inside">
             {this.state.favoritedInside ? (
-              <BsDot style={{ color: "#0053c5", fontSize: "30px" }} />
+              <BsDot style={{ color: "#fff", fontSize: "30px" }} />
             ) : (
               ""
             )}
+          </div>
+        </div>
+
+        <ImageRenderer
+          thumb={thumbnail}
+          url={this.state.suiteStats.previewPicture}
+          alt="suite-view"
+        />
+
+        <div className="card-title-container">
+          <h5 className="suite-card-title">{this.props.suite.suiteCode}</h5>
+          <p
+            className="suite-badge"
+            style={{
+              background:
+                roomColorCodes[(this.state.suiteStats.noBeds - 1) % 8].color,
+              color: roomColorCodes[(this.state.suiteStats.noBeds - 1) % 8].tcolor,
+              marginBottom: "0",
+            }}
+          >
+            {numberToAcronym(this.state.suiteStats.noBeds)}
+          </p>
+        </div>
+
+        <div className="suitecard-badge-container">
+          {this.state.suiteStats.badges.map((badge) => (
+            <p className="room-badge" style={{ marginBottom: "0px" }}>
+              {badge}
+            </p>
+          ))}
+          
+          <div className="icon-badge-container">
+            <p className="room-badge-gray" style={{ marginBottom: "0px" }}>
+              <img className="badge-icon" src={noise} alt="noise" />
+              {(Math.round(this.state.suiteStats.noise * 10) / 10).toFixed(1)}
+            </p>
+            <p className="room-badge-gray" style={{ marginBottom: "0px" }}>
+              <img className="badge-icon" src={size} alt="size" />
+              {(Math.round(this.state.suiteStats.size * 10) / 10).toFixed(1)}
+            </p>
           </div>
         </div>
 

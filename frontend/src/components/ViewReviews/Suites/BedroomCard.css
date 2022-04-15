@@ -1,139 +1,118 @@
-.room-card-photo{
-    max-height: 100%;
-    max-width: 100%;
-    position: relative;
-    border-radius: 8px;
-    z-index: 1;
-}
-
-.col-md-5{
-    padding-left: 0px; 
-}
-
-.col-md-7{
-    padding: 0px;
-}
-
-.card{
+.bedroom-card {
     display: flex;
-    flex-flow: row;
-    width: 100%;
+    flex-flow: column;
+    height: 250px;
+    width: 49%;
+    max-width: 443px;
     border-color: #fff;
+    border: 1px solid rgb(255, 255, 255);
     box-shadow: 0 6px 15px rgba(56, 125, 255, 0.07); 
-    border-radius: 10px;
-    overflow: hidden;
+    border-radius: 8px;
     text-decoration: none;
     padding: 10px;
+    margin: 2px;
     cursor: pointer;
-  }
-
-.badge{
-    font-size: 10pt;
-    font-weight:600;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 15px;
-    padding-right: 15px;
-    box-shadow: 0 6px 20px rgba(56, 125, 255, 0.07);
 }
 
-.room-card-right-side {
+.bedroom-title-container {
     display: flex;
-    flex-direction: column;
+    background-color: #fff;
     position: relative;
-    right: -10px;
+    right: 1px;
+    bottom: 95px;
+    width: 44%;
+    height: 21%;
+    align-items: center;
+    border-radius: 0 15px 0 0;
+    margin-bottom: 10px;
 }
 
-.card-title-container{
-    display: flex;
-    vertical-align: middle;
+.bedroom-card-title {
+    position: relative;
+    margin-top: 3%;
+    margin-left: 1%;
+    font-weight: bold;
+    font-size: 18pt;
 }
 
-.push-right{
-    margin-right: 0;
+.bedroom-badge {
+    border-radius: 24px;
+    font-weight: 700;
+    font-size: 16pt;
+    padding: 3px 10px;
     margin-left: auto;
+    margin-right: 4%;
 }
 
-.card-title{
-    width: 90px;
-    padding-bottom: 5px;
-    font-weight:bold;
-    font-size: 2.0em;
-    color:#0053C5;
-}
-
-.favorite-room {
+.modal-quote-badge-container {
+    display: flex;
     position: relative;
-    top: 3px;
-    right: 25px;
+    background-color: #fff;
+    bottom: 107px;
+}
+
+.bedroom-card-review-quotes {
+    font-size: 9.5pt;
+    font-weight: 400;
+    text-align: left;
+    color: #333333;
+    width: 70%;
+    margin: 1% 1%;
+}
+
+
+.bedroom-badge-gray {
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    font-size: 9pt;
+    font-weight: 600;
+    padding: 1px 9px;
+    color: #464646;
+    background: rgb(199 199 199 / 25%);
+    margin-right: 5px;
+    margin-top: 1.5%;
+}
+
+.favorite-bedroom {
     width: 25px;
     height: 25px;
-    cursor: pointer;  
-}
-
-.room-card-badge-container {
-    display: flex;
-    flex-direction: row;
-}
-
-.room-card-badge-container span {
-    padding: 7px 10px;
-    margin: 1px;
-}
-
-.card-button-container{
-    margin-top: 35px;
-    max-width: 100%;
-    text-align: left;
-    margin-left: 0; 
-    margin-right: auto;
-    max-height: 90%;
-}
-
-.card-review-quotes{
-    font-size: 9pt;
-    font-weight:400;
-    justify-content:left;
-    text-align:left;
-    color: #333333;
-    margin-right: 3%;
-    margin-top: 3%;
-}
-
-.card-subtext{
-    font-size: 8pt;
-    font-weight:600;
-    justify-content:left;
-    text-align:left;
-    color: #808080;
+    position: relative;
+    left: 92%;
+    bottom: 4%;
+    z-index: 1;
 }
 
 /* For small screens */
 @media (max-width: 768px) {
-    .room-card-photo-container {
-        padding: 0 0 0 0;
+    .bedroom-card {
+        width: 100%;
+        height: 200px;
     }
 
-    .room-card-right-side {
-        width: 190px;
-        position: relative;
-        left: 5px;
+    .bedroom-card-title {
+        font-size: 12pt;
     }
 
-    .room-card-badge-container {
-        flex-direction: column;
+    .bedroom-badge {
+        font-size: 9pt;
     }
 
-    .room-card-badge-container span {
-        padding: 1.5px 3.5px;
-        margin: 1px;
+    .bedroom-title-container {
+        width: 44%;
+        bottom: 60px;
     }
 
-    .room-card-review-quotes {
-        display: none;
+    .modal-quote-badge-container {
+        width: 100%;
+        bottom: 75px;
     }
 
-    .favorite-room {
-        right: 0px;
+    .bedroom-badge-gray {
+        padding: 1px 5px;
+    }
+
+    .favorite-bedroom {
+        left: 88%;
     }
 }

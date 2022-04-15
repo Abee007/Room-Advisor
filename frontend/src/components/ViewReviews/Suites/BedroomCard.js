@@ -1,11 +1,13 @@
 import "./BedroomCard.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { Component } from "react";
-import Badge from "react-bootstrap/Badge";
 import ImageRenderer from "../../ImageRenderer";
 import thumbnail from "../../../static/dorm_room.jpg";
 import { FaRegBookmark, FaBookmark } from "react-icons/fa";
 import { numberToAcronym } from "../../../utils/colleges";
+import { roomColorCodes } from "../../../utils/colleges";
+import noise from "../../../static/noise.svg";
+import size from "../../../static/size.svg";
 
 export default class BedroomCard extends Component {
   constructor(props) {
@@ -51,54 +53,54 @@ export default class BedroomCard extends Component {
 
   render() {
     return (
-      <div className="card" onClick={this.activateReview}>
+      <div className="bedroom-card" onClick={this.activateReview}>
+
+        <div className="favorite-bedroom" onClick={this.toggleFavorited}>
+          {!this.state.favorited ? (
+            <FaRegBookmark style={{ color: "#fff", fontSize: "25px" }} />
+          ) : (
+            <FaBookmark style={{ color: "#fff", fontSize: "25px" }} />
+          )}
+        </div>
+
         <ImageRenderer
           thumb={thumbnail}
           url={this.state.previewPicture}
-          width={"100"}
           alt="room-view"
         />
-        {/* <div className="room-card-photo-container col-md-5">
-          <img
-            className="room-card-photo"
-            src={this.state.previewPicture}
-            alt="room-view"
-          />
-        </div> */}
+        
 
-        <div className="room-card-right-side col-md-7">
-          {/* room number and bookmark icon */}
-          <div className="card-title-container">
-            <h5 className="card-title">{this.props.room.roomCode}</h5>
-          </div>
-
-          {/* room size, noise, and size tags */}
-          <div className="room-card-badge-container">
-            <Badge pill bg="primary">
+        <div className="bedroom-title-container">
+            <h5 className="bedroom-card-title">{this.props.room.roomCode}</h5>
+            <p
+              className="bedroom-badge"
+              style={{
+                background: roomColorCodes[(this.props.room.meta.noBeds - 1) % 8].color,
+                color: roomColorCodes[(this.props.room.meta.noBeds - 1) % 8].tcolor,
+                marginBottom: "0",
+              }}
+            >
               {numberToAcronym(this.props.room.meta.noBeds)}
-            </Badge>
-            <Badge pill bg="secondary">
-              Noise:{" "}
-              {(Math.round(this.props.room.meta.noise * 10) / 10).toFixed(1)}
-            </Badge>
-            <Badge pill bg="info">
-              Size:{" "}
-              {(Math.round(this.props.room.meta.size * 10) / 10).toFixed(1)}
-            </Badge>
-          </div>
+            </p>
+        </div>
 
-          <p className="room-card-review-quotes"> "It's tinyyyyyyy and..."</p>
-          <h1 className="card-subtext">
-            {this.props.room.meta.roomReviews.length} reviews
-          </h1>
+        <div className="modal-quote-badge-container">
+          <p className="bedroom-card-review-quotes">
+            {" "}
+            "Lorem ipsum dolor sit amet, consectetur"
+          </p>
+          <p className="bedroom-badge-gray" style={{ marginBottom: "0px" }}>
+            {" "}
+            <img className="badge-icon" src={noise} alt="noise"/>{" "}
+            {(Math.round(this.props.room.meta.noise * 10) / 10).toFixed(1)}{" "}
+          </p>
+          <p className="bedroom-badge-gray" style={{ marginBottom: "0px" }}>
+            {" "}
+            <img className="badge-icon" src={size} alt="size"/>{" "}
+            {(Math.round(this.props.room.meta.size * 10) / 10).toFixed(1)}{" "}
+          </p>
         </div>
-        <div className="favorite-room" onClick={this.toggleFavorited}>
-          {!this.state.favorited ? (
-            <FaRegBookmark style={{ color: "#0053c5", fontSize: "25px" }} />
-          ) : (
-            <FaBookmark style={{ color: "#0053c5", fontSize: "25px" }} />
-          )}
-        </div>
+        
       </div>
     );
   }

@@ -41,6 +41,8 @@ export const roomsizes = [
   { value: 6, label: "Sextet" },
   { value: 7, label: "7-Pack" },
   { value: 8, label: "8-Pack" },
+  { value: 9, label: "9-Pack" },
+  { value: 10, label: "10-Pack" },
 ];
 
 export const sortOptions = [
@@ -48,6 +50,57 @@ export const sortOptions = [
   { value: "FL", label: "Sort by: Floor Level" },
   { value: "BR_SZ", label: "Sort by: Bedroom Size" },
   { value: "NOISE", label: "Sort by: Noise Level" },
+];
+
+export const roomColorCodes = [
+  {
+    value: "purple-light",
+    label: "purple-light",
+    color: "#eee8f1",
+    tcolor: "#79558b",
+  },
+  {
+    value: "orange-light",
+    label: "orange-light",
+    color: "#f8d4c9",
+    tcolor: "#c7421a",
+  },
+  {
+    value: "yellow-light",
+    label: "yellow-light",
+    color: "#ffedc2",
+    tcolor: "#cc8f00",
+  },
+  {
+    value: "green-light",
+    label: "green-light",
+    color: "#d2efd2",
+    tcolor: "#2a792a",
+  },
+  {
+    value: "green-light",
+    label: "green-light",
+    color: "#c7f9f0",
+    tcolor: "#0e816c",
+  },
+  {
+    value: "navy-light",
+    label: "navy-light",
+    color: "#d8dee9",
+    tcolor: "#425476",
+  },
+  {
+    value: "gray-light",
+    label: "gray-light",
+    color: "#dfe8f0",
+    tcolor: "#34546f",
+  },
+  {
+    value: "blue-light",
+    label: "blue-light",
+    color: "#c7edfa",
+    tcolor: "#1091bc",
+  },
 ];
 
 export const Suites = [
