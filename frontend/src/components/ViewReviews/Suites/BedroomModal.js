@@ -19,29 +19,30 @@ export default class BedroomModal extends Component {
   }
 
   computeRoomNoiseSize = (reviews) => {
-    if(reviews.length === 0) {
+    if (reviews.length === 0) {
       //If no reviews have been give, return median number
-      return({ noise: -1, size: -1 })
+      return { noise: -1, size: -1 };
     }
 
-    var noise = 0, size = 0;
+    var noise = 0,
+      size = 0;
     for (const review of reviews) {
       noise += review.noise;
       size += review.size;
     }
 
-    noise = noise/reviews.length;
-    size = size/reviews.length;
-    return ({ noise: noise, size: size });
-  }
+    noise = noise / reviews.length;
+    size = size / reviews.length;
+    return { noise: noise, size: size };
+  };
 
   computeRoomstats = (room) => {
     const noiseAndSize = this.computeRoomNoiseSize(room.meta.roomReviews);
-    if(noiseAndSize.noise > -1) {
-      return({noise: noiseAndSize.noise, size: noiseAndSize.size});
+    if (noiseAndSize.noise > -1) {
+      return { noise: noiseAndSize.noise, size: noiseAndSize.size };
     }
-    return({noise: 2.5, size: 2.5});
-  }
+    return { noise: 2.5, size: 2.5 };
+  };
 
   goBackToSuiteView = () => {
     this.props.handleActivateViewSuite();

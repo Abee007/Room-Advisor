@@ -99,21 +99,22 @@ export default class SuiteCard extends Component {
   };
 
   computeRoomNoiseSize = (reviews) => {
-    if(reviews.length === 0) {
+    if (reviews.length === 0) {
       //If no reviews have been give, return median number
-      return({ noise: -1, size: -1 })
+      return { noise: -1, size: -1 };
     }
 
-    var noise = 0, size = 0;
+    var noise = 0,
+      size = 0;
     for (const review of reviews) {
       noise += review.noise;
       size += review.size;
     }
 
-    noise = noise/reviews.length;
-    size = size/reviews.length;
-    return ({ noise: noise, size: size });
-  }
+    noise = noise / reviews.length;
+    size = size / reviews.length;
+    return { noise: noise, size: size };
+  };
 
   computeSuiteStats = (suite) => {
     var noise = 0,
@@ -127,28 +128,28 @@ export default class SuiteCard extends Component {
     for (const room of suite) {
       const noiseAndSize = this.computeRoomNoiseSize(room.meta.roomReviews);
       // Only add to the count if reviews have been submitted
-      if(noiseAndSize.noise > -1) {
+      if (noiseAndSize.noise > -1) {
         noise += noiseAndSize.noise;
         size += noiseAndSize.size;
         noReviews++;
       }
-      
+
       noBeds += room.meta.noBeds;
       pictures = pictures.concat(room.meta.pictures);
       roomNames.push(room.roomCode);
     }
 
     // If you have reviews in this suite, let the score reflect that
-    if(noReviews > 0) {
-      noise = noise/noReviews;
-      size = size/noReviews;
+    if (noReviews > 0) {
+      noise = noise / noReviews;
+      size = size / noReviews;
     } else {
       noise = 2.5;
       size = 2.5;
     }
     // Round to 1dp
-    noise = (Math.round((noise) * 10) / 10).toFixed(1);
-    size = (Math.round((size) * 10) / 10).toFixed(1);
+    noise = (Math.round(noise * 10) / 10).toFixed(1);
+    size = (Math.round(size * 10) / 10).toFixed(1);
 
     // Select random picture
     const selectedPicture =
