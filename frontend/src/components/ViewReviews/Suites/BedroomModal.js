@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import { FaRegBookmark, FaBookmark } from "react-icons/fa";
 import room from "../../../static/dorm_room.jpg";
 // import TabBar from './TabBar'
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { numberToAcronym } from "../../../utils/colleges";
 import { IoIosArrowBack } from "react-icons/io";
 import { roomColorCodes } from "../../../utils/colleges";
@@ -126,11 +128,28 @@ export default class BedroomModal extends Component {
 
         <div className="bedroom-modal-body">
           <div className="col-md-5">
-            <img className="card-photo" src={room} alt="room-view" />
+            
+            {this.props.room.meta.pictures.length === 0 ? (
+              <Carousel showArrows={true} >
+                <div>
+                  <img className="card-photo" src={room} alt="room-view" />
+                </div>
+              </Carousel>
+            ) : (
+              <>
+                <Carousel showArrows={true} >
+                  {this.props.room.meta.pictures.map((pic) => (
+                    <div id={pic.name}>
+                      <img className="card-photo" src={pic} alt="room-view" />
+                    </div>
+                  ))}
+                </Carousel>
+              </>
+            )}
           </div>
 
-          <div className="col-md-7 BedroomModal-body-right">
-            <h2 className="BedroomModal-subtitle">Reviews</h2>
+          <div className="col-md-7 bedroom-modal-body-right">
+            <h2 className="bedroom-modal-subtitle">Reviews</h2>
 
             {/* TabBar for toggleing views between the reviews to the two different prompts (Recommend? and Strenths/Weaknesses) */}
             {/* <TabBar /> */}

@@ -10,8 +10,7 @@
   /* 30px is the size of the close button */
   min-width: 100%;
   min-height: 60px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   flex-direction: row;
   justify-content: left;
   box-shadow: 0 2px 2px -2px rgba(0,0,0,.2);
@@ -51,11 +50,7 @@
   padding-left: 0px;
 }
 
-.BedroomModal-body-right{
-  text-align: left;
-}
-
-.BedroomModal-subtitle {
+.bedroom-modal-subtitle {
   margin: 0;
   font-size: 16pt;
   font-weight: bold;
