@@ -39,10 +39,28 @@ export default class BedroomCard extends Component {
 
   computeRoomstats = (room) => {
     const noiseAndSize = this.computeRoomNoiseSize(room.meta.roomReviews);
-    if (noiseAndSize.noise > -1) {
-      return { noise: noiseAndSize.noise, size: noiseAndSize.size };
+    if(noiseAndSize.noise === -1) {
+      return { noise: 2.5, size: 2.5, previewText: "" };
     }
-    return { noise: 2.5, size: 2.5 };
+    
+    var recommendations = [];
+    for(const review of room.meta.roomReviews) {
+      recommendations.push(review.rec);
+    }
+
+    // Pick random recommendation
+    var previewText = recommendations[Math.floor(Math.random() * recommendations.length)];
+    
+    // Preview text can only be 39 characters long
+    if(previewText.length > 39) {
+      previewText = previewText.slice(0, 39);
+    }
+
+    // Add quotes
+    previewText = "\"" + previewText + "\""; 
+
+    return { noise: noiseAndSize.noise, size: noiseAndSize.size, previewText: previewText };
+    
   };
 
   selectPreviewPicture = () => {
@@ -115,8 +133,7 @@ export default class BedroomCard extends Component {
 
         <div className="modal-quote-badge-container">
           <p className="bedroom-card-review-quotes">
-            {" "}
-            "Lorem ipsum dolor sit amet, consectetur"
+            {this.state.roomStats.previewText}
           </p>
           <p className="bedroom-badge-gray" style={{ marginBottom: "0px" }}>
             {" "}
