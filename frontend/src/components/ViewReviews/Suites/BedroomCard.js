@@ -2,7 +2,7 @@ import "./BedroomCard.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { Component } from "react";
 import ImageRenderer from "../../ImageRenderer";
-import thumbnail from "../../../static/dorm_room.jpg";
+import thumbnail from "../../../static/no_reviews.jpeg";
 import { FaRegBookmark, FaBookmark } from "react-icons/fa";
 import { numberToAcronym } from "../../../utils/colleges";
 import { roomColorCodes } from "../../../utils/colleges";

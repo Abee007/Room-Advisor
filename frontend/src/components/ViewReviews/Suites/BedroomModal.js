@@ -1,7 +1,7 @@
 import "./BedroomModal.css";
 import React, { Component } from "react";
 import { FaRegBookmark, FaBookmark } from "react-icons/fa";
-import room from "../../../static/dorm_room.jpg";
+import room from "../../../static/no_reviews.jpeg";
 // import TabBar from './TabBar'
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";

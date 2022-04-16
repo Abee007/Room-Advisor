@@ -9,7 +9,7 @@ import SuiteModal from "./SuiteModal";
 import BedroomModal from "./BedroomModal";
 import { BsDot } from "react-icons/bs";
 import { roomColorCodes } from "../../../utils/colleges";
-import thumbnail from "../../../static/dorm_room.jpg";
+import thumbnail from "../../../static/no_reviews.jpeg";
 import noise from "../../../static/noise.svg";
 import size from "../../../static/size.svg";
 
