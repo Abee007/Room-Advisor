@@ -50,7 +50,7 @@ function RegisterandProtectedPages({ casUser }) {
     validateUser(casUser);
   }, [casUser]);
 
-  const handleValidatedUserObjectChange = async (e) => {
+  const changeFavoritesOnUserObject = async (e) => {
     const favorites = e.favorites;
     setUserObject({
       ...validatedUserObject,
@@ -72,6 +72,31 @@ function RegisterandProtectedPages({ casUser }) {
       await updateDoc(usersCollectionRef, { favorites: arrayUnion(e.object) });
     }
   };
+
+  const handleAddReview = async (e) => {
+    // Suites
+    const roomReviewObject = {
+      noise: e.noise,
+      size: e.size,
+      reviewYear: e.reviewYear,
+      reviewerClassYear: e.reviewerClassYear,
+      rec: e.rec,
+      sw: e.sw
+    }
+
+
+    const suiteCollectionRef = doc(db, "Suites", `${e.buildingName}-${e.suiteCode}`);
+    await updateDoc(suiteCollectionRef, {
+      [`${e.roomCode}.meta.roomReviews`]: arrayUnion(roomReviewObject)
+    });
+
+    for(const picLink of e.roomPictures) {
+      await updateDoc(suiteCollectionRef, {
+        [`${e.roomCode}.meta.pictures`]: arrayUnion(picLink)
+      });
+    }
+
+  }
 
   if (isLoading) {
     return <LoadingOverlay visible={true} />;
@@ -99,7 +124,8 @@ function RegisterandProtectedPages({ casUser }) {
             isValidated ? (
               <ViewReviews
                 user={validatedUserObject}
-                handleUserObject={handleValidatedUserObjectChange}
+                handleUserObject={changeFavoritesOnUserObject}
+                handleAddReview={handleAddReview}
               />
             ) : (
               <Navigate to="/register" />
@@ -123,7 +149,7 @@ function RegisterandProtectedPages({ casUser }) {
             isValidated ? (
               <FavoritesPage
                 user={validatedUserObject}
-                handleUserObject={handleValidatedUserObjectChange}
+                handleUserObject={changeFavoritesOnUserObject}
               />
             ) : (
               <Navigate to="/" />

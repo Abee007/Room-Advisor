@@ -185,7 +185,7 @@ export default class SuiteCard extends Component {
 
         <ImageRenderer
           thumb={thumbnail}
-          url={this.state.suiteStats.previewPicture}
+          url={!this.state.suiteStats.previewPicture ? thumbnail : this.state.suiteStats.previewPicture}
           alt="suite-view"
         />
 

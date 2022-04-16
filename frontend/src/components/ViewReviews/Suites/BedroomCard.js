@@ -64,7 +64,7 @@ export default class BedroomCard extends Component {
 
         <ImageRenderer
           thumb={thumbnail}
-          url={this.state.previewPicture}
+          url={!this.state.previewPicture ? thumbnail : this.state.previewPicture}
           alt="room-view"
         />
 
