@@ -14,7 +14,33 @@ export default class BedroomModal extends Component {
     super(props);
     this.state = {
       favorited: this.props.room.meta.favorited,
+      roomStats: this.computeRoomstats(this.props.room),
     };
+  }
+
+  computeRoomNoiseSize = (reviews) => {
+    if(reviews.length === 0) {
+      //If no reviews have been give, return median number
+      return({ noise: -1, size: -1 })
+    }
+
+    var noise = 0, size = 0;
+    for (const review of reviews) {
+      noise += review.noise;
+      size += review.size;
+    }
+
+    noise = noise/reviews.length;
+    size = size/reviews.length;
+    return ({ noise: noise, size: size });
+  }
+
+  computeRoomstats = (room) => {
+    const noiseAndSize = this.computeRoomNoiseSize(room.meta.roomReviews);
+    if(noiseAndSize.noise > -1) {
+      return({noise: noiseAndSize.noise, size: noiseAndSize.size});
+    }
+    return({noise: 2.5, size: 2.5});
   }
 
   goBackToSuiteView = () => {
@@ -71,12 +97,12 @@ export default class BedroomModal extends Component {
               <p className="modal-badge-gray" style={{ marginBottom: "0px" }}>
                 {" "}
                 <img className="badge-icon" src={noise} alt="noise" />{" "}
-                {(Math.round(this.props.room.meta.noise * 10) / 10).toFixed(1)}{" "}
+                {(Math.round(this.state.roomStats.noise * 10) / 10).toFixed(1)}{" "}
               </p>
               <p className="modal-badge-gray" style={{ marginBottom: "0px" }}>
                 {" "}
                 <img className="badge-icon" src={size} alt="size" />{" "}
-                {(Math.round(this.props.room.meta.size * 10) / 10).toFixed(1)}{" "}
+                {(Math.round(this.state.roomStats.size * 10) / 10).toFixed(1)}{" "}
               </p>
             </div>
           </div>
