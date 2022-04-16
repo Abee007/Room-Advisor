@@ -1,4 +1,4 @@
-import "./ViewReviewsPage.css"
+import "./ViewReviewsPage.css";
 import React, { Component } from "react";
 import Nav from "../components/Nav";
 import Results from "../components/ViewReviews/Results/Results";
@@ -10,7 +10,7 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 import { LoadingOverlay } from "@mantine/core";
 import floatingReview from "../static/review_floating.png";
 import ReviewRoomModal from "../components/ViewReviews/AddReview/ReviewRoomModal";
-import { HideOn } from "react-hide-on-scroll"
+import { HideOn } from "react-hide-on-scroll";
 
 export default class ViewReviews extends Component {
   // initial setup
@@ -334,34 +334,33 @@ export default class ViewReviews extends Component {
     this.setState({ ...this.state, favorites });
   };
 
-
   // Add Reviews Modal
   activateShowReviewModal = () => {
-    return this.setState({...this.state, showSubmitReviewModal: true });
-  }
+    return this.setState({ ...this.state, showSubmitReviewModal: true });
+  };
 
   deactivateShowReviewModal = () => {
-    return this.setState({...this.state, showSubmitReviewModal: false });
-  }
+    return this.setState({ ...this.state, showSubmitReviewModal: false });
+  };
 
   getAllRoomNamesInCurrentCollege = () => {
     var roomNames = [];
-    for(const suite of this.state.allSuitesForSelectedCollege) {
-      for(const room of suite.suiteRooms) {
+    for (const suite of this.state.allSuitesForSelectedCollege) {
+      for (const room of suite.suiteRooms) {
         roomNames.push(room.roomCode);
       }
     }
     roomNames.sort();
     return roomNames;
-  }
+  };
 
   findSuiteCodeForAddReview = (roomCode) => {
-    for(const suite of this.state.allSuitesForSelectedCollege) {
-      for(const room of suite.suiteRooms) {
-        if(room.roomCode === roomCode) return suite.suiteCode;
+    for (const suite of this.state.allSuitesForSelectedCollege) {
+      for (const room of suite.suiteRooms) {
+        if (room.roomCode === roomCode) return suite.suiteCode;
       }
     }
-  }
+  };
 
   handleAddReview = (e) => {
     const addReviewObject = {
@@ -369,11 +368,11 @@ export default class ViewReviews extends Component {
       buildingName: collegesToCode(this.state.building.value),
       suiteCode: this.findSuiteCodeForAddReview(e.roomCode),
       reviewerClassYear: this.props.user.meta.classYear,
-      reviewYear: new Date().getFullYear()
-    }
+      reviewYear: new Date().getFullYear(),
+    };
     this.props.handleAddReview(addReviewObject);
     this.deactivateShowReviewModal();
-  }
+  };
 
   // IMPORTANT FILTERS!!
 
@@ -464,17 +463,23 @@ export default class ViewReviews extends Component {
 
         {/* Logic for adding reviews */}
         <HideOn atHeight height={20}>
-          <div onClick={this.activateShowReviewModal} className="floating-right-bottom-btn">
+          <div
+            onClick={this.activateShowReviewModal}
+            className="floating-right-bottom-btn"
+          >
             <img src={floatingReview} alt="review-a-room" />
           </div>
         </HideOn>
-        
 
         <ModalContainer
           handleClose={this.deactivateShowReviewModal}
           isOpen={this.state.showSubmitReviewModal}
         >
-          <ReviewRoomModal college={collegesToCode(this.state.building.value)} roomNames={this.getAllRoomNamesInCurrentCollege()} handleAddReview={this.handleAddReview}/>
+          <ReviewRoomModal
+            college={collegesToCode(this.state.building.value)}
+            roomNames={this.getAllRoomNamesInCurrentCollege()}
+            handleAddReview={this.handleAddReview}
+          />
         </ModalContainer>
       </div>
     );

@@ -81,22 +81,24 @@ function RegisterandProtectedPages({ casUser }) {
       reviewYear: e.reviewYear,
       reviewerClassYear: e.reviewerClassYear,
       rec: e.rec,
-      sw: e.sw
-    }
+      sw: e.sw,
+    };
 
-
-    const suiteCollectionRef = doc(db, "Suites", `${e.buildingName}-${e.suiteCode}`);
+    const suiteCollectionRef = doc(
+      db,
+      "Suites",
+      `${e.buildingName}-${e.suiteCode}`
+    );
     await updateDoc(suiteCollectionRef, {
-      [`${e.roomCode}.meta.roomReviews`]: arrayUnion(roomReviewObject)
+      [`${e.roomCode}.meta.roomReviews`]: arrayUnion(roomReviewObject),
     });
 
-    for(const picLink of e.roomPictures) {
+    for (const picLink of e.roomPictures) {
       await updateDoc(suiteCollectionRef, {
-        [`${e.roomCode}.meta.pictures`]: arrayUnion(picLink)
+        [`${e.roomCode}.meta.pictures`]: arrayUnion(picLink),
       });
     }
-
-  }
+  };
 
   if (isLoading) {
     return <LoadingOverlay visible={true} />;
