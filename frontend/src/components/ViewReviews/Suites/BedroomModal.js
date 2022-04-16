@@ -5,6 +5,7 @@ import room from "../../../static/dorm_room.jpg";
 // import TabBar from './TabBar'
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import BarChart from "./BedroomModalBarChart";
 import { numberToAcronym } from "../../../utils/colleges";
 import { IoIosArrowBack } from "react-icons/io";
 import { roomColorCodes } from "../../../utils/colleges";
@@ -20,30 +21,43 @@ export default class BedroomModal extends Component {
     };
   }
 
-  computeRoomNoiseSize = (reviews) => {
+  computeRoomNoiseSize = (reviews, noiseReadings, sizeReadings) => {
     if (reviews.length === 0) {
       //If no reviews have been give, return median number
-      return { noise: -1, size: -1 };
+      return { noise: -1, size: -1, noiseReadings: noiseReadings, sizeReadings: sizeReadings };
     }
 
     var noise = 0,
       size = 0;
     for (const review of reviews) {
+      noiseReadings[review.noise]++;
+      sizeReadings[review.size]++;
       noise += review.noise;
       size += review.size;
     }
 
     noise = noise / reviews.length;
     size = size / reviews.length;
-    return { noise: noise, size: size };
+    return { noise: noise, size: size, noiseReadings: noiseReadings, sizeReadings: sizeReadings };
   };
 
   computeRoomstats = (room) => {
-    const noiseAndSize = this.computeRoomNoiseSize(room.meta.roomReviews);
-    if (noiseAndSize.noise > -1) {
-      return { noise: noiseAndSize.noise, size: noiseAndSize.size };
+    var noiseReadings = [0,0,0,0,0,0];
+    var sizeReadings = [0,0,0,0,0,0];
+    const noiseAndSize = this.computeRoomNoiseSize(room.meta.roomReviews, noiseReadings, sizeReadings);
+
+    var noiseData = [];
+    var sizeData = [];
+
+    for(var i = 0; i < 6; i++) {
+      noiseData.push({ argument: i.toString(), value: noiseAndSize.noiseReadings[i] })
+      sizeData.push({ argument: i.toString(), value: noiseAndSize.sizeReadings[i] })
     }
-    return { noise: 2.5, size: 2.5 };
+
+    if (noiseAndSize.noise > -1) {
+      return { noise: noiseAndSize.noise, size: noiseAndSize.size, noiseReadings: noiseData, sizeReadings: sizeData };
+    }
+    return { noise: 2.5, size: 2.5, noiseReadings: noiseData, sizeReadings: sizeData };
   };
 
   goBackToSuiteView = () => {
@@ -145,6 +159,18 @@ export default class BedroomModal extends Component {
                 </Carousel>
               </>
             )}
+
+            {this.props.room.meta.roomReviews.length > 0 ? (
+              <div className="barchart-container">
+                <div className="barchart">
+                  <BarChart data={this.state.roomStats.noiseReadings} title={'Noise'}/>
+                </div>
+                <div className="barchart">
+                  <BarChart data={this.state.roomStats.sizeReadings} title={'Size'}/>
+                </div>
+              </div>
+            ) : ("")}
+            
           </div>
 
           <div className="col-md-7 bedroom-modal-body-right">

@@ -43,6 +43,7 @@
   justify-content: flex-start;
   gap: 6px;
   padding: 20px;
+  height: 100%;
   overflow: auto;
 }
 
@@ -92,7 +93,7 @@
 
   .bedroom-modal-body {
     position: relative;
-    top: 30px;
+    /* top: 30px; */
     display: flex;
     flex-direction: column;
   }
