@@ -39,28 +39,32 @@ export default class BedroomCard extends Component {
 
   computeRoomstats = (room) => {
     const noiseAndSize = this.computeRoomNoiseSize(room.meta.roomReviews);
-    if(noiseAndSize.noise === -1) {
+    if (noiseAndSize.noise === -1) {
       return { noise: 2.5, size: 2.5, previewText: "" };
     }
-    
+
     var recommendations = [];
-    for(const review of room.meta.roomReviews) {
+    for (const review of room.meta.roomReviews) {
       recommendations.push(review.rec);
     }
 
     // Pick random recommendation
-    var previewText = recommendations[Math.floor(Math.random() * recommendations.length)];
-    
+    var previewText =
+      recommendations[Math.floor(Math.random() * recommendations.length)];
+
     // Preview text can only be 39 characters long
-    if(previewText.length > 39) {
+    if (previewText.length > 39) {
       previewText = previewText.slice(0, 39);
     }
 
     // Add quotes
-    previewText = "\"" + previewText + "\""; 
+    previewText = '"' + previewText + '"';
 
-    return { noise: noiseAndSize.noise, size: noiseAndSize.size, previewText: previewText };
-    
+    return {
+      noise: noiseAndSize.noise,
+      size: noiseAndSize.size,
+      previewText: previewText,
+    };
   };
 
   selectPreviewPicture = () => {
