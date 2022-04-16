@@ -98,6 +98,8 @@ function RegisterandProtectedPages({ casUser }) {
         [`${e.roomCode}.meta.pictures`]: arrayUnion(picLink),
       });
     }
+    // Reload window after uploading;
+    window.location.reload(false);
   };
 
   if (isLoading) {
