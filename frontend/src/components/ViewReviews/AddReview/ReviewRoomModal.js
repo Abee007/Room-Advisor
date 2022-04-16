@@ -4,6 +4,35 @@ import { Button } from "../../Button";
 import { Autocomplete, Textarea, Slider } from "@mantine/core";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import Compress from "browser-image-compression";
+import { ThemeProvider } from "react-bootstrap";
+import { createTheme } from '@mui/material/styles';
+import { borderColor } from "@mui/system";
+
+const theme = createTheme({
+  typography: {
+    body1: {
+      fontSize: 72,
+    },
+  },
+  components: {
+    MuiAutocomplete: {
+      styleOverrides: {
+        root: {
+          '& label': {
+            fontSize: 64,
+          },
+        },
+        input: {
+          fontSize: 22,
+        },
+        listbox: {
+          fontSize: 22,
+        },
+      },
+    },
+  },
+});
+
 
 export default class ReviewRoomModal extends Component {
   constructor(props) {
@@ -132,32 +161,41 @@ export default class ReviewRoomModal extends Component {
     return (
       <div className="submit-review-container">
         <div className="submit-review-form-container">
-          <form onSubmit={this.handleAddReview}>
-            <div className="picture-upload-container">
-              <label for="roomPictures">Upload Pictures of your room:</label>
-              <input
-                multiple
-                type="file"
-                id="roomPictures"
-                name="roomPictures"
-                accept="image/png, image/jpeg"
-              />
-              {this.state.fileTypeError ? "only png and jpg allowed" : ""}
-            </div>
+          
+          <div className="submit-review-header">
+            <p className="submit-review-header-text"> Review a room </p>
+            <p className="submit-review-header-subtext"> This anonymous form lets you review a room you are currently living in or have lived in the past. Individual identities associated with reviews will not be displayed or kept in our records.</p>
+            <hr className="line-block"></hr>
+          </div>
 
-            <Autocomplete
-              onFocus={(event) =>
-                event.target.setAttribute("autocomplete", "off")
-              }
-              name="roomCode"
-              label="Pick out Your Room"
-              placeholder="Rooms"
-              data={this.props.roomNames}
-            />
+          <form onSubmit={this.handleAddReview}>
+            
+            <ThemeProvider theme={theme}>
+              <Autocomplete
+                onFocus={(event) =>
+                  event.target.setAttribute("autocomplete", "off")
+                }
+                name="roomCode"
+                label="What is the number of the suite you'd like to review? "
+                placeholder="Please include entry way, room number, and letter of the room. (Ex: B41) "
+                data={this.props.roomNames}
+                required
+              />
+              <Autocomplete
+                onFocus={(event) =>
+                  event.target.setAttribute("autocomplete", "off")
+                }
+                name="roomCode"
+                label="What is the letter of the bedroom you lived in?"
+                placeholder="Ex: Enter A if your room was B41A, leave blank if it's a standalone single"
+                data={this.props.roomNames}
+              />
+              
+            </ThemeProvider>
             <Textarea
               name="sw"
               placeholder="..."
-              label="Strengths/Weaknesses"
+              label="What did/do you like about this room and/or suite?"
               autosize
               minRows={2}
               required
@@ -165,58 +203,96 @@ export default class ReviewRoomModal extends Component {
             <Textarea
               name="rec"
               placeholder="..."
-              label="Recommend?"
+              label="Would you recommend this room and/or suite to another student?"
               autosize
               minRows={2}
               required
             />
-            <div>
-              Noise
-              <Slider
+            <div className="slider-container">
+              <p className="question-title">Relative to other rooms at Yale, how loud is/was this room usually? </p>
+              <Slider className="slider"
+                styles={{ root: {width: "60%"}, bar: { backgroundColor: '#0053c5'}, thumb: { backgroundColor: '#fff',  borderColor:"#0053c5"}, mark: { backgroundColor: '#fff' }, markFilled: {borderColor:"#0053c5"}}} 
                 name="noise"
-                label={(value) => `${value / 20}`}
-                step={20}
-                defaultValue={40}
+                label={(value) => `${value / 25}`}
+                step={25}
+                defaultValue={50}
                 marks={[
-                  { value: 0, label: "0" },
-                  { value: 20, label: "1" },
-                  { value: 40, label: "2" },
-                  { value: 60, label: "3" },
-                  { value: 80, label: "4" },
-                  { value: 100, label: "5" },
+                  { value: 0, label: "Much quieter" },
+                  { value: 25, label: "Quieter" },
+                  { value: 50, label: "Same" },
+                  { value: 75, label: "Louder" },
+                  { value: 100, label: "Much louder" },
                 ]}
               />
               <br />
             </div>
-            <div>
-              Size
-              <Slider
+            <div className="slider-container">
+              <p className="question-title"> Relative to other rooms at Yale, the size of this room is: </p>
+              <Slider className="slider"
+                styles={{ root: {width: "60%"}, bar: { backgroundColor: '#0053c5'}, thumb: { backgroundColor: '#fff',  borderColor:"#0053c5"}, mark: { backgroundColor: '#fff' }, markFilled: {borderColor:"#0053c5"}}} 
                 name="size"
-                label={(value) => `${value / 20}`}
-                step={20}
-                defaultValue={40}
+                label={(value) => `${value / 25}`}
+                step={25}
+                defaultValue={50}
                 marks={[
-                  { value: 0, label: "0" },
-                  { value: 20, label: "1" },
-                  { value: 40, label: "2" },
-                  { value: 60, label: "3" },
-                  { value: 80, label: "4" },
-                  { value: 100, label: "5" },
+                  { value: 0, label: "Much smaller" },
+                  { value: 25, label: "Smaller" },
+                  { value: 50, label: "Same" },
+                  { value: 75, label: "Larger" },
+                  { value: 100, label: "Much larger" },
                 ]}
               />
               <br />
             </div>
-            <Button
-              buttonStyle="btn--primary"
-              buttonSize="btn--large"
-              className="register-button"
-              type="submit"
-            >
-              Submit
-            </Button>
+
+            <div className="picture-upload-container">
+            <p className="photo-upload-title" > Add photos to your review </p>
+            <p className="question-subtext"> A picture speaks a thousand words! If you have a photo of the room before or after you moved in please upload here. Individual names and identities will not be displayed or kept in our records.  </p>
+            <label class="custom-file-upload file-input__label" for="roomPictures">
+              <svg className="upload-icon"
+                aria-hidden="true"
+                focusable="false"
+                data-prefix="fas"
+                data-icon="upload"
+                class="svg-inline--fa fa-upload fa-w-16"
+                role="img"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"
+              >
+                <path
+                  fill="#0053c5"
+                  d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
+                ></path>
+              </svg>
+              <input
+                multiple
+                class="photo-upload-button"
+                type="file"
+                id="roomPictures"
+                name="roomPictures"
+                accept="image/png, image/jpeg"
+              />
+              {this.state.fileTypeError ? "only png and jpg allowed" : ""}
+            </label>
+              
+            </div>
+            
+            <div className="submit-button-container">
+              <Button
+                buttonStyle="btn--primary"
+                buttonSize="btn--large"
+                className="register-button align-right"
+                type="submit"
+              >
+                Submit
+              </Button>
+            </div>
+            
+
           </form>
         </div>
       </div>
     );
   }
 }
+
