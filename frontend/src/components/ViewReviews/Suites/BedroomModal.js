@@ -63,18 +63,36 @@ export default class BedroomModal extends Component {
     );
 
     var noiseData = [];
-    noiseData.push({argument: 'Much quieter', value: noiseAndSize.noiseReadings[0]});
-    noiseData.push({argument: 'Quieter', value: noiseAndSize.noiseReadings[1]});
-    noiseData.push({argument: 'Same', value: noiseAndSize.noiseReadings[2]});
-    noiseData.push({argument: 'Louder', value: noiseAndSize.noiseReadings[3]});
-    noiseData.push({argument: 'Much louder', value: noiseAndSize.noiseReadings[4]});
+    noiseData.push({
+      argument: "Much quieter",
+      value: noiseAndSize.noiseReadings[0],
+    });
+    noiseData.push({
+      argument: "Quieter",
+      value: noiseAndSize.noiseReadings[1],
+    });
+    noiseData.push({ argument: "Same", value: noiseAndSize.noiseReadings[2] });
+    noiseData.push({
+      argument: "Louder",
+      value: noiseAndSize.noiseReadings[3],
+    });
+    noiseData.push({
+      argument: "Much louder",
+      value: noiseAndSize.noiseReadings[4],
+    });
 
     var sizeData = [];
-    sizeData.push({argument: 'Much smaller', value: noiseAndSize.sizeReadings[0]});
-    sizeData.push({argument: 'Smaller', value: noiseAndSize.sizeReadings[1]});
-    sizeData.push({argument: 'Same', value: noiseAndSize.sizeReadings[2]});
-    sizeData.push({argument: 'Larger', value: noiseAndSize.sizeReadings[3]});
-    sizeData.push({argument: 'Much larger', value: noiseAndSize.sizeReadings[4]});
+    sizeData.push({
+      argument: "Much smaller",
+      value: noiseAndSize.sizeReadings[0],
+    });
+    sizeData.push({ argument: "Smaller", value: noiseAndSize.sizeReadings[1] });
+    sizeData.push({ argument: "Same", value: noiseAndSize.sizeReadings[2] });
+    sizeData.push({ argument: "Larger", value: noiseAndSize.sizeReadings[3] });
+    sizeData.push({
+      argument: "Much larger",
+      value: noiseAndSize.sizeReadings[4],
+    });
 
     if (noiseAndSize.noise > -1) {
       return {
