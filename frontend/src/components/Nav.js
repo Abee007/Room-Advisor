@@ -130,11 +130,13 @@ export default class Nav extends Component {
                     {this.props.user !== undefined ? (
                       <NavLink to="/favorites" className="navbar-link">
                         <div className="navbar-link-icon">
-                          <Bookmark className="navbar-link-icon"
+                          <Bookmark
+                            className="navbar-link-icon"
                             style={{
                               height: "20px",
                               // stroke: "red",
-                            }}/>
+                            }}
+                          />
                         </div>
                         Favorites
                       </NavLink>

@@ -250,7 +250,7 @@ export default class BedroomModal extends Component {
               </Tabs.Tab>
               <Tabs.Tab label="Recommend?">
                 {this.props.room.meta.roomReviews.length === 0 ? (
-                  <div className="review-text" >No reviews yet...</div>
+                  <div className="review-text">No reviews yet...</div>
                 ) : (
                   <>
                     {this.props.room.meta.roomReviews.map((review) => (

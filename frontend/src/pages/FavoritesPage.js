@@ -216,19 +216,32 @@ export default class FavoritesPage extends Component {
           <>
             {this.state.suitesForColleges.length === 0 ? (
               <div>
-                <img className="no-favorites-image" src={nofavorites} alt="No favorites" />
-                <p> You haven’t bookmarked any rooms yet! Save rooms and suites by "bookmarking" them so you can keep them in one place.
+                <img
+                  className="no-favorites-image"
+                  src={nofavorites}
+                  alt="No favorites"
+                />
+                <p>
+                  {" "}
+                  You haven’t bookmarked any rooms yet! Save rooms and suites by
+                  "bookmarking" them so you can keep them in one place.
                 </p>
               </div>
             ) : (
               <>
-              <div className="page-title" > Favorite Suites </div>
-              <p className="page-description"> The suites you bookmarked will appear here. </p>
+                <div className="page-title"> Favorite Suites </div>
+                <p className="page-description">
+                  {" "}
+                  The suites you bookmarked will appear here.{" "}
+                </p>
 
                 {this.state.suitesForColleges.map((collegeObject) => (
                   <div key={collegeObject.buildingName}>
-                    <div className="college-title"> {codeToCollege(collegeObject.buildingName)} </div>
-                    <div className="line-separator" ></div>
+                    <div className="college-title">
+                      {" "}
+                      {codeToCollege(collegeObject.buildingName)}{" "}
+                    </div>
+                    <div className="line-separator"></div>
                     <CardsContainer
                       suites={collegeObject.suites}
                       sort={this.state.sortBy}
