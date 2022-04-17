@@ -29,7 +29,7 @@ svg {
     position: relative;
     right: 1px;
     bottom: 80px;
-    max-width: 50%;
+    max-width: 45%;
     height: 20%;
     align-items: center;
     border-radius: 0 15px 0 0;
@@ -39,7 +39,6 @@ svg {
 .suite-card-title {
     position: relative;
     margin-top: 3%;
-    margin-left: auto;
     font-weight: bold;
     font-size: 2.0em;
 }

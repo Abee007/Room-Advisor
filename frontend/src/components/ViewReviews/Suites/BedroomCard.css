@@ -20,7 +20,7 @@
     position: relative;
     right: 1px;
     bottom: 95px;
-    width: 44%;
+    width: 150px;
     height: 21%;
     align-items: center;
     border-radius: 0 15px 0 0;
@@ -38,8 +38,8 @@
 .bedroom-badge {
     border-radius: 24px;
     font-weight: 700;
-    font-size: 16pt;
-    padding: 3px 10px;
+    font-size: 14pt;
+    padding: 1.5px 10px;
     margin-left: auto;
     margin-right: 4%;
 }
@@ -60,6 +60,10 @@
     margin: 1% 1%;
 }
 
+.review-icon{
+    height: 14px;
+    width: 14px;
+}
 
 .bedroom-badge-gray {
     border-radius: 24px;

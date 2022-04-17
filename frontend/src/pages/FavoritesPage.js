@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Nav from "../components/Nav";
 import { db } from "../utils/firebase";
+import nofavorites from "../static/no-favorites.svg";
 import {
   collection,
   getDocs,
@@ -11,6 +12,7 @@ import {
 import CardsContainer from "../components/ViewReviews/Suites/CardsContainer";
 import { codeToCollege } from "../utils/colleges";
 import { LoadingOverlay } from "@mantine/core";
+import "./FavoritesPage.css";
 
 export default class FavoritesPage extends Component {
   constructor(props) {
@@ -213,12 +215,20 @@ export default class FavoritesPage extends Component {
         ) : (
           <>
             {this.state.suitesForColleges.length === 0 ? (
-              <div>No favorites</div>
+              <div>
+                <img className="no-favorites-image" src={nofavorites} alt="No favorites" />
+                <p> You haven’t bookmarked any rooms yet! Save rooms and suites by "bookmarking" them so you can keep them in one place.
+                </p>
+              </div>
             ) : (
               <>
+              <div className="page-title" > Favorite Suites </div>
+              <p className="page-description"> The suites you bookmarked will appear here. </p>
+
                 {this.state.suitesForColleges.map((collegeObject) => (
                   <div key={collegeObject.buildingName}>
-                    {codeToCollege(collegeObject.buildingName)}
+                    <div className="college-title"> {codeToCollege(collegeObject.buildingName)} </div>
+                    <div className="line-separator" ></div>
                     <CardsContainer
                       suites={collegeObject.suites}
                       sort={this.state.sortBy}

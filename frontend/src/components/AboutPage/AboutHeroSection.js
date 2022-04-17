@@ -1,13 +1,13 @@
-import "./AboutHeroSection.css";
 import React from "react";
 import browse from "../../static/browse.svg";
 import filter from "../../static/filter.svg";
 import read from "../../static/read.svg";
+import "./AboutHeroSection.css";
 
 function AboutHeroSection() {
   return (
     <div className="about-hero-section-container">
-      <h2 className="hero-secondary"> How it works? </h2>
+      <h2 className="hero-secondary"> How it works </h2>
 
       <div className="row">
         {/* creating three columns to show three sections of explanatory text and icons   */}

@@ -8,6 +8,7 @@ import { numberToAcronym } from "../../../utils/colleges";
 import { roomColorCodes } from "../../../utils/colleges";
 import noise from "../../../static/noise.svg";
 import size from "../../../static/size.svg";
+import review from "../../../static/review-icon.svg";
 
 export default class BedroomCard extends Component {
   constructor(props) {
@@ -137,7 +138,8 @@ export default class BedroomCard extends Component {
 
         <div className="modal-quote-badge-container">
           <p className="bedroom-card-review-quotes">
-            {this.state.roomStats.previewText}
+            <img className="review-icon" src={review} alt="review-icon" />
+            <div> {this.state.roomStats.previewText} </div>
           </p>
           <p className="bedroom-badge-gray" style={{ marginBottom: "0px" }}>
             {" "}
