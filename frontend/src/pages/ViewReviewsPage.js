@@ -450,6 +450,7 @@ export default class ViewReviews extends Component {
             <Results
               noRooms={this.state.noRoomsFound}
               sortBy={this.state.sortBy}
+              college={this.state.building.value}
               handleChange={this.handleSortByChange}
             />
             <CardsContainer

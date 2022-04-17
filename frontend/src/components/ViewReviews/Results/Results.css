@@ -2,6 +2,14 @@
     flex-direction: column;
 }
 
+.suites-found {
+    display: none;
+}
+
+.suites-found-mobile {
+    display: block;
+}
+
 h1 {
     position: relative;
     top: 9px;
@@ -29,6 +37,14 @@ h1 {
         margin: auto;
         justify-content: center;
         z-index: -1;
+    }
+
+    .suites-found-mobile {
+        display: none;
+    }
+
+    .suites-found {
+        display: block;
     }
 
     h1 {
