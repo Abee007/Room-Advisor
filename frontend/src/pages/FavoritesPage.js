@@ -218,10 +218,13 @@ export default class FavoritesPage extends Component {
               <div>No favorites</div>
             ) : (
               <>
-              <div className="favorites-container-all">
-                {this.state.suitesForColleges.map((collegeObject) => (
-                  <div className="favorites-container-college" key={collegeObject.buildingName}>
-                    {/* <Nav
+                <div className="favorites-container-all">
+                  {this.state.suitesForColleges.map((collegeObject) => (
+                    <div
+                      className="favorites-container-college"
+                      key={collegeObject.buildingName}
+                    >
+                      {/* <Nav
                       user={this.props.user}
                       mode={"VERBOSE"}
                       currState={this.state}
@@ -229,19 +232,19 @@ export default class FavoritesPage extends Component {
                       handleRoomSizeChange={this.handleRoomSizeChange}
                       handleSearchChange={this.handleSearchChange}
                     /> */}
-                    <p className="college-title">
-                      {codeToCollege(collegeObject.buildingName)}
-                    </p>
-                    <CardsContainer
-                      suites={collegeObject.suites}
-                      sort={this.state.sortBy}
-                      handleAddFavorited={this.handleAddFavorited}
-                      handleRemoveFavorited={this.handleRemoveFavorited}
-                    />
-                    <div className="line-separator"></div>
-                  </div>
-                ))}
-              </div>
+                      <p className="college-title">
+                        {codeToCollege(collegeObject.buildingName)}
+                      </p>
+                      <CardsContainer
+                        suites={collegeObject.suites}
+                        sort={this.state.sortBy}
+                        handleAddFavorited={this.handleAddFavorited}
+                        handleRemoveFavorited={this.handleRemoveFavorited}
+                      />
+                      <div className="line-separator"></div>
+                    </div>
+                  ))}
+                </div>
               </>
             )}
           </>

@@ -5,7 +5,7 @@ import { Autocomplete, Textarea, Slider } from "@mantine/core";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import Compress from "browser-image-compression";
 import { ThemeProvider } from "react-bootstrap";
-import { createTheme } from '@mui/material/styles';
+import { createTheme } from "@mui/material/styles";
 import { borderColor } from "@mui/system";
 
 const theme = createTheme({
@@ -18,7 +18,7 @@ const theme = createTheme({
     MuiAutocomplete: {
       styleOverrides: {
         root: {
-          '& label': {
+          "& label": {
             fontSize: 64,
           },
         },
@@ -32,7 +32,6 @@ const theme = createTheme({
     },
   },
 });
-
 
 export default class ReviewRoomModal extends Component {
   constructor(props) {
@@ -161,15 +160,19 @@ export default class ReviewRoomModal extends Component {
     return (
       <div className="submit-review-container">
         <div className="submit-review-form-container">
-          
           <div className="submit-review-header">
             <p className="submit-review-header-text"> Review a room </p>
-            <p className="submit-review-header-subtext"> This anonymous form lets you review a room you are currently living in or have lived in the past. Individual identities associated with reviews will not be displayed or kept in our records.</p>
+            <p className="submit-review-header-subtext">
+              {" "}
+              This anonymous form lets you review a room you are currently
+              living in or have lived in the past. Individual identities
+              associated with reviews will not be displayed or kept in our
+              records.
+            </p>
             <hr className="line-block"></hr>
           </div>
 
           <form onSubmit={this.handleAddReview}>
-            
             <ThemeProvider theme={theme}>
               <Autocomplete
                 onFocus={(event) =>
@@ -190,7 +193,6 @@ export default class ReviewRoomModal extends Component {
                 placeholder="Ex: Enter A if your room was B41A, leave blank if it's a standalone single"
                 data={this.props.roomNames}
               />
-              
             </ThemeProvider>
             <Textarea
               name="sw"
@@ -209,9 +211,19 @@ export default class ReviewRoomModal extends Component {
               required
             />
             <div className="slider-container">
-              <p className="question-title">Relative to other rooms at Yale, how loud is/was this room usually? </p>
-              <Slider className="slider"
-                styles={{ root: {width: "60%"}, bar: { backgroundColor: '#0053c5'}, thumb: { backgroundColor: '#fff',  borderColor:"#0053c5"}, mark: { backgroundColor: '#fff' }, markFilled: {borderColor:"#0053c5"}}} 
+              <p className="question-title">
+                Relative to other rooms at Yale, how loud is/was this room
+                usually?{" "}
+              </p>
+              <Slider
+                className="slider"
+                styles={{
+                  root: { width: "60%" },
+                  bar: { backgroundColor: "#0053c5" },
+                  thumb: { backgroundColor: "#fff", borderColor: "#0053c5" },
+                  mark: { backgroundColor: "#fff" },
+                  markFilled: { borderColor: "#0053c5" },
+                }}
                 name="noise"
                 label={(value) => `${value / 25}`}
                 step={25}
@@ -227,9 +239,19 @@ export default class ReviewRoomModal extends Component {
               <br />
             </div>
             <div className="slider-container">
-              <p className="question-title"> Relative to other rooms at Yale, the size of this room is: </p>
-              <Slider className="slider"
-                styles={{ root: {width: "60%"}, bar: { backgroundColor: '#0053c5'}, thumb: { backgroundColor: '#fff',  borderColor:"#0053c5"}, mark: { backgroundColor: '#fff' }, markFilled: {borderColor:"#0053c5"}}} 
+              <p className="question-title">
+                {" "}
+                Relative to other rooms at Yale, the size of this room is:{" "}
+              </p>
+              <Slider
+                className="slider"
+                styles={{
+                  root: { width: "60%" },
+                  bar: { backgroundColor: "#0053c5" },
+                  thumb: { backgroundColor: "#fff", borderColor: "#0053c5" },
+                  mark: { backgroundColor: "#fff" },
+                  markFilled: { borderColor: "#0053c5" },
+                }}
                 name="size"
                 label={(value) => `${value / 25}`}
                 step={25}
@@ -246,37 +268,46 @@ export default class ReviewRoomModal extends Component {
             </div>
 
             <div className="picture-upload-container">
-            <p className="photo-upload-title" > Add photos to your review </p>
-            <p className="question-subtext"> A picture speaks a thousand words! If you have a photo of the room before or after you moved in please upload here. Individual names and identities will not be displayed or kept in our records.  </p>
-            <label class="custom-file-upload file-input__label" for="roomPictures">
-              <svg className="upload-icon"
-                aria-hidden="true"
-                focusable="false"
-                data-prefix="fas"
-                data-icon="upload"
-                class="svg-inline--fa fa-upload fa-w-16"
-                role="img"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 512 512"
+              <p className="photo-upload-title"> Add photos to your review </p>
+              <p className="question-subtext">
+                {" "}
+                A picture speaks a thousand words! If you have a photo of the
+                room before or after you moved in please upload here. Individual
+                names and identities will not be displayed or kept in our
+                records.{" "}
+              </p>
+              <label
+                class="custom-file-upload file-input__label"
+                for="roomPictures"
               >
-                <path
-                  fill="#0053c5"
-                  d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
-                ></path>
-              </svg>
-              <input
-                multiple
-                class="photo-upload-button"
-                type="file"
-                id="roomPictures"
-                name="roomPictures"
-                accept="image/png, image/jpeg"
-              />
-              {this.state.fileTypeError ? "only png and jpg allowed" : ""}
-            </label>
-              
+                <svg
+                  className="upload-icon"
+                  aria-hidden="true"
+                  focusable="false"
+                  data-prefix="fas"
+                  data-icon="upload"
+                  class="svg-inline--fa fa-upload fa-w-16"
+                  role="img"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    fill="#0053c5"
+                    d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
+                  ></path>
+                </svg>
+                <input
+                  multiple
+                  class="photo-upload-button"
+                  type="file"
+                  id="roomPictures"
+                  name="roomPictures"
+                  accept="image/png, image/jpeg"
+                />
+                {this.state.fileTypeError ? "only png and jpg allowed" : ""}
+              </label>
             </div>
-            
+
             <div className="submit-button-container">
               <Button
                 buttonStyle="btn--primary"
@@ -287,12 +318,9 @@ export default class ReviewRoomModal extends Component {
                 Submit
               </Button>
             </div>
-            
-
           </form>
         </div>
       </div>
     );
   }
 }
-
