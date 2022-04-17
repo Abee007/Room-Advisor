@@ -52,8 +52,8 @@ export default class BedroomModal extends Component {
   };
 
   computeRoomstats = (room) => {
-    var noiseReadings = [0, 0, 0, 0, 0, 0];
-    var sizeReadings = [0, 0, 0, 0, 0, 0];
+    var noiseReadings = [0, 0, 0, 0, 0];
+    var sizeReadings = [0, 0, 0, 0, 0];
     const noiseAndSize = this.computeRoomNoiseSize(
       room.meta.roomReviews,
       noiseReadings,
@@ -61,18 +61,18 @@ export default class BedroomModal extends Component {
     );
 
     var noiseData = [];
-    var sizeData = [];
+    noiseData.push({argument: 'Much quieter', value: noiseAndSize.noiseReadings[0]});
+    noiseData.push({argument: 'Quieter', value: noiseAndSize.noiseReadings[1]});
+    noiseData.push({argument: 'Same', value: noiseAndSize.noiseReadings[2]});
+    noiseData.push({argument: 'Louder', value: noiseAndSize.noiseReadings[3]});
+    noiseData.push({argument: 'Much louder', value: noiseAndSize.noiseReadings[4]});
 
-    for (var i = 0; i < 6; i++) {
-      noiseData.push({
-        argument: i.toString(),
-        value: noiseAndSize.noiseReadings[i],
-      });
-      sizeData.push({
-        argument: i.toString(),
-        value: noiseAndSize.sizeReadings[i],
-      });
-    }
+    var sizeData = [];
+    sizeData.push({argument: 'Much smaller', value: noiseAndSize.sizeReadings[0]});
+    sizeData.push({argument: 'Smaller', value: noiseAndSize.sizeReadings[1]});
+    sizeData.push({argument: 'Same', value: noiseAndSize.sizeReadings[2]});
+    sizeData.push({argument: 'Larger', value: noiseAndSize.sizeReadings[3]});
+    sizeData.push({argument: 'Much larger', value: noiseAndSize.sizeReadings[4]});
 
     if (noiseAndSize.noise > -1) {
       return {
