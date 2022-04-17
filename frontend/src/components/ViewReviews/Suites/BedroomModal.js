@@ -11,7 +11,7 @@ import { IoIosArrowBack } from "react-icons/io";
 import { roomColorCodes } from "../../../utils/colleges";
 import noise from "../../../static/noise.svg";
 import size from "../../../static/size.svg";
-import { Tabs } from '@mantine/core';
+import { Tabs } from "@mantine/core";
 import { numberToClassYear } from "../../../utils/colleges";
 
 export default class BedroomModal extends Component {
@@ -233,9 +233,9 @@ export default class BedroomModal extends Component {
           <div className="col-md-7 bedroom-modal-body-right">
             <h2 className="bedroom-modal-subtitle">Reviews</h2>
             <Tabs>
-              <Tabs.Tab label="Strengths/Weaknesses" >
+              <Tabs.Tab label="Strengths/Weaknesses">
                 {this.props.room.meta.roomReviews.length === 0 ? (
-                <div>No reviews yet...</div>
+                  <div>No reviews yet...</div>
                 ) : (
                   <>
                     {this.props.room.meta.roomReviews.map((review) => (
@@ -248,9 +248,9 @@ export default class BedroomModal extends Component {
                   </>
                 )}
               </Tabs.Tab>
-              <Tabs.Tab label="Recommend?" >
+              <Tabs.Tab label="Recommend?">
                 {this.props.room.meta.roomReviews.length === 0 ? (
-                <div>No reviews yet...</div>
+                  <div>No reviews yet...</div>
                 ) : (
                   <>
                     {this.props.room.meta.roomReviews.map((review) => (

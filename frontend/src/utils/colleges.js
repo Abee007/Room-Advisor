@@ -19,9 +19,8 @@ const classYears = {
   1: "First Year",
   2: "Sophomore",
   3: "Junior",
-  4: "Senior"
-}
-
+  4: "Senior",
+};
 
 export const buildings = [
   { value: "Benjamin Franklin", label: "Benjamin Franklin" },
@@ -110,7 +109,6 @@ export const roomColorCodes = [
     tcolor: "#1091bc",
   },
 ];
-
 
 export function getAllCollegeNames() {
   return Object.keys(colleges);
