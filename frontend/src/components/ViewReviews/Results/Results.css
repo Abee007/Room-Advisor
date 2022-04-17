@@ -28,6 +28,7 @@ h1 {
         width: 75%;
         margin: auto;
         justify-content: center;
+        align-items: flex-start;
         z-index: -1;
     }
 

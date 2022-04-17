@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Nav from "../components/Nav";
+import "./FavoritesPage.css";
+import SortByComponent from "../components/ViewReviews/Results/ResultSortByComponent";
 import { db } from "../utils/firebase";
 import {
   collection,
@@ -216,17 +218,30 @@ export default class FavoritesPage extends Component {
               <div>No favorites</div>
             ) : (
               <>
+              <div className="favorites-container-all">
                 {this.state.suitesForColleges.map((collegeObject) => (
-                  <div key={collegeObject.buildingName}>
-                    {codeToCollege(collegeObject.buildingName)}
+                  <div className="favorites-container-college" key={collegeObject.buildingName}>
+                    {/* <Nav
+                      user={this.props.user}
+                      mode={"VERBOSE"}
+                      currState={this.state}
+                      handleBuildingChange={this.handleBuildingChange}
+                      handleRoomSizeChange={this.handleRoomSizeChange}
+                      handleSearchChange={this.handleSearchChange}
+                    /> */}
+                    <p className="college-title">
+                      {codeToCollege(collegeObject.buildingName)}
+                    </p>
                     <CardsContainer
                       suites={collegeObject.suites}
                       sort={this.state.sortBy}
                       handleAddFavorited={this.handleAddFavorited}
                       handleRemoveFavorited={this.handleRemoveFavorited}
                     />
+                    <div className="line-separator"></div>
                   </div>
                 ))}
+              </div>
               </>
             )}
           </>
