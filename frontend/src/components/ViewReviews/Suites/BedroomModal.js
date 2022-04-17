@@ -11,6 +11,8 @@ import { IoIosArrowBack } from "react-icons/io";
 import { roomColorCodes } from "../../../utils/colleges";
 import noise from "../../../static/noise.svg";
 import size from "../../../static/size.svg";
+import { Tabs } from '@mantine/core';
+import { numberToClassYear } from "../../../utils/colleges";
 
 export default class BedroomModal extends Component {
   constructor(props) {
@@ -212,6 +214,38 @@ export default class BedroomModal extends Component {
 
           <div className="col-md-7 bedroom-modal-body-right">
             <h2 className="bedroom-modal-subtitle">Reviews</h2>
+            <Tabs>
+              <Tabs.Tab label="Strengths/Weaknesses" >
+                {this.props.room.meta.roomReviews.length === 0 ? (
+                <div>No reviews yet...</div>
+                ) : (
+                  <>
+                    {this.props.room.meta.roomReviews.map((review) => (
+                      <div>
+                        <div>{review.reviewYear}</div>
+                        <div>{numberToClassYear(review.reviewerClassYear)}</div>
+                        <div>{review.sw}</div>
+                      </div>
+                    ))}
+                  </>
+                )}
+              </Tabs.Tab>
+              <Tabs.Tab label="Recommend?" >
+                {this.props.room.meta.roomReviews.length === 0 ? (
+                <div>No reviews yet...</div>
+                ) : (
+                  <>
+                    {this.props.room.meta.roomReviews.map((review) => (
+                      <div>
+                        <div>{review.reviewYear}</div>
+                        <div>{numberToClassYear(review.reviewerClassYear)}</div>
+                        <div>{review.rec}</div>
+                      </div>
+                    ))}
+                  </>
+                )}
+              </Tabs.Tab>
+            </Tabs>
 
             {/* TabBar for toggleing views between the reviews to the two different prompts (Recommend? and Strenths/Weaknesses) */}
             {/* <TabBar /> */}

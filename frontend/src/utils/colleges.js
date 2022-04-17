@@ -15,6 +15,14 @@ const colleges = {
   Trumbull: "TC",
 };
 
+const classYears = {
+  1: "First Year",
+  2: "Sophomore",
+  3: "Junior",
+  4: "Senior"
+}
+
+
 export const buildings = [
   { value: "Benjamin Franklin", label: "Benjamin Franklin" },
   { value: "Berkeley", label: "Berkeley" },
@@ -103,140 +111,6 @@ export const roomColorCodes = [
   },
 ];
 
-export const Suites = [
-  {
-    buildingName: "BK",
-    suiteCode: "D31",
-    favorited: false,
-    favoritedInside: false,
-    suiteRooms: [
-      {
-        roomCode: "D31A",
-        meta: {
-          favorited: false,
-          noise: 4.5,
-          size: 3.4,
-          noBeds: 2,
-          pictues: [],
-          roomReviews: [
-            {
-              rec: [
-                "It's tinyyyyyyy and no sunlight cause tiny window. no room...",
-              ],
-              sw: ["It could use some improvement"],
-            },
-          ],
-        },
-      },
-      {
-        roomCode: "D31B",
-        meta: {
-          favorited: false,
-          noise: 4.5,
-          size: 3.4,
-          noBeds: 2,
-          pictues: [],
-          roomReviews: [
-            {
-              rec: [
-                "It's tinyyyyyyy and no sunlight cause tiny window. no room...",
-              ],
-              sw: ["It could use some improvement"],
-            },
-          ],
-        },
-      },
-      {
-        roomCode: "D31C",
-        meta: {
-          favorited: false,
-          noise: 4.5,
-          size: 3.5,
-          noBeds: 2,
-          pictues: [],
-          roomReviews: [
-            {
-              rec: [
-                "It's tinyyyyyyy and no sunlight cause tiny window. no room...",
-              ],
-              sw: ["It could use some improvement"],
-            },
-          ],
-        },
-      },
-      {
-        roomCode: "D31D",
-        meta: {
-          favorited: false,
-          noise: 4.5,
-          size: 3.4,
-          noBeds: 2,
-          pictues: [],
-          roomReviews: [
-            {
-              rec: [
-                "It's tinyyyyyyy and no sunlight cause tiny window. no room...",
-              ],
-              sw: ["It could use some improvement"],
-            },
-          ],
-        },
-      },
-    ],
-  },
-  {
-    buildingName: "BK",
-    suiteCode: "D32",
-    favorited: false,
-    favoritedInside: false,
-    suiteRooms: [
-      {
-        roomCode: "D32",
-        meta: {
-          favorited: false,
-          noise: 5,
-          size: 3.4,
-          noBeds: 2,
-          pictues: [],
-          roomReviews: [
-            {
-              rec: [
-                "It's tinyyyyyyy and no sunlight cause tiny window. no room...",
-              ],
-              sw: ["It could use some improvement"],
-            },
-          ],
-        },
-      },
-    ],
-  },
-  {
-    buildingName: "BK",
-    suiteCode: "D45",
-    favorited: false,
-    favoritedInside: false,
-    suiteRooms: [
-      {
-        roomCode: "D45",
-        meta: {
-          favorited: false,
-          noise: 5,
-          size: 3.4,
-          noBeds: 2,
-          pictues: [],
-          roomReviews: [
-            {
-              rec: [
-                "It's tinyyyyyyy and no sunlight cause tiny window. no room...",
-              ],
-              sw: ["It could use some improvement"],
-            },
-          ],
-        },
-      },
-    ],
-  },
-];
 
 export function getAllCollegeNames() {
   return Object.keys(colleges);
@@ -254,4 +128,8 @@ export function numberToAcronym(no) {
   for (const row of roomsizes) {
     if (row.value === no) return row.label;
   }
+}
+
+export function numberToClassYear(number) {
+  return classYears[number];
 }
