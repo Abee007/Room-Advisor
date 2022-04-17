@@ -179,7 +179,9 @@ export default class ReviewRoomModal extends Component {
                   event.target.setAttribute("autocomplete", "off")
                 }
                 name="roomCode"
-                label={`In ${codeToCollege(this.props.college)}, what room would you like to review?`}
+                label={`In ${codeToCollege(
+                  this.props.college
+                )}, what room would you like to review?`}
                 placeholder="Please include entry way, room number, and letter of the room. (Ex: B41A) "
                 data={this.props.roomNames}
                 required
