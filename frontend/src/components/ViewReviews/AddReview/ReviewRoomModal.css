@@ -130,6 +130,16 @@ input[type=file]::file-selector-button:hover {
 
 /* For small screens */
 @media (max-width: 768px) {
+    .submit-review-container {
+        margin: 0 auto;
+    }
+
+    .submit-review-form-container {
+        width: 80%;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
     .slider-container {
         width: 100%;
     }
