@@ -81,7 +81,7 @@ class ViewReviews extends Component {
       codeToCollege(this.props.router.location.state.building) !==
         this.state.oldBuildingState.value
     ) {
-      console.log('handle building change')
+      console.log("handle building change");
       this.handleBuildingChange({
         value: codeToCollege(this.props.router.location.state.building),
         label: codeToCollege(this.props.router.location.state.building),
