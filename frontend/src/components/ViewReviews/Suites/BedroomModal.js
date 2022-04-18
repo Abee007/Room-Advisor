@@ -1,4 +1,3 @@
-import "./BedroomModal.css";
 import React, { Component } from "react";
 import { FaRegBookmark, FaBookmark } from "react-icons/fa";
 import room from "../../../static/no_reviews.jpeg";
@@ -13,6 +12,7 @@ import noise from "../../../static/noise.svg";
 import size from "../../../static/size.svg";
 import { Tabs } from "@mantine/core";
 import { numberToClassYear } from "../../../utils/colleges";
+import "./BedroomModal.css";
 
 export default class BedroomModal extends Component {
   constructor(props) {
@@ -235,7 +235,7 @@ export default class BedroomModal extends Component {
             <Tabs>
               <Tabs.Tab label="Strengths/Weaknesses">
                 {this.props.room.meta.roomReviews.length === 0 ? (
-                  <div>No reviews yet...</div>
+                  <div className="review-text"> No reviews yet...</div>
                 ) : (
                   <>
                     {this.props.room.meta.roomReviews.map((review) => (
@@ -250,7 +250,7 @@ export default class BedroomModal extends Component {
               </Tabs.Tab>
               <Tabs.Tab label="Recommend?">
                 {this.props.room.meta.roomReviews.length === 0 ? (
-                  <div>No reviews yet...</div>
+                  <div className="review-text"> No reviews yet...</div>
                 ) : (
                   <>
                     {this.props.room.meta.roomReviews.map((review) => (

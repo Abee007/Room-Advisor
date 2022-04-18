@@ -130,8 +130,12 @@ nav {
 
 .navbar-link.active {
     text-decoration: none;
-    color: var(--dark);
+    color: #0053c5;
+    font-weight: 600;
+}
 
+.navbar-link-icon.active {
+    stroke: red;
 }
 
 

@@ -3,7 +3,6 @@ h1 {
 }
 
 .suitecards-container {
-    padding-top: 20px;
     display: flex;
     flex-wrap: wrap;
     width: 85%;

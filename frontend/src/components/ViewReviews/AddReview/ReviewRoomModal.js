@@ -7,6 +7,8 @@ import Compress from "browser-image-compression";
 import { ThemeProvider } from "react-bootstrap";
 import { createTheme } from "@mui/material/styles";
 import { codeToCollege } from "../../../utils/colleges";
+import received from "../../../static/review-received.svg";
+import compressing from "../../../static/compressing-images.svg";
 
 const theme = createTheme({
   typography: {
@@ -150,12 +152,37 @@ export default class ReviewRoomModal extends Component {
     if (this.state.compressing) {
       return (
         <div>
-          <div>Thank you for submitting a review!</div>
-          <div>Compressing Pictures...</div>
+          <div>
+            <img
+              className="review-received-image"
+              src={received}
+              alt="review-received"
+            />
+            <p>Thank you for submitting a review!</p>
+          </div>
+          <div>
+            <img
+              className="review-received-image"
+              src={compressing}
+              alt="compressing-images"
+            />
+            <p>Compressing Pictures...</p>
+          </div>
         </div>
       );
     } else if (this.state.submitting) {
-      return <div>Uploading Review...</div>;
+      return (
+        <div>
+          <div>
+            <img
+              className="review-received-image"
+              src={received}
+              alt="review-received"
+            />
+            <p>Uploading review...</p>
+          </div>
+        </div>
+      );
     }
     return (
       <div className="submit-review-container">
