@@ -136,7 +136,7 @@ export default class SuiteCard extends Component {
 
       noBeds += room.meta.noBeds;
       pictures = pictures.concat(room.meta.pictures);
-      roomNames.push(room.roomCode);
+      roomNames.push([room.roomCode, room.meta.noBeds]);
     }
 
     // If you have reviews in this suite, let the score reflect that
@@ -162,8 +162,8 @@ export default class SuiteCard extends Component {
     } else {
       var count = 0;
       for (var rmName of roomNames) {
-        if (count === 2) break;
-        badges.push(rmName);
+        if (count === 3) break;
+        badges.push(`${rmName[0]}:${rmName[1]}`);
         count++;
       }
       if (roomNames.length > 2) {
