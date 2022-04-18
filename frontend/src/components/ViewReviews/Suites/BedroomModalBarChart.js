@@ -10,13 +10,13 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-export default function BarChartComponent({ data, title }) {
+// Styling for barchart handled in BedroomModal.css
+export default function BarChartComponent({ data }) {
   return (
     <ResponsiveContainer>
       <BarChart
-        title="my-title"
         data={data}
-        margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+        margin={{ top: 5, right: 20, left: 0, bottom: 5 }}
       >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="argument" interval={0} />

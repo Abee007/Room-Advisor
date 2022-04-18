@@ -170,7 +170,7 @@
 
   .barchart {
     height: 200px;
-    font-size: 6.5pt;
+    font-size: 7pt;
   }
 
   .col-md-5 {
@@ -246,14 +246,14 @@
 }
 
 /* For even smaller screens iphone 8etc*/
-@media (max-width: 400px) {
+@media (max-width: 340px) {
   .mantine-Tabs-tabLabel {
     font-size: 9pt;
   }
 
   .barchart {
     height: 150px;
-    font-size: 5pt;
+    font-size: 5.5pt;
   }
 
   .favorite-room-modal {
