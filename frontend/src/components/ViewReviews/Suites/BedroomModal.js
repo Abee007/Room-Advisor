@@ -219,10 +219,8 @@ export default class BedroomModal extends Component {
                   />
                 </div>
                 <div className="barchart">
-                <div>Size</div>
-                  <BarChartComponent
-                    data={this.state.roomStats.sizeReadings}
-                  />
+                  <div>Size</div>
+                  <BarChartComponent data={this.state.roomStats.sizeReadings} />
                 </div>
               </div>
             ) : (
@@ -242,12 +240,18 @@ export default class BedroomModal extends Component {
                       {this.props.room.meta.roomReviews.map((review) => (
                         <div className="review">
                           <div className="review-badge-container">
-                            <p className="modal-badge-gray review-badge" style={{ marginBottom: "0px" }}>
+                            <p
+                              className="modal-badge-gray review-badge"
+                              style={{ marginBottom: "0px" }}
+                            >
                               {numberToClassYear(review.reviewerClassYear)}
                             </p>
-                            <p className="modal-badge-gray review-badge" style={{ marginBottom: "0px" }}>
+                            <p
+                              className="modal-badge-gray review-badge"
+                              style={{ marginBottom: "0px" }}
+                            >
                               {review.reviewYear}
-                            </p>   
+                            </p>
                           </div>
                           <div>{review.sw}</div>
                         </div>
@@ -265,12 +269,18 @@ export default class BedroomModal extends Component {
                       {this.props.room.meta.roomReviews.map((review) => (
                         <div className="review">
                           <div className="review-badge-container">
-                            <p className="modal-badge-gray review-badge" style={{ marginBottom: "0px" }}>
+                            <p
+                              className="modal-badge-gray review-badge"
+                              style={{ marginBottom: "0px" }}
+                            >
                               {numberToClassYear(review.reviewerClassYear)}
                             </p>
-                            <p className="modal-badge-gray review-badge" style={{ marginBottom: "0px" }}>
+                            <p
+                              className="modal-badge-gray review-badge"
+                              style={{ marginBottom: "0px" }}
+                            >
                               {review.reviewYear}
-                            </p>   
+                            </p>
                           </div>
                           <div>{review.rec}</div>
                         </div>

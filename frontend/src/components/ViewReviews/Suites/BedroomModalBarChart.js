@@ -7,15 +7,19 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  ResponsiveContainer
+  ResponsiveContainer,
 } from "recharts";
 
 export default function BarChartComponent({ data, title }) {
   return (
     <ResponsiveContainer>
-      <BarChart title="my-title" data={data} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+      <BarChart
+        title="my-title"
+        data={data}
+        margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+      >
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="argument" interval={0}/>
+        <XAxis dataKey="argument" interval={0} />
         <YAxis />
         <Tooltip />
         <Bar dataKey="value" fill="#8884d8" />
