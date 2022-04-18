@@ -119,6 +119,9 @@ export default class Nav extends Component {
                           handleCloseHamburger={this.toggleActiveHamburger}
                         />
                       </div>
+                      <div className="nav-no-suites-found">
+                        {this.props.currState.noRoomsFound} suites found
+                      </div>
                     </div>
                   ) : (
                     ""

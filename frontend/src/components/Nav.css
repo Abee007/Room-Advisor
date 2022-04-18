@@ -138,6 +138,13 @@ nav {
     stroke: red;
 }
 
+.nav-no-suites-found {
+    display: flex;
+    margin-left: 3px;
+    margin-top: 20px;
+    font-size: 10pt;
+}
+
 
 /* For small screens */
 @media (max-width: 768px) {
@@ -186,5 +193,9 @@ nav {
     .navbar-link {
         padding: 5px 16px;
         align-self: center;
+    }
+
+    .nav-no-suites-found {
+        margin: 0 auto;
     }
 }
