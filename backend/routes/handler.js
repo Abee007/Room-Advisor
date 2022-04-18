@@ -3,10 +3,10 @@ const router = express.Router();
 const passport = require("passport");
 
 // APPLICATION ROUTES
-// const CLIENT_URL = "https://abrahammensah.com";
+const CLIENT_URL = "https://abrahammensah.com";
 
 //For dev
-const CLIENT_URL = "http://localhost:3000";
+// const CLIENT_URL = "http://localhost:3000";
 
 router.get("/viewreviews", (req, res) => {
   const str = [
