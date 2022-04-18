@@ -87,8 +87,6 @@ class ViewReviews extends Component {
       };
     }
 
-
-
     // Always set searchItem to empty
     this.state.searchItem = "";
 
@@ -171,7 +169,7 @@ class ViewReviews extends Component {
   componentDidUpdate() {
     // Handle building change here
     if (this.state.building === this.state.oldBuildingState) return;
-    
+
     const suiteRef = collection(db, "Suites");
     const q = query(
       suiteRef,
