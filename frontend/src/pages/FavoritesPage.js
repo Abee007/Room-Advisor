@@ -12,6 +12,7 @@ import {
 import CardsContainer from "../components/ViewReviews/Suites/CardsContainer";
 import { codeToCollege } from "../utils/colleges";
 import { LoadingOverlay } from "@mantine/core";
+import { Link } from "react-router-dom";
 import "./FavoritesPage.css";
 
 export default class FavoritesPage extends Component {
@@ -224,7 +225,7 @@ export default class FavoritesPage extends Component {
                 <p>
                   {" "}
                   You haven’t bookmarked any rooms yet! Save rooms and suites by
-                  "bookmarking" them so you can keep them in one place.
+                  "bookmarking" them by clicking <Link to="/viewreviews">here</Link>.
                 </p>
               </div>
             ) : (
@@ -237,8 +238,12 @@ export default class FavoritesPage extends Component {
                 {this.state.suitesForColleges.map((collegeObject) => (
                   <div key={collegeObject.buildingName}>
                     <div className="college-title">
-                      {" "}
-                      {codeToCollege(collegeObject.buildingName)}{" "}
+                      <Link
+                        to={"/viewreviews"}
+                        state={{building: collegeObject.buildingName}}
+                      >
+                        {codeToCollege(collegeObject.buildingName)}
+                      </Link>
                     </div>
                     <div className="line-separator"></div>
                     <CardsContainer
