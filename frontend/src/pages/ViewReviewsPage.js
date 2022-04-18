@@ -75,6 +75,7 @@ class ViewReviews extends Component {
     this.state.searchItem = "";
 
     // If we navigate to this page by only clicking on a college on the favorites page we want to change the college you see
+    console.log(this.props.router);
     if (
       this.props.router.location.state &&
       codeToCollege(this.props.router.location.state.building) !==
