@@ -76,6 +76,8 @@ class ViewReviews extends Component {
 
     // If we navigate to this page by only clicking on a college on the favorites page we want to change the college you see
     console.log(this.props.router);
+    console.log(codeToCollege(this.props.router.location.state.building));
+    console.log(this.state.oldBuildingState.value)
     if (
       this.props.router.location.state &&
       codeToCollege(this.props.router.location.state.building) !==
@@ -154,7 +156,9 @@ class ViewReviews extends Component {
 
   componentDidUpdate() {
     // Handle building change here
+    console.log('comp did update')
     if (this.state.building === this.state.oldBuildingState) return;
+    console.log('continued update')
 
     const suiteRef = collection(db, "Suites");
     const q = query(
