@@ -71,24 +71,38 @@ class ViewReviews extends Component {
       this.state = localState;
     }
 
-    // Always set searchItem to empty
-    this.state.searchItem = "";
-
-    // If we navigate to this page by only clicking on a college on the favorites page we want to change the college you see
-    console.log(this.props.router);
-    console.log(codeToCollege(this.props.router.location.state.building));
-    console.log(this.state.oldBuildingState.value)
     if (
       this.props.router.location.state &&
       codeToCollege(this.props.router.location.state.building) !==
         this.state.oldBuildingState.value
     ) {
-      console.log("handle building change");
-      this.handleBuildingChange({
+      //Update building object here
+      this.state.building = {
         value: codeToCollege(this.props.router.location.state.building),
         label: codeToCollege(this.props.router.location.state.building),
-      });
+      };
+      this.state.oldBuildingState = {
+        value: codeToCollege(this.props.router.location.state.building),
+        label: codeToCollege(this.props.router.location.state.building),
+      };
     }
+
+
+
+    // Always set searchItem to empty
+    this.state.searchItem = "";
+
+    // If we navigate to this page by only clicking on a college on the favorites page we want to change the college you see
+    // if (
+    //   this.props.router.location.state &&
+    //   codeToCollege(this.props.router.location.state.building) !==
+    //     this.state.oldBuildingState.value
+    // ) {
+    //   this.handleBuildingChange({
+    //     value: codeToCollege(this.props.router.location.state.building),
+    //     label: codeToCollege(this.props.router.location.state.building),
+    //   });
+    // }
 
     // Create suite state
     this.state.suites = this.filterRoomSize(
@@ -156,9 +170,7 @@ class ViewReviews extends Component {
 
   componentDidUpdate() {
     // Handle building change here
-    console.log('comp did update')
     if (this.state.building === this.state.oldBuildingState) return;
-    console.log('continued update')
 
     const suiteRef = collection(db, "Suites");
     const q = query(
