@@ -86,6 +86,7 @@ class ViewReviews extends Component {
         value: codeToCollege(this.props.router.location.state.building),
         label: codeToCollege(this.props.router.location.state.building),
       };
+      this.state.loading = true;
     }
 
     // Always set searchItem to empty
