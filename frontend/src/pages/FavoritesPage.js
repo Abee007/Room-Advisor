@@ -230,10 +230,10 @@ export default class FavoritesPage extends Component {
             ) : (
               <>
                 <div className="page-title"> Favorite Suites </div>
-                 <p className="page-description">
-                   {" "}
-                   The suites you bookmarked will appear here.{" "}
-                 </p>
+                <p className="page-description">
+                  {" "}
+                  The suites you bookmarked will appear here.{" "}
+                </p>
                 {this.state.suitesForColleges.map((collegeObject) => (
                   <div key={collegeObject.buildingName}>
                     <div className="college-title">
