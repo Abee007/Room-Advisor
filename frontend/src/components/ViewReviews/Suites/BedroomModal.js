@@ -4,7 +4,7 @@ import room from "../../../static/no_reviews.jpeg";
 // import TabBar from './TabBar'
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import BarChart from "./BedroomModalBarChart";
+import BarChartComponent from "./BedroomModalBarChart";
 import { numberToAcronym } from "../../../utils/colleges";
 import { IoIosArrowBack } from "react-icons/io";
 import { roomColorCodes } from "../../../utils/colleges";
@@ -213,15 +213,15 @@ export default class BedroomModal extends Component {
             {this.props.room.meta.roomReviews.length > 0 ? (
               <div className="barchart-container">
                 <div className="barchart">
-                  <BarChart
+                  <div>Noise</div>
+                  <BarChartComponent
                     data={this.state.roomStats.noiseReadings}
-                    title={"Noise"}
                   />
                 </div>
                 <div className="barchart">
-                  <BarChart
+                <div>Size</div>
+                  <BarChartComponent
                     data={this.state.roomStats.sizeReadings}
-                    title={"Size"}
                   />
                 </div>
               </div>
@@ -234,34 +234,50 @@ export default class BedroomModal extends Component {
             <h2 className="bedroom-modal-subtitle">Reviews</h2>
             <Tabs>
               <Tabs.Tab label="Strengths/Weaknesses">
-                {this.props.room.meta.roomReviews.length === 0 ? (
-                  <div className="review-text"> No reviews yet...</div>
-                ) : (
-                  <>
-                    {this.props.room.meta.roomReviews.map((review) => (
-                      <div>
-                        <div>{review.reviewYear}</div>
-                        <div>{numberToClassYear(review.reviewerClassYear)}</div>
-                        <div>{review.sw}</div>
-                      </div>
-                    ))}
-                  </>
-                )}
+                <div className="review-container">
+                  {this.props.room.meta.roomReviews.length === 0 ? (
+                    <div className="review-text"> No reviews yet...</div>
+                  ) : (
+                    <>
+                      {this.props.room.meta.roomReviews.map((review) => (
+                        <div className="review">
+                          <div className="review-badge-container">
+                            <p className="modal-badge-gray review-badge" style={{ marginBottom: "0px" }}>
+                              {numberToClassYear(review.reviewerClassYear)}
+                            </p>
+                            <p className="modal-badge-gray review-badge" style={{ marginBottom: "0px" }}>
+                              {review.reviewYear}
+                            </p>   
+                          </div>
+                          <div>{review.sw}</div>
+                        </div>
+                      ))}
+                    </>
+                  )}
+                </div>
               </Tabs.Tab>
               <Tabs.Tab label="Recommend?">
-                {this.props.room.meta.roomReviews.length === 0 ? (
-                  <div className="review-text"> No reviews yet...</div>
-                ) : (
-                  <>
-                    {this.props.room.meta.roomReviews.map((review) => (
-                      <div>
-                        <div>{review.reviewYear}</div>
-                        <div>{numberToClassYear(review.reviewerClassYear)}</div>
-                        <div>{review.rec}</div>
-                      </div>
-                    ))}
-                  </>
-                )}
+                <div className="review-container">
+                  {this.props.room.meta.roomReviews.length === 0 ? (
+                    <div className="review-text"> No reviews yet...</div>
+                  ) : (
+                    <>
+                      {this.props.room.meta.roomReviews.map((review) => (
+                        <div className="review">
+                          <div className="review-badge-container">
+                            <p className="modal-badge-gray review-badge" style={{ marginBottom: "0px" }}>
+                              {numberToClassYear(review.reviewerClassYear)}
+                            </p>
+                            <p className="modal-badge-gray review-badge" style={{ marginBottom: "0px" }}>
+                              {review.reviewYear}
+                            </p>   
+                          </div>
+                          <div>{review.rec}</div>
+                        </div>
+                      ))}
+                    </>
+                  )}
+                </div>
               </Tabs.Tab>
             </Tabs>
 
