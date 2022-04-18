@@ -11,12 +11,7 @@ import { LoadingOverlay } from "@mantine/core";
 import floatingReview from "../static/review_floating.png";
 import ReviewRoomModal from "../components/ViewReviews/AddReview/ReviewRoomModal";
 import { HideOn } from "react-hide-on-scroll";
-import {
-  useLocation,
-  useNavigate,
-  useParams,
-} from "react-router-dom";
-
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 class ViewReviews extends Component {
   // initial setup
@@ -79,12 +74,17 @@ class ViewReviews extends Component {
     // Always set searchItem to empty
     this.state.searchItem = "";
 
-
     // If we navigate to this page by only clicking on a college on the favorites page we want to change the college you see
-    if(this.props.router.location.state && codeToCollege(this.props.router.location.state.building) !== this.state.oldBuildingState.value) {
-      this.handleBuildingChange({value: codeToCollege(this.props.router.location.state.building), label: codeToCollege(this.props.router.location.state.building)});
+    if (
+      this.props.router.location.state &&
+      codeToCollege(this.props.router.location.state.building) !==
+        this.state.oldBuildingState.value
+    ) {
+      this.handleBuildingChange({
+        value: codeToCollege(this.props.router.location.state.building),
+        label: codeToCollege(this.props.router.location.state.building),
+      });
     }
-    
 
     // Create suite state
     this.state.suites = this.filterRoomSize(
@@ -505,12 +505,7 @@ function withRouter(Component) {
     let location = useLocation();
     let navigate = useNavigate();
     let params = useParams();
-    return (
-      <Component
-        {...props}
-        router={{ location, navigate, params }}
-      />
-    );
+    return <Component {...props} router={{ location, navigate, params }} />;
   }
 
   return ComponentWithRouterProp;

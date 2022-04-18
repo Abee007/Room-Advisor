@@ -225,7 +225,8 @@ export default class FavoritesPage extends Component {
                 <p>
                   {" "}
                   You haven’t bookmarked any rooms yet! Save rooms and suites by
-                  "bookmarking" them by clicking <Link to="/viewreviews">here</Link>.
+                  "bookmarking" them by clicking{" "}
+                  <Link to="/viewreviews">here</Link>.
                 </p>
               </div>
             ) : (
@@ -240,7 +241,7 @@ export default class FavoritesPage extends Component {
                     <div className="college-title">
                       <Link
                         to={"/viewreviews"}
-                        state={{building: collegeObject.buildingName}}
+                        state={{ building: collegeObject.buildingName }}
                       >
                         {codeToCollege(collegeObject.buildingName)}
                       </Link>
