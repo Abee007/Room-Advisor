@@ -88,8 +88,6 @@ class ViewReviews extends Component {
       };
     }
 
-
-
     // Always set searchItem to empty
     this.state.searchItem = "";
 
