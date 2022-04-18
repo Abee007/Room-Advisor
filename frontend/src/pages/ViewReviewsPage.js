@@ -71,6 +71,7 @@ class ViewReviews extends Component {
       this.state = localState;
     }
 
+    // If we navigate to this page by only clicking on a college on the favorites page we want to change the college you see
     if (
       this.props.router.location.state &&
       codeToCollege(this.props.router.location.state.building) !==
@@ -91,18 +92,6 @@ class ViewReviews extends Component {
 
     // Always set searchItem to empty
     this.state.searchItem = "";
-
-    // If we navigate to this page by only clicking on a college on the favorites page we want to change the college you see
-    // if (
-    //   this.props.router.location.state &&
-    //   codeToCollege(this.props.router.location.state.building) !==
-    //     this.state.oldBuildingState.value
-    // ) {
-    //   this.handleBuildingChange({
-    //     value: codeToCollege(this.props.router.location.state.building),
-    //     label: codeToCollege(this.props.router.location.state.building),
-    //   });
-    // }
 
     // Create suite state
     this.state.suites = this.filterRoomSize(
@@ -171,7 +160,7 @@ class ViewReviews extends Component {
   componentDidUpdate() {
     // Handle building change here
     if (this.state.building === this.state.oldBuildingState) return;
-    
+
     const suiteRef = collection(db, "Suites");
     const q = query(
       suiteRef,

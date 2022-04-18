@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { FaRegBookmark, FaBookmark } from "react-icons/fa";
 import room from "../../../static/no_reviews.jpeg";
-// import TabBar from './TabBar'
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import BarChartComponent from "./BedroomModalBarChart";
@@ -290,9 +289,6 @@ export default class BedroomModal extends Component {
                 </div>
               </Tabs.Tab>
             </Tabs>
-
-            {/* TabBar for toggleing views between the reviews to the two different prompts (Recommend? and Strenths/Weaknesses) */}
-            {/* <TabBar /> */}
           </div>
         </div>
       </div>
