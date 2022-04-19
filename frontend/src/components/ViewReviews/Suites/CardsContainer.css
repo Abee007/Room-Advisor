@@ -24,4 +24,8 @@ h1 {
     .suitecards-inner-container {
         width: 100%;
     }
+
+    div.suitecards-container>div:nth-of-type(even) {
+        background: #e0e0e0;
+    }
 }
