@@ -111,7 +111,11 @@ export default class CardsContainer extends Component {
   };
 
   sortSuites = (sortBy, suites) => {
-    if (sortBy === "FL") {
+    if (sortBy === "ALPHA") {
+      return this.sortBySuiteName(suites, 1);
+    } else if (sortBy === "NEGALPHA") {
+      return this.sortBySuiteName(suites, -1);
+    } else if (sortBy === "FL") {
       return this.sortByFloorLevel(suites, 1);
     } else if (sortBy === "NEGFL") {
       return this.sortByFloorLevel(suites, -1);
@@ -121,13 +125,10 @@ export default class CardsContainer extends Component {
       return this.sortByBedroomSize(suites, -1);
     } else if (sortBy === "NOISE") {
       return this.sortByNoise(suites, 1);
-    } else if (sortBy === "NEGNOISE") {
-      return this.sortByNoise(suites, -1);
-    } else if (sortBy === "ALPHA") {
-      return this.sortBySuiteName(suites, 1);
     }
-    //NEG ALPHA
-    return this.sortBySuiteName(suites, -1);
+    //NEGNOISE
+    return this.sortByNoise(suites, -1);
+  
   };
 
   sortBySuiteName = (suites, pos) => {

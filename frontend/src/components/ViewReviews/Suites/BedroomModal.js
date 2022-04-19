@@ -192,14 +192,14 @@ export default class BedroomModal extends Component {
         <div className="bedroom-modal-body">
           <div className="col-md-5">
             {this.props.room.meta.pictures.length === 0 ? (
-              <Carousel showArrows={true}>
+              <Carousel showArrows={true} showThumbs={false}>
                 <div>
                   <img className="card-photo" src={room} alt="room-view" />
                 </div>
               </Carousel>
             ) : (
               <>
-                <Carousel showArrows={true}>
+                <Carousel showArrows={true} showThumbs={false}>
                   {this.props.room.meta.pictures.map((pic) => (
                     <div id={pic.name}>
                       <img className="card-photo" src={pic} alt="room-view" />
