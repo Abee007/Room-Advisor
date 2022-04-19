@@ -56,7 +56,7 @@ class ViewReviews extends Component {
       },
       roomSizes: defaultRoomSizes,
       searchItem: "",
-      sortBy: { value: "ALPHA", label: "Sort by: Suite Name" },
+      sortBy: { value: "ALPHA", label: "Sort by: Suite Name (A-Z)" },
     };
 
     if (!JSON.parse(window.localStorage.getItem("viewReviewsState"))) {

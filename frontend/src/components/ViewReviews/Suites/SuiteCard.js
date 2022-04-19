@@ -163,10 +163,10 @@ export default class SuiteCard extends Component {
       var count = 0;
       for (var rmName of roomNames) {
         if (count === 3) break;
-        badges.push(`${rmName[0]}:${rmName[1]}`);
+        badges.push(`${rmName[0]}(${rmName[1]})`);
         count++;
       }
-      if (roomNames.length > 2) {
+      if (roomNames.length > 3) {
         badges.push("+");
       }
     }

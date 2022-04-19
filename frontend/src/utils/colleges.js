@@ -53,10 +53,14 @@ export const roomsizes = [
 ];
 
 export const sortOptions = [
-  { value: "ALPHA", label: "Sort by: Suite Name" },
-  { value: "FL", label: "Sort by: Floor Level" },
-  { value: "BR_SZ", label: "Sort by: Bedroom Size" },
-  { value: "NOISE", label: "Sort by: Noise Level" },
+  { value: "ALPHA", label: "Sort by: Suite Name (A-Z)" },
+  { value: "NEGALPHA", label: "Sort by: Suite Name (Z-A)" },
+  { value: "FL", label: "Sort by: Floor Level (Low to High)" },
+  { value: "NEGFL", label: "Sort by: Floor Level (High to Low)" },
+  { value: "BR_SZ", label: "Sort by: Bedroom Size (High to Low)" },
+  { value: "NEGBR_SZ", label: "Sort by: Bedroom Size (Low to High)" },
+  { value: "NOISE", label: "Sort by: Noise Level (Low to High)" },
+  { value: "NEGNOISE", label: "Sort by: Noise Level (High to Low)" },
 ];
 
 export const roomColorCodes = [

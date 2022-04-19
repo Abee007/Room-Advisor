@@ -20,7 +20,7 @@ export default class FavoritesPage extends Component {
     super(props);
     this.state = {
       loading: true,
-      sortBy: { value: "ALPHA", label: "Sort by: Suite Name" },
+      sortBy: { value: "ALPHA", label: "Sort by: Suite Name (A-Z)" },
       favorites: this.props.user.favorites,
       favoritedColleges: this.findUniqueFavoritedColleges(),
       suitesForColleges: [],

@@ -112,69 +112,94 @@ export default class CardsContainer extends Component {
 
   sortSuites = (sortBy, suites) => {
     if (sortBy === "FL") {
-      return this.sortByFloorLevel(suites);
+      return this.sortByFloorLevel(suites, 1);
+    } else if (sortBy === "NEGFL") {
+      return this.sortByFloorLevel(suites, -1);
     } else if (sortBy === "BR_SZ") {
-      return this.sortByBedroomSize(suites);
+      return this.sortByBedroomSize(suites, 1);
+    } else if (sortBy === "NEGBR_SZ") {
+      return this.sortByBedroomSize(suites, -1);
     } else if (sortBy === "NOISE") {
-      return this.sortByNoise(suites);
+      return this.sortByNoise(suites, 1);
+    } else if (sortBy === "NEGNOISE") {
+      return this.sortByNoise(suites, -1);
+    } else if (sortBy === "ALPHA") {
+      return this.sortBySuiteName(suites, 1);
     }
-    return this.sortBySuiteName(suites);
+    //NEG ALPHA
+    return this.sortBySuiteName(suites, -1);
   };
 
-  sortBySuiteName = (suites) => {
+  sortBySuiteName = (suites, pos) => {
     return suites.sort((a, b) => {
-      if (a.suiteRooms[0].roomCode < b.suiteRooms[0].roomCode) return -1;
-      if (a.suiteRooms[0].roomCode > b.suiteRooms[0].roomCode) return 1;
+      if (a.suiteRooms[0].roomCode < b.suiteRooms[0].roomCode) return -1*pos;
+      if (a.suiteRooms[0].roomCode > b.suiteRooms[0].roomCode) return 1*pos;
       return 0;
     });
   };
 
-  sortByFloorLevel = (suites) => {
+  sortByFloorLevel = (suites, pos) => {
     // Compare the first letter of the room number
     return suites.sort((a, b) => {
-      if (a.suiteRooms[0].roomCode[1] < b.suiteRooms[0].roomCode[1]) return -1;
-      if (a.suiteRooms[0].roomCode[1] > b.suiteRooms[0].roomCode[1]) return 1;
+      if (a.suiteRooms[0].roomCode[1] < b.suiteRooms[0].roomCode[1]) return -1*pos;
+      if (a.suiteRooms[0].roomCode[1] > b.suiteRooms[0].roomCode[1]) return 1*pos;
       return 0;
     });
   };
 
   avgBedroomSize = (suite) => {
-    var no = 0,
-      sz = 0;
-    for (const room of suite.suiteRooms) {
-      no++;
-      sz += room.meta.size;
+    var no = 0, sz = 0, noRoomsWithEmptyReviews = 0;
+    for(const room of suite.suiteRooms) {
+      if(room.meta.roomReviews.length === 0) {
+        noRoomsWithEmptyReviews++;
+      }
+      for(const review of room.meta.roomReviews) {
+        sz += review.size;
+        no++;
+      }
+    }
+
+    if(noRoomsWithEmptyReviews === suite.suiteRooms.length) {
+      return 2.5;
     }
     return sz / no;
   };
 
-  sortByBedroomSize = (suites) => {
+  sortByBedroomSize = (suites, pos) => {
     // SortByAvgRoomSize descending
     return suites.sort((a, b) => {
       const aVal = this.avgBedroomSize(a),
         bVal = this.avgBedroomSize(b);
-      if (aVal < bVal) return 1;
-      if (aVal > bVal) return -1;
+      if (aVal < bVal) return 1*pos;
+      if (aVal > bVal) return -1*pos;
       return 0;
     });
   };
 
   avgNoise = (suite) => {
-    var no = 0,
-      noise = 0;
-    for (const room of suite.suiteRooms) {
-      no++;
-      noise += room.meta.noise;
+    var no = 0, noise = 0, noRoomsWithEmptyReviews = 0;
+    for(const room of suite.suiteRooms) {
+      if(room.meta.roomReviews.length === 0) {
+        noRoomsWithEmptyReviews++;
+      }
+      for(const review of room.meta.roomReviews) {
+        noise += review.noise;
+        no++;
+      }
+    }
+
+    if(noRoomsWithEmptyReviews === suite.suiteRooms.length) {
+      return 2.5;
     }
     return noise / no;
   };
 
-  sortByNoise = (suites) => {
+  sortByNoise = (suites, pos) => {
     return suites.sort((a, b) => {
       const aVal = this.avgNoise(a),
         bVal = this.avgNoise(b);
-      if (aVal < bVal) return 1;
-      if (aVal > bVal) return -1;
+      if (aVal < bVal) return -1*pos;
+      if (aVal > bVal) return 1*pos;
       return 0;
     });
   };
