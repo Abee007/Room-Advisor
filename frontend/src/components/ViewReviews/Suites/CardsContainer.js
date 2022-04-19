@@ -128,7 +128,6 @@ export default class CardsContainer extends Component {
     }
     //NEGNOISE
     return this.sortByNoise(suites, -1);
-  
   };
 
   sortBySuiteName = (suites, pos) => {
