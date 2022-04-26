@@ -19,6 +19,7 @@ h1 {
 @media (max-width: 768px) {
     .suitecards-container {
         width: 100%;
+        margin: 0px;
     }
 
     .suitecards-inner-container {
@@ -26,6 +27,6 @@ h1 {
     }
 
     div.suitecards-container>div:nth-of-type(even) {
-        background: #e0e0e0;
+        background: #f0f0f0;
     }
 }

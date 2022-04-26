@@ -40,7 +40,6 @@ svg {
 .suite-card-title {
     position: relative;
     margin-top: 3%;
-    margin-left: auto;
     font-weight: bold;
     font-size: 2.0em;
 }
@@ -89,14 +88,15 @@ svg {
     font-size: 10pt;
     font-weight: 600;
     padding: 5px 9px;
-    color: #464646;
+    color: #141414;
     background: rgb(199 199 199 / 25%);
     margin-right: 5px;
 }
 
 .badge-icon{
-    width: 14px;
+    width: 19px;
     height: 14px;
+    object-fit: contain;
     margin-right: 3px;
 }
 
@@ -122,7 +122,7 @@ svg {
     .suite-card {
         width: 340px;
         height: 200px;
-        margin: 0 auto;
+        margin: 10px auto;
     }
 
     .card-title-container {

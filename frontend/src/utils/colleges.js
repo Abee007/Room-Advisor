@@ -114,6 +114,136 @@ export const roomColorCodes = [
   },
 ];
 
+// one --> reddest 
+export const badgeColorCodes = [
+  {
+    value: "one",
+    label: "one",
+    color: "#e7716f",
+  },
+  {
+    value: "two",
+    label: "two",
+    color: "#e77871",
+  },
+  {
+    value: "three",
+    label: "three",
+    color: "#e88574",
+  },
+  {
+    value: "four",
+    label: "four",
+    color: "#ea8e77",
+  },
+  {
+    value: "five",
+    label: "five",
+    color: "#eb9077",
+  },
+  {
+    value: "six",
+    label: "six",
+    color: "#eb9378",
+  },
+  {
+    value: "seven",
+    label: "seven",
+    color: "#ef9f7c",
+  },
+  {
+    value: "nine",
+    label: "nine",
+    color: "#f0ae80",
+  },
+  {
+    value: "five",
+    label: "five",
+    color: "#eb9077",
+  },
+  {
+    value: "six",
+    label: "six",
+    color: "#eb9378",
+  },
+  {
+    value: "seven",
+    label: "seven",
+    color: "#ef9f7c",
+  },
+  {
+    value: "eight",
+    label: "eight",
+    color: "#f0ae80",
+  },
+  {
+    value: "nine",
+    label: "nine",
+    color: "#f1b884",
+  },
+  {
+    value: "ten",
+    label: "ten",
+    color: "#f7d48a",
+  },
+  {
+    value: "eleven",
+    label: "eleven",
+    color: "#fae28f",
+  },
+  {
+    value: "twelve",
+    label: "twelve",
+    color: "#f1e790",
+  },
+  {
+    value: "thirteen",
+    label: "thirteen",
+    color: "#e4e28f",
+  },
+  {
+    value: "fourteen",
+    label: "fourteen",
+    color: "#e2e08e",
+  },
+  {
+    value: "fifteen",
+    label: "fifteen",
+    color: "#cdd88b",
+  },
+  {
+    value: "sixteen",
+    label: "sixteen",
+    color: "#b6cd88",
+  },
+  {
+    value: "seventeen",
+    label: "seventeen",
+    color: "#aeca87",
+  },
+  {
+    value: "eighteen",
+    label: "eighteen",
+    color: "#9ac285",
+  },
+  {
+    value: "nineteen",
+    label: "nineteen",
+    color: "#95bf84",
+  },
+  {
+    value: "twenty",
+    label: "twenty",
+    color: "#87b882",
+  },
+  {
+    value: "twentyone",
+    label: "twentyone",
+    color: "#76b180",
+  },
+
+];
+
 export function getAllCollegeNames() {
   return Object.keys(colleges);
 }

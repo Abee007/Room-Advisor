@@ -7,8 +7,10 @@ import BarChartComponent from "./BedroomModalBarChart";
 import { numberToAcronym } from "../../../utils/colleges";
 import { IoIosArrowBack } from "react-icons/io";
 import { roomColorCodes } from "../../../utils/colleges";
+import { badgeColorCodes } from "../../../utils/colleges";
 import noise from "../../../static/noise.svg";
 import size from "../../../static/size.svg";
+import light from "../../../static/natural-light.svg";
 import { Tabs } from "@mantine/core";
 import { numberToClassYear } from "../../../utils/colleges";
 import "./BedroomModal.css";
@@ -102,8 +104,8 @@ export default class BedroomModal extends Component {
       };
     }
     return {
-      noise: 2.5,
-      size: 2.5,
+      noise: 4.5,
+      size: 1.5,
       noiseReadings: noiseData,
       sizeReadings: sizeData,
     };
@@ -160,16 +162,44 @@ export default class BedroomModal extends Component {
             </p>
 
             <div className="modal-icon-badge-container">
-              <p className="modal-badge-gray" style={{ marginBottom: "0px" }}>
+
+              {/* Noise badge */}
+              <p className="modal-badge-gray" 
+                style={{ 
+                  background:
+                    badgeColorCodes[(Math.round((this.state.roomStats.noise - 1)/(4) * (-20) + 20 ))].color,
+                  marginBottom: "0px" 
+                }}>
                 {" "}
                 <img className="badge-icon" src={noise} alt="noise" />{" "}
                 {(Math.round(this.state.roomStats.noise * 10) / 10).toFixed(1)}{" "}
               </p>
-              <p className="modal-badge-gray" style={{ marginBottom: "0px" }}>
+
+              {/* Size badge */}
+              <p className="modal-badge-gray" 
+                style={{ 
+                  background:
+                    badgeColorCodes[(Math.round((this.state.roomStats.size - 1)/(4) * 20 + 1 ))].color,
+                  marginBottom: "0px" 
+                }}>
                 {" "}
                 <img className="badge-icon" src={size} alt="size" />{" "}
                 {(Math.round(this.state.roomStats.size * 10) / 10).toFixed(1)}{" "}
               </p>
+
+              {/* NEED TO CHANGE VARIABLE FROM SIZE TO LIGHT */}
+              {/* Natural light badge */}
+              <p className="modal-badge-gray" 
+                style={{ 
+                  background:
+                    badgeColorCodes[(Math.round((this.state.roomStats.size - 1)/(4) * 20 + 1 ))].color,
+                  marginBottom: "0px" 
+                }}>
+                {" "}
+                <img className="badge-icon" src={light} alt="noise" />{" "}
+                {(Math.round(this.state.roomStats.size * 10) / 10).toFixed(1)}{" "}
+              </p>
+
             </div>
           </div>
 
@@ -239,18 +269,33 @@ export default class BedroomModal extends Component {
                       {this.props.room.meta.roomReviews.map((review) => (
                         <div className="review">
                           <div className="review-badge-container">
+
+                            Lived as a  
+
+                            {/* class year badge */}
                             <p
                               className="modal-badge-gray review-badge"
-                              style={{ marginBottom: "0px" }}
+                              style={{
+                                background:
+                                  roomColorCodes[review.reviewerClassYear].color,
+                                color:
+                                  roomColorCodes[review.reviewerClassYear].tcolor,
+                                marginBottom: "0",
+                              }}
                             >
                               {numberToClassYear(review.reviewerClassYear)}
                             </p>
+
+                            in  
+
+                            {/* date of review badge */}
                             <p
                               className="modal-badge-gray review-badge"
                               style={{ marginBottom: "0px" }}
                             >
                               {review.reviewYear}
                             </p>
+                            
                           </div>
                           <div>{review.sw}</div>
                         </div>

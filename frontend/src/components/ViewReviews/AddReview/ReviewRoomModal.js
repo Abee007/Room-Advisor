@@ -230,6 +230,8 @@ export default class ReviewRoomModal extends Component {
               minRows={2}
               required
             />
+
+            {/* Noise slider */}
             <div className="slider-container">
               <p className="question-title">
                 Relative to other rooms at Yale, how loud is/was this room
@@ -258,6 +260,8 @@ export default class ReviewRoomModal extends Component {
               />
               <br />
             </div>
+
+            {/* Size slider */}
             <div className="slider-container">
               <p className="question-title">
                 {" "}
@@ -282,6 +286,36 @@ export default class ReviewRoomModal extends Component {
                   { value: 50, label: "Same" },
                   { value: 75, label: "Larger" },
                   { value: 100, label: "Much larger" },
+                ]}
+              />
+              <br />
+            </div>
+
+            {/* Natural light slider */}
+            <div className="slider-container">
+              <p className="question-title">
+                {" "}
+                Relative to other rooms at Yale, the amount of sunlight this room gets is:{" "}
+              </p>
+              <Slider
+                label={null}
+                className="slider"
+                styles={{
+                  root: { width: "60%" },
+                  bar: { backgroundColor: "#0053c5" },
+                  thumb: { backgroundColor: "#fff", borderColor: "#0053c5" },
+                  mark: { backgroundColor: "#fff" },
+                  markFilled: { borderColor: "#0053c5" },
+                }}
+                name="size"
+                step={25}
+                defaultValue={50}
+                marks={[
+                  { value: 0, label: "Much more" },
+                  { value: 25, label: "More" },
+                  { value: 50, label: "Same" },
+                  { value: 75, label: "Less" },
+                  { value: 100, label: "Much less" },
                 ]}
               />
               <br />
