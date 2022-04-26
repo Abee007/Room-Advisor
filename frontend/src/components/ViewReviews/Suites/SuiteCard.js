@@ -249,41 +249,53 @@ export default class SuiteCard extends Component {
             </p>
           ))}
           <div className="icon-badge-container">
-
             {/* Noise badge */}
-            <p className="room-badge-gray" 
-            style={{ 
-              background:
-                badgeColorCodes[(Math.round((this.state.suiteStats.noise - 1)/(4) * (-20) + 20 ))].color,
-              marginBottom: "0px" 
-            }}>
+            <p
+              className="room-badge-gray"
+              style={{
+                background:
+                  badgeColorCodes[
+                    Math.round(
+                      ((this.state.suiteStats.noise - 1) / 4) * -20 + 20
+                    )
+                  ].color,
+                marginBottom: "0px",
+              }}
+            >
               <img className="badge-icon" src={noise} alt="noise" />
               {(Math.round(this.state.suiteStats.noise * 10) / 10).toFixed(1)}
             </p>
 
             {/* Size badge */}
-            <p className="room-badge-gray" 
-            style={{ 
-              background:
-                badgeColorCodes[(Math.round((this.state.suiteStats.size - 1)/(4) * 20 + 1))].color,
-              marginBottom: "0px" 
-            }}>
+            <p
+              className="room-badge-gray"
+              style={{
+                background:
+                  badgeColorCodes[
+                    Math.round(((this.state.suiteStats.size - 1) / 4) * 20 + 1)
+                  ].color,
+                marginBottom: "0px",
+              }}
+            >
               <img className="badge-icon" src={size} alt="size" />
               {(Math.round(this.state.suiteStats.size * 10) / 10).toFixed(1)}
             </p>
 
             {/* NEED TO CHANGE VARIABLE FROM SIZE TO LIGHT */}
             {/* Natural light badge */}
-            <p className="room-badge-gray" 
-            style={{ 
-              background:
-                badgeColorCodes[(Math.round((this.state.suiteStats.size - 1)/(4) * 20 + 1 ))].color,
-              marginBottom: "0px" 
-            }}>
+            <p
+              className="room-badge-gray"
+              style={{
+                background:
+                  badgeColorCodes[
+                    Math.round(((this.state.suiteStats.size - 1) / 4) * 20 + 1)
+                  ].color,
+                marginBottom: "0px",
+              }}
+            >
               <img className="badge-icon" src={light} alt="light" />
               {(Math.round(this.state.suiteStats.size * 10) / 10).toFixed(1)}
             </p>
-
           </div>
         </div>
 

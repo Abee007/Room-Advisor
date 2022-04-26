@@ -139,32 +139,38 @@ export default class BedroomCard extends Component {
         </div>
 
         <div className="modal-quote-badge-container">
-
           <p className="bedroom-card-review-quotes">
             <img className="review-icon" src={review} alt="review-icon" />
             <div> {this.state.roomStats.previewText} </div>
           </p>
 
-
           {/* Noise badge */}
-          <p className="bedroom-badge-gray" 
-          style={{ 
-            background:
-              badgeColorCodes[(Math.round((this.state.roomStats.noise - 1)/(4) * (-20) + 20 ))].color,
-            marginBottom: "0px" 
-          }}>
+          <p
+            className="bedroom-badge-gray"
+            style={{
+              background:
+                badgeColorCodes[
+                  Math.round(((this.state.roomStats.noise - 1) / 4) * -20 + 20)
+                ].color,
+              marginBottom: "0px",
+            }}
+          >
             {" "}
             <img className="badge-icon" src={noise} alt="noise" />{" "}
             {(Math.round(this.state.roomStats.noise * 10) / 10).toFixed(1)}{" "}
           </p>
 
           {/* Size badge */}
-          <p className="bedroom-badge-gray" 
-            style={{ 
+          <p
+            className="bedroom-badge-gray"
+            style={{
               background:
-                badgeColorCodes[(Math.round((this.state.roomStats.size - 1)/(4) * 20 + 1 ))].color,
-              marginBottom: "0px" 
-            }}>
+                badgeColorCodes[
+                  Math.round(((this.state.roomStats.size - 1) / 4) * 20 + 1)
+                ].color,
+              marginBottom: "0px",
+            }}
+          >
             {" "}
             <img className="badge-icon" src={size} alt="size" />{" "}
             {(Math.round(this.state.roomStats.size * 10) / 10).toFixed(1)}{" "}
@@ -172,17 +178,20 @@ export default class BedroomCard extends Component {
 
           {/* NEED TO CHANGE VARIABLE FROM SIZE TO LIGHT */}
           {/* Natural light badge */}
-          <p className="bedroom-badge-gray" 
-            style={{ 
+          <p
+            className="bedroom-badge-gray"
+            style={{
               background:
-                badgeColorCodes[(Math.round((this.state.roomStats.size - 1)/(4) * 20 + 1 ))].color,
-              marginBottom: "0px" 
-            }}>
+                badgeColorCodes[
+                  Math.round(((this.state.roomStats.size - 1) / 4) * 20 + 1)
+                ].color,
+              marginBottom: "0px",
+            }}
+          >
             {" "}
             <img className="badge-icon" src={light} alt="light" />{" "}
             {(Math.round(this.state.roomStats.noise * 10) / 10).toFixed(1)}{" "}
           </p>
-
         </div>
       </div>
     );

@@ -295,7 +295,8 @@ export default class ReviewRoomModal extends Component {
             <div className="slider-container">
               <p className="question-title">
                 {" "}
-                Relative to other rooms at Yale, the amount of sunlight this room gets is:{" "}
+                Relative to other rooms at Yale, the amount of sunlight this
+                room gets is:{" "}
               </p>
               <Slider
                 label={null}

@@ -114,7 +114,7 @@ export const roomColorCodes = [
   },
 ];
 
-// one --> reddest 
+// one --> reddest
 export const badgeColorCodes = [
   {
     value: "one",
@@ -241,7 +241,6 @@ export const badgeColorCodes = [
     label: "twentyone",
     color: "#76b180",
   },
-
 ];
 
 export function getAllCollegeNames() {

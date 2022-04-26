@@ -162,26 +162,35 @@ export default class BedroomModal extends Component {
             </p>
 
             <div className="modal-icon-badge-container">
-
               {/* Noise badge */}
-              <p className="modal-badge-gray" 
-                style={{ 
+              <p
+                className="modal-badge-gray"
+                style={{
                   background:
-                    badgeColorCodes[(Math.round((this.state.roomStats.noise - 1)/(4) * (-20) + 20 ))].color,
-                  marginBottom: "0px" 
-                }}>
+                    badgeColorCodes[
+                      Math.round(
+                        ((this.state.roomStats.noise - 1) / 4) * -20 + 20
+                      )
+                    ].color,
+                  marginBottom: "0px",
+                }}
+              >
                 {" "}
                 <img className="badge-icon" src={noise} alt="noise" />{" "}
                 {(Math.round(this.state.roomStats.noise * 10) / 10).toFixed(1)}{" "}
               </p>
 
               {/* Size badge */}
-              <p className="modal-badge-gray" 
-                style={{ 
+              <p
+                className="modal-badge-gray"
+                style={{
                   background:
-                    badgeColorCodes[(Math.round((this.state.roomStats.size - 1)/(4) * 20 + 1 ))].color,
-                  marginBottom: "0px" 
-                }}>
+                    badgeColorCodes[
+                      Math.round(((this.state.roomStats.size - 1) / 4) * 20 + 1)
+                    ].color,
+                  marginBottom: "0px",
+                }}
+              >
                 {" "}
                 <img className="badge-icon" src={size} alt="size" />{" "}
                 {(Math.round(this.state.roomStats.size * 10) / 10).toFixed(1)}{" "}
@@ -189,17 +198,20 @@ export default class BedroomModal extends Component {
 
               {/* NEED TO CHANGE VARIABLE FROM SIZE TO LIGHT */}
               {/* Natural light badge */}
-              <p className="modal-badge-gray" 
-                style={{ 
+              <p
+                className="modal-badge-gray"
+                style={{
                   background:
-                    badgeColorCodes[(Math.round((this.state.roomStats.size - 1)/(4) * 20 + 1 ))].color,
-                  marginBottom: "0px" 
-                }}>
+                    badgeColorCodes[
+                      Math.round(((this.state.roomStats.size - 1) / 4) * 20 + 1)
+                    ].color,
+                  marginBottom: "0px",
+                }}
+              >
                 {" "}
                 <img className="badge-icon" src={light} alt="noise" />{" "}
                 {(Math.round(this.state.roomStats.size * 10) / 10).toFixed(1)}{" "}
               </p>
-
             </div>
           </div>
 
@@ -269,25 +281,22 @@ export default class BedroomModal extends Component {
                       {this.props.room.meta.roomReviews.map((review) => (
                         <div className="review">
                           <div className="review-badge-container">
-
-                            Lived as a  
-
-                            {/* class year badge */}
+                            Lived as a{/* class year badge */}
                             <p
                               className="modal-badge-gray review-badge"
                               style={{
                                 background:
-                                  roomColorCodes[review.reviewerClassYear].color,
+                                  roomColorCodes[review.reviewerClassYear]
+                                    .color,
                                 color:
-                                  roomColorCodes[review.reviewerClassYear].tcolor,
+                                  roomColorCodes[review.reviewerClassYear]
+                                    .tcolor,
                                 marginBottom: "0",
                               }}
                             >
                               {numberToClassYear(review.reviewerClassYear)}
                             </p>
-
-                            in  
-
+                            in
                             {/* date of review badge */}
                             <p
                               className="modal-badge-gray review-badge"
@@ -295,7 +304,6 @@ export default class BedroomModal extends Component {
                             >
                               {review.reviewYear}
                             </p>
-                            
                           </div>
                           <div>{review.sw}</div>
                         </div>
