@@ -3,14 +3,14 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "@firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAZQXtrnk8HbMbPGZOyHwkEi2XKWTO6AjE",
-  authDomain: "room-advisor-v0.firebaseapp.com",
-  databaseURL: "https://room-advisor-v0-default-rtdb.firebaseio.com",
-  projectId: "room-advisor-v0",
-  storageBucket: "room-advisor-v0.appspot.com",
-  messagingSenderId: "185467364590",
-  appId: "1:185467364590:web:3350787105a8a970da3fff",
-  measurementId: "G-XFWPFN8DEH",
+  apiKey: "API_KEY",
+  authDomain: "AUTH_DOMAIN",
+  databaseURL: "DATABASE_URL",
+  projectId: "PROJECT_ID",
+  storageBucket: "STORAGE_BUCKET",
+  messagingSenderId: "MESSAGING_SENDER_ID",
+  appId: "APP_ID",
+  measurementId: "MEASUREMENT_ID",
 };
 
 // // Initialize Firebase

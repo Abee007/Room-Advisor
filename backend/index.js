@@ -35,7 +35,7 @@ app.use(
   cors({
     credentials: true,
     // clientIp
-    origin: "https://abrahammensah.com",
+    origin: "CLIENT_URL",
     methods: "GET, POST, PUT, DELETE",
   })
 );
